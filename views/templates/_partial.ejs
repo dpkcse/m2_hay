@@ -1,0 +1,227 @@
+<div class="action-btn-div">
+    <table>
+        <tr>
+            <td class="action-btn-div-details">
+                <div class="div-details">CONVERSATION ACTIONS</div>
+            </td>
+            <td>
+                <!-- <div class="act-btn btn-create-task" onclick="location.href='/quicklists'">Create Task</div>
+  <div class="act-btn btn-create-project" onclick="location.href='/projects'">Create Project</div> -->
+                <div class="act-btn btn-create-task" style="background-color: rgba(0, 0, 0, 0.03);">Create Task</div>
+                <div class="act-btn btn-create-project" style="background-color: rgba(0, 0, 0, 0.03);">Create Project</div>
+                <div class="act-btn btn-create-event" style="background-color: rgba(0, 0, 0, 0.03);">Create Event</div>
+                <div class="act-btn btn-create-reminder" style="background-color: rgba(0, 0, 0, 0.03);">Create Reminder</div>
+                <!-- <div class="act-btn btn-create-poll" onclick="location.href='/polls'">Create Poll</div> -->
+                <div class="act-btn btn-create-poll" style="background-color: rgba(0, 0, 0, 0.03);">Create Poll</div>
+                <div class="act-btn" onclick="uploadFileFunction()">Upload File</div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="filter-btn-div">
+    <h5>View</h5>
+    <div class="col-md-6">
+        <p class="masonry pointer"><img src="/images/svg/view-tile_20px_800.svg"> Masonry</p>
+        <ul>
+            <li class="heading">CHATS</li>
+            <li>
+                <div class="checkboxC checkboxC-primary">
+                    <input id="checkboxDirect" class="filterChaekbox" type="checkbox">
+                    <label for="checkboxDirect">
+              Direct
+          </label>
+                </div>
+            </li>
+            <li>
+                <div class="checkboxC checkboxC-primary">
+                    <input id="checkboxTeam" class="filterChaekbox" type="checkbox">
+                    <label for="checkboxTeam">
+              Team
+          </label>
+                </div>
+            </li>
+            <li>
+                <div class="checkboxC checkboxC-primary">
+                    <input id="checkboxGuests" class="filterChaekbox" type="checkbox">
+                    <label for="checkboxGuests">
+              Guests
+          </label>
+                </div>
+            </li>
+            <li>
+                <div class="checkboxC checkboxC-primary">
+                    <input id="checkboxOnline" class="filterChaekbox" type="checkbox">
+                    <label for="checkboxOnline">
+              Online
+          </label>
+                </div>
+            </li>
+            <li>
+                <div class="checkboxC checkboxC-primary">
+                    <input id="checkboxFlagged" class="filterChaekbox" type="checkbox">
+                    <label for="checkboxFlagged">
+              Flagged
+          </label>
+                </div>
+            </li>
+            <li>
+                <div class="checkboxC checkboxC-primary">
+                    <input id="checkboxArchived" class="filterChaekbox" type="checkbox">
+                    <label for="checkboxArchived">
+              Archived
+          </label>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <p class="classic pointer"><img src="/images/svg/view-classic_20px_800.svg"> Classic</p>
+        <ul>
+            <li class="heading">WORKSPACES</li>
+            <li>
+                <div class="checkboxC checkboxC-primary">
+                    <input id="checkboxNavigate" type="checkbox" checked>
+                    <label for="checkboxNavigate">
+              Navigate
+          </label>
+                </div>
+            </li>
+            <li>
+                <div class="checkboxC checkboxC-primary">
+                    <input id="checkboxFreelance" type="checkbox">
+                    <label for="checkboxFreelance">
+              Freelance
+          </label>
+                </div>
+            </li>
+            <li>
+                <div class="checkboxC checkboxC-primary">
+                    <input id="checkboxPersonal" type="checkbox">
+                    <label for="checkboxPersonal">
+              Personal
+          </label>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="lightbox-modal" class="lightbox-modal">
+    <span class="lightbox-tools"><img src="/images/share_28px_000 @1x.png"></span>
+    <span class="lightbox-tools"><img src="/images/download_28px_000 @1x.png"></span>
+    <span class="lightbox-tools" onclick="closeModal()"><img src="/images/close_28px_000 @1x.png"></span>
+    <div class="lightbox-modal-content">
+        <div class="lightbox-slides">
+
+        </div>
+    </div>
+    <a class="lightbox-prev">
+        <img src="/images/chevron-previous_34px_000 @1x.png">
+    </a>
+    <a class="lightbox-next">
+        <img src="/images/chevron-next_34px_000 @1x.png">
+    </a>
+    <div class="lightbox-img-lists">
+
+    </div>
+</div>
+
+
+<div class="add_tag_div">
+    <div class="title-bar">
+        <div class="title">ADD TAGS</div>
+        <img src="/images/close_20px_700 @1x.png" class="pointer" onclick="close_pop_div()">
+    </div>
+    <div class="body">
+        <label>Tags</label>
+        <input type="text" name="tag_name" class="tag_name" id="messageTagTitle" data-role="tagsinput" data-msgid="" placeholder="Add tags">
+        <div class="tag-lists">
+            <!-- <div class="per-tag">
+        <span>Finance</span>
+        <img src="/images/close_18px_300 @1x.png">
+      </div>
+      <div class="per-tag">
+        <span>Consulting</span>
+        <img src="/images/close_18px_300 @1x.png">
+      </div>
+      <div class="per-tag">
+        <span>Accounting</span>
+        <img src="/images/close_18px_300 @1x.png">
+      </div> -->
+        </div>
+        <button type="button" class="btn btn-primary btn-block" onclick="messageTagSave();">Add Tags</button>
+    </div>
+</div>
+
+
+<div class="share_msg_div">
+    <div class="title-bar">
+        <div class="title">Share</div>
+        <img src="/images/close_20px_700 @1x.png" class="pointer" onclick="close_pop_div()">
+    </div>
+    <div class="body">
+        <label>Share with</label>
+        <select class="tag_name_combox tag_name" id="shareDivList" data-msgid="">
+    </select>
+        <button type="button" class="btn btn-primary btn-block" onclick="shareThisMsg($('#shareDivList').val())">Share</button>
+    </div>
+</div>
+
+
+<!-- <div class="delete_msg_div">
+    <div class="body">
+        <p class="bodytitle">Delete message</p>
+        <p class="msg_body">Considering mobile-first design to infiltrate new markets. Grow outside the box thinking to surprise and delight. Synchronising audience segments so that we make the logo bigger.</p>
+        <p class="btn_div" style="float: right;">
+            <button type="button" class="btn btn-cancel" onclick="close_pop_div()" style="margin-right:10px;">Cancel</button>
+            <button type="button" class="btn btn-del" onclick="delete_commit(this)" data-id="">Delete</button>
+        </p>
+    </div>
+</div> -->
+<!-- Added audio_record_div for recorder Created by manzu -->
+<div class="audio_record_div">
+    <div class="title-bar" style="margin-top: -28px !important;">
+        <div class="title">Record Voice Note</div>
+        <img src="/images/close_20px_700 @1x.png" class="pointer" onclick="close_pop_div()">
+    </div>
+    <div class="body">
+
+        <div class="audio_img"> <img src="/images/chat/audio.png">
+
+        </div>
+        <p class="time_clock">0:00</p>
+
+    </div>
+</div>
+<div class="delete_msg_div">
+    <div class="body">
+        <p class="bodytitle">Delete message</p>
+        <p class="delete_msg_body">Are you sure you want to delete this message? This cannot be undone.</p>
+        <p class="btn_div" style="float: right;">
+            <button style="display: block; margin-bottom: 8px;float: right;" type="button" class="btn-msg-del" onclick="delete_commit(this)" data-id="' + msgid + '">Delete from me</button>
+            <button style="display: block; margin-bottom: 8px;float: right;" type="button" class="btn-msg-del-all" onclick="delete_commit(this)" data-id="' + msgid + '">Delete from all</button><br>
+            <button style="display: block;float: right;clear: both;" type="button" class="btn btn-cancel" onclick="close_pop_div()" style="margin-right:10px;">Cancel</button>
+
+        </p>
+    </div>
+</div>
+<div class="delete_conversation_div">
+    <div class="body">
+        <p class="bodytitle">Delete message</p>
+        <p class="msg_body">Considering mobile-first design to infiltrate new markets. Grow outside the box thinking to surprise and delight. Synchronising audience segments so that we make the logo bigger.</p>
+        <p class="btn_div" style="float: right;">
+            <button type="button" class="btn btn-cancel" onclick="close_pop_div()" style="margin-right:10px;">Cancel</button>
+            <button type="button" class="btn btn-del" onclick="deleteConv($(this).data('id'))" id="deleteConv" data-id="">Delete</button>
+        </p>
+    </div>
+</div>
+<div class="export_conversation_div">
+    <div class="body">
+        <p class="bodytitle">Export conversation</p>
+        <p class="msg_body">Considering mobile-first design to infiltrate new markets. Grow outside the box thinking to surprise and delight. Synchronising audience segments so that we make the logo bigger.</p>
+        <p class="btn_div" style="float: right;">
+            <button type="button" class="btn btn-cancel" onclick="close_pop_div()" style="margin-right:10px;">Cancel</button>
+            <button type="button" class="btn btn-del" onclick="close_pop_div()">Export</button>
+        </p>
+    </div>
+</div>

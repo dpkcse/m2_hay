@@ -1,0 +1,563 @@
+<%- include('layouts/head') %>
+    <link href="/stylesheets/files.css" rel="stylesheet">
+
+    <main role="main" class="container-fluid">
+        <div class="hayven_area">
+            <div class="hayven-files-650">
+                <p>Hayven Files <span class="digit_650">(650)</span> <span class="down_arrow "><i class="fas fa-angle-down "></i></span></p>
+            </div>
+            <ul class="popup_menu">
+                <li> <a href="#"> Google Drive</a></li>
+                <li><a href="#">Dropbox</a></li>
+                <li><a href="#">OneDrive</a></li>
+                <li><a href="#">iCloud</a></li>
+
+            </ul>
+            <form action="#" id="frm_upload">
+                <div class="textbox_area ">
+
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                    <input id="search" class="upper_textbox_area" placeholder="Search" type="text">
+                    <!-- <button class="create_folder_button">Create Folder</button> <button class="upload_file_button">Upload Files</button> -->
+                    <button class="create_folder_button">Create Folder</button>
+                    <div class="upload-btn-wrapper">
+                        <button class="button_ar">Upload files</button>
+                        <input type="file" name="myfile" />
+                    </div>
+
+                </div>
+            </form>
+            <div class="showing-all-650">
+                <p>Showing All (650)</p>
+
+                <p class="all_file_types">All File Types </span> <span class="down_arrow2 "><i class="fas fa-angle-down "></i></p>
+                    <ul class="popup_menu2">
+
+                            <li>
+                                <label class="container">All Files Types
+                                <input type="checkbox" checked="checked">
+                                <span class="checkmark"></span>
+                    </label>
+                    </li>
+                    <li>
+                        <label class="container">PDF
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                </label>
+                    </li>
+                    <li>
+                        <label class="container">Word Document
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                    </label>
+                    </li>
+                    <li>
+                        <label class="container">Sketch
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                        </label>
+                    </li>
+                    <li>
+                        <label class="container">Excel
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                            </label>
+                    </li>
+                    <li>
+                        <label class="container">Powerpoint
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                                </label>
+                    </li>
+                    <li>
+                        <label class="container">Flagged
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                    </li>
+
+
+                    </ul>
+
+            </div>
+            <div class="full_download_area">
+                <div class="download_area">
+                    <div class="div_download">
+                        <button class="btn_download">Download</button>
+                    </div>
+                    <div class="div_share">
+                        <a href="#popup" data-popup-open="popup-1"> <button class="btn_share">Share</button></a>
+                    </div>
+                    <div class="div_flag">
+                        <button class=" btn_flag">Flag</button>
+                    </div>
+                    <div class="div_remove_flag">
+                        <button class=" btn_remove_flag">Remove Flag</button>
+                    </div>
+                    <div class="div_Move">
+                        <a href="#popup2" data-popup-open="popup-2"> <button class=" btn_move">Move</button></a>
+                    </div>
+                    <div class="div_Copy">
+                        <a href="#popup3" data-popup-open="popup-3"> <button class=" btn_copy">Copy</button></a>
+                    </div>
+                    <div class="div_Rename">
+                        <button class=" btn_rename">Rename</button>
+                    </div>
+                    <div class="div_version">
+                        <a href="#popup4" data-popup-open="popup-4"> <button class=" btn_version">Version History</button></a>
+                    </div>
+                    <div class="div_delete">
+                        <button class=" btn_delete">Delete</button>
+                    </div>
+                </div>
+                <div class="download_border" style="clear: both;"></div>
+            </div>
+
+            <div class="table_area">
+                <table id="Hayven_files_table" class="tabletop" role="table">
+                    <thead>
+                        <tr class="border_bottom">
+                            <td>
+                                <div class="remove_area"><i class="fas fa-minus"></i></div>
+                            </td>
+                            <td class="files_table_td">Name <img class="arrowDown" src="/images/files_images/table_down_arrow.svg" alt=""> </td>
+                            <td class="files_table_td">Size <img class="arrowDown" src="/images/files_images/table_down_arrow.svg" alt=""> </span>
+                            </td>
+                            <td class="files_table_td">Type <img class="arrowDown" src="/images/files_images/table_down_arrow.svg" alt=""> </span>
+                            </td>
+                            <td class="files_table_td">Modified <img class="arrowDown" src="/images/files_images/table_down_arrow.svg" alt=""> </span>
+                            </td>
+                            <td class="files_table_td">Owner <img class="arrowDown" src="/images/files_images/table_down_arrow.svg" alt=""> </span>
+                            </td>
+                            <td class="files_table_td">Shared <img class="arrowDown" src="/images/files_images/table_down_arrow.svg" alt=""></td>
+                            <td>
+                            </td>
+                        </tr>
+
+                    </thead>
+                    <tbody id="table_tbody">
+                        <tr class="border_bottom">
+                            <td> <input type="checkbox" name="" class="checkbox_checked" id="check1"></td>
+                            <td>
+                                <p class="file_list_headline">Projects_001_KS</p>
+                            </td>
+                            <td>65MB</td>
+                            <td>Sketch</td>
+                            <td>30/01/2018 2:30 PM</td>
+                            <td>-</td>
+                            <td><img class="arrowDown" src="/images/files_images/locked.png" alt=""> By you</td>
+                            <td>
+                                <div class="dot_icon"><img src="/images/files_images/dot_icon.png" alt=""></div>
+                            </td>
+                        </tr>
+                        <tr class="border_bottom">
+                            <td> <input type="checkbox" name="" class="checkbox_checked " id="check2"></td>
+                            <td><span class="file_list_headline">Global Design Trends</span></td>
+                            <td>30MB</td>
+                            <td>PDF</td>
+                            <td>30/01/2018 2:30 PM</td>
+                            <td>-</td>
+                            <td><img class="arrowDown" src="/images/files_images/locked.png" alt=""> By you</td>
+                            <td>
+                                <div class="dot_icon"><img src="/images/files_images/dot_icon.png" alt=""></div>
+                            </td>
+                        </tr>
+                        <tr class="border_bottom">
+                            <td> <input type="checkbox" name="" class="checkbox_checked " id="check3"></td>
+                            <td>
+                                <p class="file_list_headline">User Testing (Session 2)</p>
+                            </td>
+                            <td>694KB</td>
+                            <td>Docx</td>
+                            <td>30/01/2018 2:30 PM</td>
+                            <td> - </td>
+                            <td> By you</td>
+                            <td>
+                                <div class="dot_icon"><img src="/images/files_images/dot_icon.png" alt=""></div>
+                            </td>
+                        </tr>
+                        <tr class="border_bottom">
+                            <td> <input type="checkbox" name="" class="checkbox_checked " id="check4"></td>
+                            <td><span class="file_list_headline">IMG_0542</span></td>
+                            <td>3.6MB</td>
+                            <td>JPG</td>
+                            <td>30/01/2018 2:30 PM</td>
+                            <td>-</td>
+                            <td><img class="arrowDown" src="/images/files_images/locked.png" alt=""> By you</td>
+                            <td>
+                                <div class="dot_icon"><img src="/images/files_images/dot_icon.png" alt=""></div>
+                            </td>
+                        </tr>
+                        <tr class="border_bottom">
+                            <td> <input type="checkbox" name="" class="checkbox_checked " id="check5"></td>
+                            <td><span class="file_list_headline">Mira's Brand Environment</span></td>
+                            <td>1.7GB</td>
+                            <td>PDF</td>
+                            <td>30/01/2018 2:30 PM</td>
+                            <td>-</td>
+                            <td><img class="arrowDown" src="/images/files_images/locked.png" alt=""> By you</td>
+                            <td>
+                                <div class="dot_icon"><img src="/images/files_images/dot_icon.png" alt=""></div>
+                            </td>
+                        </tr>
+                        <tr class="border_bottom">
+                            <td> <input type="checkbox" name="" class="checkbox_checked " id="check6"></td>
+                            <td><span class="file_list_headline">HAYVEN - Brand Manual</span></td>
+                            <td>89MB</td>
+                            <td>PDF</td>
+                            <td>30/01/2018 2:30 PM</td>
+                            <td>-</td>
+                            <td> By you</td>
+                            <td>
+                                <div class="dot_icon"><img src="/images/files_images/dot_icon.png" alt=""></div>
+                            </td>
+                        </tr>
+                        <tr class="border_bottom">
+                            <td> <input type="checkbox" name="" class=" checkbox_checked " id="check7"></td>
+                            <td><span class="file_list_headline">HAYVEN - Brand Manual</span></td>
+                            <td>89MB</td>
+                            <td>PDF</td>
+                            <td>30/01/2018 2:30 PM</td>
+                            <td>-</td>
+                            <td> By you</td>
+                            <td>
+                                <div class="dot_icon"><img src="/images/files_images/dot_icon.png" alt=""></div>
+                            </td>
+                        </tr>
+
+                        <tr class="border_bottom">
+                            <td> <input type="checkbox" name="" class="checkbox_checked " id="check9"></td>
+                            <td><span class="file_list_headline">Brand Strategy (Updated)</span></td>
+                            <td>12MB</td>
+                            <td>Sketch</td>
+                            <td>30/01/2018 2:30 PM</td>
+                            <td>-</td>
+                            <td> By you</td>
+                            <td>
+                                <div class="dot_icon"><img src="/images/files_images/dot_icon.png" alt=""></div>
+                            </td>
+                        </tr>
+                        <tr class="border_bottom">
+                            <td> <input type="checkbox" name="" class="checkbox_checked " id="check10"></td>
+                            <td><span class="file_list_headline">Amends & Feedback Sheet</span></td>
+                            <td>983KB</td>
+                            <td>Excel</td>
+                            <td>30/01/2018 2:30 PM</td>
+                            <td>-</td>
+                            <td><img class="arrowDown" src="/images/files_images/locked.png" alt=""> By you</td>
+                            <td>
+                                <div class="dot_icon"><img src="/images/files_images/dot_icon.png" alt=""></div>
+                            </td>
+                        </tr>
+                        <tr class="border_bottom">
+                            <td> <input type="checkbox" name="" class=" checkbox_checked " id="check8"></td>
+                            <td><span class="file_list_headline">Apple Store Revamp 2022</span></td>
+                            <td>12MB</td>
+                            <td>Powerpoint</td>
+                            <td>30/01/2018 2:30 PM</td>
+                            <td>-</td>
+                            <td> By you</td>
+                            <td>
+                                <div class="dot_icon"><img src="/images/files_images/dot_icon.png" alt=""></div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- Popup areas -->
+            <!--Share popup -->
+            <div class="popup" id="popup" data-popup="popup-1">
+                <div class="popup-inner" id="popup_inner">
+                    <p class="sharing-settings ">Sharing settings</p>
+                    <div class="file-img">
+                        <p>File: IMG_0542</p>
+                    </div>
+                    <div class="border_line"></div>
+                    <div class="link_sharing_div"><a href="#" class="link-sharing">Link sharing</a></div>
+                    <form class="share_link_form">
+                        <input class="shape" type="text" placeholder="www.hayven.io/files/72653h4%546lf/IMG_5420.JPG"><button class="shape-copy-link">Copy link</button>
+
+                    </form>
+                    <div class="switch_area">
+                        <!-- Rounded switch -->
+                        <label class="switch">
+                        <input type="checkbox" id="link_share" name="link_share">
+                        <span class="slider round"></span>
+                        </label><span class="link_sharing">Link sharing is OFF</span>
+                    </div>
+                    <div id="link_radio">
+                        <form action="#">
+                            <p>
+                                <input type="radio" id="test1" name="radio-group" checked>
+                                <label for="test1">Anyone with the link can edit</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="test2" name="radio-group">
+                                <label for="test2">Anyone with the link can comment</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="test3" name="radio-group">
+                                <label for="test3">Anyone with the link can view</label>
+                            </p>
+                        </form>
+                    </div>
+
+                    <div class="invite-people-div">
+                        <p class="invite-people">Invite people</p>
+                    </div>
+                    <form id="invite_frm" action="#" method="post">
+                        <input type="text" class="shape_invite_people" placeholder="Enter names or email addresses"><select name="" class="shape-select" id=""> <option value="">Can Comment</option> </select>
+                    </form>
+                    <div class="profile_finding_area">
+                        <div class="view_profiles">
+
+                            <div class="individual">
+                                <div class="individual_image"> <img src="/images/files_images/individual.png" alt=""> </div>
+                            </div>
+                            <div class="name_line">
+                                <p class="name_text">Kamal Shatila (You)</p>
+                                <p class="email_text">Kamals@ohs-global.com</p>
+                            </div>
+                        </div>
+                        <div class="line_3"></div>
+                        <div class="view_profiles">
+
+                            <div class="individual2">
+                                <div class="individual_image"> <img style="width: 48px;" src="/images/files_images/anabel_lava.png" alt=""> </div>
+                            </div>
+                            <div class="name_line">
+                                <p class="name_text">Anabel Leva</p>
+                                <p class="email_text">Anabell@ohs-global.com</p>
+                            </div>
+                            <div class="select_area">
+                                <select name="" id="" class="select_Can_Comment">
+                            <option value="">Can Comment</option>
+                        </select>
+                            </div>
+                            <div class="delete_area">
+                                <img src="/images/user_settings/remove.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="line_3"></div>
+                        <div class="view_profiles">
+
+                            <div class="individual3">
+                                <div class="individual_image"> <img style="width: 48px;" src="/images/files_images/john_smith.png" alt=""> </div>
+                            </div>
+                            <div class="name_line">
+                                <p class="name_text">John Smith</p>
+                                <p class="email_text">Johns@vibestudio.com</p>
+                            </div>
+                            <div class="select_area2">
+                                <select name="" id="" class="select_Can_Comment">
+                                <option value="">Can Comment</option>
+                            </select>
+                            </div>
+                            <div class="delete_area">
+                                <img src="/images/user_settings/remove.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <a class="popup-close" data-popup-close="popup-1" href="#"><img src="/images/user_settings/remove.svg" alt=""></a>
+                </div>
+            </div>
+
+            <!--Move popup -->
+            <div class="popup" id="popup2" data-popup="popup-2">
+                <div class="popup-inner" id="popup_inner2">
+                    <p class="move-selected-1-file">Move selected 1 file to</p>
+                    <div class="move-selected-area">
+                        <div class="hayven_files">
+                            <img id="hayven_files_icon" src="/images/files_images/hayven_files_icon.png" alt=""><label class="hayven_files_label" for="hayven_files_icon">Hayven Files</label>
+
+                        </div>
+                        <div class="hayven_files">
+                            <img id="create_folder" src="/images/files_images/create_folder_icon.png" alt=""><label class="hayven_files_label" for="create_folder">Hayven Files</label>
+                        </div>
+
+                    </div>
+                    <div class="button_area"><button class="cancle_button">Cancle</button><button class="move_button">Move</button></div>
+
+                    <a class="popup-close" data-popup-close="popup-2" href="#"><img src="/images/user_settings/remove.svg" alt=""></a>
+                </div>
+            </div>
+            <!--Copy popup -->
+            <div class="popup" id="popup3" data-popup="popup-3">
+                <div class="popup-inner" id="popup_inner3">
+                    <p class="move-selected-1-file">Copy selected 1 file to</p>
+                    <div class="move-selected-area">
+                        <div class="hayven_files">
+                            <img id="hayven_files_icon" src="/images/files_images/hayven_files_icon.png" alt=""><label class="hayven_files_label" for="hayven_files_icon">Hayven Files</label>
+
+                        </div>
+                        <div class="hayven_files">
+                            <img id="create_folder" src="/images/files_images/create_folder_icon.png" alt=""><label class="hayven_files_label" for="create_folder">Hayven Files</label>
+                        </div>
+
+                    </div>
+                    <div class="button_area"><button class="cancle_button">Cancle</button><button class="move_button">Copy</button></div>
+
+                    <a class="popup-close" data-popup-close="popup-3" href="#"><img src="/images/user_settings/remove.svg" alt=""></a>
+                </div>
+            </div>
+            <!--Version History -->
+            <div class="popup" id="popup4" data-popup="popup-4">
+                <div class="popup-inner" id="popup_inner4">
+                    <p class="version-history">Version History</p>
+                    <div id="version-history">
+                        <table id="tbl_version_history">
+                            <thead>
+                                <th style="width: 240px;">Name & Status</th>
+                                <th style="width: 160px;">Modified date</th>
+                                <th style="width: 160px;">Modified by</th>
+                                <th style="width: 120px;">Versions</th>
+                                <th style="width: 80px;">Size</th>
+
+                            </thead>
+                        </table>
+                    </div>
+
+
+                    <a class="popup-close" data-popup-close="popup-4" href="#"><img src="/images/user_settings/remove.svg" alt=""></a>
+                </div>
+            </div>
+
+
+        </div>
+        <%- include('templates/_partial') %>
+    </main>
+    <script>
+        var user_id = '<%= user_id %>';
+        var user_fullname = '<%= user_fullname %>';
+        var user_img = '<%= user_img %>';
+        var to = '';
+    </script>
+    <script src="/javascripts/socket-client-side.js"></script>
+    <script src="/javascripts/custom.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".hayven-files-650").click(function() {
+                $("ul.popup_menu").toggle();
+
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(".all_file_types").click(function() {
+                $("ul.popup_menu2").toggle();
+
+            });
+        });
+
+        $('tbody').click(function() {
+
+            if ($('.checkbox_checked:checked').length >= 1) {
+                $(".remove_area").css('visibility', 'visible');
+                $('.full_download_area').css('display', 'block');
+                $('.showing-all-650').css('display', 'none');
+                // $('#Hayven_files_table tbody tr td').css('color', '#4A90E2 ');
+                // $('tr').css("background-color", "#E6F1FC");
+                $("Hayven_files_table tbody").closest("tr").css('color', '#4A90E2 ');
+            } else {
+                $(".remove_area").css('visibility', 'hidden');
+                $('.full_download_area').css('display', 'none');
+                $('.showing-all-650').css('display', 'block');
+            }
+
+        });
+
+        $('.remove_area').click(function() {
+            $('.full_download_area').css('display', 'none');
+            $(".remove_area").css('visibility', 'hidden');
+            $('.showing-all-650').css('display', 'block');
+            $(".checkbox_checked").prop("checked", false);
+
+            $('.file_list_headline').parents('td').find('img').remove();
+            $(".btn_remove_flag").css('display', 'none');
+            $(".btn_flag").css('display', 'block');
+            $('#Hayven_files_table tr td input:checkbox').closest('tr').removeClass("highlight");
+        });
+
+        $('#Hayven_files_table tr td input:checkbox').click(function() {
+            if ($(this).is(':checked')) {
+                $(this).closest('tr').addClass("highlight");
+            } else {
+                $(this).closest('tr').removeClass("highlight");
+            }
+        });
+        $('.btn_flag').click(function() {
+            $('#table_tbody').find('input:checked').parents('tr').find('.file_list_headline').append('<img  src="/images/files_images/flag.png" />');
+        });
+        $('.btn_remove_flag').click(function() {
+            $('.file_list_headline').parents('td').find('img').remove();
+
+        });
+
+        $('.btn_delete').click(function() {
+            $('#table_tbody').find('input:checked').parents('tr').hide();
+        });
+    </script>
+    <script>
+        $(function() {
+            $('[data-popup-open]').on('click', function(e) {
+                var targeted_popup_class = jQuery(this).attr('data-popup-open');
+                $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+
+                e.preventDefault();
+            });
+
+            $('[data-popup-close]').on('click', function(e) {
+                var targeted_popup_class = jQuery(this).attr('data-popup-close');
+                $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+                e.preventDefault();
+            });
+        });
+    </script>
+    <script>
+        $('#link_share').change(function() {
+            if (this.checked) {
+                $('#link_radio').css('display', 'block');
+            } else {
+                $('#link_radio').css('display', 'none');
+            }
+        });
+    </script>
+    <script>
+        $('.btn_flag').click(function() {
+            $(".btn_flag").css('display', 'none');
+            $(".btn_remove_flag").css('display', 'block');
+        });
+        $('.btn_remove_flag').click(function() {
+            $(".btn_remove_flag").css('display', 'none');
+            $(".btn_flag").css('display', 'block');
+        });
+    </script>
+    <script>
+        $(document).mouseup(function(e) {
+            var container = $(".popup_menu");
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                container.fadeOut();
+            }
+        });
+        $(document).mouseup(function(e) {
+            var container = $(".popup_menu2");
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                container.fadeOut();
+            }
+        });
+        $('input.shape_invite_people').click(function() {
+            $('.profile_finding_area').css('display', 'block');
+
+        });
+    </script>
+    <script>
+    </script>
+
+    <%- include('layouts/foot') %>
+    <%- include('templates/project/quickproject') %>

@@ -1,0 +1,1422 @@
+<%- include('layouts/head') %>
+  <link rel="stylesheet" href="/stylesheets/style-contacts.css">
+  <script src="/javascripts/masonry/jquery.masonry.min.js"></script>
+  <main role="main" class="main_contact_page">
+    <div class="main-contact-div">
+      <div class="search-contact-whole-div">
+        <!-- <div class="add-contact" >
+          <img src="/images/NavbarIcons/actions-create_24px_FFF.png" alt="">
+        </div> -->
+        <img src="/images/NavbarIcons/actions-create_24px_FFF.png" class="add-contact" onclick="addNewContacts()" style="float:left">
+        <div class="popup_add_contact" style="display: none">
+          <div class="popup_add_contact_main">
+            <div class="add-contact-popups-list">
+              <span class="add-contact-popups-icon">
+                <img src="/images/svg/contacts_24px_007AFF.svg" alt="">
+              </span>
+              <p>Add a contact</p>
+            </div>
+            <div class="add-contact-popups-list">
+              <span class="add-contact-popups-icon">
+                <img src="/images/svg/contacts_24px_007AFF.svg" alt="">
+              </span>
+              <p>Import contacts</p>
+            </div>
+            <div class="add-contact-popups-list">
+              <span class="add-contact-popups-icon">
+                <img src="/images/svg/contacts_24px_007AFF.svg" alt="">
+              </span>
+              <p>Export contacts</p>
+            </div>
+            <div class="add-contact-popups-list">
+              <span class="add-contact-popups-icon">
+                <img src="/images/svg/contacts_24px_007AFF.svg" alt="">
+              </span>
+              <p>Invite people</p>
+            </div>
+          </div>
+        </div>
+        <div class="search-contact">
+          <img src="/images/svg/search_18px_000.svg" alt="">
+          <input type="text" placeholder="Search your contacts">
+        </div>
+        <!-- <div class="filter-contact">
+          <img src="/images/svg/filter_28px_400.svg" alt="">
+        </div> -->
+      </div>
+      <div class="people-community-whole-div">
+        <ul class="contact-main-tab">
+          <li class="contacts-tab-list current" data-tab="tab-1">People</li>
+          <li class="contacts-tab-list" data-tab="tab-2">Community</li>
+        </ul>
+        <div class="main-tab-content">
+          <div id="tab-1" class="contact-tab-content current">
+            <div class="contact-people-teams">
+              <p>TEAM</p>
+              <div class="peoples-team">
+                <p>Business Strategy</p>
+              </div>
+              <div class="peoples-team">
+                <p>Design</p>
+              </div>
+              <div class="peoples-team">
+                <p>Engineering</p>
+              </div>
+              <div class="peoples-team">
+                <p>Legal & Finance</p>
+              </div>
+              <div class="peoples-team">
+                <p>Marketing</p>
+              </div>
+              <div class="peoples-team">
+                <p>Operations</p>
+              </div>
+              <div class="peoples-team">
+                <p>Sales & Support</p>
+              </div>
+            </div>
+
+            <div class="contact-people-list-A">
+              <p>A</p>
+              <div class="contacts-list" id="contacts_one">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label">PSN</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Barry Allen
+                    <span>Forensic Scientist</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list" id="guest_contact">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #03A9F4">NAV</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>Office Manager</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-people-list-A">
+              <p>B</p>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label">PSN</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Barry Allen
+                    <span>Forensic Scientist</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>Office Manager</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span></span>
+                  </p>
+                  <button class="contact-list-invite">INVITE</button>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label">PSN</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>Brand Designer</span>
+                  </p>
+                </div>
+                <span class="contact-favourite-mark">
+                  <img src="/images/star-favourite-mark.png" alt="">
+                </span>
+              </div>
+            </div>
+            <div class="contact-people-list-A">
+              <p>D</p>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #03A9F4">NAV</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Barry Allen
+                    <span>Forensic Scientist</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>Office Manager</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label">PSN</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-people-list-A">
+              <p>F</p>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #03A9F4">NAV</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Barry Allen
+                    <span>Forensic Scientist</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span></span>
+                  </p>
+                  <button class="contact-list-invite">INVITE</button>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-people-list-A">
+              <p>G</p>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #03A9F4">NAV</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Barry Allen
+                    <span>Forensic Scientist</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-people-list-A">
+              <p>H</p>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span></span>
+                  </p>
+                  <button class="contact-list-invite">INVITE</button>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>Office Manager</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label">PSN</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span></span>
+                  </p>
+                  <button class="contact-list-invite">INVITE</button>
+                </div>
+              </div>
+            </div>
+            <div class="contact-people-list-A">
+              <p>J</p>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #03A9F4">NAV</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Barry Allen
+                    <span>Forensic Scientist</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>Office Manager</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-people-list-A">
+              <p>L</p>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #03A9F4">NAV</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Barry Allen
+                    <span>Forensic Scientist</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>Office Manager</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label">PSN</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-people-list-A">
+              <p>M</p>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #03A9F4">NAV</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Barry Allen
+                    <span>Forensic Scientist</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>Office Manager</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label">PSN</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-people-list-A">
+              <p>N</p>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label">PSN</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-people-list-A">
+              <p>P</p>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-people-list-A">
+              <p>R</p>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label">PSN</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-people-list-A">
+              <p>S</p>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label">PSN</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span></span>
+                  </p>
+                  <button class="contact-list-invite">INVITE</button>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label">PSN</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-people-list-A">
+              <p>T</p>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-people-list-A">
+              <p>W</p>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label">PSN</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label" style="background-color: #8BC34A">FRL</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                  <span class="contact-group-label">PSN</span>
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span>VP Marketing</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-people-list-A">
+              <p>Z</p>
+              <div class="contacts-list">
+                <div class="C-list-left-div">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                </div>
+                <div class="C-list-right-div">
+                  <p>Samantha Arias
+                    <span></span>
+                  </p>
+                  <button class="contact-list-invite">INVITE</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="tab-2" class="contact-tab-content">
+            <div class="contact-community-slider">
+              <!-- Community Slider Start here -->
+              <p>POPULAR NEAR YOU</p>
+              <span class="slider-left-arrow">
+                <img src="/images/contact/down-arrow.svg" alt="">
+              </span>
+              <span class="slider-right-arrow">
+                <img src="/images/contact/down-arrow.svg" alt="">
+              </span>
+              <div class="community-slider-item">
+                <img src="/images/contact/Sunday3.jpg" alt="">
+                <div class="community-slider-details">
+                  <p>On-a-Bun Italian Sandwich</p>
+                  <img src="/images/contact/ratings.png" alt="">
+                </div>
+              </div>
+              <div class="community-slider-item">
+                <img src="/images/contact/Sunday3.jpg" alt="">
+                <div class="community-slider-details">
+                  <p>Terroni</p>
+                  <img src="/images/contact/ratings.png" alt="">
+                </div>
+              </div>
+              <div class="community-slider-item">
+                <img src="/images/contact/Sunday3.jpg" alt="">
+                <div class="community-slider-details">
+                  <p>Timmie Dog Outfitters</p>
+                  <img src="/images/contact/ratings.png" alt="">
+                </div>
+              </div>
+              <div class="community-slider-item">
+                <img src="/images/contact/Sunday3.jpg" alt="">
+                <div class="community-slider-details">
+                  <p>H Bar</p>
+                  <img src="/images/contact/ratings.png" alt="">
+                </div>
+              </div>
+              <div class="community-slider-item">
+                <img src="/images/contact/Sunday3.jpg" alt="">
+                <div class="community-slider-details">
+                  <p>Dufflet Pastries - Downtown</p>
+                  <img src="/images/contact/ratings.png" alt="">
+                </div>
+              </div>
+              <div class="community-slider-item">
+                <img src="/images/contact/Sunday3.jpg" alt="">
+                <div class="community-slider-details">
+                  <p>Smoque N' Bones</p>
+                  <img src="/images/contact/ratings.png" alt="">
+                </div>
+              </div>
+            </div>
+            <!-- Community Slider End here -->
+            <div class="contact-community-categories">
+              <!-- Community category start here -->
+              <p>POPULAR CATEGORIES</p>
+              <div class="contact-categories-item">
+                <img src="/images/contact/active-lifestyle.jpg" alt="">
+                <h4>Active Lifestyle</h4>
+              </div>
+              <div class="contact-categories-item">
+                <img src="/images/contact/food-wallpapers.jpg" alt="">
+                <h4>Breakfast & Brunch</h4>
+              </div>
+              <div class="contact-categories-item">
+                <img src="/images/contact/istock-157528129.jpg" alt="">
+                <h4>Coffee</h4>
+              </div>
+              <div class="contact-categories-item">
+                <img src="/images/contact/entertainment.png" alt="">
+                <h4>Entertainment</h4>
+              </div>
+              <div class="contact-categories-item">
+                <img src="/images/contact/H&beauty.jpg" alt="">
+                <h4>Health & Beauty</h4>
+              </div>
+              <div class="contact-categories-item">
+                <img src="/images/contact/Nightlife.jpg" alt="">
+                <h4>Night Life</h4>
+              </div>
+              <div class="contact-categories-item">
+                <img src="/images/contact/pets.jpg" alt="">
+                <h4>Pets</h4>
+              </div>
+              <div class="contact-categories-item">
+                <img src="/images/contact/shopping.jpg" alt="">
+                <h4>Shopping</h4>
+              </div>
+            </div>
+            <!-- Community category end here -->
+            <div class="contact-community-by-distance">
+              <!-- Community By Distance start here -->
+              <p>BY DISTANCE</p>
+              <div class="contact-community-distance-item">
+                <div class="distance-item-details">
+                  <h5 class="by-distance-item-title">Subway</h5>
+                  <img src="/images/contact/ratings.png" alt="">
+                  <p>Interior Design . 42 m</p>
+                </div>
+                <div class="distance-item-photo">
+                  <img src="/images/contact/by-distance_photo1.png" alt="">
+                </div>
+              </div>
+              <div class="contact-community-distance-item">
+                <div class="distance-item-details">
+                  <h5 class="by-distance-item-title">Bike Share Toronto</h5>
+                  <img src="/images/contact/ratings.png" alt="">
+                  <p>Interior Design . 42 m</p>
+                </div>
+                <div class="distance-item-photo">
+                  <img src="/images/contact/by-distance_photo2.png" alt="">
+                </div>
+              </div>
+              <div class="contact-community-distance-item">
+                <div class="distance-item-details">
+                  <h5 class="by-distance-item-title">Loaded Pirogi</h5>
+                  <img src="/images/contact/ratings.png" alt="">
+                  <p>Interior Design . 42 m</p>
+                </div>
+                <div class="distance-item-photo">
+                  <img src="/images/contact/by-distance_photo3.png" alt="">
+                </div>
+              </div>
+            </div>
+            <!-- Community By Distance End here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="contacts-profile-information" id="contacts-profile-information">
+      <div class="contacts-profile-head">
+        <img class="contacts-profile-back-button" src="/images/contact/back.svg" alt="">
+        <img class="contacts-profile-more-button" src="/images/svg/MoreMenu.svg" alt="">
+        <div class="contacts-profile-photo">
+          <img src="/images/users/nayeem.jpg" alt="">
+        </div>
+        <div class="contacts-profile-sort-detail">
+          <div class="contacts-profile-head-label">
+            <p class="navigate-label" style="background-color: #03A9F4;">navigate</p>
+            <p class="personal-label" style="background-color: #FF5722;">personal</p>
+          </div>
+          <h2>Charles Boyle
+            <span>
+              <img src="/images/contact/star.png" alt="">
+            </span>
+          </h2>
+          <div class="contacts-profile-call-chat">
+            <span class="chat">
+              <img src="" alt="">
+            </span>
+            <span class="voice-call">
+              <img src="/images/call_18px_000 @1x.png" alt="">
+            </span>
+            <span class="video-call">
+              <img src="/images/video_18px_000 @1x.png" alt="">
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <ul class="contacts-profile-tab-head" id="">
+          <li class="contacts-profile-tab-list active" data-tab="info">Info</li>
+          <li class="contacts-profile-tab-list" data-tab="media">Media</li>
+          <li class="contacts-profile-tab-list" data-tab="links">Links</li>
+          <li class="contacts-profile-tab-list" data-tab="files">Files</li>
+          <li class="contacts-profile-tab-list" data-tab="flagged">Flagged</li>
+        </ul>
+        <div class="contacts-profile-tab-contents-div">
+          <div class="contacts-profile-tab-content active" id="info">
+            <!-- Info Tab content start here-->
+            <div class="info-their-team">
+              <p>Their team</p>
+              <div class="info-their-team-members">
+                <div class="info-their-team-members-photo">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                </div>
+                <div class="info-their-team-members-name-deg">
+                  <h4>Raymond Holt</h4>
+                  <p>Creative Director, Manager</p>
+                </div>
+              </div>
+              <div class="info-their-team-members">
+                <div class="info-their-team-members-photo">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                </div>
+                <div class="info-their-team-members-name-deg">
+                  <h4>Malcom Ducasse</h4>
+                  <p>Junior Designer</p>
+                </div>
+              </div>
+              <div class="info-their-team-members">
+                <div class="info-their-team-members-photo">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                </div>
+                <div class="info-their-team-members-name-deg">
+                  <h4>Jessica Jones</h4>
+                  <p>UX Researcher</p>
+                </div>
+              </div>
+              <div class="info-their-team-members">
+                <div class="info-their-team-members-photo">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                </div>
+                <div class="info-their-team-members-name-deg">
+                  <h4>Fox Mulder</h4>
+                  <p>Senior UX Designer</p>
+                </div>
+              </div>
+              <div class="info-their-team-members">
+                <div class="info-their-team-members-photo">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                </div>
+                <div class="info-their-team-members-name-deg">
+                  <h4>Dana Scully</h4>
+                  <p>Senior Designer</p>
+                </div>
+              </div>
+              <div class="info-their-team-members">
+                <div class="info-their-team-members-photo">
+                  <img src="/images/users/nayeem.jpg" alt="">
+                </div>
+                <div class="info-their-team-members-name-deg">
+                  <h4>Patricia Walker</h4>
+                  <p>Marketing Designer</p>
+                </div>
+              </div>
+            </div>
+            <div class="info-personal-and-company-information">
+              <div class="info-personal-information">
+                <p>Personal Information</p>
+                <div class="email">
+                  <p style="margin-bottom: 12px">
+                    <span class="info-icon">
+                      <img src="/images/contact/info-icon6.png" alt="">
+                    </span> charleslynboyle79@gmail.com</p>
+                  <p style="margin-bottom: 0px">boyles-best-bites@gmail.com</p>
+                </div>
+                <div class="phone">
+                  <p style="margin-bottom: 0px">
+                    <span class="info-icon">
+                      <img src="/images/contact/info-icon4.png" alt="">
+                    </span> (769)088-6894</p>
+                </div>
+                <div class="address">
+                  <p>
+                    <span class="info-icon">
+                      <img src="/images/contact/info-icon1.png" alt="">
+                    </span> 99 Destiny Summit, Apt. 405</p>
+                  <p>Brooklyn NY, 10028</p>
+                  <p style="margin-bottom: 0px">United States</p>
+                </div>
+                <div class="birth-date">
+                  <p style="margin-bottom: 0px">
+                    <span class="info-icon">
+                      <img src="/images/contact/birthdate.png" alt="">
+                    </span> 15 January 1979</p>
+                </div>
+                <div class="website">
+                  <p style="margin-bottom: 12px">
+                    <span class="info-icon">
+                      <img src="/images/contact/info-icon5.png" alt="">
+                    </span> dribbble.com/charlesboyle</p>
+                  <p style="margin-bottom: 0px">boyles-best-bites.wordpress.com</p>
+                </div>
+              </div>
+              <div class="info-company-information">
+                <p>Company Information</p>
+                <div class="com-name">
+                  <p style="margin-bottom: 8px">
+                    <span class="info-icon">
+                      <img src="/images/contact/info-icon7.png" alt="">
+                    </span> Brand Designer</p>
+                  <p>Navigate Group</p>
+                </div>
+                <div class="com-email">
+                  <p>
+                    <span class="info-icon">
+                      <img src="/images/contact/info-icon6.png" alt="">
+                    </span> charles.b@navigategreoup.com</p>
+                </div>
+                <div class="com-phone">
+                  <p>
+                    <span class="info-icon">
+                      <img src="/images/contact/info-icon1.png" alt="">
+                    </span> (713) 861-6650 ext. 6019</p>
+                </div>
+                <div class="com-address">
+                  <p>
+                    <span class="info-icon">
+                      <img src="/images/contact/info-icon4.png" alt="">
+                    </span> New York City</p>
+                </div>
+              </div>
+            </div>
+            <div class="info-chat-tag-share-div">
+              <div class="info-chat-common">
+                <p>Chat in common</p>
+                <div class="info-chat-common-group">
+                  <div class="info-chat-common-group-photo">
+                    <img src="/images/users/nayeem.jpg" alt="">
+                  </div>
+                  <div class="info-chat-common-group-name">
+                    <h4>Raymond Holt</h4>
+                    <p>7 Members</p>
+                  </div>
+                </div>
+                <div class="info-chat-common-group">
+                  <div class="info-chat-common-group-photo">
+                    <img src="/images/users/nayeem.jpg" alt="">
+                  </div>
+                  <div class="info-chat-common-group-name">
+                    <h4>NavDesign Resources</h4>
+                    <p>31 Members</p>
+                  </div>
+                </div>
+                <div class="info-chat-common-group">
+                  <div class="info-chat-common-group-photo">
+                    <img src="/images/users/nayeem.jpg" alt="">
+                  </div>
+                  <div class="info-chat-common-group-name">
+                    <h4>Everyone @ Navigate Group</h4>
+                    <p>41 Members</p>
+                  </div>
+                </div>
+              </div>
+              <div class="info-tags">
+                <p>Tags
+                  <span>(Edit)</span>
+                </p>
+                <div class="info-tags-tag">
+                  <span>Design</span>
+                </div>
+              </div>
+              <div class="info-share">
+                <div class="social-icon" style="background-color:#4267b2;padding-left:8px">
+                  <img src="/images/contact/facebook.jpg" alt="">
+                </div>
+                <div class="social-icon" style="background-color:#d93175;">
+                  <img src="/images/contact/instagram.jpg" alt="">
+                </div>
+                <div class="social-icon" style="background-color:#1da1f2;">
+                  <img src="/images/contact/twitter.jpg" alt="">
+                </div>
+                <div class="social-icon" style="background-color:#0077b5;">
+                  <img src="/images/contact/in.jpg" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Info Tab content end here-->
+          <div class="contacts-profile-tab-content" id="media">
+            <div class="contacts-profile-media">
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/101.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/102.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/103.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/104.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/105.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/106.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/107.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/108.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/109.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/110.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/111.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/112.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/113.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/101.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/102.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/103.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/104.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/105.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/106.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/107.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/108.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/109.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/110.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/111.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/112.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/113.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/101.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/102.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/103.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/104.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/105.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/106.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/107.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/108.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/109.jpg" alt="">
+              </div>
+              <div class="contacts-profile-media-file">
+                <img src="/images/contact/113.jpg" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="contacts-profile-tab-content" id="links">
+            <div class="contacts-profile-links-main-div">
+              <div class="contacts-profile-links-left-main">
+                <div style="height: 148px;" class="contacts-profile-links">
+                  <div class="company-name-logo">
+                    <img src="/images/contact/sketch.svg" alt="">
+                    <p>UX Movement</p>
+                  </div>
+                  <h5>The line to say in Usability Testing to Get Honest Feedback</h5>
+                  <p>In useability testing, researchers use discussion guides to direct the conversion toward areas of interest.
+                    These guides are not used like scripts.</p>
+                </div>
+                <div style="height: 424px;" class="contacts-profile-links">
+                  <div class="company-name-logo">
+                    <img src="/images/contact/sketch.svg" alt="">
+                    <p>Supernova Studio</p>
+                  </div>
+                  <h5>Convert designs into native mobile apps</h5>
+                  <p>Be Creative . Supernova automates the rest.The world's first true design to code platform.</p>
+                  <img src="/images/contact/114.png" alt="">
+                </div>
+                <div style="height: 448px;" class="contacts-profile-links">
+                  <div class="company-name-logo">
+                    <img src="/images/contact/sketch.svg" alt="">
+                    <p>Smashicons</p>
+                  </div>
+                  <h5>UNLOCK +110,805 ICONS with Smashicons PRO</h5>
+                  <p>This is the last icon set that you will ever buy.Smashicons has you covered in any creative scenario that
+                    you will encounter when creating your projects.Forget the "Icon Issue" and focus on development.</p>
+                  <img src="/images/contact/121.jpg" alt="">
+                </div>
+                <div style="height: 448px;" class="contacts-profile-links">
+                  <div class="company-name-logo">
+                    <img src="/images/contact/sketch.svg" alt="">
+                    <p> Disney Cruise Line Blog</p>
+                  </div>
+                  <h5>Remy Dinner Review</h5>
+                  <p>Recently , we had dinner at Remy, one of the to adult only restaurants aboard the Disney Dream and Disney
+                    Fantasy. We booked a cruise on the Disney Dream on short notice ...</p>
+                  <img src="/images/contact/116.jpg" alt="">
+                </div>
+              </div>
+              <div class="contacts-profile-links-right-main">
+                <div style="height: 448px;" class="contacts-profile-links">
+                  <div class="company-name-logo">
+                    <img src="/images/contact/sketch.svg" alt="">
+                    <p>Sketch</p>
+                  </div>
+                  <h5>Prototyping</h5>
+                  <p>When you're designing for screens, Whenther it's mobile or web interface, it might be useful to see your
+                    work in action. With Sketch's prototyping features it's easy to create....</p>
+                  <img src="/images/contact/120.jpg" alt="">
+                </div>
+                <div style="height: 400px;" class="contacts-profile-links">
+                  <div class="company-name-logo">
+                    <img src="/images/contact/sketch.svg" alt="">
+                    <p>futurefonts.xyz</p>
+                  </div>
+                  <h5>Future Fonts</h5>
+                  <p>A new way to license typefaces while they are still in progress.</p>
+                  <img src="/images/contact/119.png" alt="">
+                </div>
+                <div style="height: 124px;" class="contacts-profile-links">
+                  <div class="company-name-logo">
+                    <img src="/images/contact/sketch.svg" alt="">
+                    <p>Startupsum</p>
+                  </div>
+                  <h5>Lorem ipsum for startups</h5>
+                  <p>Less boring. Slightly more relevant.A perfect blend of being professional and having fresh filler content.</p>
+                </div>
+                <div style="height: 400px;" class="contacts-profile-links">
+                  <div class="company-name-logo">
+                    <img src="/images/contact/search.svg" alt="">
+                    <p>Google Store</p>
+                  </div>
+                  <h5>Pixel 2</h5>
+                  <p>Ask more of your phone.</p>
+                  <img src="/images/contact/118.jpg" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contacts-profile-tab-content" id="files">
+            <div class="contacts-profile-files-main-div">
+              <div class="contacts-profile-files">
+                <div class="contacts-profile-files-photo">
+                  <img src="/images/file_icon/sketch.png" alt="">
+                </div>
+                <div class="contacts-profile-files-details">
+                  <h5 class="file-name">Business-icon.sketch</h5>
+                  <p class="file-shared-by">Shared By You</p>
+                  <p class="file-share-time">Mar 3, 2018 @ 2:09pm</p>
+                </div>
+              </div>
+              <div class="contacts-profile-files">
+                <div class="contacts-profile-files-photo">
+                  <img src="/images/file_icon/sketch.png" alt="">
+                </div>
+                <div class="contacts-profile-files-details">
+                  <h5 class="file-name">Business-icon.sketch</h5>
+                  <p class="file-shared-by">Shared By You</p>
+                  <p class="file-share-time">Mar 3, 2018 @ 2:09pm</p>
+                </div>
+              </div>
+              <div class="contacts-profile-files">
+                <div class="contacts-profile-files-photo">
+                  <img src="/images/file_icon/sketch.png" alt="">
+                </div>
+                <div class="contacts-profile-files-details">
+                  <h5 class="file-name">Business-icon.sketch</h5>
+                  <p class="file-shared-by">Shared By You</p>
+                  <p class="file-share-time">Mar 3, 2018 @ 2:09pm</p>
+                </div>
+              </div>
+              <div class="contacts-profile-files">
+                <div class="contacts-profile-files-photo">
+                  <img src="/images/file_icon/sketch.png" alt="">
+                </div>
+                <div class="contacts-profile-files-details">
+                  <h5 class="file-name">Business-icon.sketch</h5>
+                  <p class="file-shared-by">Shared By You</p>
+                  <p class="file-share-time">Mar 3, 2018 @ 2:09pm</p>
+                </div>
+              </div>
+              <div class="contacts-profile-files">
+                <div class="contacts-profile-files-photo">
+                  <img src="/images/file_icon/sketch.png" alt="">
+                </div>
+                <div class="contacts-profile-files-details">
+                  <h5 class="file-name">Business-icon.sketch</h5>
+                  <p class="file-shared-by">Shared By You</p>
+                  <p class="file-share-time">Mar 3, 2018 @ 2:09pm</p>
+                </div>
+              </div>
+              <div class="contacts-profile-files">
+                <div class="contacts-profile-files-photo">
+                  <img src="/images/file_icon/sketch.png" alt="">
+                </div>
+                <div class="contacts-profile-files-details">
+                  <h5 class="file-name">Business-icon.sketch</h5>
+                  <p class="file-shared-by">Shared By You</p>
+                  <p class="file-share-time">Mar 3, 2018 @ 2:09pm</p>
+                </div>
+              </div>
+              <div class="contacts-profile-files">
+                <div class="contacts-profile-files-photo">
+                  <img src="/images/file_icon/sketch.png" alt="">
+                </div>
+                <div class="contacts-profile-files-details">
+                  <h5 class="file-name">Business-icon.sketch</h5>
+                  <p class="file-shared-by">Shared By You</p>
+                  <p class="file-share-time">Mar 3, 2018 @ 2:09pm</p>
+                </div>
+              </div>
+              <div class="contacts-profile-files">
+                <div class="contacts-profile-files-photo">
+                  <img src="/images/file_icon/sketch.png" alt="">
+                </div>
+                <div class="contacts-profile-files-details">
+                  <h5 class="file-name">Business-icon.sketch</h5>
+                  <p class="file-shared-by">Shared By You</p>
+                  <p class="file-share-time">Mar 3, 2018 @ 2:09pm</p>
+                </div>
+              </div>
+              <div class="contacts-profile-files">
+                <div class="contacts-profile-files-photo">
+                  <img src="/images/file_icon/sketch.png" alt="">
+                </div>
+                <div class="contacts-profile-files-details">
+                  <h5 class="file-name">Business-icon.sketch</h5>
+                  <p class="file-shared-by">Shared By You</p>
+                  <p class="file-share-time">Mar 3, 2018 @ 2:09pm</p>
+                </div>
+              </div>
+              <div class="contacts-profile-files">
+                <div class="contacts-profile-files-photo">
+                  <img src="/images/file_icon/sketch.png" alt="">
+                </div>
+                <div class="contacts-profile-files-details">
+                  <h5 class="file-name">Business-icon.sketch</h5>
+                  <p class="file-shared-by">Shared By You</p>
+                  <p class="file-share-time">Mar 3, 2018 @ 2:09pm</p>
+                </div>
+              </div>
+              <div class="contacts-profile-files">
+                <div class="contacts-profile-files-photo">
+                  <img src="/images/file_icon/sketch.png" alt="">
+                </div>
+                <div class="contacts-profile-files-details">
+                  <h5 class="file-name">Business-icon.sketch</h5>
+                  <p class="file-shared-by">Shared By You</p>
+                  <p class="file-share-time">Mar 3, 2018 @ 2:09pm</p>
+                </div>
+              </div>
+              <div class="contacts-profile-files">
+                <div class="contacts-profile-files-photo">
+                  <img src="/images/file_icon/sketch.png" alt="">
+                </div>
+                <div class="contacts-profile-files-details">
+                  <h5 class="file-name">Business-icon.sketch</h5>
+                  <p class="file-shared-by">Shared By You</p>
+                  <p class="file-share-time">Mar 3, 2018 @ 2:09pm</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contacts-profile-tab-content" id="flagged">
+            <div class="contacts-profile-flagged-main-div">
+              <div class="flagged-chat-1" style="width: 323px;height: 72px;">
+                <span class="flagged-chat-left-arrow">99</span>
+                <img src="/images/svg/Flagged.svg" alt="">
+                <h5>Charles Boyle</h5>
+                <p>Capitalize on low hanging fruit.
+                  <span>9:58am</span>
+                </p>
+              </div>
+              <div class="flagged-chat-2" style="width: 521px;height: 120px;">
+                <span class="flagged-chat-left-arrow">99</span>
+                <img src="/images/svg/Flagged.svg" alt="">
+                <h5>Charles Boyle</h5>
+                <p>Drive mobile-first design to innovate. Leverage branding so that as an end result, we funnel users. Create
+                  responsive websites in order to maximise share of voice.
+                  <span>9:58am</span>
+                </p>
+              </div>
+              <div class="flagged-chat-3" style="width: 390px;height: 72px;">
+                <span class="flagged-chat-left-arrow">99</span>
+                <img src="/images/svg/Flagged.svg" alt="">
+                <h5>Charles Boyle</h5>
+                <p>Building sprints and finally gain traction.
+                  <span>9:58am</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!-- Contact guest profile start-->
+    <div class="contacts-guest-profile" id="contacts-guest-profile">
+      <div class="contacts-guest-profile-head">
+        <div class="inviteMessage" style="color:#fff;background-color: rgba(0,0,0,0.72);font-family: hvAssistant;font-size: 16px;text-align: center;line-height: 21px;letter-spacing: 0.2px; width:280px; height:48px;padding:14px 37px 13px;border-radius: 4px; display: none;position: absolute;top: -20px;left: 412px;">Their
+          invitation has been sent!</div>
+        <img class="contacts-profile-back-button" src="/images/contact/back.svg" alt="">
+        <div class="contacts-profile-photo">
+          <span>SB</span>
+        </div>
+        <div class="contacts-profile-sort-detail">
+          <div class="contacts-profile-head-label">
+            <p class="navigate-label" style="background-color: #546E7A;">Guest</p>
+          </div>
+          <h2>Serious Black</h2>
+        </div>
+      </div>
+      <div class="">
+        <h2 class="guest-info-title">Info</h2>
+        <div class="contacts-guest-profile-tab-content">
+          <div class="contacts-guest-profile-invite-div">
+            <h3>on no!</h3>
+            <p>They're not on Hayben!</p>
+            <button onclick="guestInvite()">INVITE</button>
+          </div>
+          <div class="contacts-guest-personal-information">
+            <p>Personal Information <span>(Edit)</span></p>
+            <div class="email" style="margin-bottom: 20px;">
+              <p style="margin-bottom: 12px">
+                <span class="info-icon">
+                  <img src="/images/contact/info-icon6.png" alt="">
+                </span> charleslynboyle79@gmail.com</p>
+              <p style="margin-bottom: 0px">boyles-best-bites@gmail.com</p>
+            </div>
+            <div class="phone">
+              <p style="margin-bottom: 0px">
+                <span class="info-icon">
+                  <img src="/images/contact/info-icon4.png" alt="">
+                </span> (769)088-6894</p>
+            </div>
+          </div>
+          <div class="info-guest-tag-share-div">
+            <div class="info-tags">
+              <p>Tags
+                <span>(Edit)</span>
+              </p>
+              <div class="info-tags-tag">
+                <span>Guest</span>
+              </div>
+              <div class="info-tags-tag">
+                <span>Consultant</span>
+              </div>
+            </div>
+            <div class="info-guest-share">
+              <div class="social-icon">
+                <img src="/images/contact/linkedin.svg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script>
+    var user_id = '<%= user_id %>';
+    var user_fullname = '<%= user_fullname %>';
+    var user_img = '<%= user_img %>';
+    var to = '';
+    // var alluserinfo = <%- JSON.stringify(data) %>;
+    // console.log(alluserinfo);
+  </script>
+  <script src="/javascripts/socket-client-side.js"></script>
+  <script src="/javascripts/custom-contacts.js"></script>
+  <script src="/javascripts/custom.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <%- include('layouts/foot') %>
+    <%- include('templates/project/quickproject') %>

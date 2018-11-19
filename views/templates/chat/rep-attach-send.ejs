@@ -1,0 +1,291 @@
+<div id="repChatFileUpload" class="Chat_File_Upload" style="display: none">
+    <div class="chat-file-upload-popup">
+        <h4 class="chat-upload-popup-title">UPLOAD FILE <span class="close-chat-file-popup" onclick="repcloseUploadPopup()"><img src="/images/basicAssets/close_button.svg" alt=""></span></h4>
+        <div class="chat-upload-popup-content">
+            <form method="POST" encType="multipart/form-data">
+                <div id="rep_uploaded_file" style="margin-bottom: 16px">
+                    <!-- Drag & Drop file -->
+                    <label class="chat-file-drag-upload-label">Click or Drag to file</label>
+                </div>
+                <!-- Drag & Drop file -->
+                <div id="repattach_chat_file_list">
+
+                </div>
+                <div class="chat-file-upload-comment">
+                    <label for="">Comments</label>
+                    <textarea name="" id="repFileComment" onkeypress="check_val_for_active()" cols="" rows="" placeholder="Add a comment..."></textarea>
+                </div>
+                <div class="tagg_list" id="repfileAttachTagLs">
+
+                </div>
+                <input type="file" name="any_file_chat" id="rep_msg_File" multiple class="hidden" onchange="rep_upload_attach_server(this.files)">
+                <button type="button" class="repuploadbtn" onclick="submit_rep_attachment()">Send</button>
+            </form>
+            <div class="tagged"><img id="taggedIMG" src="/images/basicAssets/custom_tagged.svg"></div>
+            <div class="addTagConv">
+                <input type="text" id="repcustomAdd" class="customAdd" placeholder="Add custom tag"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var comment_text = '';
+    var check_val_for_active = () => {
+        if ($("#repFileComment").val() != "")
+            $('.repuploadbtn').addClass('active');
+        else
+            $('.repuploadbtn').removeClass('active');
+
+    };
+
+    var submit_rep_attachment = () => {
+        var msg_text_from_file_comment = $('#FileComment').val();
+        if(msg_text_from_file_comment != "")
+            $('#msg_rep').html(msg_text_from_file_comment);
+        else
+            $('#msg_rep').html(comment_text);
+
+        rep_msg_send_fn();
+        repcloseUploadPopup();
+
+    }
+    var add_file_data = (data) => {
+        $.each(data, function(k, v) {
+            var mime = v.mimetype;
+            if (mime.indexOf('image') != -1)
+                imgfile.push(v.filename);
+            else if (mime.indexOf('video') != -1)
+                videofile.push(v.filename);
+            else if (mime.indexOf('audio') != -1)
+                audiofile.push(v.filename);
+            else
+                otherfile.push(v.filename);
+        });
+        filedata = [{
+            audiofile,
+            imgfile,
+            otherfile,
+            videofile
+        }];
+    };
+
+    var tempArray = [];
+
+    var rep_attach_upload = () => {
+        filedata.length = 0; filedata = [];
+        audiofile.length = 0; audiofile = [];
+        imgfile.length = 0; imgfile = [];
+        otherfile.length = 0; otherfile = [];
+        videofile.length = 0; videofile = [];
+        formDataTemp.length = 0; formDataTemp = [];
+        comment_text = '';
+        $("#repfileAttachTagLs").html('');
+
+        $('#repChatFileUpload').show();
+        $("textarea#repFileComment").focus();
+        if(tempArray.length > 0){
+            $.each(tempArray,function(k,v){
+                var desing =  '<div class="tag_item" id="repcustomtagid'+k+'">';
+                    desing += ' <p>'+v+'</p>';
+                    desing += ' <img src="/images/basicAssets/Close.svg" onclick="repremoveCustomTag(\''+v+'\',\''+k+'\')">';
+                    desing += '</div>';
+
+                $("#repfileAttachTagLs").append(desing);
+            });
+        }
+
+        $("#repcustomAdd").on('blur keyup', function(e) {
+
+            var tagTitle = $("#repcustomAdd").val();
+            var keyCode = e.keyCode || e.which;
+            if (keyCode === 13) {
+                tagListForFileAttach.push(tagTitle.toLowerCase());
+
+                $("#repcustomAdd").val("");
+                var len = $(".tag_item").length;
+                var desing =  '<div class="tag_item" id="repcustomtagid'+len+'">';
+                    desing += ' <p>'+tagTitle+'</p>';
+                    desing += ' <img src="/images/basicAssets/Close.svg" onclick="repremoveCustomTag(\''+tagTitle.toLowerCase()+'\',\''+len+'\')">';
+                    desing += '</div>';
+
+                $("#repfileAttachTagLs").append(desing);
+            }
+        });
+
+    }
+
+    var repremoveCustomTag = (title,id)=>{
+        $("#repcustomtagid"+id).remove();
+        removeA(tagListForFileAttach,title.toLowerCase());
+    }
+
+    var repcloseUploadPopup = () => {
+        filedata.length = 0; filedata = [];
+        audiofile.length = 0; audiofile = [];
+        imgfile.length = 0; imgfile = [];
+        otherfile.length = 0; otherfile = [];
+        videofile.length = 0; videofile = [];
+        formDataTemp.length = 0; formDataTemp = [];
+        $("#repattach_chat_file_list").html("");
+        $('#repChatFileUpload').hide();
+    }
+
+    var repcloseAttachFile = (id) => {
+        $('.close-chat-uploading-file').on('click', function(e) {
+            var filename = $(this).parents('.chat-uploading-files').find('.chat-file-icons>img').attr('data-name');
+            var filename_for_unlink = $(this).parents('.chat-uploading-files').find('.close-chat-uploading-file').attr('data-filename');
+            console.log("filename_for_unlink", filename_for_unlink);
+            formDataTemp.forEach(function(vv, key) {
+                if (vv.name == filename) {
+                    formDataTemp.splice(key, 1);
+                }
+            });
+            audiofile.forEach(function(fv, fk){
+                if(fv == filename_for_unlink)
+                    audiofile.splice(fk, 1);
+            });
+            imgfile.forEach(function(fv, fk){
+                if(fv == filename_for_unlink)
+                    imgfile.splice(fk, 1);
+            });
+            otherfile.forEach(function(fv, fk){
+                if(fv == filename_for_unlink)
+                    otherfile.splice(fk, 1);
+            });
+            videofile.forEach(function(fv, fk){
+                if(fv == filename_for_unlink)
+                    videofile.splice(fk, 1);
+            });
+            // console.log(filedata);
+            $(this).parents('.chat-uploading-files').hide();
+            request[id].abort();
+            socket.emit('unlink_file', {
+                filename: './public/upload/' + filename_for_unlink
+            });
+        });
+        $("#rep_msg_File").val("");
+    }
+
+    $('#rep_uploaded_file').on('click', function() {
+        $('#rep_msg_File').trigger('click');
+    });
+    var request = [];
+    var rep_upload_attach_server = (files) => {
+        request = [];
+        for (var i = 0; i < files.length; i++) {
+            var formData = new FormData();
+            var entries = formData.entries();
+            for(var pair of entries )
+            {
+               formData.delete( pair[0] );
+            }
+            var has_already = false;
+            formDataTemp.forEach(function(vv) {
+                if (vv.name == files[i].name) {
+                    has_already = true;
+                }
+            });
+            if (has_already === true) continue;
+            // comment_text += files[i].name + '\n'; // If file name as comment
+            comment_text = 'No Comments';
+            formDataTemp.push(files[i]);
+            formData.append('any_file_chat', files[i]);
+            var slid = Number(moment().unix()) + i + 1;
+            formData.append('sl', slid);
+            var file_ext = files[i].name.split('.').pop().toLowerCase();
+            switch (file_ext) {
+                case 'ai':
+                case 'mp3':
+                case 'doc':
+                case 'docx':
+                case 'indd':
+                case 'js':
+                case 'sql':
+                case 'pdf':
+                case 'ppt':
+                case 'pptx':
+                case 'psd':
+                case 'svg':
+                case 'xls':
+                case 'xlsx':
+                case 'zip':
+                case 'rar':
+                    file_ext = file_ext;
+                    break;
+                default:
+                    file_ext = 'other';
+            }
+
+            if (files[i].type.startsWith('image/')) {
+                var imgsrc = window.URL.createObjectURL(files[i]);
+            } else {
+                var imgsrc = "/images/file_icon/" + file_ext + ".png";
+            }
+            var imgalt = window.URL.createObjectURL(files[i]);
+            var stopthis = () => {
+                this.abort();
+            };
+            request[slid] = $.ajax({
+                xhr: function() {
+                    $('.fileno_' + slid).find('.chat_file_progress').show();
+                    var xhr = new XMLHttpRequest();
+                    xhr.upload.addEventListener("loadstart", function(et) {
+                        this.progressId = slid;
+                        var html = '<div class="chat-uploading-files fileno_' + this.progressId + '">';
+                        html += '<span class="close-chat-uploading-file"><img src="/images/svg/CloseModal.svg"></span>';
+                        html += '<div class="chat-file-icons">';
+                        html += '<img src="' + imgsrc + '" alt="' + imgalt + '" data-filetype="' + files[i].type + '" data-name="' + files[i].name + '">';
+                        html += '</div>';
+                        html += '<div class="chat-file-information">';
+                        html += '<h4>' + files[i].name + '</h4>';
+                        html += '<p>' + moment().format('MMM DD, YYYY @ h:mm a') + '</p>';
+                        html += '<div class="chat_file_progress">';
+                        html += '<div class="progress-bar progress-bar-success progress-bar-striped">&nbsp;</div>';
+                        html += '</div>';
+                        html += '</div>';
+                        $("#repattach_chat_file_list").append(html);
+                        repcloseAttachFile(this.progressId);
+                        $('.fileno_' + slid).find('.chat_file_progress').show();
+                        // console.log(this.progressId);
+                    });
+                    xhr.upload.addEventListener("progress", function(evt) {
+                        if (evt.lengthComputable) {
+                            // console.log("request ",request);
+                            var percentComplete = evt.loaded / evt.total;
+                            var percom = Math.ceil(percentComplete * 100);
+                            // console.log(this.progressId, percom);
+                            // if(percom >50) xhr.abort();
+                            $('.fileno_' + this.progressId).find('.progress-bar').css("width", percom + "%");
+                            $('.fileno_' + this.progressId).find('.progress-bar').attr("aria-valuenow", percom);
+                        }
+                    }, false);
+                    return xhr;
+                },
+                url: file_server + '/msgFileUplod',
+                type: "POST",
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                success: function(res) {
+                    $('.fileno_' + res.sl).find('.chat_file_progress').remove();
+                    var comfile = JSON.parse(request[res.sl].responseText);
+                    $('.fileno_' + res.sl).find('.close-chat-uploading-file').attr('data-filename', comfile.file_info[0].filename);
+                    add_file_data(res.file_info);
+                    $("textarea#repFileComment").focus();
+
+                    var entries = formData.entries();
+                    for(var pair of entries )
+                    {
+                       formData.delete( pair[0] );
+                    }
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        }
+        $("#rep_msg_File").val("");
+    };
+</script>

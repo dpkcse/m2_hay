@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>RAR File Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="RAR-File-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Video-Movies-TV-/-Video-Files-/-video-file-avi" transform="translate(9.000000, 9.000000)" stroke="#000000">
+            <g id="Group">
+                <g id="video-file-avi" stroke-width="1.5">
+                    <path d="M10.23,30.03125 L2.79,30.03125 C1.76275037,30.03125 0.93,29.1638017 0.93,28.09375 L0.93,2.90625 C0.93,1.8361983 1.76275037,0.96875 2.79,0.96875 L15.96996,0.96875 C16.4629185,0.968859638 16.935674,1.17280976 17.28436,1.53579167 L24.56564,9.12045833 C24.9141026,9.48367292 25.1098947,9.97612652 25.11,10.489625 L25.11,16.46875" id="Shape"></path>
+                    <path d="M25.11,10.65625 L17.67,10.65625 C16.6427504,10.65625 15.81,9.7888017 15.81,8.71875 L15.81,0.96875" id="Shape"></path>
+                    <path d="M13.95,30.03125 L13.95,22.28125 C13.95,21.2111983 14.7827504,20.34375 15.81,20.34375 C16.8372496,20.34375 17.67,21.2111983 17.67,22.28125 L17.67,30.03125" id="Shape"></path>
+                    <path d="M13.95,26.15625 L17.67,26.15625" id="Shape"></path>
+                    <path d="M21.39,20.34375 L21.39,23.6375 C21.390096,25.9149519 22.0372756,28.1414298 23.25,30.0364167 C24.4627244,28.1414298 25.109904,25.9149519 25.11,23.6375 L25.11,20.34375" id="Shape"></path>
+                    <path d="M28.83,30.03125 L28.83,20.34375" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

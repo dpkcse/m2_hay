@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		<%= title%>
+	</title>
+
+	<script src="/socket.io/socket.io.js" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style-basic.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style-call.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/toastr.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/pluginCss/balloon.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/responsive_basic.css">
+
+	<% if(title == 'calendar'){%>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style_basic_calendar.css">
+	<% }%>
+	<script src="/javascripts/fontawesome-all.js"></script>
+	<script src="/javascripts/jQuery/jquery-3.3.1.min.js"></script>
+	<script src="/javascripts/lodash.js"></script>
+	<script src="/javascripts/moment.js"></script>
+	<script src="/javascripts/moment-timer.js"></script>
+	<script src="/javascripts/tooltipster.bundle.min.js"></script>
+	<script src="/javascripts/jquery.highlight.js"></script>
+	<script src="/javascripts/toastr.min.js"></script>
+	<script src="/javascripts/plugins/push.js"></script>
+	<script src="/javascripts/masonry.pkgd.min.js"></script>
+	<script>
+
+		$(function(){
+			$('.testcloseNotification').click(function () {
+				$(this).parent('.testnotificationDiv').remove();
+				if ($('.testnotificationDiv').is(':visible') == false) {
+					$('.chat-header').css('top', '64px');
+					$('.chat-page').css({'height': 'calc(100vh - 229px)'});
+					$('.side-bar').css({'height': 'calc(100vh - 64px)'});
+					$('.fileSliderBackWrap').css('height', 'calc(100% - 64px)');
+					$('#right-section-area').css('top', '64px');
+					$('.media-back-tooltip').css({'top': '88px'});
+					$('.media-close-tooltip, .close-img-popup-tooltip').css({'top': '85px'});
+					$('.slide-image-more-option').css({'top': '82px'});
+				}
+			});
+			if ($('.testnotificationDiv').is(':visible') == true) {
+				$('#right-section-area').css('top', '106px');
+				$('.chat-header').css({
+					'top': '106px'
+				});
+				$('.chat-page').css({
+					'height': 'calc(100vh - 271px)'
+				});
+				$('.side-bar').css({
+					'height': 'calc(100vh - 106px)'
+				});
+				$('.media-back-tooltip').css({
+					'top': '129px'
+				});
+				$('.media-close-tooltip, .close-img-popup-tooltip').css({
+					'top': '126px'
+				});
+				$('.slide-image-more-option').css({
+					'top': '123px'
+				});
+			}else if ($('.testnotificationDiv').is(':visible') == false) {
+				$('.chat-header').css({
+					'top': '64px'
+				});
+				$('.chat-page').css({
+					'height': 'calc(100vh - 229px)'
+				});
+				$('.side-bar').css({
+					'height': 'calc(100vh - 64px)'
+				});
+				$('#right-section-area').css('top', '64px');
+				$('.media-back-tooltip').css({'top': '88px'});
+				$('.media-close-tooltip, .close-img-popup-tooltip').css({'top': '85px'});
+				$('.slide-image-more-option').css({'top': '82px'});
+			}
+		});
+		
+	</script>
+	<script type="text/javascript">
+		function delete_cookie( name ) {
+		  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		}
+		
+		var setCookie = (cname, cvalue, exdays) => {
+		    var d = new Date();
+		    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+		    var expires = "expires=" + d.toUTCString();
+		    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+
+		var getCookie = (cname) => {
+		    var name = cname + "=";
+		    var decodedCookie = decodeURIComponent(document.cookie);
+		    var ca = decodedCookie.split(';');
+		    for (var i = 0; i < ca.length; i++) {
+		        var c = ca[i];
+		        while (c.charAt(0) == ' ') {
+		            c = c.substring(1);
+		        }
+		        if (c.indexOf(name) == 0) {
+		            return c.substring(name.length, c.length);
+		        }
+		    }
+		    return "";
+		}
+
+		var setCookieCall = (cname, cvalue, exdays) => {
+		    var d = new Date();
+		    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+		    var expires = "expires=" + d.toUTCString();
+		    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+
+		var getCookieCall = (cname) => {
+		    var name = cname + "=";
+		    var decodedCookie = decodeURIComponent(document.cookie);
+		    var ca = decodedCookie.split(';');
+		    for (var i = 0; i < ca.length; i++) {
+		        var c = ca[i];
+		        while (c.charAt(0) == ' ') {
+		            c = c.substring(1);
+		        }
+		        if (c.indexOf(name) == 0) {
+		            return c.substring(name.length, c.length);
+		        }
+		    }
+		    return "";
+		}
+	</script>
+</head>
+
+<body>
+	<div class="main-container">
+		<div class="testnotificationDiv" id="headNoficationDialog" style="height:42px;width:100%;background: #1676EA; display: none;">
+			<img class="testcloseNotification" style="width: 14px;height: 14px;position: absolute;right: 18px;top: 14px;cursor: pointer" src="/images/basicAssets/close_button-white.svg" alt="">
+			<div class="notification-wrapper" style="margin: 0 auto;display: block;overflow: hidden;width: 700px;text-align: center">
+				<div style="float:left;padding-left: 118px;width: auto;margin-right: 30px">
+					<img style="float:left;margin: 13px 12px 12px 0;" src="/images/basicAssets/custom_thread_for_reply-white.svg" alt="">
+					<p style="white-space:nowrap;margin-top:10.5px;font-family: hvAssistant;color: #fff;display:inline-block">Allow Hayven to show desktop notification ?</p>
+				</div>
+				<div class="notification-grp-btn" style="float:left;margin-right: 35px;margin-top: 7px;">
+					<button style="border: 1px solid #fff ;padding: 5px 10px;background: #ffffff;color:#E03C31 ;cursor:pointer;font-weight:normal;box-sizing: border-box;border-radius: 3px" id="denyNotification">Deny</button>
+					<button style="border: 1px solid #fff ;padding: 5px 10px;background: #ffffff;color:green ;cursor:pointer;font-weight:normal;box-sizing: border-box;border-radius: 3px" id="allowNotification">Allow</button>
+				</div>
+			</div>
+		</div>
+		<header class="main-header">
+			<div class="menuforMobile" onclick="homeMenuShow();">
+				
+			</div>
+			<div class="header-left" style="">
+				<ul class="main-menu-list">
+					<li id="hayvenConnectPage" class="<% if (title=='Connect') {%>active<% }%>">
+						<a href="/">Connect</a>
+					</li>
+
+					<li id="hayvenToDoPage" class="<% if (title=='ToDo') {%>active<% }%>">
+						<a href="/basic_to_do">Tasks</a>
+					</li>
+					<!-- 					<li class="<% if (title == 'calendar') {%>active<%} %>">
+						<a href="/basic_calendar">Calendar</a>
+					</li>
+					<li class="">Files</li> -->
+				</ul>
+			</div>
+			<div class="header-midd">
+				<a href="/" class="hayven-logo"><img src="/images/basicAssets/HayvenWordmark.svg"></a>
+			</div>
+			<div class="header-right">
+				<% if (title=='Connect') {%>
+				<!-- <div class="plus">
+					<img class="plus_ico" src="/images/svg/actions-create_24px_000.svg">
+				</div> -->
+				<% } %>
+				<div class="notification">
+					<img src="/images/basicAssets/Top_Nav_Bell.svg" class="notification_ico">
+				</div>
+				<div class="profile_nav">
+					<img class="profilePic" src="/images/users/<%= user_img %>" onclick="profileNav()">
+					<img class="nav_ico" src="/images/basicAssets/Down_Chevron.svg" onclick="profileNav()">
+					<div class="profilenavMainSection" style="display: none">
+						<div class="profileNavContainer">
+							<div class="headNav">
+								<h1>
+									<%= user_email %>
+								</h1>
+								<img class="settingEmail" src="/images/basicAssets/Settings.svg" />
+							</div>
+							<div class="group_input">
+								<label class="switchNav">
+									<input type="checkbox">
+									<span class="sliderNav round"></span>
+									<span class="switchFor">Thirty Six Knots</span>
+								</label>
+							</div>
+							<div class="group_input">
+								<label class="switchNav">
+									<input type="checkbox">
+									<span class="sliderNav round"></span>
+									<span class="switchFor">Navigate Design</span>
+								</label>
+							</div>
+							<div class="group_input">
+								<label class="switchNav">
+									<input type="checkbox">
+									<span class="sliderNav round"></span>
+									<span class="switchFor">Sweet Salvation</span>
+								</label>
+							</div>
+						</div>
+						<div class="profileNavContainer">
+							<div class="headNav">
+								<h1>
+									<%= user_email %>
+								</h1>
+								<img class="settingEmail" src="/images/basicAssets/Settings.svg" />
+							</div>
+							<div class="group_input">
+								<label class="switchNav">
+									<input type="checkbox">
+									<span class="sliderNav round"></span>
+									<span class="switchFor">Thirty Six Knots</span>
+								</label>
+							</div>
+						</div>
+						<span class="linkAccount">Link another account</span>
+						<span class="logOut" onclick="window.location.href='/logout'">Sign out form all account</span>
+					</div>
+
+				</div>
+			</div>
+		</header>

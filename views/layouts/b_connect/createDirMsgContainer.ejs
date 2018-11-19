@@ -1,0 +1,25 @@
+<div class="backwrap" id="createDirMsgContainer" style="display: none">
+	<div class="createdirmsg_container">
+		<div class="closeBackwrap" onclick="closeAllPopUp()"><img src="/images/basicAssets/close_button.svg"></div>
+		<div class="label"><h1 class="label_Title" style="margin-bottom: 10px">Create a direct message</h1></div>
+		<div style="display: flex;">
+			<div contenteditable="true" class="add-direct-member" id="add_direct_member" placeholder="Search by name" onkeyup="filter_user_list(event)"></div>
+			<input type="button" class="btn-add-direct-member" value="Start" onclick="check_and_submit_for_new_conv()">
+			<span class="remove searchClear remove-suggested-type-list"></span>
+		</div>
+		<div class="no_of_user_left_to_add"><span>10</span> members left</div>
+		<div class="suggested-type-list overlayScrollbars">
+			<ul class="suggested-list" id="directMsgUserList">
+
+
+			</ul>
+		</div>
+		<div class="ml-listHl" id="ml-listHl">
+			<div class="member-div" id="member736d2a9d-9529-451d-a00a-b1d63f96c96e">
+				<img src="/images/users/tajdik.jpg" class="member-img">
+				<div data-uuid="736d2a9d-9529-451d-a00a-b1d63f96c96e" class="member-name name">Tajdik Ahamed</div>
+				<img src="/images/remove_8px_200 @1x.png" class="remove-it" style="display: none;">
+			</div>
+		</div>
+	</div>
+</div>

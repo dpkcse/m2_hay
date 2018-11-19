@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Attach</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Attach" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.24" stroke-linecap="round" stroke-linejoin="round">
+        <g id="paperclip" transform="translate(3.000000, 2.000000)" stroke="#4A90E2" stroke-width="1.5">
+            <path d="M18.5127015,9.20211842 L9.76032055,17.9544994 C7.5275122,20.1873077 3.90741461,20.1873077 1.67460626,17.9544994 C-0.558202086,15.721691 -0.558202086,12.1015934 1.67460626,9.86878509 L10.4269872,1.11640413 C11.9155261,-0.372134727 14.3289245,-0.372134709 15.8174634,1.11640417 C17.3060022,2.60494305 17.3060023,5.01834142 15.8174634,6.50688032 L7.05555864,15.2592613 C6.31128919,16.0035307 5.10458999,16.0035307 4.36032055,15.2592613 C3.6160511,14.5149918 3.6160511,13.3082926 4.36032055,12.5640232 L12.4460348,4.4878327" id="Shape"></path>
+        </g>
+    </g>
+</svg>

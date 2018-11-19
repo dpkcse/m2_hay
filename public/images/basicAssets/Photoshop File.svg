@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Photoshop File</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Photoshop-File" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Group" transform="translate(9.000000, 9.000000)" stroke="#40D0FB" stroke-width="1.5">
+            <g id="design-file-psd-1">
+                <path d="M10,30 L10,20" id="Shape"></path>
+                <path d="M10,20 L11,20 C12.6568542,20 14,21.3431458 14,23 C14,24.6568542 12.6568542,26 11,26 L10,26" id="Shape"></path>
+                <path d="M22,20 L20,20 C18.8954305,20 18,20.8954305 18,22 C18,25 22,25 22,28 C22,29.1045695 21.1045695,30 20,30 L18,30" id="Shape"></path>
+                <path d="M26,30 C28.209139,30 30,28.209139 30,26 L30,24 C30,21.790861 28.209139,20 26,20 L26,30 Z" id="Shape"></path>
+                <path d="M6,30 L2,30 C0.8954305,30 2.96059473e-16,29.1045695 0,28 L0,2 C-1.48029737e-16,0.8954305 0.8954305,2.96059473e-16 2,0 L16.172,0 C16.7020629,0.000113175105 17.2104021,0.210642336 17.5853333,0.585333333 L25.4146667,8.41466667 C25.7893577,8.78959785 25.9998868,9.29793706 26,9.828 L26,16" id="Shape"></path>
+                <path d="M26,10 L18,10 C16.8954305,10 16,9.1045695 16,8 L16,0" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

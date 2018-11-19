@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Private Lock</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Private-Lock" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="Group" transform="translate(5.000000, 5.000000)" stroke="#000000" stroke-width="1.5">
+            <g id="lock-4">
+                <circle id="Oval" stroke-linejoin="round" cx="7" cy="8.75" r="4.8125"></circle>
+                <path d="M3.9375,5.03708333 L3.9375,3.5 C3.9375,1.80862795 5.30862795,0.4375 7,0.4375 C8.69137205,0.4375 10.0625,1.80862795 10.0625,3.5 L10.0625,5.03708333" id="Shape" stroke-linejoin="round"></path>
+                <path d="M7,7.875 L7,9.625" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,40 @@
+Connect page: 
+	1. filter
+	2. search
+	3. thread open from search page
+
+New Group Chat:
+	1. tooltip
+	2. ecosystem
+	3. privacy
+	4. guest invitation 
+	5. search department and designation
+	6. 
+
+
+Open chat page:
+	1. more button beside video call button
+		1. Tagged messages
+		2. Files & Media
+		3. Add tags
+		4. Select messages
+		5. Export conversation
+
+	2. member list
+		1. personal -> hide member list
+		2. group -> edit group name
+
+	3. thread
+		1. replay thread
+		2. thread more menu-
+			1. Add tags
+			2. Share
+
+	4. search
+	5. emoji need assets
+
+Calling page-
+	1. Reload
+	2. Add participants
+	3. screen share 
+	4.  

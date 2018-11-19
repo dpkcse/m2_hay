@@ -1,0 +1,191 @@
+<%- include('layouts/head') %>
+
+    <link href="/stylesheets/files.css" rel="stylesheet">
+
+    <main role="main" class="container-fluid">
+        <!--Start main_section-->
+        <div class="main_section">
+            <div class="search-bar-area">
+                <form id="search_box">
+
+                    <div class="container-1">
+                        <span class="icon"><i class="fa fa-search"></i></span>
+                        <input type="search" id="search_area" placeholder="Search" />
+                    </div>
+
+                </form>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="boxes_area">
+                <a href="/files_upload">
+                    <div id="box_1" class="box_inline">
+                        <p class="hayven_files_heading box_inline_block">
+                            Hayven Files <span class="coun_num">(130)</span>
+                        </p>
+                        <p class="box_circle_icon box_inline_block">
+                            <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                        </p>
+                        <div class="progress" id="progress_bar_area">
+                            <div class="progress-bar progress_color_CD327F" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar progress_color_50E3C2" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar progress_color_4A69E2" role="progressbar" style="width: 30%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="panel_details">
+                            <div class="clearfix">
+                                <div class="circle_area box_inline" style="background-color: #CD327F;"></div>
+                                <div class="text_label box_inline">Own (30)</div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="circle_area box_inline" style="background-color: #50E3C2;"></div>
+                                <div class="text_label box_inline">Shared by me (50)</div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="circle_area box_inline" style="	background-color: #4A69E2;"></div>
+                                <div class="text_label box_inline">Shared by others (50)</div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="circle_area box_inline" style="background-color: #DBDBDB;"></div>
+                                <div class="text_label box_inline">Available storage (3.8 GB)</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </a>
+
+                <div id="box_2" class="box_inline">
+                    <p class="hayven_files_heading box_inline_block">
+                        Google Drive <span class="coun_num">(429)</span>
+                    </p>
+                    <p class="box_circle_icon box_inline_block">
+                        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </p>
+                    <div class="progress" id="progress_bar_area">
+                        <div class="progress-bar progress_color_CD327F" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar progress_color_50E3C2" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+
+                    </div>
+                    <div class="panel_details">
+                        <div class="clearfix">
+                            <div class="circle_area box_inline" style="background-color: #CD327F;"></div>
+                            <div class="text_label box_inline">Own (400)</div>
+                        </div>
+                        <div class="clearfix">
+                            <div class="circle_area box_inline" style="background-color: #50E3C2;"></div>
+                            <div class="text_label box_inline">Shared by me (29)</div>
+                        </div>
+                        <div class="clearfix">
+                            <div class="circle_area box_inline" style="background-color: #DBDBDB;"></div>
+                            <div class="text_label box_inline">Available storage (938 MB)</div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div id="box_3" class="box_inline">
+                    <p class="hayven_files_heading box_inline_block">
+                        OneDrive <span class="coun_num">(0)</span>
+                    </p>
+                    <p class="box_circle_icon box_inline_block">
+                        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </p>
+                    <div class="progress" id="progress_bar_area">
+                        <div class="progress-bar " role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="panel_details">
+
+                        <div class="clearfix">
+                            <div class="circle_area box_inline" style="background-color: #DBDBDB;"></div>
+                            <div class="text_label box_inline">Available storage (5GB)</div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="boxes_area_2">
+                <div id="box_4" class="box_inline">
+                    <p class="hayven_files_heading box_inline_block">
+                        Dropbox <span class="coun_num">(11)</span>
+                    </p>
+                    <p class="box_circle_icon box_inline_block">
+                        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </p>
+                    <div class="progress" id="progress_bar_area">
+                        <div class="progress-bar progress_color_CD327F" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar progress_color_4A69E2" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="panel_details">
+                        <div class="clearfix">
+                            <div class="circle_area box_inline" style="background-color: #CD327F;"></div>
+                            <div class="text_label box_inline">Own (8)</div>
+                        </div>
+
+                        <div class="clearfix">
+                            <div class="circle_area box_inline" style="	background-color: #4A69E2;"></div>
+                            <div class="text_label box_inline">Shared by others (3)</div>
+                        </div>
+                        <div class="clearfix">
+                            <div class="circle_area box_inline" style="background-color: #DBDBDB;"></div>
+                            <div class="text_label box_inline">Available storage (7.45 GB)</div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div id="box_5" class="box_inline">
+                <p class="hayven_files_heading box_inline_block">
+                    iCloud <span class="coun_num">(734)</span>
+                </p>
+                <p class="box_circle_icon box_inline_block">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </p>
+                <div class="progress" id="progress_bar_area">
+                    <div class="progress-bar progress_color_CD327F" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar progress_color_50E3C2" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar progress_color_4A69E2" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="panel_details">
+                    <div class="clearfix">
+                        <div class="circle_area box_inline" style="background-color: #CD327F;"></div>
+                        <div class="text_label box_inline">Own (34)</div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="circle_area box_inline" style="background-color: #50E3C2;"></div>
+                        <div class="text_label box_inline">Shared by me (200)</div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="circle_area box_inline" style="	background-color: #4A69E2;"></div>
+                        <div class="text_label box_inline">Shared by others (500)</div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="circle_area box_inline" style="background-color: #DBDBDB;"></div>
+                        <div class="text_label box_inline">Available storage (200 MB)</div>
+                    </div>
+
+                </div>
+                <a class="upgrade_plan">Upgrade Plan</a>
+
+            </div>
+
+
+        </div>
+        <!--End main_section-->
+
+
+        <%- include('templates/_partial') %>
+    </main>
+    <script>
+        var user_id = '<%= user_id %>';
+        var user_fullname = '<%= user_fullname %>';
+        var user_img = '<%= user_img %>';
+        var to = '';
+    </script>
+    <script src="/javascripts/socket-client-side.js"></script>
+    <script src="/javascripts/custom.js"></script>
+    <%- include('layouts/foot') %>

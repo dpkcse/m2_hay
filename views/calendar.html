@@ -1,0 +1,174 @@
+<%- include('layouts/head') %>
+  <link rel="stylesheet" href="/stylesheets/style-calendar.css">
+  <script src="/javascripts/masonry/jquery.masonry.min.js"></script>
+  <main role="main" class="main_container">
+    <div class="Calendar_body">
+      <div class="main_calendar">
+        <div class="calendar_title">
+          <h5>February</h5>
+          <span>
+            <img src="">
+          </span>
+          <span>
+            <img src="">
+          </span>
+        </div>
+        <div class="calendar_container">
+          <div class="day">S</div>
+          <div class="day">M</div>
+          <div class="day">T</div>
+          <div class="day">W</div>
+          <div class="day">T</div>
+          <div class="day">F</div>
+          <div class="day">S</div>
+          <div class="date deactive">28</div>
+          <div class="date deactive">29</div>
+          <div class="date deactive">30</div>
+          <div class="date deactive">31</div>
+          <div class="date">1</div>
+          <div class="date">2</div>
+          <div class="date">3</div>
+          <div class="date">4</div>
+          <div class="date">5</div>
+          <div class="date">6</div>
+          <div class="date active">7</div>
+          <div class="date">8</div>
+          <div class="date">9</div>
+          <div class="date">10</div>
+          <div class="date">11</div>
+          <div class="date">12</div>
+          <div class="date">13</div>
+          <div class="date">14</div>
+          <div class="date">15</div>
+          <div class="date">16</div>
+          <div class="date">17</div>
+          <div class="date">18</div>
+          <div class="date">19</div>
+          <div class="date">20</div>
+          <div class="date">21</div>
+          <div class="date">22</div>
+          <div class="date">23</div>
+          <div class="date">24</div>
+          <div class="date">25</div>
+          <div class="date">26</div>
+          <div class="date">27</div>
+          <div class="date">28</div>
+          <div class="date deactive">1</div>
+          <div class="date deactive">2</div>
+          <div class="date deactive">3</div>
+          <div class="date deactive">4</div>
+          <div class="date deactive">5</div>
+          <div class="date deactive">6</div>
+          <div class="date deactive">7</div>
+          <div class="date deactive">8</div>
+          <div class="date deactive">9</div>
+          <div class="date deactive">10</div>
+        </div>
+      </div>
+      <div class="calendar_For_schedule">
+        <div class="schedule_Main">
+          <div class="schedule_body">
+            <div class="calendar_title">
+              <h5>Today</h5>
+            </div>
+            <div class="schdule_content_list">
+              <div class="schedule_content">
+                <h5>Status Update</h5>
+                <div class="schedule_Time">
+                  <h5>10:30 - 11:00am</h5>
+                  <h4>in Boardroom 1 @ Navigate Group</h4>
+                </div>
+              </div>
+              <div class="schedule_content">
+                <h5>On-Site Review</h5>
+                <div class="schedule_Time">
+                  <h5>3:00 - 4:00pm</h5>
+                  <h4>at Weslodge</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="schedule_body">
+            <div class="calendar_title">
+              <h5>Thursday, February 8</h5>
+            </div>
+            <div class="schdule_content_list">
+              <div class="schedule_content">
+                <h5>2018 Inaugural Wine Oh</h5>
+                <div class="schedule_Time">
+                  <h5>10:30 - 11:00am</h5>
+                  <h4>at Navigate Group</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="schedule_body">
+            <div class="calendar_title">
+              <h5>Thursday, February 8</h5>
+            </div>
+            <div class="schdule_content_list">
+              <div class="schedule_content hold">
+                <h5>Status Update</h5>
+                <div class="schedule_Time">
+                  <h5>10:30 - 11:00am</h5>
+                  <h4>in Boardroom 1 @ Navigate Group</h4>
+                </div>
+              </div>
+              <div class="schedule_content">
+                <h5>On-Site Review</h5>
+                <div class="schedule_Time">
+                  <h5>3:00 - 4:00pm</h5>
+                  <h4>at Weslodge</h4>
+                </div>
+              </div>
+              <div class="schedule_content">
+                <h5>On-Site Review</h5>
+                <div class="schedule_Time">
+                  <h5>3:00 - 4:00pm</h5>
+                  <h4>at Weslodge</h4>
+                </div>
+              </div>
+              <div class="schedule_content">
+                <h5>On-Site Review</h5>
+                <div class="schedule_Time">
+                  <h5>3:00 - 4:00pm</h5>
+                  <h4>at Weslodge</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="schedule_body">
+            <div class="calendar_title">
+              <h5>Thursday, February 8</h5>
+            </div>
+            <div class="schdule_content_list">
+              <div class="schedule_content active">
+                <h5>2018 Inaugural Wine Oh</h5>
+                <div class="schedule_Time">
+                  <h5>10:30 - 11:00am</h5>
+                  <h4>at Navigate Group</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script>
+    var user_id = '<%= user_id %>';
+    var user_fullname = '<%= user_fullname %>';
+    var user_img = '<%= user_img %>';
+    var to = '';
+    // var alluserinfo = <%- JSON.stringify(data) %>;
+    // console.log(alluserinfo);
+  </script>
+  <script src="/javascripts/socket-client-side.js"></script>
+  <script src="/javascripts/canvasjs.min.js"></script>
+  <script src="/javascripts/custom-calendar.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="/javascripts/custom.js"></script>
+  <script src="/javascripts/custom-chat.js"></script>
+
+  <%- include('layouts/foot') %>
+    <%- include('templates/project/quickproject') %>

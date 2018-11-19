@@ -1,0 +1,858 @@
+<%- include('layouts/basic_head') %>
+<!-- <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" /> -->
+<link rel="stylesheet" type="text/css" href="/stylesheets/timepicki.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/style-basic_to_do.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/todo_chat_style.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/pluginCss/OverlayScrollbars.css">
+<%- include('templates/sideBar') %>
+<section class="right-section" id="right-section-area">
+  <div class="to_do_container">
+    <div class="to_do_header">
+      <div class="to_do_head_left" id="toDoName" style="margin: 22px 0px;width: 545px;">
+        &nbsp;
+        <label class="checkbox_container"style="top: 5px; cursor: pointer;display: none;" >
+          <input id="amazonWishlist" type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+        <textarea class="edit-todo-name" type="textarea" maxlength="128" id="todoTitle" placeholder="New Task" style="display: none;"></textarea>
+      </div>
+      <div class="to_do_head_right">
+        <!-- <div class="chat" id="chat_icon"><img src="/images/basicAssets/Chat.svg"></div> -->
+        <div class="pin" id="toDoPinUnpinDiv"><img id="pin_unpin" onclick="todopinunpin($(this).attr('data-acid'));"
+            data-acid="" class="pin-to-bar unpin" src="/images/basicAssets/custom_not_pin.svg">
+        </div>
+        <div class="tags" id="tagged_area" name="">
+          <!-- <img src="/images/basicAssets/Tagged.svg" class="tagged" alt=""> -->
+          <img src="/images/basicAssets/custom_not_tag.svg" class="tagged" alt="">
+
+        </div>
+        <div class="addTagConv" style="display: none">
+          <span id="tagItemList"></span>
+          <div class="taglistHolder">
+            <input type="" name="" class="createConvTag" id="createConvTag" placeholder="Create or Search Tag(s)" data-acid=""><img class="settingEmail tagSet" onclick="removeUsertag(this);" src="/images/basicAssets/Settings.svg">
+            <ul class="taggedList" id="taggedList"></ul>
+          </div>
+        </div>
+        <div class="flag" onclick="toDoFlagUnflag(event)">
+          <img id="flag_unflag" class="unflag" src="/images/basicAssets/Not_Flagged.svg">
+        </div>
+        <div class="more" onclick="showMorePopUp()">
+          <img src="/images/basicAssets/custom_moreForHead_menu.svg">
+        </div>
+        <div class="moreMenuPopup" style="display:none">
+          <li id="deletetodoTopBar" data-activityid="" onclick="showRemovePopUp($(this).data('activityid'));">Delete Task</li>
+          <li>Duplicate Task</li>
+        </div>
+      </div>
+      <div class="to_do_head_right_section">
+        <div class="create-event chat" id="chat_icon">
+          <!-- <img src="/images/basicAssets/Create_Event_White.svg" alt=""> -->
+          <img src="/images/basicAssets/Chat.svg" style="width: 14px; height: 14px;"><p>Task Chat</p>
+        </div>
+        <div class="create-event" id="CreateEvent" onclick="createEventPop(event)" data-balloon="Create an event or schedule and share" data-balloon-pos="up">
+          <!-- <img src="/images/basicAssets/Create_Event_White.svg" alt=""> -->
+          <p><span>+</span> Schedule</p>
+        </div>
+        <div class="create-event-popup">
+          <input type="" name="" class="create-event-popup-title" placeholder="Create a event list with this room">
+          <div class="event-date-location">
+            <input class="event-date-time" type="text" placeholder="Choose date and time" id="eventDateAndTime">
+            <input class="event-location" type="text" placeholder="Enter event location" id="">
+            <!-- CREATE event CALENDER -->
+            <div class="todo-calender" style="display:none" id="calenderPicker">
+              <h4>August 2018 <span class="prev-arrow"><img src="/images/basicAssets/CalendarChevronRight.svg" alt=""></span> <span class="next-arrow"><img src="/images/basicAssets/CalendarChevronRight.svg" alt=""></span></h4>
+              <div class="todo-days">
+                <span>S</span>
+                <span>M</span>
+                <span>T</span>
+                <span>W</span>
+                <span>T</span>
+                <span>F</span>
+                <span>S</span>
+              </div>
+              <div class="todo-dates">
+                <span class="perv-month">27</span>
+                <span class="perv-month">28</span>
+                <span class="perv-month">29</span>
+                <span class="perv-month">30</span>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span class="selected">6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>10</span>
+                <span>11</span>
+                <span>12</span>
+                <span class="">13</span>
+                <span>14</span>
+                <span>15</span>
+                <span>16</span>
+                <span>17</span>
+                <span>18</span>
+                <span>19</span>
+                <span>20</span>
+                <span>21</span>
+                <span>22</span>
+                <span>23</span>
+                <span>24</span>
+                <span>25</span>
+                <span>26</span>
+                <span>27</span>
+                <span>28</span>
+                <span>29</span>
+                <span>30</span>
+                <span>31</span>
+              </div>
+              <div class="todo-from-to-reminder">
+                <input class="todo-from" type="text" placeholder="From">
+                <input class="todo-to" type="text" placeholder="To">
+                <input class="todo-reminder" type="text" placeholder="Set Reminder">
+              </div>
+              <div class="todo-btn-div">
+                <button class="todo-cancel-btn" id="calenderCancelBtn" type="button">Cancel</button>
+                <button class="todo-done-btn" id="calenderDoneBtn" type="button">Done</button>
+              </div>
+            </div>
+            <!-- CREATE event CALENDER -->
+          </div>
+          <div class="create-todo-ad-option" onclick="eventToggleAdvance()" style="margin: 18px 0px;">
+            <p>ADVANCED OPTIONS</p>
+          </div>
+          <div class="todo-advance-option-div" id="eventAdvanceOption" style="margin-top: -8px !important;margin-bottom: 16px;overflow: hidden; display: none">
+            <p>choose room members</p>
+            <div class="room-member-search">
+              <input type="text" placeholder="Search">
+            </div>
+            <div class="added-room-members">
+              <li>
+                <label class="">John Smith
+                  <input class="checkmember" type ="checkbox" value="1">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="">Mahfuzur Rahman
+                  <input class="checkmember" type ="checkbox" value="1">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="">AH Nayeem
+                  <input class="checkmember" type ="checkbox" value="1">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="">Dalim Chowdhury
+                  <input class="checkmember" type ="checkbox" value="1">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="">Dipok Chakraborty
+                  <input class="checkmember" type ="checkbox" value="1">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="">Sadikur Rahman
+                  <input class="checkmember" type ="checkbox" value="1">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="">John Smith
+                  <input class="checkmember" type ="checkbox" value="1">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="">Mahfuzur Rahman
+                  <input class="checkmember" type ="checkbox" value="1">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="">AH Nayeem
+                  <input class="checkmember" type ="checkbox" value="1">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="">Dalim Chowdhury
+                  <input class="checkmember" type ="checkbox" value="1">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="">Dipok Chakraborty
+                  <input class="checkmember" type ="checkbox" value="1">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="">Sadikur Rahman
+                  <input class="checkmember" type ="checkbox" value="1">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+            </div>
+          </div>
+          <div class="event-btn-group">
+            <button class="event-cancel-btn">Cancel</button>
+            <button class="event-create-btn" onclick="createEventF(event)">Create Event</button>
+          </div>
+        </div>
+        <!-- Create event popup end here -->
+        <div class="createFeedBack" data-balloon="Add a feedback" data-balloon-pos="up">
+          <p><span>+</span> Feedback</p>
+        </div>
+        <!-- <div class="" id="closeNewToDO" onclick="closeRightSection()"  style="display: none;"><img src="/images/basicAssets/close_button.svg"></div> -->
+      </div>
+    </div>
+    <!-- <div class="border_div"></div> -->
+    <div class="workspaceform overlayScrollbars" style="display:none">
+      <form action="">
+        <div class="form_left">
+          <div class="group_div">
+            <div class="inputGroup">
+              <label class="fullLabel" for="">Due date</label>
+              <input type="text" name="dueDateWS" id="dueDatePicker" class="input_box" placeholder="Choose a date">
+              <div class="todo-calender" style="display:none" id="dueDatePickerDiv">
+                  <div class="addTimePicker">
+                      <li class="time-from">
+                        <input class="datefrom" id="timeFrom" type="text" placeholder="From">
+                      </li>
+                      <li class="time-to">
+                        <input id="timeTo" class="dateto" type="text" placeholder="To">
+                      </li>
+                      <li class="remind-time">
+                        <!-- <input id="timeReminder" class="reminder" type="text" placeholder="Set Reminder"> -->
+                        <select id="ReminderTime" class="reminder" required>
+                          <option value="" disabled selected>Set Reminder</option>
+                          <option value="15">Snooze 15 Minutes before</option>
+                          <option value="30">Snooze 30 Minutes before</option>
+                          <option value="45">Snooze 45 Minutes before</option>
+                          <option value="1">Snooze 1 Hours before</option>
+                          <option value="2">Snooze 2 Hours before</option>
+                          <option value="3">Snooze 3 Hours before</option>
+                          <option value="4">Snooze 4 Hours before</option>
+                          <option value="5">Snooze 5 Hours before</option>
+                        </select>
+                      </li>
+                  </div>
+              </div>
+            </div>
+            <div class="inputGroup" style="margin-left:20px;">
+              <label class="fullLabel">Team</label>
+              <select class="selectWorkspace" id="selectWorkspace" required>
+                <option value="Navigate">Navigate</option>
+                <option value="Freelance">Freelance</option>
+                <option value="Personal">Personal</option>
+              </select>
+            </div>
+          </div>
+          <div class="inputGroup2">
+            <label class="fullLabel">Share with</label>
+            <input type="text" placeholder="Search members" name="" id="search_members" class="input_box2">
+            <span class="remove" onclick="clearMemberSearch(event)" style="display:none"></span>
+            <div class="suggested-type-list overlayScrollbars">
+              <ul class="suggested-list">
+
+              </ul>
+
+            </div>
+          </div>
+          <div class="shareingImg" id="sharePeopleList" style="display:none;">
+            <p class="sharing_label">Sharing with</p>
+            <span style="margin-left:8px;cursor:pointer; display:none">+4</span>
+          </div>
+          <div style="margin-top:32px">
+            <label class="fullLabel">Notes</label>
+            <textarea class="notes_area" id="notes_area" placeholder="Enter your notes here"></textarea>
+          </div>
+          <form method="POST" encType="multipart/form-data">
+            <div class="fileContainer" onclick="open_file_browser_for_send_msg()">
+              Upload File(s) <img src="/images/basicAssets/Attach_green.svg" alt="">
+            </div>
+          </form>
+          <div style="width:100%;display: none;overflow: hidden;margin-bottom: 32px" id="viewUploadFileviewUploadFile">
+          </div>
+
+        </div>
+        <div class="form_right">
+          <input class="checklist_item" id="addTodoCheckList" type="text" placeholder="Add a checklist item" name=""
+            autofocus>
+          <div class="item_list" id="toDoCheckListContainer">
+            <div class="item_progress">
+              <label class="progress_status"><span id="showPercent"></span> </label>
+              <div class="progress" id="progressbar" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="new-added-check-list">
+              <li>
+                <span class="remove" data-chtitle="" onclick="removeThisCheckList(event)"></span>
+                <label class="country-label"> Default Check List
+                  <input type="checkbox" value="Default Check List">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+            </div>
+          </div>
+          <div class="button-section">
+            <button class="cancel-btn" id="cancel-btn" onclick="closeRightSection()">Cancel</button>
+            <button class="create-btn" id="create-btn" onclick="createNewActivity();">Create Task</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<div class="backwrap" id="memberListBackWrap" style="display: none;">
+  <div class="memberListContainer">
+    <div class="closeBackwrap" data-balloon="Press Esc to close" data-balloon-pos="up">
+      <img src="/images/basicAssets/close_button.svg">
+    </div>
+    <div class="label">
+      <h1 class="label_Title">Members</h1>
+      <h1 class="list_Count">(8)</h1>
+    </div>
+    <input type="text" placeholder="Search by name" class="search_List">
+    <div class="forScrollBar overlayScrollbars">
+      <div class="memberList">
+        <div class="list">
+          <img src="/images/users/joni.jpg">
+          <span class="online"></span>
+          <h1 class="memberName">Dalim Chy</h1>
+          <di class="hoverContent">
+            <div class="conversation"></div>
+            <div class="voiceCall"></div>
+            <div class="videoCall"></div>
+            <div class="close"><span class="remove" onclick="closeMembers(e)"></span></div>
+          </di>
+        </div>
+        <div class="list">
+          <img src="/images/users/joni.jpg">
+          <span class="online"></span>
+          <h1 class="memberName">Dalim Chy</h1>
+          <di class="hoverContent">
+            <div class="conversation"></div>
+            <div class="voiceCall"></div>
+            <div class="videoCall"></div>
+            <div class="close"></div>
+          </di>
+        </div>
+        <div class="list">
+          <img src="/images/users/joni.jpg">
+          <span class="offline"></span>
+          <h1 class="memberName">Dalim Chy</h1>
+          <di class="hoverContent">
+            <div class="conversation"></div>
+            <div class="voiceCall"></div>
+            <div class="videoCall"></div>
+            <div class="close"></div>
+          </di>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="backwrap" id="delete_msg_div">
+  <div class="delete_msg_div">
+    <img onclick="closeAllPopUp()" src="/images/basicAssets/close_button.svg" alt="">
+    <div class="body">
+      <p class="del_msg_title">Delete message</p>
+      <p class="delete_msg_sec_title">Are you sure you want to delete this message? This cannot be undone.</p>
+      <div class="main-deleted-msg"></div>
+      <p class="btn_div">
+        <br />
+        <button type="button" class="btn-cancel" onclick="closeAllPopUp()">Cancel</button>
+        <button type="button" class="btn-msg-del" onclick="delete_commit(this)" data-id="' + msgid + '">Delete for me</button>
+        <button type="button" class="btn-msg-del btn-msg-del-all" onclick="delete_commit(this)" data-id="' + msgid + '">Delete
+          for all</button>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="backwrap" id="delete_to_do_div" style="display: none">
+  <div class="delete_msg_div">
+    <img onclick="closeAllPopUp()" src="/images/basicAssets/close_button.svg" alt="">
+    <div class="body">
+      <p class="del_msg_title">Delete Task</p>
+      <p class="delete_msg_sec_title">Are you sure you want to delete this Task? This cannot be undone.</p>
+      <div class="main-deleted-msg"></div>
+      <p class="btn_div">
+        <br />
+        <button type="button" class="btn-cancel" onclick="closeAllPopUp()">Cancel</button>
+        <button type="button" class="btn-msg-del" onclick="delete_commit_td(this)" data-id="">Confirm Delete</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="backwrap" id="completed_activity_div">
+  <div class="delete_msg_div">
+    <img onclick="closeAllPopUp()" src="/images/basicAssets/close_button.svg" alt="">
+    <div class="body">
+      <p class="del_msg_title">Complete Task</p>
+      <p class="delete_msg_sec_title"></p>
+      <div class="main-deleted-msg checklistDiv" id="COmchecklistDiv">
+
+      </div>
+      <p class="btn_div">
+        <br />
+        <!-- <button type="button" class="btn-cancel" onclick="closeAllPopUp()">Cancel</button> -->
+        <!-- <button type="button" class="btn-msg-del btn-ok" id="checkedOk" onclick="checkedOk()">Yes</button> -->
+        <button type="button" class="btn-msg-del" id="checkedYes" onclick="checkedYes()">Yes</button>
+        <button type="button" class="btn-msg-del btn-msg-del-all" id="checkedNo" onclick="closeAllPopUp()">No</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="backwrap" id="reopen_activity_div">
+  <div class="delete_msg_div">
+    <img onclick="closeAllPopUp()" src="/images/basicAssets/close_button.svg" alt="">
+    <div class="body">
+      <p class="del_msg_title">Reopen Task</p>
+      <p class="delete_msg_sec_title"></p>
+      <div class="main-deleted-msg checklistDiv" id="ROchecklistDiv">
+
+      </div>
+      <p class="btn_div">
+        <br />
+        <!-- <button type="button" class="btn-cancel" onclick="closeAllPopUp()">Cancel</button> -->
+        <!-- <button type="button" class="btn-msg-del btn-ok" id="reopenCheckedOk" onclick="reopenCheckedOk()">Yes</button> -->
+        <button type="button" class="btn-msg-del" id="reopenCheckedYes" onclick="reopenCheckedYes()">Yes</button>
+        <button type="button" class="btn-msg-del btn-msg-del-all" id="reopenCheckedNo" onclick="closeAllPopUp()">No</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+<input type="hidden" id="activityCreatedAt" value="0" />
+<input type="hidden" id="updateAction" value="0" />
+<input type="hidden" id="actCre" value="0" />
+<!-- right chat area-->
+<%- include('templates/activity_chat/act_chat') %>
+<%- include('templates/activity_chat/todo_file_upload') %>
+<!-- end chat -->
+<script>
+  var user_id = '<%= user_id %>';
+  var user_fullname = '<%= user_fullname %>';
+  var user_img = '<%= user_img %>';
+  var to = '<%= data[0].room_id %>';
+  var conversation_id = '<%= data[0].conversation_id %>';
+  var conversation_type = '<%= data[0].conversation_type %>';
+  var room_id = '<%= data[0].room_id %>';
+  var room_name = '<%= data[0].room_name %>';
+  var room_img = '<%= data[0].room_img %>';
+  var file_server = '<%= file_server %>';
+  var allUserdata = <%- JSON.stringify(data) %>;
+  var dataclusteringKey = <%- JSON.stringify(data[0].clusteringKey) %>;
+  var tdoList = <%- JSON.stringify(data[0].tdoList) %>;
+  var dept = [];
+  var memberList = [];
+  var adminList = [];
+  var adminListUUID = [];
+  var memberListUUID = [];
+  var typing = false; //Global typing variable, for storing typing status
+  var timeout = undefined; //Global timeout variable, for storing when typing timeout
+</script>
+
+<script src="/javascripts/jQuery/jquery-ui.min.js"></script>
+<script src="/javascripts/timepicki.js"></script>
+
+<script>
+  var reminderStartList = {};
+  var reminderEndList = {};
+
+  $.each(tdoList, function (k, v) {
+
+    if (v.reminder_time != null) {
+      var now = moment(new Date()).format("YYYY-MM-DD"); //todays date
+      var end = moment(new Date(v.todo_enddate)).format("YYYY-MM-DD"); // activity end date
+
+      var date2 = new Date(now);
+      var date1 = new Date(end);
+
+      var timeDiff = Math.ceil(date2.getTime() - date1.getTime());
+      var dayDifference = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+      if (dayDifference == 0) {
+
+        if (v.todo_starttime !== null) {
+          let endTime = moment(v.todo_enddate).format("YYYY-MM-DD");
+          let endDatenTime = endTime + " " + v.todo_starttime;
+          let end = moment(endDatenTime).format("x"); // activity end date
+          let date2 = moment().format('x');
+          let timeDiff = Math.ceil(end - date2);
+          let secDifference = Math.ceil(timeDiff / 1000);
+          let minDiff = Math.ceil(secDifference / 60);
+
+          reminderStartList[k] = {
+            'minDiff': minDiff,
+            'reminder': v.reminder_time,
+            'members': v.todo_members,
+            'endtime': end
+          };
+        }
+
+        if (v.todo_endtime !== null) {
+          let endTime = moment(v.todo_enddate).format("YYYY-MM-DD");
+          let endDatenTime = endTime + " " + v.todo_endtime;
+          let end = moment(endDatenTime).format("x"); // activity end date
+          let date2 = moment().format('x');
+          let timeDiff = Math.ceil(end - date2);
+          let secDifference = Math.ceil(timeDiff / 1000);
+          let minDiff = Math.ceil(secDifference / 60);
+
+          reminderEndList[k] = {
+            'minDiff': minDiff,
+            'reminder': v.reminder_time,
+            'members': v.todo_members,
+            'endtime': end
+          };
+        }
+      }
+    }
+  });
+
+  var startTick = new Date().getTime();
+  var interval = moment.duration(60, "seconds").timer({
+    loop: true,
+    wait: 2500,
+    executeAfterWait: true
+  },
+    function () {
+
+      $.each(reminderStartList, function (k, v) {
+        let now = moment().format('x');
+        let timeDiff = Math.floor(v.endtime - now);
+        let secDifference = Math.floor(timeDiff / 1000);
+        let minDiff = Math.floor(secDifference / 60) - parseInt(v.reminder);
+        if (minDiff == 0) {
+          var toDoName = $('#activity_' + k).find('.toDoName').text();
+          toastr.options.closeButton = true;
+          toastr.options.timeOut = 0;
+          toastr.options.extendedTimeOut = 0;
+          toastr["warning"]("\"" + toDoName + "\" start after " + minToHour(v.reminder), "Warning");
+        }
+
+      });
+
+      $.each(reminderEndList, function (k, v) {
+        let now = moment().format('x');
+        let timeDiff = Math.floor(v.endtime - now);
+        let secDifference = Math.floor(timeDiff / 1000);
+        let minDiff = Math.floor(secDifference / 60) - parseInt(v.reminder);
+        if (minDiff == 0) {
+          var toDoName = $('#activity_' + k).find('.toDoName').text();
+          toastr.options.closeButton = true;
+          toastr.options.timeOut = 0;
+          toastr.options.extendedTimeOut = 0;
+          toastr["warning"]("\"" + toDoName + "\" end after " + minToHour(v.reminder), "Warning");
+        }
+
+      });
+    });
+
+  function minToHour(min) {
+    if (min == 15) {
+      return "15 mins";
+    } else if (min == 30) {
+      return "30 mins";
+    } else if (min == 45) {
+      return "45 mins";
+    } else if (min == 60) {
+      return "1 hour";
+    } else if (min == 120) {
+      return "2 hours";
+    } else if (min == 180) {
+      return "3 hours";
+    } else if (min == 240) {
+      return "4 hours";
+    } else if (min == 300) {
+      return "5 hours";
+    } else {
+      return min + " mins";
+    }
+  }
+
+  // function reminderpromise(data){
+  //   return new Promise((resolve,reject)=>{
+  //     reminderList.splice(data.todoid,1);
+  //     resolve({'msg':'success'});
+  //   });
+  // }
+</script>
+<script>
+  var showMorePopUp = () =>{
+    if(!$('.moreMenuPopup').is(':visible')){
+       $('.moreMenuPopup').show();
+    }else{
+      $('.moreMenuPopup').hide();
+    }
+  }
+
+  $('.input_box').click(function(){
+    $('#dueDatePickerDiv').show();
+  });
+
+  $('#dueDatePickerDiv').datepicker({
+    monthNamesShort: $.datepicker.regional["en"].monthNames,
+    inline: true,
+    altField: '.input_box',
+    dateFormat: "dd-mm-yy",
+    changeMonth: true,
+    // changeYear: true,
+    dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+    onSelect: function () {
+      if(!$('#n_ToDo_item').is(':visible')){
+        if ($("#updateAction").val() !== 0 && $("#actCre").val() === user_id) {
+          var acid = $('#chat_icon').attr('data-activity_id');
+          socket.emit('toodoUpdate', {
+            targetID: acid,
+            type: 'duedate',
+            contain: $("#dueDatePicker").val(),
+            clusteringkey: $('#activityCreatedAt').val()
+          },
+          function (confirmation) {
+            var now = moment(new Date()).format("YYYY-MM-DD"); //todays date
+            var endTime = $("#dueDatePicker").val().split("-");
+            var newDate = endTime[2] + "-" + endTime[1] + "-" + endTime[0];
+            var end = moment(new Date(newDate)).format("YYYY-MM-DD"); // activity end date
+            
+            var date2 = new Date(now);
+            var date1 = new Date(end);
+
+            var timeDiff = Math.ceil(date2.getTime() - date1.getTime());
+            var dayDifference = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            let disPlayCheck = ($("#fla_" + acid).is(':visible') ? "block" : "none");
+            let unrm = parseInt($("#activity_" + acid).attr('data-urm'));
+            
+            if(unrm > 0){
+              var urmDis = 'pointer-events: none; background-image: url(/images/basicAssets/greenChat.svg); background-size: 14px 14px; background-repeat: no-repeat; background-position: center; font-size: 12px; color: #000; background-color: white;';
+            }else{
+              var urmDis = 'background: transparent; pointer-events: none; ';
+            }
+           
+
+            if(!$("#pin_unpin").hasClass('pined')){
+              if (dayDifference > -1) {
+                if (dayDifference == 0) {
+                  if ($("#activity_" + acid).hasClass('od_to')) {
+                    var design = '<li id="activity_' + acid + '" data-activityid="' + acid + '" class="todoLink activeTodo n_td" onclick="startToDo(event)" data-urm='+unrm+' ><span class="toDo"></span><span class="toDoName">' + $("#activity_" + acid).find('.toDoName').text() + '</span><img id="fla_' + acid + '" class="Flagged sidebarFlag" src="/images/basicAssets/Flagged_red.svg" style="display:' + disPlayCheck + ';width: 13px; height: auto; position: absolute; top: 9px; right: 39px;"><span class="unreadMsgCount"></span><span class="unreadMsgCount" style="'+urmDis+'"></span>';
+                    if ($("#activity_" + acid + ' .remove').length > 0) {
+                      design += '  <span class="remove" onclick="hideThisTodo(event,\'' + acid + '\')"></span>';
+                    }
+                    design += '  </li>';
+                    $("#activity_" + acid).remove();
+                    $("#unpinTodoList").prepend(design);
+                  }
+                } else if ($("#activity_" + acid).hasClass('n_td')) {
+                  var design = '<li id="activity_' + acid + '" data-activityid="' + acid + '" class="todoLink activeTodo od_to" onclick="startToDo(event)" data-urm=' + unrm +'><span class="newtoDo"></span><span class="toDoName">' + $("#activity_" + acid).find('.toDoName').text() + '</span><img id="fla_' + acid + '" class="Flagged sidebarFlag" src="/images/basicAssets/Flagged_red.svg" style="display:' + disPlayCheck + ';width: 13px; height: auto; position: absolute; top: 9px; right: 39px;"><span class="unreadMsgCount"></span><span class="unreadMsgCount" style="display:' + urmDis +'"></span>';
+                  if ($("#activity_" + acid + ' .remove').length > 0) {
+                    design += '  <span class="remove" onclick="hideThisTodo(event,\'' + acid + '\')"></span>';
+                  }
+                  design += '</li>';
+                  $("#activity_" + acid).remove();
+                  $("#overdueULlist").prepend(design);
+                }
+
+              } else {
+
+                if ($("#activity_" + acid).hasClass('od_to')) {
+                  var design = '<li id="activity_' + acid + '" data-activityid="' + acid + '" class="todoLink activeTodo n_td" onclick="startToDo(event)" data-urm=' + unrm +'><span class="toDo"></span><span class="toDoName">' + $("#activity_" + acid).find('.toDoName').text() + '</span><img id="fla_' + acid + '" class="Flagged sidebarFlag" src="/images/basicAssets/Flagged_red.svg" style="display:' + disPlayCheck + ';width: 13px; height: auto; position: absolute; top: 9px; right: 39px;"><span class="unreadMsgCount"></span><span class="unreadMsgCount" style="display:' + urmDis +'"></span>';
+                  if ($("#activity_" + acid + ' .remove').length > 0) {
+                    design += '  <span class="remove" onclick="hideThisTodo(event,\'' + acid + '\')"></span>';
+                  }
+                  design += '  </li>';
+                  $("#activity_" + acid).remove();
+                  $("#unpinTodoList").prepend(design);
+                }
+              }
+            }else{
+              if (dayDifference > -1) {
+                if (dayDifference == 0) {
+                  if ($("#activity_" + acid).hasClass('od_to')) {
+                      $("#activity_" + acid).removeClass('od_to').addClass('n_td');
+                  }
+                } else {
+                  if ($("#activity_" + acid).hasClass('n_td')) {
+                    $("#activity_" + acid).removeClass('n_td').addClass('od_to');
+                  }
+                }
+              } else{
+                if ($("#activity_" + acid).hasClass('od_to')) {
+                  $("#activity_" + acid).removeClass('od_to').addClass('n_td');
+                }
+              }
+            }
+            
+            sidebarFlagActiveAfterDynamicAppand();
+          });
+        }
+      }
+    }
+  });
+
+
+  $('.input_box').change(function () {
+    $('#dueDatePickerDiv').datepicker('setDate', $(this).val());
+  });
+
+  $("#timeFrom").timepicki();
+  $("#timeTo").timepicki();
+  $("#timeReminder").timepicki();
+
+
+  var escKeUp = () => {
+      $(document).on('keydown', function (e) {
+        if (e.keyCode === 27) {
+          if(!$('#n_ToDo_item').is(':visible')){
+              if ($("#updateAction").val() !== 0 && $("#actCre").val() === user_id) {
+                var activity_from = $("#timeFrom").val();
+                var activity_to = $("#timeTo").val();
+                var activity_reminder = $("#ReminderTime").val();
+                var acid = $('#chat_icon').attr('data-activity_id');
+                var data = {
+                  activity_from: activity_from,
+                  activity_to: activity_to,
+                  activity_reminder: activity_reminder
+                };
+
+                socket.emit('toodoUpdate', {
+                  targetID: acid,
+                  type: 'timenreminder',
+                  contain: data,
+                  clusteringkey: $('#activityCreatedAt').val()
+                }, function (confirmation) {
+                  $("#dueDatePickerDiv").hide();
+                  console.log(confirmation);
+                });
+              } else {
+                $("#dueDatePickerDiv").hide();
+              }
+          }
+        }
+      })
+  }
+  escKeUp();
+
+  var allMouseUp = () => {
+    $(document).mouseup(function (e) {
+      var dueDatePickerDiv = $('#dueDatePickerDiv');
+      if(!$('#n_ToDo_item').is(':visible')){
+        if(dueDatePickerDiv.is(':visible')){
+          if (!dueDatePickerDiv.is(e.target) && dueDatePickerDiv.has(e.target).length === 0) {
+            if ($("#updateAction").val() !== 0 && $("#actCre").val() === user_id) {
+
+              var activity_from = $("#timeFrom").val();
+              var activity_to = $("#timeTo").val();
+              var activity_reminder = $("#ReminderTime").val();
+              var acid = $('#chat_icon').attr('data-activity_id');
+              var data = {
+                activity_from: activity_from,
+                activity_to: activity_to,
+                activity_reminder: activity_reminder
+              };
+
+              socket.emit('toodoUpdate', {
+                targetID: acid,
+                type: 'timenreminder',
+                contain: data,
+                clusteringkey: $('#activityCreatedAt').val()
+              }, function (confirmation) {
+                $("#dueDatePickerDiv").hide();
+              });
+
+            } else {
+              dueDatePickerDiv.hide();
+            }
+          }
+        }
+      }
+
+    });
+  }
+
+  allMouseUp();
+
+  var showRemovePopUp=(activityid)=>{
+
+    $('#delete_to_do_div').show();
+    $('.delete_msg_sec_title').text('Are you sure you want to DELETE the following Task ?');
+    $('.main-deleted-msg').html("");
+
+    tempUpdateAction = $('#updateAction').val();
+    tempActivityCreatedAt = $('#actCre').val();
+    tempActivityCreatedBy = $('#activityCreatedAt').val();
+
+    $('#updateAction').val(activityid);
+    $('#actCre').val(user_id);
+    $('#activityCreatedAt').val(dataclusteringKey[activityid]);
+
+    var toDoName = $('#activity_' + activityid).find('.toDoName').text();
+    $('.main-deleted-msg').append('<span>Task Title :</span><p>' + toDoName + '</p>');
+
+
+  }
+
+  var delete_commit_td = ()=>{
+
+    var todoActivityId = $('#updateAction').val();
+    var toDoCreateAt = $('#activityCreatedAt').val();
+    var toDoName = $('#activity_'+todoActivityId).find('.toDoName').text();
+    var toDoCreator = $('#actCre').val();
+
+    if(toDoCreator == user_id){
+        socket.emit('toodoUpdate', {
+          targetID: todoActivityId,
+          type: 'delete_to_do',
+          contain: 0,
+          clusteringkey: toDoCreateAt
+        },
+        function (confirmation) {
+
+            closeAllPopUp()
+            if($('#activity_' + todoActivityId).hasClass('activeTodo')){
+                $('#activity_' + todoActivityId).remove();
+                firstLiClick($('.side_bar_list_item > li:visible').length);
+            }else{
+                $('#activity_' + todoActivityId).remove();
+                firstLiClick($('.side_bar_list_item > li:visible').length);
+            }
+
+        });
+    }else{
+      toastr['warning']('Please contact with todo creator', 'Warning');
+    }
+  }
+
+
+function firstLiClick (param){
+  console.log(param);
+  if (param == 0) {
+      createNewTodo();
+  }else{
+      $('.side_bar_list_item li:first').click();
+      $('.side_bar_list_item li:first').addClass('activeTodo selected');
+  }
+}
+</script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+<script src="/javascripts/socket-client-side.js"></script>
+<script src="/javascripts/custom_to_do.js"></script>
+<script src="/javascripts/chat_to_do.js"></script>
+<script src="/javascripts/hayvenTooltip.js"></script>
+<script src="/javascripts/jQuery/jquery-ui-datepicker.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+
+
+
+<%- include('layouts/basic_foot') %>

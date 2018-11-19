@@ -1,0 +1,74 @@
+<%- include('layouts/head') %>
+
+    <link href="/stylesheets/files.css" rel="stylesheet">
+
+    <main role="main" class="container-fluid">
+        <div class="file_section_area">
+            <div class="left_panel_area">
+
+                <p class="upload-files-from">Upload files from </p>
+
+                <div class="rectangle-area">
+                    <p class="your-computer">
+                        Your Computer
+                    </p>
+                </div>
+                <div class="sync-accounts">Sync accounts </div>
+                <div class="rectangle-area">
+                    <p class="your-computer">
+                        Google Drive
+                    </p>
+                </div>
+                <div class="rectangle-area">
+                    <p class="your-computer">
+                        Dropbox
+                    </p>
+                </div>
+                <div class="rectangle-area">
+                    <p class="your-computer">
+                        OneDrive
+                    </p>
+                </div>
+                <div class="rectangle-area">
+                    <p class="your-computer">
+                        iCloud
+                    </p>
+                </div>
+
+            </div>
+            <!-- End left_panel_area -->
+
+            <!-- Right panel area -->
+            <div class="right_panel_area">
+                <div class="container_area">
+                    <div class="select-wrapper">
+                        <input type="file" name="image_src" id="image_src" />
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+                <a href="/hayven_files_list">
+                    <div class="you-have-no-files-up">
+                        <p>You have no files uploaded yet</p>
+                    </div>
+                    <div class="drag-drop-your-file">
+                        <p>Drag & drop your files here</p>
+                    </div>
+                </a>
+            </div>
+            <!--End Right panel area-->
+
+        </div>
+        <!-- End file_section_area -->
+        <%- include('templates/_partial') %>
+    </main>
+    <script>
+        var user_id = '<%= user_id %>';
+        var user_fullname = '<%= user_fullname %>';
+        var user_img = '<%= user_img %>';
+        var to = '';
+    </script>
+    <script src="/javascripts/socket-client-side.js"></script>
+    <script src="/javascripts/custom.js"></script>
+    <%- include('layouts/foot') %>
+    <%- include('templates/project/quickproject') %>

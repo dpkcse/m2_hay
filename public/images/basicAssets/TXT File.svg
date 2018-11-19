@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>TXT File</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="TXT-File" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Group" transform="translate(9.000000, 9.000000)" stroke="#000000" stroke-width="1.5">
+            <g id="office-file-txt-1">
+                <path d="M6.777375,30.0286667 L2.902375,30.0286667 C1.8323233,30.0286667 0.964875,29.1612184 0.964875,28.0911667 L0.964875,2.90366667 C0.964875,1.83361496 1.8323233,0.966166667 2.902375,0.966166667 L16.6315,0.966166667 C17.1449985,0.966276305 17.6374521,1.17022643 18.0006667,1.53320833 L25.5853333,9.117875 C25.9483152,9.48108959 26.1522654,9.97354319 26.152375,10.4870417 L26.152375,16.4661667" id="Shape"></path>
+                <path d="M26.152375,10.6536667 L18.402375,10.6536667 C17.3323233,10.6536667 16.464875,9.78621837 16.464875,8.71616667 L16.464875,0.966166667" id="Shape"></path>
+                <path d="M28.089875,30.0286667 L28.089875,20.3411667" id="Shape"></path>
+                <path d="M26.152375,20.3411667 L30.027375,20.3411667" id="Shape"></path>
+                <path d="M12.589875,30.0286667 L12.589875,20.3411667" id="Shape"></path>
+                <path d="M10.652375,20.3411667 L14.527375,20.3411667" id="Shape"></path>
+                <path d="M18.402375,20.3411667 L22.277375,30.0286667" id="Shape"></path>
+                <path d="M22.277375,20.3411667 L18.402375,30.0286667" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

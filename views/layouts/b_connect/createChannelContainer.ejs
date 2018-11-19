@@ -1,0 +1,63 @@
+<div id="createChannelContainer" class="create-channel connect_right_section" style="display: none;">
+	<h2 class="create-channel-heading">Create a room</h2>
+	<img class="dir-msg-close" onclick="closeRightSection()" src="/images/basicAssets/close_button.svg" alt="">
+	<div class="photo-upload-invite-member">
+		<div class="upload-channel-photo">
+			<div class="img-div">
+				<img src="/images/basic_view/channel-photo.JPG" id="demoImg" alt="" >
+			</div>
+			<form name="roomImg" id="roomImg" class="roomImg" method="post" enctype="multipart/form-data">
+				<div class="file-up-div">
+					<p>Upload a room image</p>
+					<label for="upload-channel-photo">Upload</label>
+					<input type="file" id="upload-channel-photo" name="photos" onchange="getInfo(event)" accept="image/x-png,image/jpeg,image/jpg">
+				</div>
+			</form>
+		</div>
+		<div class="invite-member">
+			<p>Invite member to this room</p>
+			<span class="remove searchClear" style="display: none;"></span>
+			<input type="text" class="add-team-member" name="add-team-member" placeholder="Search by name or email" onkeyup="searchsldefclas(event,$(this).val());">
+			<div class="suggested-type-list">
+				<div class="forScrollBar overlayScrollbars">
+					<!-- <img src="/images/remove_8px_200 @1x.png" class="remove-suggested-type-list"> -->
+					<ul class="suggested-list" id="s-l-def">
+					
+					
+					</ul>
+				</div>
+			</div>
+			<div class="memberList">
+				<div class="type-name" id="ml-admintype" style="display:none;">Admin</div>
+                <div class="ml-listHA" id="ml-listHA"></div>
+                <div class="type-name" id="ml-membertype" style="display:none;">Members</div>
+                <div class="ml-listHl" id="ml-listHl"></div>
+			</div>
+		</div>
+	</div>
+	<div class="channel-name">
+		<p>Room Name</p>
+		<input type="text"  name="team-name" class="team-name" id="team-name" placeholder="Marketing, product design, etc...">
+	</div>
+	<div class="workspace">
+		<p>workspace</p>
+		<select class="select-ecosystem" id="select-ecosystem" onchange="updateWorkspace(this.value)" required>
+			<option value="" disabled selected>Choose a workspace</option>
+			<option value="Navigate">Navigate</option>
+			<option value="Freelance">Freelance</option>
+			<option value="Personal">Personal</option>
+		</select>
+	</div>
+	<div class="make_private">
+		<label class="switch">
+			<input type="checkbox" id="grpPrivacy">
+			<span class="slider round"></span>
+		</label>
+		<p class="label_head">Make this room private</p><br>
+		<p class="label_for">Only members invited will get access to join.</p>
+	</div>
+	<div class="submitBtn">
+		<button class="cancel" onclick="closeRightSection()">Cancel</button>
+		<button class="create" onclick="CreateGroup();">Create Room</button>
+	</div>
+</div>

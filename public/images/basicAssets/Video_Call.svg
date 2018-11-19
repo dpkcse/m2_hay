@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Video Call</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Video-Call" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Work-Office-Companies-/-Video-Meetings-/-meeting-camera" transform="translate(4.000000, 4.000000)" stroke="#000000">
+            <g id="Group">
+                <g id="meeting-camera" stroke-width="1.5">
+                    <rect id="Rectangle-path" x="0.5" y="3.50733333" width="10" height="9" rx="3"></rect>
+                    <path d="M12.5,10.0073333 L14.7766667,11.1453333 C14.9316569,11.22271 15.1156553,11.2143483 15.2629884,11.1232326 C15.4103215,11.0321169 15.4999941,10.8712314 15.5,10.698 L15.5,5.316 C15.5001373,5.14273425 15.4104444,4.98178216 15.2630213,4.89074668 C15.1155981,4.7997112 14.9315201,4.79160656 14.7766667,4.86933333 L12.5,6.00733333" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

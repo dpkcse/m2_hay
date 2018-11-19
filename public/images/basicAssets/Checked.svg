@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Checked</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M5.5,2.5 L14.5,2.5 C16.1568542,2.5 17.5,3.84314575 17.5,5.5 L17.5,14.5 C17.5,16.1568542 16.1568542,17.5 14.5,17.5 L5.5,17.5 C3.84314575,17.5 2.5,16.1568542 2.5,14.5 L2.5,5.5 C2.5,3.84314575 3.84314575,2.5 5.5,2.5 Z M12.7617856,7.32741102 L8.35104122,11.7381554 L6.83925565,10.2263698 C6.51381874,9.90093289 5.98618126,9.90093289 5.66074435,10.2263698 C5.33530744,10.5518067 5.33530744,11.0794442 5.66074435,11.4048811 L7.76178556,13.5059223 C8.08722247,13.8313592 8.61485996,13.8313592 8.94029687,13.5059223 L13.9402969,8.50592232 C14.2657338,8.18048541 14.2657338,7.65284793 13.9402969,7.32741102 C13.61486,7.00197411 13.0872225,7.00197411 12.7617856,7.32741102 Z" id="path-1"></path>
+    </defs>
+    <g id="Checked" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Input-/-Checkbox-/-Checked" transform="translate(2.000000, 2.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill-opacity="0" fill="#051033" fill-rule="evenodd" xlink:href="#path-1"></use>
+            <g id="Color-/-Blue-/-Blue-Base-700" mask="url(#mask-2)" fill="#0C66FF" fill-rule="evenodd">
+                <rect id="Blue-/-Blue-Base-700" x="0" y="0" width="20" height="20"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,88 @@
+<%- include('layouts/head') %>
+    <link href="/stylesheets/singup.css" rel="stylesheet">
+    <div class="logo_icon">
+        <a href="/"> <img src="/images/logo_icon.png" alt=""></a>
+    </div>
+    <div class="mailing_centered-form">
+        <form action="#" method="POST">
+
+            <% if (error) { %>
+                <div class="form-field">
+                    <ul class="error-msg">
+                        <% for(var i=0; i < error.length; i++) { %>
+                            <li>
+                                <%= error[i].msg %>
+                            </li>
+                            <% } %>
+                    </ul>
+                </div>
+                <% } %>
+                    <div class="massage_icon"><img src="/images/msg_box.png" alt=""></div>
+                    <p class="thank-you-for-joining">Thank you for joining Hayven!</p>
+                    <p class="we-ve-sent">We've sent you an activation email to <span style="font-weight: 600">John.Smith@gmail.com</span><br> Please check your inbox and follow the link to complete your registration.</p>
+                    <p class="didn-t-get">Didn't get your activation email?</p>
+                    <div class="sendEmail"><a href="#">Resend Email</a></div>
+        </form>
+    </div>
+    <div class="invite_centered_form">
+        <form action="#" method="POST" id="frm_invite">
+            <p class="invite-family">Invite Family & Friends!</p>
+            <div class="invite_textbox">
+                <div class="email_id">
+                    <input class="shape_invite_input" id="textbox_1" type="email" placeholder="Type an email to invite">
+                </div>
+                <div class="email_id" style="margin-top: 7px;">
+                    <input class="shape_invite_input" id="textbox_2" type="email" placeholder="Type an email to invite">
+                </div>
+            </div>
+            <div class="add-another">
+                <a class="add-another-invite" href="#">+ Add Another Invite</a>
+            </div>
+            <div class="buttons_area">
+                <div class="send_invite">
+                    <a class="send-invites-text" href="#">Send Invites</a>
+                </div>
+                <div class="skip_invite">
+                    <a class="skip_text" href="/signup">Skip</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // $('.sendButton').removeClass('active');
+            $('input').keyup(function() {
+                if ($("#fullname").val() == "" || $("#email").val() == "" || $("#password").val() == "") {
+                    $('.sendButton').removeClass('active');
+                } else {
+                    $('.sendButton').addClass('active');
+                }
+            });
+        });
+    </script>
+    <script>
+        $('.sendEmail').click(function() {
+            $('.mailing_centered-form').css('display', 'none');
+            $('.invite_centered_form').css('display', 'block');
+
+        });
+        var i = 3;
+        $(".add-another-invite").click(function() {
+            $("<div />", {
+                    "class": "email_id",
+
+                })
+                .append($("<input />", {
+                    "class": "shape_invite_input",
+                    "style": "margin-top: 7px;",
+                    "placeholder": "Type an email to invite",
+                    type: "text",
+                    id: "textbox_" + i
+                }))
+                .appendTo(".invite_textbox");
+            i++;
+        });
+    </script>
+
+    <%- include('layouts/foot') %>

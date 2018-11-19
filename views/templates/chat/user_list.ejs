@@ -1,0 +1,34 @@
+<div class="item ui-widget-content typeO<%= conversation_type %>" onclick=openProfilePage(this)>
+    <div class="box box-<%= box_type %> online_<%= userid %> offline">
+        <div class="box-msg nomsg" id="nomsg<%= conversation_id %>" style="display: none;"></div>
+        <%if(unread > 0) { %>
+            <div class="box-msg nomsg">
+                <%= unread %> UNREAD
+            </div>
+            <% } %>
+
+                <div class="box-header" data-id="<%= userid %>" data-conversationtype="<%= conversation_type %>" data-conversationid="<%= conversation_id %>" data-name="<%= users_name %>" data-img="<%= users_img %>">
+                    <div class="box-title">
+                        <%= users_name %>
+                    </div>
+                    <div class="box-subtitle">
+                        <%= sub_title %>
+                    </div>
+                    <%if(pined){ %>
+                        <img src="/images/pin-on_16px_500 @1x.png" data-pinned="<%= pinned %>" class="pin-to-bar pined">
+                        <% } else { %>
+                            <img src="/images/pin-off_16px_200 @1x.png" class="pin-to-bar">
+                            <% } %>
+                </div>
+                <div class="box-body" id="msgbody<%= conversation_id %>" data-msgid="" data-msgtype="" style="display: none;"></div>
+                <div class="msg-time" id="msgtime<%= conversation_id %>" style="display: none;"></div>
+                <%if(last_msg != ""){ %>
+                    <div class="box-body">
+                        <%= last_msg %>
+                    </div>
+                    <div class="msg-time">
+                        <%= last_msg_time %> <img src="/images/reciept-delivered_14px_200 @1x.png"></div>
+                    <% } %>
+    </div>
+</div>
+<div class="gutter-sizer"></div>

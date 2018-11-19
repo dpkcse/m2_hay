@@ -1,0 +1,7 @@
+node_modules/
+package-lock.json
+app.log
+bin/
+bin/www
+config/config.json
+public/javascripts/apprtc.debug____2.js

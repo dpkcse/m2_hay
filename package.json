@@ -1,0 +1,53 @@
+{
+  "name": "flowchat",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "engine": {
+    "node": "6.11.4"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-3": "^6.22.0",
+    "babel-register": "^6.23.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "~1.18.2",
+    "bootstrap": "^4.0.0",
+    "cassandra-driver": "^3.4.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "^2.5.7",
+    "express": "^4.16.3",
+    "express-cassandra": "^2.2.0",
+    "express-fileupload": "^0.4.0",
+    "express-session": "^1.15.6",
+    "express-socket.io-session": "^1.3.3",
+    "express-validator": "^5.0.3",
+    "fcm-node": "^1.2.1",
+    "fcm-push": "^1.1.3",
+    "got": "^8.3.2",
+    "gulp": "3.9.1",
+    "highlight": "^0.2.4",
+    "in-array": "^0.1.2",
+    "jade": "~1.11.0",
+    "jquery-highlight": "^3.4.0",
+    "kurento-browser-extensions": "0.0.2",
+    "kurento-client": "6.6.0",
+    "lodash": "^4.17.5",
+    "log-timestamp": "^0.2.1",
+    "metascraper": "^3.11.8",
+    "moment": "^2.21.0",
+    "morgan": "~1.9.0",
+    "multer": "^1.3.0",
+    "mustache": "^2.3.0",
+    "node-turn": "0.0.4",
+    "request": "^2.87.0",
+    "serve-favicon": "~2.4.5",
+    "socket.io": "^2.0.4",
+    "socket.io-redis": "^5.2.0",
+    "webrtc-adapter": "^6.4.0"
+  }
+}

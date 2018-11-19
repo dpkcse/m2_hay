@@ -1,0 +1,388 @@
+	<%- include('layouts/basic_head') %>
+	<link rel="stylesheet" href="/stylesheets/conf/index.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/pluginCss/OverlayScrollbars.css">
+	<style type="text/css">
+		.call-btn:hover{
+				filter: invert(.5) sepia(1) saturate(5) hue-rotate(175deg);
+		}
+
+	</style>
+
+	<div style="display: none" id="join" class="animate join">
+		<h1>Join a Room</h1>
+		<form style="display: none !important" id="conf_form_submit" accept-charset="UTF-8">
+			<p>
+				<input type="text" name="name" value="" id="name"
+				placeholder="Username" required>
+			</p>
+			<p>
+				<input type="text" name="room" value="" id="roomName"
+				placeholder="Room" required>
+			</p>
+
+		</form>
+	</div>
+
+	<div id="room">
+		<div id="participants">
+
+		</div>
+	</div>
+
+
+	<div id="icons">
+		<div style="position:relative;display: inline;">
+			<img id="add-member" onmouseup="viewAddParticipant()" src="/images/call/add-contact_48px.svg" class="call-btn" style="">
+
+			<!-- video call popup start here -->
+			<div class="addParticipantPopup" style="display:none">
+				<div id="callAdvanceOption">
+					<div class="call-advance-option-div">
+						<p>CHOOSE ROOM MEMBERS</p>
+						<div class="channel-member-search">
+							<input type="text" placeholder="Search" onkeyup="searchAddMember($(this).val())">
+						</div>
+						<div  style="height:auto;max-height: 215px;position:relative"  class="overlayScrollbars added-channel-members">
+							<div id="addParticipantHolder"></div>
+
+						</div>
+					</div>
+					<div class="todo-btn-group" style="display:none">
+						<button type="button" class="add-cancel-btn" onclick="cancelAddCall()">Cancel</button>
+						<button id="btnMakecall" type="button" class="call-create-btn" onclick="ringDynCall()">Change</button>
+					</div>
+				</div>
+			</div>
+			<!-- video call popup end here -->
+		</div>
+		<img id="mute-audio" data-status="no" onmouseup="muteConf();" src="/images/call/mute-off_56px.svg" class="call-btn" style="">
+		<img id="mute-video" data-status="yes" onmouseup="toggleVideoConf();" src="/images/call/video-on_56px.svg" class="call-btn on" style="">
+		<img id="screen-share" data-status="no" onmouseup="openScreenShare()" src="/images/call/screen-share-on_48px.svg" class="call-btn" style="">
+		<img id="hangup" src="/images/call/hang-up_56px.svg" class="call-btn" onmouseup="leaveRoomClientConf('no_db','endcall');">
+
+	</div>
+	<script>
+
+		$('.main-header').remove();
+		var user_fullname = '<%= user_fullname %>';
+		var user_img = '<%= user_img %>';
+		var user_id = '<%= user_id %>';
+		var to = '<%= data[0].room_id %>';
+
+		var partner_id = to;
+		var partner_name = '<%= data[0].room_name %>';
+		var partner_img = '<%= data[0].room_img %>';
+
+		var caller_name = '<%= data[0].callername %>';
+		var caller_img = '<%= data[0].callerimg %>';
+		var caller_id = '<%= data[0].callerid %>';
+
+		var roomid = '<%= roomid %>';
+		var join_who = '<%= join_who %>';
+		// if(join_who=='participant') $('#btnMakecall input').attr('disabled','disabled');
+		var conversation_id = '<%= data[0].conversation_id %>';
+		var conversation_type = '<%= data[0].conversation_type %>';
+
+		var is_busy = '<%= is_busy %>';
+		var call_type_route = '<%= call_type_route %>';
+
+		if(call_type_route=='audio'){
+			$('#mute-video').hide();
+			$('#screen-share').hide();
+		}
+
+		var call_type = call_type_route+'conf';
+
+		var is_chrome = /chrome/i.test( navigator.userAgent );
+		var media_status=true;
+		var call_msg_send=false;
+
+		var alluserdata = <%- JSON.stringify(alluserdata) %>;
+		var conversationDetail = <%- JSON.stringify(conversationDetail) %>;
+		var arr_participants = conversationDetail[0].participants;
+		console.log('arr_participants',arr_participants);
+		console.log('alluserdata',alluserdata.users);
+
+		function viewAddParticipant(){
+			if($('.addParticipantPopup').is(":visible") == false){
+
+				socket.emit('getCallMemberList', {
+			      conversation_id : conversation_id // cid
+
+			  },function(cbdata){
+						console.log('getCallMemberList',cbdata);
+						$('#addParticipantHolder').html("");
+						$.each(alluserdata.users, function(ky, va){
+							var checkedst='';var disabledst='';
+							if(cbdata.indexOf(va.id)>-1) checkedst='checked';
+							if(va.id==user_id) disabledst='disabled';
+							else if(join_who=='participant') disabledst='disabled';
+							// $.each(participants, function(k, v){
+								// if(va.id === v && va.id !=user_id){
+									var design = '	<li>';
+									design += '		<label class="'+disabledst+'">'+va.fullname+'';
+									design += '			<input '+checkedst+' '+disabledst+' onclick="memAddRemCall(event,\''+va.id+'\')" id="'+va.fullname.replace(/\s/g,'')+'" class="checkGroupCall" data-uid="'+va.id+'" type="checkbox">';
+									design += '			<span class="checkmark '+disabledst+'"></span>';
+									design += '		</label>';
+									design += '		</li>';
+
+									$("#addParticipantHolder").append(design);
+								// }
+							// });
+
+						});
+						overlayScrollbars();
+						$('.addParticipantPopup').show();
+					});
+      }else{
+        $('.addParticipantPopup').hide();
+      }
+		}
+
+		function memAddRemCall(e,memUUID){
+			console.log($(e.target));
+			var arr_participants=[];
+			arr_participants.push(user_id);
+			arr_participants.push(memUUID);
+
+			if(e.target.checked){
+				socket.emit('ringDynCall', {
+					name : user_id, // uid
+					user_fullname : user_fullname,
+					roomName : conversation_id, // cid
+					rootImg: user_img,
+					rootFullname: user_fullname,
+					rootId: user_id,
+					arr_participants: arr_participants,
+					conversation_type: 'addparticipant',
+					call_type_route: call_type_route,
+					reloadstatus: 'newconf',
+					isRefresh: null,
+					joinstatus: 'initiator',
+					reg_status: 'webcam'
+
+				},function(cbdata){
+					// alert(cbdata);
+					// $(e.target).attr('checked','checked');
+				});
+
+				overlayScrollbars();
+				$('.addParticipantPopup').show();
+
+			}else{
+				socket.emit('hangupDynCall', {
+					hangupid : memUUID,
+					name : user_id, // uid
+					user_fullname : user_fullname,
+					roomName : conversation_id, // cid
+					rootImg: user_img,
+					rootFullname: user_fullname,
+					rootId: user_id,
+					arr_participants: arr_participants,
+					conversation_type: conversation_type,
+					call_type_route: call_type_route,
+					reloadstatus: 'newconf',
+					isRefresh: null,
+					joinstatus: 'initiator',
+					reg_status: 'webcam'
+
+				},function(cbdata){
+					// alert(cbdata);
+					// $(e.target).removeAttr('checked');
+
+				});
+			}
+
+			if($('.checkGroupCall[checked]').length==0){
+				$('#btnMakecall').attr('disabled','disabled');
+			}else{
+				$('#btnMakecall').removeAttr('disabled');
+			}
+		}
+
+		var searchAddMember = (value) => {
+		  $("#addParticipantHolder li").each(function () {
+
+		    if ($(this).find('label').text().toLowerCase().search(value.toLowerCase()) > -1) {
+		      $(this).show();
+		    } else {
+		      $(this).hide();
+		    }
+		  });
+
+		  $("#addParticipantHolder li").unhighlight();
+		  $("#addParticipantHolder li").highlight(value);
+		}
+
+		function redrawConf(){
+			// alert('refresh');
+			// $('.participant.memdiv').attr('class','participant memdiv');
+			// $('.participant.memdiv').removeAttr('style');
+
+			var total_members= $('.participant.memdiv').length;
+			console.log('*******************total_members',total_members);
+
+			if(total_members>0){
+					$('.participant.memdiv').each(function(key,element){
+						var cur_pos=key+1;
+
+						if(total_members == 1){
+							var parcent_width=$('#participants').width()/2;
+							var parcent_height=$('#participants').height()/1;
+							var cal_left=0;var cal_top=0;
+
+							$('.participant.memdiv').css({
+							  width: (parcent_width-2) + 'px',
+							  height: (parcent_height-2) + 'px',
+								left: cal_left + 'px',
+								top: cal_top + 'px'
+							});
+
+
+						}else if(total_members == 2){
+							var parcent_width=$('#participants').width()/2;
+							var parcent_height=$('#participants').height()/1;
+							var cal_left=parcent_width+1;
+							var cal_top=0;
+
+							$('.participant.memdiv').css({
+							  width: (parcent_width-2) + 'px',
+							  height: (parcent_height-2) + 'px',
+
+							});
+
+							$('.participant.memdiv:eq(1)').css({
+
+								left: cal_left + 'px',
+								top: cal_top + 'px'
+							});
+						}
+						else if(total_members > 2){ // more than 2 member
+							var odd_pos = need_width = (Math.ceil(total_members / 2 ));
+							var parcent_width=$('#participants').width()/need_width;
+							var parcent_height=$('#participants').height()/2;
+
+							if(cur_pos==odd_pos && total_members % 2 != 0){ // odd last position
+
+								// row_pos='down';
+								// inc_left=0;
+								var parcent_width=$('#participants').width()/need_width;
+								var parcent_height=$('#participants').height()/1;
+								var cal_top=0;
+								var cal_left= (parcent_width*(cur_pos-1))+1;
+								// alert(parcent_width);
+								// alert(cur_pos);
+
+								$(element).css({
+									width: (parcent_width-2) + 'px',
+									height: (parcent_height-2) + 'px',
+									left: cal_left + 'px',
+									top: cal_top + 'px'
+								});
+
+							}else{ // not odd position
+								if(cur_pos <= odd_pos){ // up rows
+									console.log('******up_rows',element);
+									var cal_top=0;
+									var up_pos = (Math.floor(cur_pos / 2 ));
+									var cal_left = parcent_width*up_pos;
+
+									$(element).css({
+										width: (parcent_width-2) + 'px',
+										height: (parcent_height-2) + 'px',
+										left: cal_left + 'px',
+										top: cal_top + 'px'
+									});
+
+								}else if(cur_pos > odd_pos){ // down rows
+									console.log('******down_rows',element);
+									var cal_top=parcent_height+1;
+									var down_pos = Math.floor((cur_pos / 2) - 1 );
+									if(cur_pos==(odd_pos+1)){
+										var cal_left = 0;
+									}else{
+										var cal_left = parcent_width*down_pos;
+									}
+
+									$(element).css({
+										width: (parcent_width-2) + 'px',
+										height: (parcent_height-2) + 'px',
+										left: cal_left + 'px',
+										top: cal_top + 'px'
+									});
+
+								}
+								// parcent_height=$('#participants').height()/2;
+							}
+						}
+					});
+
+			}
+
+			// $(document).on('click','.participant.memdiv',function(){
+			// 	if($(this).hasClass('pfullscreen')){
+			// 		$(this).removeClass('pfullscreen');
+			// 		$(".participant.memdiv").removeClass('poffscreen');
+			//
+			// 	}else{
+			// 		$(this).addClass('pfullscreen');
+			// 		$(".participant.memdiv:not(.pfullscreen)").addClass('poffscreen');
+			// 	}
+			// });
+		}
+
+		function cancelAddCall(){
+			// alert('cancel');
+		  $('.addParticipantPopup').hide();
+
+		}
+
+		setInterval(function(){
+			redrawConf()
+		}, 10000);
+	</script>
+
+	<script src="/javascripts/getScreenId.js"></script>
+	<script src="/bower_components/adapter.js/adapter-latest.js"></script>
+	<script src="/javascripts/Screen-Capturing.js"></script>
+
+	<script src="/bower_components/adapter.js/adapter.js"></script>
+	<script src="/bower_components/kurento-utils/js/kurento-utils.js"></script>
+	<script src="/javascripts/socket-client-side.js"></script>
+	<!-- <script src="/javascripts/basic_connect.js"></script> -->
+	<script src="/javascripts/conf_index.js"></script>
+	<script src="/javascripts/conf_participants.js"></script>
+
+	<script type="text/javascript">
+		if(call_type_route=='video'){
+			navigator.getUserMedia({video: true,audio:true}, function() {
+				// alert('webcam is available');
+				$('#roomName').val(conversation_id);
+				$('#name').val(user_id);
+				registerConf();
+			}, function() {
+				alert('webcam is not available');
+				leaveRoomClientConf('no_db','endcall');
+				// window.close();
+			});
+		}else{
+			$('#roomName').val(conversation_id);
+			$('#name').val(user_id);
+			registerConf();
+		}
+
+		$(document).mouseup(function (e) {
+			var videoCallMenuPopup = $('.addParticipantPopup');
+			var videocall = $('#add-member');
+
+			if (videoCallMenuPopup.is(':visible') == true) {
+				if (!videoCallMenuPopup.is(e.target) && videoCallMenuPopup.has(e.target).length === 0 && !videocall.is(e.target) && videocall.has(e.target).length === 0) {
+
+					videoCallMenuPopup.hide();
+				}
+			}
+		})
+
+	</script>
+
+<%- include('layouts/basic_foot') %>

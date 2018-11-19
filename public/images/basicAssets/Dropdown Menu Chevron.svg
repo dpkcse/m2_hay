@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Dropdown Menu Chevron</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M11.3214887,10 L7.74407768,6.42258898 C7.41864077,6.09715207 7.41864077,5.56951459 7.74407768,5.24407768 C8.06951459,4.91864077 8.59715207,4.91864077 8.92258898,5.24407768 L13.0892557,9.41074435 C13.4146926,9.73618126 13.4146926,10.2638187 13.0892557,10.5892557 L8.92258898,14.7559223 C8.59715207,15.0813592 8.06951459,15.0813592 7.74407768,14.7559223 C7.41864077,14.4304854 7.41864077,13.9028479 7.74407768,13.577411 L11.3214887,10 Z" id="path-1"></path>
+    </defs>
+    <g id="Dropdown-Menu-Chevron" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon-/-Line-/-Right-arrow" transform="translate(2.000000, 2.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill-opacity="0" fill="#051033" fill-rule="nonzero" xlink:href="#path-1"></use>
+            <g id="Color-/-Black-/-Black-800" mask="url(#mask-2)" fill="#182C4F" fill-rule="evenodd">
+                <polygon id="Black-/-Black-800" points="0 0 20 0 20 20 0 20"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

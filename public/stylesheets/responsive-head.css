@@ -1,0 +1,171 @@
+@media screen and (max-width: 1023px) {
+	.act-btn {
+		padding: 20px 5px;
+		width: 50px;
+		height: 50px;
+		font-size: 8px;
+		line-height: 10px;
+	}
+	.dialogForEvent {
+		line-height: 32px !important;
+		left: 0 !important;
+		font-size: 15px !important;
+	}
+	.navbar-dark .navbar-toggler {
+		display: none;
+	}
+	.navbar-nav {
+		height: 48px;
+		width: 30%;
+		padding: 1px;
+		position: absolute;
+		left: 30px;
+	}
+	.navbar-nav.mr-auto {
+		top: 3px;
+		left: 35px;
+	}
+	.nav-link img {
+		width: 20px !important;
+		height: 20px !important;
+	}
+	.nav-link {
+		font-size: 15px !important;
+	}
+	.nav_tgl_img {
+		position: absolute;
+	}
+	#navbarsExampleDefault .form-inline.my-2.my-lg-0 {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.navRightIco {
+		margin: 0px 5px;
+		width: 15px;
+	}
+	#tpgglequickDivOpen {
+		width: 15px;
+		height: 15px;
+	}
+	#tpgglequickDiv {
+		width: 15px;
+	}
+	#navbarsearch {
+		width: 155px;
+	}
+	.navQuickMenu ul li .textSide{
+		font-size: 15px;
+		line-height: 15px;
+	}
+	.navQuickMenu ul li .imgSide img{
+		height: 20px !important;
+		width: 20px !important;
+	}
+	.navQuickMenu ul li .imgSide{
+		margin: 0 10px 0 15px;
+	}
+	.navQuickMenu ul li{
+		height: 30px;
+		padding-top: 5px;
+	}
+	.navQuickMenu{
+		margin-bottom: 10px;
+	}
+	.notfDivHolder{
+		width: 190px;
+		height: auto !important;
+	}
+	span.nText{
+		font-size: 12px;
+    line-height: 5px;
+    padding: 0px 2px;
+	}
+	.notificationtDiv .row-bg{
+		height: 45px;
+		width: 190px;
+    padding-left: 5px;
+	}
+	.notificationtDiv p{
+		margin: 10px 0px;;
+	}
+	.nText .mark{
+		font-size: 10px;
+	}
+	.view-all-chats{
+		height: 5px;
+		line-height: 0px;
+		font-size: 12px;
+	}
+	.contact{
+		font-size: 12px;
+		width: 100px;
+	}
+	.secondary-text{
+		font-size: 10px;
+		width: 130px;
+	}
+	.recentChatDiv .row-bg{
+		width: 100%;
+		min-height: 100px;
+		height: auto;
+	}
+	.recentChatDiv .view-all-chats{
+		height: 16px;
+    line-height: 12px;
+    font-size: 12px;
+	}
+	.leftSideBar-flt{
+		width: 170px;
+		padding-top: 63px;
+		overflow-y: auto;
+		top: 0px;
+	}
+	.leftSideBar-flt ul li{
+		margin-bottom: 12px;
+	}
+	.leftSideBar-flt ul li .textSide{
+		font-size: 15px;
+	}
+	.leftSideBar-flt ul{
+		padding-left: 15px;
+	}
+	.leftSideBar-flt ul li .imgSide{
+		margin-right: 15px;
+	}
+	.navleftIco{
+		width: 20px !important;
+		height: 20px !important;
+	}
+}
+@media (min-width: 1024px) and (max-width: 1280px) {
+	.navbar-nav{
+		width: 60%;
+	}
+	#navbarsearch{
+		width: 220px;
+		height: 30px;
+	}
+	#navbarsearch::placeholder{
+		line-height: 20px;
+	}
+	.navRightIco{
+		margin: 0px 10px;
+	}
+}
+
+@media screen and (max-width: 320px){
+	.nav-link{
+		font-size: 14px !important;
+	}
+	#navbarsearch{
+		width: 110px;
+		padding-left: 24px;
+		background-position: 4px 7px;
+		height: 25px;
+		background-size: 15px;
+	}
+	#navbarsearch::placeholder{
+		font-size: 12px;
+	}
+}

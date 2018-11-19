@@ -1,0 +1,11 @@
+
+		<svg width="15px" height="15px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		    <g id="Back-Arrow-(Images)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+		        <g id="Group" transform="translate(4.000000, 5.000000)" stroke="#FFF" stroke-width="2.5">
+		            <g id="Regular">
+		                <path d="M15.5,7 L0.5,7" id="Shape"></path>
+		                <polyline id="Shape" points="7.5 0 0.5 7 7.5 14"></polyline>
+		            </g>
+		        </g>
+		    </g>
+		</svg>

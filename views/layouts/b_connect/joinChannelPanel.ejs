@@ -1,0 +1,22 @@
+<div class="join-channel connect_right_section" id="joinChannelPanel" style="display:none">
+	<div class="join-channel-div">
+  		<h2 class="join-channel-title">Join a Room</h2>
+  		<img class="dir-msg-close" onclick="closeRightSection()" src="/images/basicAssets/close_button.svg" alt="">
+		<div class="select-workspace">
+			<p>Team</p>
+			<select id="workspaceList" onchange="getPublicData(this.value)">
+			  <option value="Navigate">Navigate</option>
+			  <option value="Freelance">Freelance</option>
+			  <option value="NavCon">NavCon</option>
+			  <option value="Personal">Personal</option>
+			</select>
+		</div>
+		<div class="search-panel search-join-channel" style="display: block;">
+			<input type="text" id="roomSearch" placeholder="Search Conversation" onkeyup="searchRooms($(this).val());">
+		</div>
+  		<!-- <div class="search-join-channel"><img src="/images/basicAssets/Search.svg" alt=""></div> -->
+	</div>
+	<div class="added-channel-div" id="publicRoomsList">
+
+	</div>
+</div>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Choose Time</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Choose-Time" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.88">
+        <g id="Group" transform="translate(3.000000, 3.000000)" stroke="#A6AEBC" stroke-width="1.5">
+            <g id="time-clock-circle">
+                <circle id="Oval" cx="9" cy="9" r="8.75"></circle>
+                <path d="M9,9 L9,5.875" id="Shape"></path>
+                <path d="M9,9 L12.9058333,12.9066667" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

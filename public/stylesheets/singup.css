@@ -1,0 +1,498 @@
+.logo_icon {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+}
+
+body {
+    background: #F5F5F5;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.centered-form__form {
+    position: absolute;
+    background: #FAFAFA;
+    border-radius: 4px;
+    /* width: 466px; */
+    width: 556px;
+    height: auto;
+    padding: 0;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+    top: 35px;
+    margin-bottom: 35px;
+}
+
+.centered-form__form>form {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.hello-welcome-back {
+    margin-top: 40px;
+}
+
+.optional {
+    color: #9B9B9B;
+}
+
+.get-started-for-free {
+    height: 21px;
+    color: #9B9B9B;
+    font-family: "hvWorkSans";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 32px;
+}
+
+.email-address {
+    margin-top: 15.5px !important;
+}
+
+.this-is-for-verifica {
+    color: #9B9B9B;
+    font-family: "hvWorkSans";
+    font-size: 10px;
+    line-height: 13px;
+    margin-top: 7.5px;
+    /* display: none; */
+}
+
+.btn_create_account {
+    height: 37px;
+    width: 395px;
+    border-radius: 4px;
+    background-color: #4A90E2;
+    margin-top: 25px;
+    color: #FFFFFF;
+    font-family: "hvWorkSans";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: center;
+    outline: 0;
+    border: 0;
+}
+
+.phone-number-option {
+    color: #9B9B9B;
+    font-family: "hvWorkSans";
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.label_title {
+    color: rgba(0, 0, 0, 0.86);
+    font-family: "hvWorkSans";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    display: inline-block;
+    float: left;
+}
+
+.display_inline {
+    display: inline-block;
+    float: left;
+}
+
+.display_block {
+    display: block;
+    float: left;
+}
+
+.formDiv {
+    margin-left: 6.5px;
+}
+
+.input_shape {
+    box-sizing: border-box;
+    height: 38px;
+    width: 194.5px;
+    border: 1px solid #E6E8ED;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    padding-left: 12px;
+    outline: 0;
+}
+
+.input_shape2 {
+    box-sizing: border-box;
+    height: 38px;
+    width: 396px !important;
+    border: 1px solid #E6E8ED;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    padding-left: 12px;
+    outline: 0;
+}
+
+.margin_top {
+    margin-top: 15.5px;
+}
+
+.create-a-strong-pass {
+    color: #9B9B9B;
+    font-family: "hvWorkSans";
+    font-size: 10px;
+    line-height: 13px;
+    /* display: none; */
+}
+
+.i-agree-to-hayven-us {
+    font-family: "hvWorkSans";
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+}
+
+input.agree_Checkbox {
+    visibility: hidden;
+}
+
+input.agree_Checkbox[type=checkbox] {
+    cursor: pointer;
+    font-size: 14px;
+    visibility: hidden;
+    transform: scale(1);
+    left: 0px;
+    margin-top: 16px;
+    -moz-appearance: none;
+    margin-right: 8px;
+}
+
+input.agree_Checkbox[type=checkbox]:after {
+    content: " ";
+    background-color: #fff;
+    display: inline-block;
+    color: #00BFF0;
+    width: 16px;
+    height: 16px;
+    visibility: visible;
+    border: 1px solid #FFF;
+    padding: 0 3px;
+    margin: 0px 0;
+    border-radius: 4px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.08), 0 0 2px 0 rgba(0, 0, 0, 0.16);
+}
+
+input.agree_Checkbox[type=checkbox]:checked:after {
+    content: "\2713";
+    display: block;
+    font-weight: 600;
+    background: #4B90E0;
+    color: white;
+    border: none;
+    font-size: 11px;
+    transform: scale(1);
+}
+
+.social-icon {
+    position: relative;
+    margin: 24px auto 34px;
+    height: 30px;
+    width: 208px;
+}
+
+.social-icon .fa-w-14 {
+    color: #9b9b9b;
+    width: 30px;
+    height: 30px;
+}
+
+.social-icon .fa-w-20 {
+    position: absolute;
+    margin: 0px 45px;
+    color: #9b9b9b;
+    width: 60px;
+    height: 30px;
+}
+
+.social-icon .windows-icon {
+    float: right;
+}
+
+.social-icon .fa-w-14:hover {
+    color: #4A90E2;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.social-icon .fa-w-20:hover {
+    color: #dc3545;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.or {
+    color: #9B9B9B;
+    font-family: hvAssistant;
+    font-size: 14px;
+    line-height: 13px;
+    text-align: center;
+    margin-top: 24px;
+}
+
+.create_Account {
+    height: 37px;
+    width: 395px;
+    border-radius: 4px;
+    background-color: #4A90E2;
+    margin-top: 25px;
+    color: #FFFFFF;
+    font-family: "hvWorkSans";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: center;
+    outline: 0;
+    border: 0;
+    padding-top: 7px;
+    cursor: pointer;
+}
+
+.create_Account a {
+    color: #FFFFFF;
+}
+
+.create_Account a:hover {
+    height: 37px;
+    width: 395px;
+    border-radius: 4px;
+    background-color: #4A90E2;
+    margin-top: 25px;
+    color: #FFFFFF;
+    font-family: "hvWorkSans";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: center;
+    outline: 0;
+    border: 0;
+    padding-top: 7px;
+}
+
+.mailing_centered-form {
+    position: absolute;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    /* width: 466px; */
+    width: 822px;
+    height: auto;
+    padding: 0;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+    top: 125px;
+    margin-bottom: 35px;
+}
+
+.massage_icon {
+    text-align: center;
+    margin-top: 42px;
+}
+
+.thank-you-for-joining {
+    color: #4A4A4A;
+    font-family: "hvWorkSans";
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 33px;
+    text-align: center;
+    margin-top: 26px;
+    margin-bottom: 24px;
+}
+
+.we-ve-sent {
+    color: #9B9B9B;
+    font-family: hvAssistant;
+    font-size: 22px;
+    line-height: 28px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.didn-t-get {
+    color: #9B9B9B;
+    font-family: hvAssistant;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.sendEmail {
+    height: 55px;
+    width: 133px;
+    border: 1px solid #4A90E2;
+    border-radius: 4px;
+    text-align: center;
+    color: #4A90E2;
+    font-family: hvAssistant;
+    font-size: 18px;
+    line-height: 23px;
+    margin-bottom: 40px;
+    padding-top: 12px;
+    margin-left: 345px;
+}
+
+.sendEmail a {
+    text-decoration: none;
+    color: #4A90E2;
+    text-align: center;
+}
+
+.sendEmail a:hover {
+    color: #4A90E2;
+}
+
+.invite_centered_form {
+    position: absolute;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    /* width: 466px; */
+    width: 438px;
+    height: auto;
+    padding: 0;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+    top: 214px;
+    margin-bottom: 35px;
+    display: none;
+}
+
+.invite-family {
+    margin-top: 40px;
+    color: #4A4A4A;
+    font-family: hvWorkSans;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.shape_invite_input {
+    box-sizing: border-box;
+    height: 38px;
+    width: 279px;
+    border: 1px solid #E6E8ED;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    font-family: hvAssistant;
+    font-size: 16px;
+    line-height: 21px;
+    padding-left: 12px;
+    outline: 0;
+}
+
+.shape_invite_input>input::placeholder {
+    color: #E3E3E3;
+}
+
+.email_id {
+    text-align: center;
+}
+
+.add-another-invite {
+    color: #4A90E2;
+    font-family: "hvWorkSans";
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+}
+
+.add-another {
+    margin-left: 80px;
+    margin-bottom: 24px;
+}
+
+.add-another a {
+    text-decoration: none;
+}
+
+.add-another a:hover {
+    color: #4A90E2;
+}
+
+.send_invite {
+    height: 34px;
+    width: 124px;
+    border-radius: 4px;
+    background-color: #4A90E2;
+    text-align: center;
+    padding-top: 4px;
+    display: inline-block;
+    float: left;
+    margin-left: 162px;
+}
+
+.send_invite a {
+    text-decoration: none;
+    text-align: center;
+}
+
+.send_invite a:hover {
+    color: #FFFFFF;
+}
+
+.send-invites-text {
+    color: #FFFFFF;
+    font-family: "hvWorkSans";
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: center;
+}
+
+.skip_invite {
+    display: inline-block;
+    box-sizing: border-box;
+    height: 34.5px;
+    width: 64.5px;
+    border: 0.5px solid #9B9B9B;
+    border-radius: 4px;
+    text-align: center;
+    margin-left: 8px;
+    padding-top: 3px;
+}
+
+.skip_text {
+    color: #9B9B9B;
+    font-family: "hvWorkSans";
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: center;
+}
+
+.skip_invite a {
+    text-decoration: none;
+    text-align: center;
+    color: #9B9B9B;
+}
+
+.buttons_area {
+    margin-bottom: 40px;
+}
+
+.password {
+    position: relative;
+}
+
+input#password {
+    padding-right: 39px;
+}
+
+.password>img {
+    position: absolute;
+    top: 36px;
+    right: 17px;
+}
+
+
+/* 
+input#password {
+    background: white url("") right no-repeat;
+    padding-right: 17px;
+} */

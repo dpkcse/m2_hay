@@ -1,0 +1,418 @@
+#ui-datepicker-div{
+	display: none;
+}
+.menuforMobile{
+	float: left;
+    text-align: left;
+    width: 33%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-image: url('/images/basicAssets/bars-solid.svg');
+    background-repeat: no-repeat;
+    background-position: 26%;
+    background-size: 20%;
+}
+.menuforMobile.closeMenu{
+    background-image: url('/images/basicAssets/times-solid.svg');
+}
+
+.menuforMobile{
+	display: none;
+}
+
+.menuforMobile .fa-bars{
+	display: block;
+}
+.menuforMobile .fa-times{
+	display: none;
+}
+.headMenuForMobile{
+	float: left;
+	padding-left: 12px;
+	margin: 20px 0 0px;
+	width: auto;
+	position: relative;
+}
+.menuforHead{
+	display: none;
+	height: 32px;
+	width: 32px;
+	background-color: #1676EA;
+	border-radius: 50%;
+	float: left;
+	cursor: pointer;
+	box-sizing: border-box;
+	padding: 6px;
+	background-image: url('/images/basicAssets/users-solid.svg');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 70%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 359px){
+	
+}
+@media screen and (min-width: 360px) and (max-width: 374px){
+	
+}
+
+@media screen and (min-width: 375px) and (max-width: 413) {
+	.msgs-form-users .attach-file, .thread-user-msg .attach-file{
+		width: 200px !important;
+	}
+}
+@media screen and (max-width: 415px) {
+
+	.menuforMobile{
+		display: block;
+	}
+	.filterMainContainer{
+		right: 0;
+		left: 0;
+	}
+	.header-left{
+		width: 100% !important;
+		display: none;
+		position: absolute;
+		background: #FFFF;
+	    margin-top: 64px;
+	    border-radius: 4px;
+	    box-sizing: border-box;
+	    border-bottom: 1px solid #C3C6CD;
+	}
+	.main-menu-list{
+		margin:0px auto;
+		padding: 15px 0px 0px;
+	}
+	.main-menu-list li{
+		display: block;
+		padding: 0px 20px 0px 8px;
+		margin-right: 0px;
+		margin-bottom: 15px;
+	}
+	.main-menu-list li.active{
+		box-sizing: border-box;
+		border-top: none;
+		border-left: 4px solid #1676EA;
+	}
+	.main-header{
+		z-index: 12;
+		overflow: visible;
+	}
+	.header-right .plus, .header-right .notification{
+		display: none;
+	}
+	.profilenavMainSection{
+		right: 8px;
+		margin-top: 0;
+	}
+	.header-right{
+		margin-right: 10px;
+	}
+	.filterMainContainer{
+		position: absolute;
+		left: 0;
+    	margin: 0px 0px 0px 0px;
+    	width: 100%;
+	}
+
+	.right-section, .chat-header, .send-msgs, .chat-page, .msg-separetor_head{
+		width: 100% !important;
+	}
+	.chat-head-more-menu{
+		width: 50px;
+		margin: 0px 22px;
+		top: 62px;
+		right: 0px;
+		position: absolute;
+	}
+	.chat-head-name{
+		 margin: 4px 0px -2px 8px !important;
+		width: calc(100% - 74px);
+		text-align: left;
+	}
+	.menuforHead{
+		display: block;
+	}
+	.side-bar{
+		margin-top: 141px;
+		width: 65%;
+		display: none;
+		height: calc(100vh - 141px) !important;
+	}
+	.converstaion_name{
+		max-width: 200px !important;
+	}
+	.chat-head-calling{
+		margin:0px !important;
+		padding-left: 8px !important;
+	}
+	.chat-head-name h4{
+	    margin-left: 0px !important;
+		padding-top: 0px !important;
+		float: right !important;
+	}
+	#roomIdDiv{
+		display: inline-block;
+	}
+	.addTagConv,#tagItemList{
+		width: 140px !important;
+	}
+	.tagSet{
+		right: 42px !important;
+	}
+	.taglistHolder{
+		width: 190px !important;
+	}
+	.createConvTag{
+		width: 135px !important
+	}
+	.create-todo-popup,.create-event-popup{
+		position: fixed;
+	    left: 5px;
+	    top: 142px;
+	    float: left;
+	    width: calc(100% - 89px);
+	}
+	.user-msg>img, .user-msg>video{
+		max-width: 90% !important;
+	}
+	.toDoContent{
+		width: 90% !important;
+	}
+	.chat-file-upload-popup, .createdirmsg_container,.adminContainer,.msgs-thread-popup,#create-todo-popup,.delete_msg_div{
+		width: 100% !important;
+		height: 100% !important;
+		margin:0px auto !important;
+	}
+	.chat-upload-popup-title{
+		width: 100% !important;
+	}
+	.close-chat-file-popup>img{
+		position: absolute;
+	    top: 14px;
+	    right: 14px;
+	}
+	.create-channel{
+		padding: 33px 25px 33px 25px !important;
+
+	}
+	.upload-channel-photo,.roomImg,.upload-channel-photo>.roomImg>.file-up-div>label,.invite-member{
+		width: 100% !important;
+		text-align: center;
+	}
+	.upload-channel-photo .img-div{
+		text-align: center;
+		width: 100% !important;
+	}
+	.upload-channel-photo .roomImg .file-up-div{
+		margin: 0px auto !important;
+	}
+	.invite-member>p{
+		margin-top: 8px;
+		text-align: left;
+	}
+	.invite-member>input{
+		width: 100% !important;
+	}
+	.invite-member .suggested-type-list .suggested-list{
+		display: block;
+		overflow: hidden;
+		width: 100% !important;
+		margin-left: 0px !important;
+	}
+	.suggested-type-list{
+		position: relative !important;
+	}
+	.invite-member .suggested-type-list{
+		width: 100% !important;
+	}
+	.invite-member .remove{
+		right: 15px !important;
+    	top: 33px !important;
+	}
+	#ml-membertype{
+		display: block;
+		float: left;
+	}
+	.memberList{
+		display: block !important;
+		float: left !important;
+		overflow: hidden !important;
+		width: 100% !important;
+		position: relative !important;
+	}
+	.invite-member .memberList{
+		height:auto !important; 
+	}
+	.ml-listHl{
+		display: block !important;
+	    float: left !important;
+	    overflow: hidden !important;
+	    width: 100% !important;
+	}
+	.submitBtn{
+		width: 100% !important;
+		display: block;
+		overflow: hidden;
+		float: left;
+		position: relative !important;
+		right: 0px !important;
+		top: 25px;
+		text-align: center;
+	}
+	.channel-name>input{
+		width: 100% !important;
+	}
+	.photo-upload-invite-member{
+		margin-bottom: 0px !important;
+	}
+	.msgs-form-users .attach-file, .thread-user-msg .attach-file{
+		width: 200px !important;
+	}
+	.delete_msg_div .btn-cancel{
+		margin-right: 10px !important;
+	}
+	.fileSliderBackWrap{
+		width: 100% !important;
+		height: 100% !important;
+	}
+	.fileSliderBackWrap .media-tab-header{
+		width: 100% !important;
+	}
+	.back-media-popup{
+		left: 0px !important;
+	}
+	.media-tab-header>ul>li:first-child{
+		margin-left: 26px !important;
+	}
+	.media-tab-header>ul>li{
+		margin-right: 12px !important;
+	}
+	.media-tab-header>ul>li>a{
+		line-height: 12px !important;
+	}
+	.date-by-images>.all-images, .date-by-videos>.all-videos{
+		height: 50px !important;
+    	width: 90px !important;
+    	margin-right: 8px !important;
+    	padding: 0px !important;
+	}
+	.date-by-files>.all-files{
+		padding: 12px 8px 12px 8px !important;
+	}
+	.image-popup-header{
+		    padding: 19px 8px 16px 28px !important;
+	}
+	.current-slide-image-details{
+		left: 86px !important;
+		width: 205px !important; 
+		padding-right: 0px !important;
+	}
+	.shared-by-user-details{
+		width: 132px !important;
+	}
+	.shared-by-user-details>p{
+		overflow: hidden;
+		text-overflow: ellipsis;
+    	white-space: nowrap;
+	}
+	.slide-image-more-option{
+		right: 46px !important;
+    	top: 21px !important;
+	}
+	.fileSliderBackWrap .close-image-popup-slider.close-tooltip, .fileSliderBackWrap span .close-image-popup-slider{
+		margin-top: -64px;
+    	margin-right: -17px;
+	}
+	.join-channel{
+		margin-top: 0px !important;
+	}
+	.select-workspace>select{
+		display: block !important;
+	    width: 100% !important;
+	    overflow: hidden !important;
+	    margin-bottom: 22px !important;
+	}
+	.join-channel-div>.search-panel{
+		width: 100% !important;
+		overflow: hidden !important;
+	    position: absolute !important;
+	    top: 40px;
+	    border-radius: 4px !important;
+	    border: 1px solid #d8d8d8;
+	    box-sizing: border-box;
+	    margin-right: 0px !important;
+	}
+	.select-workspace{
+		margin-top: 30px;
+	}
+	.join-channel-div{
+		padding-bottom: 0px !important;
+	}
+	.added-channels{
+		width: 100% !important;
+	}
+}
+
+@media screen and (max-width:719px) {
+	
+}
+
+@media screen and (min-width: 720px) {
+	
+}
+
+@media screen and (min-width: 1024px) {
+	
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1359px) {
+	.converstaion_name{
+		max-width: 120px !important;
+	}
+}
+
+@media screen and (min-width: 1360px) and (max-width: 1365px) {
+	.converstaion_name{
+		max-width: 120px !important;
+	}
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1439px) {
+	.converstaion_name{
+		max-width: 125px !important;
+	}
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1599px) {
+	.converstaion_name{
+		max-width: 200px !important;
+	}
+}
+
+@media screen and (min-width: 1600px) and (max-width: 1679px) {
+	.converstaion_name{
+		max-width: 350px !important;
+	}
+}
+
+@media screen and (min-width: 1680px) and (max-width: 1919px) {
+	.converstaion_name{
+		max-width: 440px !important;
+	}
+}
+
+@media screen and (min-width: 1920px) and (max-width: 2559px) {
+	.converstaion_name{
+		max-width: 660px !important;
+	}
+}
+
+@media screen and (min-width: 2560px) {
+	.converstaion_name{
+		max-width: 1080px !important;
+	}
+}

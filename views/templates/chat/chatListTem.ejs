@@ -1,0 +1,33 @@
+<li 
+	onclick="start_conversation(event)" 
+	data-octr="<%= ocrt %>" 
+	data-nom="0" 
+	data-myid="<%= myid%>" 
+	data-createdby="<%= createdby%>"
+	data-nor="0" 
+	data-id="<%= userid %>" 
+	data-tm="<%= totalMember %>" 
+	data-subtitle="<%= sub_title %>"
+	data-conversationtype="<%= conversation_type %>" 
+	data-conversationid="<%= conversation_id %>" 
+	data-name="<%= users_name %>"
+	data-img="<%= users_img %>" 
+	id="conv<%= conversation_id %>" 
+	class="" <% if(users_name.length>= 17){ %>
+	data-balloon-pos="up" data-balloon="
+	<%= users_name%>"
+	<% }%>
+	<% if(users_name.length >= 25){ %> data-balloon-length="fit"
+	<% }%>>
+	<span class="<% if(conversation_type == 'personal'){ %>offline online_<%= userid %> <% } else{ if(privecy == 'public'){ %>hash<% }else{ %>lock<% }} %>"></span>
+	<span class="usersName">
+		<%= users_name %></span>
+	<span class="unreadMsgCount"></span>
+	<% if(conversation_type == 'personal'){%>
+	<span class="remove" data-balloon="Click to hide" data-balloon-pos="left" onclick="removeThisList('<%= conversation_id %>')"></span>
+	<% } %>
+	<% if(conversation_type == 'group' && myid === createdby){%>
+	<span class="remove removeThisGroup" data-balloon="Click to leave" onclick="removeThisGroup('<%= conversation_id %>')"
+	 data-balloon-pos="left"></span>
+	<% } %>
+</li>

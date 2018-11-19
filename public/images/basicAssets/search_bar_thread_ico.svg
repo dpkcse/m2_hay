@@ -1,0 +1,12 @@
+<svg class="side_bar_thread_ico" width="18.75px" height="18.75px" viewBox="2 2 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	    <g id="Reply/Thread" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.88">
+	        <g id="conversation-chat-text" transform="translate(2.000000, 2.000000)" stroke="#9B9B9B" stroke-width="1.5">
+	            <path d="M6.875,15 L4.375,16.875 L4.375,13.125 L1.875,13.125 C1.18464406,13.125 0.625,12.5653559 0.625,11.875 L0.625,1.875 C0.625,1.18464406 1.18464406,0.625 1.875,0.625 L15.625,0.625 C16.3153559,0.625 16.875,1.18464406 16.875,1.875 L16.875,5.625" id="Shape"></path>
+	            <path d="M4.375,4.375 L13.125,4.375" id="Shape"></path>
+	            <path d="M4.375,8.125 L6.875,8.125" id="Shape"></path>
+	            <polygon id="Shape" points="19.375 15.625 16.875 15.625 16.875 19.375 13.125 15.625 9.375 15.625 9.375 8.125 19.375 8.125"></polygon>
+	            <path d="M16.875,10.625 L11.875,10.625" id="Shape"></path>
+	            <path d="M16.875,13.125 L11.875,13.125" id="Shape"></path>
+	        </g>
+	    </g>
+	</svg>

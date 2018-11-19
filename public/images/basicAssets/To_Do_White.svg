@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>To Do</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="To-Do" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="task-list-add" transform="translate(4.000000, 4.000000)" stroke="#ffffff">
+            <path d="M3.5,7.00733333 L7,7.00733333" id="Shape"></path>
+            <path d="M3.5,9.50733333 L5.5,9.50733333" id="Shape"></path>
+            <path d="M3.5,12.0073333 L5.5,12.0073333" id="Shape"></path>
+            <path d="M6.5,15.5073333 L1.5,15.5073333 C0.94771525,15.5073333 0.5,15.0596181 0.5,14.5073333 L0.5,4.00733333 C0.5,3.45504858 0.94771525,3.00733333 1.5,3.00733333 L4,3.00733333 C4,1.62662146 5.11928813,0.507333333 6.5,0.507333333 C7.88071187,0.507333333 9,1.62662146 9,3.00733333 L11.5,3.00733333 C12.0522847,3.00733333 12.5,3.45504858 12.5,4.00733333 L12.5,5.50733333" id="Shape"></path>
+            <path d="M6.5,2.50733333 C6.63807119,2.50733333 6.75,2.61926215 6.75,2.75733333 C6.75,2.89540452 6.63807119,3.00733333 6.5,3.00733333 C6.36192881,3.00733333 6.25,2.89540452 6.25,2.75733333 C6.25,2.61926215 6.36192881,2.50733333 6.5,2.50733333" id="Shape"></path>
+            <circle id="Oval" cx="11.5" cy="11.5073333" r="4"></circle>
+            <path d="M11.5,9.50733333 L11.5,13.5073333" id="Shape"></path>
+            <path d="M9.5,11.5073333 L13.5,11.5073333" id="Shape"></path>
+        </g>
+    </g>
+</svg>

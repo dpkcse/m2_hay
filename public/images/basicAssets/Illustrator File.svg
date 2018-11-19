@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Illustrator File</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Illustrator-File" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Group" transform="translate(8.000000, 9.000000)" stroke="#FF7C00" stroke-width="1.5">
+            <g id="design-file-ai-1">
+                <path d="M18.24,30 L2.88,30 C1.81961328,30 0.96,29.1045695 0.96,28 L0.96,2 C0.96,0.8954305 1.81961328,-9.04041393e-14 2.88,-9.07001987e-14 L16.48512,-9.07001987e-14 C16.9944239,-0.000240367189 17.4829524,0.210315684 17.8432,0.585333333 L25.35808,8.41466667 C25.7177834,8.78959785 25.9198914,9.29793706 25.92,9.828 L25.92,16" id="Shape"></path>
+                <path d="M25.92,10 L18.24,10 C17.1796133,10 16.32,9.1045695 16.32,8 L16.32,0" id="Shape"></path>
+                <path d="M29.76,30 L29.76,20" id="Shape"></path>
+                <path d="M22.08,30 L22.08,22 C22.08,20.8954305 22.9396133,20 24,20 C25.0603867,20 25.92,20.8954305 25.92,22 L25.92,30" id="Shape"></path>
+                <path d="M22.08,26 L25.92,26" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,1114 @@
+<%- include('layouts/head') %>
+<script src="/javascripts/masonry/jquery.masonry.min.js"></script>
+<link rel="stylesheet" href="/stylesheets/connectFilterDiv.css">
+<link rel="stylesheet" href="/stylesheets/responsive-connect.css">
+<main role="main" class="container main-container">
+  <div class="itl-template">
+    <div class="search-bar">
+      <!-- <img src="/images/NavbarIcons/actions-create_24px_FFF.png" class="pointer action-btn" style="float:left;" /> -->
+      <div class="actionPlusBtn">
+        <img src="/images/NavbarIcons/actions-create_24px_FFF.png" class="pointer action-connect-tiles" style="float:left;" />
+        <div class="connect_plus_tiles" style="display: none">
+            <div class="tiles_section">
+              <div class="tiles_content">
+                <img src="/images/plusModal/Direct_Chat.PNG">
+                <h5>Direct chat</h5>
+              </div>
+              <div class="tiles_content">
+                <img src="/images/plusModal/Public_group_chat.PNG">
+                <h5>Private group chat</h5>
+              </div>
+              <div class="tiles_content">
+                <img src="/images/plusModal/public_channel.PNG">
+                <h5>Public channel</h5>
+              </div>
+            </div>
+            <div class="tiles_section">
+              <div class="tiles_content">
+                <img src="/images/plusModal/add_conatct.png">
+                <h5>Add contact</h5>
+              </div>
+              <div class="tiles_content">
+                <img src="/images/plusModal/Import_contacts.png">
+                <h5>Import contacts</h5>
+              </div>
+              <div class="tiles_content">
+                <img src="/images/plusModal/Export_contacts.png">
+                <h5>Export contacts</h5>
+              </div>
+            </div>
+            <div class="tiles_section">
+              <div class="tiles_content">
+                <img src="/images/plusModal/InvitePeople.png">
+                <h5>Invite people</h5>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="input-group" style="margin-right:0px; margin-left:10px;">
+        <input type="text" class="form-control search-txt" id="search-txt" placeholder="Search or start a new chat">
+        <img src="/images/search_18px_400 @1x.png" class="search-bar-img">
+      </div>
+      <!-- <img src="/images/filter_28px_400 @1x.png" class="pointer filter-btn" style="display:none" /> -->
+      <!-- <img src="/images/NavbarIcons/28px/actions-create_24px_000.png" class="pointer action-btn" style="" /> -->
+      <img src="/images/close_18px_300 @1x.png" class="fa-times" onclick="clearSearch()">
+    </div>
+    <div class="filter_body">
+      <div class="filter_item activeFilter" id="ConnectAll">
+        <h1>All</h1>
+      </div>
+      <div class="filter_item" id="ConnectDirect">
+        <h1>Direct</h1>
+      </div>
+      <div id="ConnectGroup" class="filter_item" >
+        <h1>Group</h1>
+      </div>
+      <div class="filter_item" id="ConnectChannels">
+        <h1>Channels</h1>
+      </div>
+      <div class="filter_item" id="ConnectPeople">
+        <h1>People</h1>
+      </div>
+      <div class="Basic_view"><a href="/basic_view_connect"><img src="/images/logo_icon_h.png"></a></div>
+      <div class="Masclassic_view" id="ConnectClassicView">
+        <p class="classic pointer"><img src="/images/svg/view-classic_20px_800.svg"></p>
+      </div>
+      <div class="Masclassic_view activeView" id="ConnectMasonryView" style="margin-right:8px;">
+        <p class="masonry pointer"><img  src="/images/svg/view-tile_20px_800.svg"></p>
+      </div>
+    </div>
+    <script type="text/javascript">
+    /** When click on the action button from Hayven chat page */
+      $('.action-connect-tiles').on('click', function(){
+        $('.connect_plus_tiles').show();
+      });
+      // var connectPlus = function(){
+      //   $('.action-connect-tiles').on('click', function(){
+      //     if(!$('.connect_plus_tiles').is(":visible")){
+      //       $('.action-connect-tiles').attr('src', '/images/close_18px_000 @2x.png');
+      //       $('.connect_plus_tiles').show();
+      //     }
+      //     else{
+      //       $('.action-connect-tiles').attr('src', '/images/NavbarIcons/actions-create_24px_FFF.png');
+      //       $('.connect_plus_tiles').hide();
+      //     }
+      //   });
+      // }
+      //   connectPlus();
+    /** End of action button process*/
+          $('.Masclassic_view').on('click', function(){
+            $('.Masclassic_view').removeClass('activeView');
+            $(this).addClass('activeView');
+          });
+
+          $('.filter_item').on('click', function(){
+            $('.filter_item').removeClass('activeFilter');
+            $(this).addClass('activeFilter');
+            var mdatapinnd = [];
+            if(!$('#ConnectAll.activeFilter').length == 0){
+              if(!$('#conversation-container.masonry-layout').length == 0){
+                  $.each(allDataContain,function(i, obj){
+                    if($(obj).hasClass('ui-widget-content')){
+                      mdatapinnd.push($(obj).add('<div class="gutter-sizer"></div>'));
+                    }
+                  });
+
+                  $('#conversation-container').html('');
+
+                  var masonryOptions = {
+                      itemSelector : '.item',
+                      columnWidth : '.masonry-layout .item',
+                      gutter: '.gutter-sizer',
+                      percentPosition: true
+                    };
+
+                  var $grid = $('.masonry-layout').masonry(masonryOptions);
+
+                  $.each(mdatapinnd,function(k,bb){
+                    var $content = $( bb );
+                    // add jQuery object
+                    $grid.append( $content ).masonry( 'appended', $content );
+                  });
+
+                  $grid.masonry('destroy');
+                  $grid.masonry( masonryOptions );
+
+                  afterAppendEventInConnectpage();
+              }else{
+                $('#conversation-container').html("");
+                $.each(allDataContain,function(i, obj){
+                  if($(obj).hasClass('ui-widget-content')){
+                    $('.classic-row').append($(obj));
+                    console.log($(obj));
+                  }
+                });
+              }
+            }
+            if(!$('#ConnectDirect.activeFilter').length == 0){
+              if(!$('#conversation-container.masonry-layout').length == 0){
+                  $.each(allDataContain,function(i, obj){
+                    if($(obj).hasClass('typeOpersonal')){
+                      mdatapinnd.push($(obj).add('<div class="gutter-sizer"></div>'));
+                    }
+                  });
+
+                  $('#conversation-container').html('');
+
+                  var masonryOptions = {
+                      itemSelector : '.item',
+                      columnWidth : '.masonry-layout .item',
+                      gutter: '.gutter-sizer',
+                      percentPosition: true
+                    };
+
+                  var $grid = $('.masonry-layout').masonry(masonryOptions);
+
+                  $.each(mdatapinnd,function(k,bb){
+                    var $content = $( bb );
+                    // add jQuery object
+                    $grid.append( $content ).masonry( 'appended', $content );
+                  });
+
+                  $grid.masonry('destroy');
+                  $grid.masonry( masonryOptions );
+
+                  afterAppendEventInConnectpage();
+              }else{
+                $('#conversation-container').html("");
+                $.each(allDataContain,function(i, obj){
+                  if($(obj).hasClass('typeOpersonal')){
+                    $('.classic-row').append($(obj));
+                    console.log($(obj));
+                  }
+                });
+              }
+            }
+            if(!$('#ConnectGroup.activeFilter').length == 0){
+              if(!$('#conversation-container.masonry-layout').length == 0){
+                  $.each(allDataContain,function(i, obj){
+                    if($(obj).hasClass('typeOgroup')){
+                      mdatapinnd.push($(obj).add('<div class="gutter-sizer"></div>'));
+                    }
+                  });
+
+                  $('#conversation-container').html('');
+
+                    var masonryOptions = {
+                        itemSelector : '.item',
+                        columnWidth : '.masonry-layout .item',
+                        gutter: '.gutter-sizer',
+                        percentPosition: true
+                      };
+                  var $grid = $('.masonry-layout').masonry(masonryOptions);
+
+                  $.each(mdatapinnd,function(k,bb){
+                    var $content = $( bb );
+                    // add jQuery object
+                    $grid.append( $content ).masonry( 'appended', $content );
+                  });
+
+                  $grid.masonry('destroy');
+                  $grid.masonry( masonryOptions );
+
+                  afterAppendEventInConnectpage();
+              }else{
+                $('#conversation-container').html("");
+                $.each(allDataContain,function(i, obj){
+                  if($(obj).hasClass('typeOgroup')){
+                    $('.classic-row').append($(obj));
+                    console.log($(obj));
+                  }
+                });
+              }
+            }
+            if(!$('#ConnectChannels.activeFilter').length == 0){
+              if(!$('#conversation-container.masonry-layout').length == 0){
+                $('#conversation-container').html("");
+              }else{
+                $('#conversation-container').html("");
+              }
+            }
+            if(!$('#ConnectPeople.activeFilter').length == 0){
+              if(!$('#conversation-container.masonry-layout').length == 0){
+                $('#conversation-container').html("");
+              }else{
+                $('#conversation-container').html("");
+              }
+            }
+          });
+
+    </script>
+
+    <div class="search-body">
+      <div class="row contacts">
+        <p>Contacts</p>
+        <div class="col-md-12">
+          <div class="contact-img new-group-chat-btn" onclick="window.location.href='/hayven/new-group'">
+            <img src="/images/new-group_72px_000 @1x.png" title="Start New Group Chat" /><br>
+            <span>Start New Group Chat</span>
+          </div>
+          <% data[0].users.forEach(function(user){ %>
+            <% if (user.id != user_id) { %>
+              <div class="contact-img searchContactList" data-id="<%= user.id %>" data-name="<%= user.fullname %>" data-img="<%= user.img %>"><img src="/images/users/<%= user.img %>" title="<%= user.fullname %>" /><br><span class="searchContactListText"><%= user.fullname %></span></div>
+            <% } %>
+          <% }); %>
+        </div>
+      </div>
+      <div class="row contacts-recent">
+        <p>Current Chat</p>
+        <div class="col-md-12">
+
+          <div class="contact-img" id="currentChatDiv"><img src="/images/users/anwar.jpg" title="Anwar" id="currentChatID" /><br><span id="currentChatSpan">Anwar</span></div>
+        </div>
+      </div>
+      <div class="row search-inside-msg">
+        <p>Messages containing </p>
+        <div class="col-md-12">
+          <div class="search-res-box">
+            <div class="box-header">Charles Boyle</div>
+            <div class="box-body">
+              Is this template really for free? That's unbelievable! Is this template really for free?
+              <div class="msg-time">10:07am <img src="/images/reciept-delivered_14px_200 @1x.png"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="search-res-box">
+            <div class="box-header">Charles Boyle</div>
+            <div class="box-body">
+              Is this template really for free? That's unbelievable! Is this template really for free?
+              <div class="msg-time">10:07am <img src="/images/reciept-delivered_14px_200 @1x.png"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="search-res-box">
+            <div class="box-header">Charles Boyle</div>
+            <div class="box-body">
+              Is this template really for free? That's unbelievable! Is this template really for free?
+              <div class="msg-time">10:07am <img src="/images/reciept-delivered_14px_200 @1x.png"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="search-res-box">
+            <div class="box-header">Charles Boyle</div>
+            <div class="box-body">
+              Is this template really for free? That's unbelievable! Is this template really for free?
+              <div class="msg-time">10:07am <img src="/images/reciept-delivered_14px_200 @1x.png"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="search-res-box">
+            <div class="box-header">Charles Boyle</div>
+            <div class="box-body">
+              Is this template really for free? That's unbelievable! Is this template really for free?
+              <div class="msg-time">10:07am <img src="/images/reciept-delivered_14px_200 @1x.png"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="search-res-box">
+            <div class="box-header">Charles Boyle</div>
+            <div class="box-body">
+              Is this template really for free? That's unbelievable! Is this template really for free?
+              <div class="msg-time">10:07am <img src="/images/reciept-delivered_14px_200 @1x.png"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="search-res-box">
+            <div class="box-header">Charles Boyle</div>
+            <div class="box-body">
+              Is this template really for free? That's unbelievable! Is this template really for free?
+              <div class="msg-time">10:07am <img src="/images/reciept-delivered_14px_200 @1x.png"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="search-res-box">
+            <div class="box-header">Charles Boyle</div>
+            <div class="box-body">
+              Is this template really for free? That's unbelievable! Is this template really for free?
+              <div class="msg-time">10:07am <img src="/images/reciept-delivered_14px_200 @1x.png"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="search-res-box">
+            <div class="box-header">Charles Boyle</div>
+            <div class="box-body">
+              Is this template really for free? That's unbelievable! Is this template really for free?
+              <div class="msg-time">10:07am <img src="/images/reciept-delivered_14px_200 @1x.png"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pin-bar">
+        <div class="pin-item">
+          <img src="/images/users/feelix.jpg" title="Feelix" />
+        </div>
+        <div class="pin-item">
+          <img src="/images/users/navigate group.jpg" title="Everyone @ Navigate Group" onclick="unpinme(event)" />
+        </div>
+        <div class="pin-item">
+          <img src="/images/drag-to-pin_72px @1x.png" title="Pin" style="margin: 0;border-radius: 0;box-shadow: none;" />
+        </div>
+    </div>
+    <div class="body-bar">
+      <!-- <div class="masonry-layout"> -->
+      <div id="conversation-container" class="masonry-layout">
+
+        <% _.each(data[0].myid, function(v, k) {%>
+            <%- include('templates/chat/user_list', {
+              pinned: "",
+              userid: v.userid,
+              conversation_id: v.conversation_id,
+              conversation_type: v.conversation_type,
+              box_type: v.box_type,
+              unread: v.unread,
+              users_name: v.users_name,
+              users_img: v.users_img,
+              pined: v.pined,
+              sub_title: v.sub_title,
+              last_msg: v.last_msg,
+              last_msg_time: v.last_msg_time,
+              display: v.display}
+            ); %>
+        <% }); %>
+        <% _.each(data[0].pin, function(v, k) {%>
+    			<%- include('templates/chat/user_list', {
+    				pinned: v.pinned,
+    				userid: v.user_id,
+    				conversation_id: v.conversation_id,
+    				conversation_type: v.conversation_type,
+    				box_type: v.box_type,
+    				unread: v.unread,
+    				users_name: v.users_name,
+    				users_img: v.users_img,
+    				pined: v.pined,
+    				sub_title: v.sub_title,
+    				last_msg: v.last_msg,
+    				last_msg_time: v.last_msg_time,
+    				display: v.display}
+    			); %>
+        <% }); %>
+        <% _.each(data[0].unpin, function(v, k) {%>
+    			<%- include('templates/chat/user_list', {
+    				userid: v.user_id,
+    				conversation_id: v.conversation_id,
+    				conversation_type: v.conversation_type,
+    				box_type: v.box_type,
+    				unread: v.unread,
+    				users_name: v.users_name,
+    				users_img: v.users_img,
+    				pined: v.pined,
+    				sub_title: v.sub_title,
+    				last_msg: v.last_msg,
+    				last_msg_time: v.last_msg_time,
+    				display: v.display}
+          ); %>
+        <% }); %>
+      </div>
+
+    </div>
+  </div>
+  <%- include('templates/_partial') %>
+</main>
+<script>
+  var user_id = '<%= user_id %>';
+  var user_fullname = '<%= user_fullname %>';
+  var user_img = '<%= user_img %>';
+  var groups = <%- JSON.stringify(data[0].groups) %>;
+  var urRes = <%- JSON.stringify(data[0].urRes) %>;
+  var to = '';
+  var conversation_id = '';
+  // var alluserinfo = <%- JSON.stringify(data) %>;
+  // console.log(alluserinfo);
+</script>
+<script src="/javascripts/socket-client-side.js"></script>
+<script src="/javascripts/toast.js"></script>
+<script src="/javascripts/custom.js"></script>
+<script src="/javascripts/custom-chat.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- this script working for render new block on page load and masonry view after append new block -->
+<script>
+  var allDataContain = [];
+  var personalOgj = 0;
+  var groupOgj = 0;
+  var existingConv = [];
+
+  $('#conversation-container .item').each(function(i, obj) {
+    existingConv.push($(obj).find('.box-header').attr('data-conversationid'));
+    $(obj).removeAttr('style');
+    allDataContain.push(obj);
+
+    if($(obj).hasClass('typeOpersonal')){
+      personalOgj++;
+    }
+
+    if($(obj).hasClass('typeOgroup')){
+      groupOgj++;
+    }
+  });
+
+  if(personalOgj == 1 && groupOgj > 0){
+    var cokkieDesign = '<div class="item ui-widget-content" id="directChat-start" onclick="openProfilePage(this)">';
+        cokkieDesign += '        <div class="box box-blk offline">';
+        cokkieDesign += '          <div class="box-body" style="display: block;"><p class="box-blk-txt">Oh no!</p><p class="box-blk-txt2">You don’t have any direct chats!</p><p class="box-blk-btn" onclick="startChatting();">Start chatting</p></div>';
+        cokkieDesign += '        </div>';
+        cokkieDesign += '      </div>';
+        cokkieDesign += '      <div class="gutter-sizer"></div>';
+
+    $('#conversation-container').append(cokkieDesign);
+  }
+
+  if(groupOgj == 0 && personalOgj == 1){
+    var cokkieDesign = '<div class="item ui-widget-content" id="teamChat-start" onclick="openProfilePage(this)">';
+        cokkieDesign += '        <div class="box box-blk offline">';
+        cokkieDesign += '          <div class="box-body" style="display: block;"><p class="box-blk-txt">Oh no!</p><p class="box-blk-txt2">You don’t have any chats!</p><p class="box-blk-btn" onclick="startChatting();">Start chatting</p></div>';
+        cokkieDesign += '        </div>';
+        cokkieDesign += '      </div>';
+        cokkieDesign += '      <div class="gutter-sizer"></div>';
+
+    $('#conversation-container').append(cokkieDesign);
+  }
+
+  count(urRes.array_elements,urRes.msgbodyArray);
+
+  // var currentHeight = 130;
+  // $('.error').each(function() {
+  //     console.log(currentHeight += $(this).height());
+  //     $(this).css('top', currentHeight);
+  // });
+
+  function count(array_elements,msgbodyArray) {
+    var current = null;
+    var cnt = 0;
+    for (var i = 0; i < array_elements.length; i++) {
+        if (array_elements[i] != current) {
+            if (cnt > 0) {
+              $("#nomsg"+current).text(cnt+" UNREAD");
+              $("#nomsg"+current).show();
+            }
+            current = array_elements[i];
+            cnt = 1;
+        } else {
+            cnt++;
+        }
+    }
+    if (cnt > 0) {
+        $("#nomsg"+current).text(cnt+" UNREAD");
+        $("#nomsg"+current).show();
+    }
+
+    if(msgbodyArray.length > 0){
+      var conversation_list = _.sortBy(msgbodyArray, ["created_at"]);
+      var conversation_listDesc = _.orderBy(msgbodyArray, ['created_at'], ['desc']);
+      var toastList =[];
+      var toastListMessg =[];
+      $.each(conversation_list, function(k,v){
+        $("#msgbody"+v.conversation_id).html(v.msg_body);
+        $("#msgbody"+v.conversation_id).attr('data-msgid',v.msg_id);
+        $("#msgbody"+v.conversation_id).attr('data-msgtype',v.msg_type);
+        $("#msgtime"+v.conversation_id).html(moment(v.created_at).format('h:m a')+'<img src="/images/reciept-delivered_14px_200 @1x.png">');
+        $("#msgbody"+v.conversation_id).show();
+        $("#msgtime"+v.conversation_id).show();
+      });
+
+      var unique = array_elements.filter(function(item, i, ar){ return ar.indexOf(item) === i; });
+      $.each(conversation_listDesc, function(k,v){
+        if(unique.indexOf(v.conversation_id) !== -1){
+          if(toastList.indexOf(v.conversation_id) == -1){
+            toastListMessg.push(v);
+            toastList.push(v.conversation_id);
+          }
+        }
+      });
+      // $.each(toastListMessg, function(k,v){
+      //   toggleToastdiv();
+      //   initToast(v.msg_type, v.sender_name, v.conversation_id, v.sender_name, v.sender_img, v.msg_body);
+      // });
+
+
+      
+      
+    }
+
+  }
+
+</script>
+<script>
+
+  // $('.filterChaekbox').change(function(ob){
+  //   console.log();
+  //   console.log($(ob)["0"].currentTarget.checked);
+  //   switch($(ob)["0"].currentTarget.id){
+  //
+  //   }
+  // });
+  //
+  //   $("#checkboxDirect").change(function(e){
+  //   if(e.target.checked){
+  //
+  //     var mdatapinnd = [];
+  //
+  //     $.each(allDataContain,function(i, obj){
+  //       if($(obj).hasClass('typeOpersonal')){
+  //         mdatapinnd.push(obj);
+  //       }
+  //     });
+  //
+  //     $('#conversation-container').html("");
+  //
+  //     var masonryOptions = {
+  //       itemSelector: '.item',
+  //       columnWidth: 264
+  //     };
+  //
+  //     var $grid = $('.masonry-layout').masonry(masonryOptions);
+  //
+  //     $.each(mdatapinnd,function(k,bb){
+  //       var $content = $( bb );
+  //       // add jQuery object
+  //       $grid.append( $content ).masonry( 'appended', $content );
+  //     });
+  //
+  //     $grid.masonry('destroy');
+  //     $grid.masonry( masonryOptions );
+  //
+  //     afterAppendEventInConnectpage();
+  //
+  //   }else{
+  //     $('#conversation-container').html("");
+  //     var masonryOptions = {
+  //       itemSelector: '.item',
+  //       columnWidth: 264
+  //     };
+  //
+  //     var $grid = $('.masonry-layout').masonry(masonryOptions);
+  //
+  //     $.each(allDataContain,function(k,bb){
+  //       var $content = $( bb );
+  //       // add jQuery object
+  //       $grid.append( $content ).masonry( 'appended', $content );
+  //     });
+  //
+  //     $grid.masonry('destroy');
+  //     $grid.masonry( masonryOptions );
+  //
+  //     afterAppendEventInConnectpage();
+  //   }
+  // });
+  //
+  // $("#checkboxTeam").change(function(e){
+  //   if(e.target.checked){
+  //     var mdatapinnd = [];
+  //
+  //     $.each(allDataContain,function(i, obj){
+  //       if($(obj).hasClass('typeOgroup')){
+  //         mdatapinnd.push(obj);
+  //       }
+  //     });
+  //
+  //     $('#conversation-container').html("");
+  //
+  //     var masonryOptions = {
+  //       itemSelector: '.item',
+  //       columnWidth: 264
+  //     };
+  //
+  //     var $grid = $('.masonry-layout').masonry(masonryOptions);
+  //
+  //     $.each(mdatapinnd,function(k,bb){
+  //       var $content = $( bb );
+  //       // add jQuery object
+  //       $grid.append( $content ).masonry( 'appended', $content );
+  //     });
+  //
+  //     $grid.masonry('destroy');
+  //     $grid.masonry( masonryOptions );
+  //
+  //     afterAppendEventInConnectpage();
+  //   }else{
+  //     $('#conversation-container').html("");
+  //     var masonryOptions = {
+  //       itemSelector: '.item',
+  //       columnWidth: 264
+  //     };
+  //
+  //     var $grid = $('.masonry-layout').masonry(masonryOptions);
+  //
+  //     $.each(allDataContain,function(k,bb){
+  //       var $content = $( bb );
+  //       // add jQuery object
+  //       $grid.append( $content ).masonry( 'appended', $content );
+  //     });
+  //
+  //     $grid.masonry('destroy');
+  //     $grid.masonry( masonryOptions );
+  //
+  //     afterAppendEventInConnectpage();
+  //   }
+  // });
+  //
+  //   $("#checkboxOnline").change(function(e){
+  //   if(e.target.checked){
+  //     var mdatapinnd = [];
+  //
+  //     $.each(allDataContain,function(i, obj){
+  //       if($(obj).closest('div').find('.box').hasClass('online')){
+  //         mdatapinnd.push(obj);
+  //       }
+  //     });
+  //
+  //     $('#conversation-container').html("");
+  //
+  //     var masonryOptions = {
+  //       itemSelector: '.item',
+  //       columnWidth: 264
+  //     };
+  //
+  //     var $grid = $('.masonry-layout').masonry(masonryOptions);
+  //
+  //     $.each(mdatapinnd,function(k,bb){
+  //       var $content = $( bb );
+  //       // add jQuery object
+  //       $grid.append( $content ).masonry( 'appended', $content );
+  //     });
+  //
+  //     $grid.masonry('destroy');
+  //     $grid.masonry( masonryOptions );
+  //
+  //     afterAppendEventInConnectpage();
+  //   }else{
+  //     $('#conversation-container').html("");
+  //     var masonryOptions = {
+  //       itemSelector: '.item',
+  //       columnWidth: 264
+  //     };
+  //
+  //     var $grid = $('.masonry-layout').masonry(masonryOptions);
+  //
+  //     $.each(allDataContain,function(k,bb){
+  //       var $content = $( bb );
+  //       // add jQuery object
+  //       $grid.append( $content ).masonry( 'appended', $content );
+  //     });
+  //
+  //     $grid.masonry('destroy');
+  //     $grid.masonry( masonryOptions );
+  //
+  //     afterAppendEventInConnectpage();
+  //   }
+  // });
+
+  $(function(){
+    var teamname = getCookie('teamname');
+    var grpmember = getCookie('grpmember');
+    var grpmemberCount = grpmember.split(',');
+    masonryViewLoad();
+  });
+ /*
+  Live event call after dynamically append data.
+  */
+  var afterAppendEventInConnectpage = () => {
+
+    $('.pin-to-bar').on( 'click',function(event){
+      event.stopPropagation();
+      var name = $(event.target).closest('.box-header').attr('data-name');
+      var img = $(event.target).closest('.box-header').attr('data-img');
+
+
+      if($(event.target).hasClass('pined')){
+        var pinnedid = $(event.target).attr('data-pinned');
+        $.ajax({
+          type: 'POST',
+          data: {
+            pinnedNumber:'',
+            targetID:pinnedid,
+            blockID:'',
+            type:'unpin'
+          },
+          dataType: 'json',
+          url: '/hayven/pinning',
+          success: function(data) {
+            $("#conversation-container").html("");
+            $.each(data.myid, function(ka,v){
+              conPinBlockDesign(v);
+            });
+
+            $.each(data.pin, function(ka,v){
+              conPinBlockDesign(v);
+            });
+
+            $.each(data.unpin, function(ka,v){
+              conUnpinBlockDesign(v);
+            });
+
+            count(data.urRes.array_elements,data.urRes.msgbodyArray);
+
+            var mdatapinnd = [];
+
+            $('#conversation-container .item').each(function(i, obj) {
+              mdatapinnd.push($(obj).add('<div class="gutter-sizer"></div>'));
+            });
+
+            $('#conversation-container').html("");
+
+            var masonryOptions = {
+                itemSelector : '.item',
+                columnWidth : '.masonry-layout .item',
+                gutter: '.gutter-sizer',
+                percentPosition: true
+              };
+
+
+            var $grid = $('.masonry-layout').masonry(masonryOptions);
+
+            $.each(mdatapinnd,function(k,bb){
+              var $content = $( bb );
+              // add jQuery object
+              $grid.append( $content ).masonry( 'appended', $content );
+            });
+
+            $grid.masonry('destroy');
+            $grid.masonry( masonryOptions );
+
+            afterAppendEventInConnectpage();
+          }
+        });
+      }else{
+
+        var pinnedCount = $('.pined').length;
+        var PinnedNumber = parseInt(pinnedCount)+1;
+        var targetID = $(this).closest('.box-header').attr('data-id');
+        var blockID = $(this).closest('.box-header').attr('data-conversationid');
+
+        $.ajax({
+          type: 'POST',
+          data: {
+            pinnedNumber:PinnedNumber,
+            targetID:targetID,
+            blockID:blockID,
+            type:'pin'
+          },
+          dataType: 'json',
+          url: '/hayven/pinning',
+          success: function(data) {
+            $("#conversation-container").html("");
+            $.each(data.myid, function(ka,v){
+              conPinBlockDesign(v);
+            });
+
+            $.each(data.pin, function(ka,v){
+              conPinBlockDesign(v);
+            });
+
+            $.each(data.unpin, function(ka,v){
+              conUnpinBlockDesign(v);
+            });
+
+            count(data.urRes.array_elements,data.urRes.msgbodyArray);
+
+            var mdatapinnd = [];
+
+            $('#conversation-container .item').each(function(i, obj) {
+              mdatapinnd.push($(obj).add('<div class="gutter-sizer"></div>'));
+            });
+
+            $('#conversation-container').html("");
+
+            var masonryOptions = {
+                itemSelector : '.item',
+                columnWidth : '.masonry-layout .item',
+                gutter: '.gutter-sizer',
+                percentPosition: true
+              };
+
+
+            var $grid = $('.masonry-layout').masonry(masonryOptions);
+
+            $.each(mdatapinnd,function(k,bb){
+              var $content = $( bb );
+              // add jQuery object
+              $grid.append( $content ).masonry( 'appended', $content );
+            });
+
+            $grid.masonry('destroy');
+            $grid.masonry( masonryOptions );
+
+            afterAppendEventInConnectpage();
+          }
+        });
+      }
+    });
+  };
+
+    function conPinBlockDesign(v){
+    var cokkieDesign = '<div class="item ui-widget-content" onclick="openProfilePage(this)">';
+        cokkieDesign += '        <div class="box box-'+v.display+' online_'+v.user_id+' offline">';
+        cokkieDesign += '          <div class="box-msg nomsg" id="nomsg'+v.conversation_id+'" style="display: none;"></div>';
+        cokkieDesign += '          <div class="box-header" data-name="'+v.users_name+'" data-img="navigate group.jpg" data-id="'+v.user_id+'" data-conversationtype="'+v.conversation_type+'"  data-conversationid="'+v.conversation_id+'">';
+        cokkieDesign += '            <div class="box-title">'+v.users_name+'</div>';
+        cokkieDesign += '            <div class="box-subtitle">'+v.sub_title+'</div>';
+        cokkieDesign += '            <img src="/images/pin-on_16px_500 @1x.png" class="pin-to-bar pined" data-pinned="'+v.pinned+'">';
+        cokkieDesign += '          </div>';
+        cokkieDesign += '          <div class="box-body" id="msgbody'+v.conversation_id+'" data-msgtype="" data-msgid="" style="display: none;"></div>';
+        cokkieDesign += '          <div class="msg-time" id="msgtime'+v.conversation_id+'" style="display: none;"></div>';
+        cokkieDesign += '        </div>';
+        cokkieDesign += '      </div>';
+        cokkieDesign += '      <div class="gutter-sizer"></div>';
+
+      if(!$('#conversation-container').hasClass('classic-row')){
+        $("#conversation-container .item").draggable({
+          helper: 'clone', opacity: 0.5
+        });
+
+        $('#conversation-container').append(cokkieDesign);
+      }else{
+        $('#conversation-container').append(cokkieDesign);
+      }
+  }
+
+  function conUnpinBlockDesign(v){
+    var cokkieDesign = '<div class="item ui-widget-content" onclick="openProfilePage(this)">';
+        cokkieDesign += '        <div class="box box-'+v.display+' online_'+v.user_id+' offline" >';
+        cokkieDesign += '          <div class="box-msg nomsg" id="nomsg'+v.conversation_id+'" style="display: none;"></div>';
+        cokkieDesign += '          <div class="box-header" data-name="'+v.users_name+'" data-img="navigate group.jpg" data-id="'+v.user_id+'" data-conversationtype="'+v.conversation_type+'"  data-conversationid="'+v.conversation_id+'">';
+        cokkieDesign += '            <div class="box-title">'+v.users_name+'</div>';
+        cokkieDesign += '            <div class="box-subtitle">'+v.sub_title+'</div>';
+        cokkieDesign += '            <img src="/images/pin-off_16px_200 @1x.png" class="pin-to-bar" >';
+        cokkieDesign += '          </div>';
+        cokkieDesign += '          <div class="box-body" id="msgbody'+v.conversation_id+'" data-msgtype="" data-msgid="" style="display: none;"></div>';
+        cokkieDesign += '          <div class="msg-time" id="msgtime'+v.conversation_id+'" style="display: none;"></div>';
+        cokkieDesign += '        </div>';
+        cokkieDesign += '      </div>';
+        cokkieDesign += '      <div class="gutter-sizer"></div>';
+
+    if(!$('#conversation-container').hasClass('classic-row')){
+      $("#conversation-container .item").draggable({
+        helper: 'clone', opacity: 0.5
+      });
+
+      $('#conversation-container').append( cokkieDesign );
+
+    }else{
+      $('#conversation-container').append(cokkieDesign);
+    }
+  }
+
+  /*
+  Masonry View Load after event call
+  */
+var masonryViewLoad = () => {
+  if($('.masonry-layout').length){
+
+        $('.masonry-layout').masonry({
+            itemSelector : '.item',
+            columnWidth : '.masonry-layout .item',
+            gutter: '.gutter-sizer',
+            percentPosition: true
+          });
+
+      }
+}
+
+  // popup block for create or tagged on a new group
+  socket.on('groupCreate', function(message) {
+      console.log(message);
+      var memberListLen = message.memberList;
+      var adminList = message.adminList;
+      var arr3 = [];
+
+      for (var i=0,j=memberListLen.length; i<j; i++) {
+          arr3.push(memberListLen[i]);
+          arr3.push(adminList[i]);
+      }
+
+      $.each(arr3, function(ka,va){
+        if(va == user_id){
+          var cokkieDesign = '<div class="item ui-widget-content" onclick="openProfilePage(this)">';
+              cokkieDesign += '        <div class="box box-success online_4 offline" >';
+              cokkieDesign += '          <div class="box-msg nomsg"></div>';
+              cokkieDesign += '          <div class="box-header" data-name="'+user_fullname+'" data-img="navigate group.jpg" data-id="'+user_id+'" data-conversationtype="group"  data-conversationid="'+message.room_id.conversation_id+'">';
+              cokkieDesign += '            <div class="box-title">'+message.teamname+'</div>';
+              cokkieDesign += '            <div class="box-subtitle">'+ parseInt(parseInt(memberListLen.length)+parseInt(adminList.length)) +'</div>';
+              cokkieDesign += '            <img src="/images/pin-off_16px_200 @1x.png" class="pin-to-bar">';
+              cokkieDesign += '          </div>';
+              cokkieDesign += '        </div>';
+              cokkieDesign += '      </div>';
+              cokkieDesign += '      <div class="gutter-sizer"></div>';
+
+          $("#conversation-container .item").draggable({
+            helper: 'clone', opacity: 0.5
+          });
+
+          var $grid = $('.masonry-layout').masonry({
+                itemSelector : '.item',
+                columnWidth : '.masonry-layout .item',
+                gutter: '.gutter-sizer',
+                percentPosition: true
+          });
+
+
+          var $content = $( cokkieDesign );
+          // add jQuery object
+          $grid.append( $content ).masonry( 'appended', $content );
+          afterAppendEventInConnectpage();
+
+        }
+      });
+  });
+
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) { // escape key maps to keycode `27`
+        if($(".filter-btn-div").is(':visible')){
+          $(".filter-btn-div").hide();
+        }
+        if($(".action-btn-div").is(':visible')){
+          $(".action-btn").trigger('click');
+        }
+        if($(".search-body").is(':visible')){
+          clearSearch();
+        }
+        if (e.keyCode == 27) { // escape key maps to keycode `27`
+            if($('.connect_plus_tiles').is(':visible')){
+              $('.connect_plus_tiles').hide();
+            }
+        }
+    }
+  });
+
+  /** End of action button process*/
+
+  // $('.search-txt').on('keyup', function(){
+  //   var str = $(this).val();
+  //   console.log(str);
+  //   if(str.length > 0){
+  //     $('.search-body').show();
+  //     $('.search-bar .fa-times').show();
+  //     $('.pin-bar').hide();
+  //     $('.body-bar').hide();
+  //     $('.search-bar .pointer').hide();
+  //     // $('.search-bar .input-group').css('width', '890px');
+  //     $('.search-bar').addClass('sticky');
+  //     $('.gradient-body-bg').show();
+  //
+  //     $('.searchContactListText').unhighlight();
+  //     $('.searchContactListText').highlight(str);
+  //
+  //     $(".searchContactListText").each(function() {
+  //
+  //         if ($(this).text().toLowerCase().search(str.toLowerCase()) > -1) {
+  //             $(this).parent('div').show();
+  //         }else {
+  //             $(this).parent('div').hide();
+  //         }
+  //     });
+  //   } else {
+  //     clearingSearch();
+  //   }
+  //
+  //   if(getCookie('userid')!== ''){
+  //     $("#currentChatID").attr('src','/images/users/'+getCookie('userimg'));
+  //     $("#currentChatSpan").text(getCookie('username'));
+  //     $("#currentChatDiv").attr('data-id',getCookie('userid'));
+  //     $("#currentChatDiv").attr('data-name',getCookie('username'));
+  //     $("#currentChatDiv").attr('data-img',getCookie('userimg'));
+  //   }
+  // });
+
+  $('.search-txt').on('keyup', function(){
+   var str = $(this).val();
+   console.log(str);
+   if(str.length > 0){
+     $('.filter_body').hide();
+     $('.search-body').show();
+     $('.search-bar .fa-times').show();
+     $('.pin-bar').hide();
+     $('.body-bar').hide();
+     $('.search-bar .pointer').hide();
+     // $('.search-bar .input-group').css('width', '890px');
+     $('.search-bar').addClass('sticky');
+     $('.gradient-body-bg').show();
+
+     $('.searchContactListText').unhighlight();
+     $('.searchContactListText').highlight(str);
+
+     $(".searchContactListText").each(function() {
+
+         if ($(this).text().toLowerCase().search(str.toLowerCase()) > -1) {
+             $(this).parent('div').show();
+         }else {
+             $(this).parent('div').hide();
+         }
+     });
+   } else {
+     clearingSearch();
+   }
+
+   if(getCookie('userid')!== ''){
+     $("#currentChatID").attr('src','/images/users/'+getCookie('userimg'));
+     $("#currentChatSpan").text(getCookie('username'));
+     $("#currentChatDiv").attr('data-id',getCookie('userid'));
+     $("#currentChatDiv").attr('data-name',getCookie('username'));
+     $("#currentChatDiv").attr('data-img',getCookie('userimg'));
+   }
+ });
+
+  $('.searchContactList').on('click', function(){
+    //alert('click');
+    var id = $(this).attr('data-id');
+    var name = $(this).attr('data-name');
+    var img = $(this).attr('data-img');
+
+    $.ajax({
+      type: 'POST',
+      data: {
+          targetUser: name,
+          targetID: id,
+          ecosystem: 'Navigate'
+      },
+      dataType: 'json',
+      url: '/hayven/personalConCreate',
+      success: function(data) {
+          window.location.href = '/hayven/chat/personal/' + id + '/' + encodeURI(data.conversation_id) + '/' + encodeURI(name) + '/' + encodeURI(img);
+      },
+      error: function(err) {
+          console.log(err);
+      }
+    });
+
+  });
+
+  $('#currentChatDiv').on('click', function(){
+    //alert('click');
+    var id = $(this).attr('data-id');
+    var name = $(this).attr('data-name');
+    var img = $(this).attr('data-img');
+
+    var conversationid = $(this).attr('data-conversationid');
+    window.location.href='/hayven/chat/'+ id +'/'+ encodeURI(conversationid) +'/'+ encodeURI(name) +'/' + encodeURI(img);
+
+  });
+
+  function startChatting(){
+    $('.search-body').show();
+    $('.search-bar .fa-times').show();
+    $('.pin-bar').hide();
+    $('.body-bar').hide();
+    $('.search-bar .pointer').hide();
+    // $('.search-bar .input-group').css('width', '890px');
+    $('.search-bar').addClass('sticky');
+    $('.gradient-body-bg').show();
+  }
+
+
+
+</script>
+<%- include('layouts/foot') %>
+<%- include('templates/project/quickproject') %>

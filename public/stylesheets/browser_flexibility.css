@@ -1,0 +1,15 @@
+@supports (-ms-ime-align:auto) {
+	.centered-form__form{
+		height: auto;
+		width: 476px;
+	}
+	.hello-welcome-back{
+		width: 100%;
+	}
+	.sign-into-your-account{
+		width: 100%;
+	}
+	.moreMenu{
+		height: 168px!important;
+	}
+}

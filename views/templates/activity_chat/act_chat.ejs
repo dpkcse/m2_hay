@@ -1,0 +1,63 @@
+<div id="live-chat">
+    <header class="clearfix">
+        <img class="chat-close" width="34" src="/images/basicAssets/close_button.svg" alt="Close">
+        <div class="heading_area">
+            <h4 class="todo_chat_room_title">Amazon Wishlist</h4>
+            <img src="/images/basicAssets/Users.svg" alt="" onclick="viewShareList(event)">
+            <span class="count_member" onclick="viewShareList(event)">8 Members</span>
+        </div>
+        <div class="voice-call"><img src="/images/basicAssets/custom_voice_call.svg" alt=""></div>
+        <div class="video-call"><img src="/images/basicAssets/custom_video_call.svg" alt=""></div>
+        <div class="search-into-todo-msg" onclick="show_search_input()"><img src="/images/basicAssets/search_icon_for_todo_chat.svg" alt=""></div>
+        <input type="text" id="todo_chat_search_input" onblur="hide_search_input()">
+    </header>
+    <div class="msg-separetor_head">
+		<div id="top-date"></div>
+	</div>
+
+    <div class="todo-chat-body overlayScrollbars">
+        <div class="chat-history">
+        </div><!-- end chat-history -->
+        <!-- <p class="chat-feedback">Your partner is typing…</p> -->
+    </div>
+    <div class="todos-chat-write">
+        <!-- <input type="text" id="chatbox" placeholder="" autofocus> -->
+        <div contenteditable="true" type="text" id="chatbox" placeholder="" autofocus></div>
+    <p class="typing-indicator"></p>
+    <input type="hidden">
+    <img class="send-attach-file" onclick="open_file_browser()" src="/images/basicAssets/Attach.svg" alt="">
+    <img class="send-emoji" onclick="open_todo_emoji()" src="/images/basicAssets/AddEmoji_White.svg" alt="">
+    </div>
+</div>
+
+<!-- Thread reply popup  start-->
+<div class="backwrap" style="display: none" id="threadReplyPopUp">
+	<div class="msgs-thread-popup">
+		<div class="msgs-thread-head">
+			<h3><img src="/images/basicAssets/thread.svg" alt=""> Thread</h3>
+			<img class="thread-close" src="/images/basicAssets/close_button.svg" alt="" onclick="closetodoreply()">
+		</div>
+		<div class="main-thread-msgs"></div>
+		<div class="msgs-thread-reply">
+			<div class="reply-separetor">
+				<p></p>
+			</div>
+			<div class="forScrollBar overlayScrollbars">
+				<div class="replies-container"></div>
+			</div>
+		</div>
+		<div class="write-thread-msgs">
+			<div contenteditable="true" id="msg_rep" class="write-msgs" placeholder="Reply to Raymond Holt"></div>
+			<img class="add-attachment send-rep-attach" onclick="open_file_browser()" src="/images/basicAssets/Attach.svg" alt="">
+			<img class="add-emoji" onclick="open_rep_emoji(event)" src="/images/basicAssets/AddEmoji_White.svg" alt="">
+			<p class="rep-typing-indicator"></p>
+		</div>
+		<div class="pevThread" onclick="open_another_rep(event)" data-ano_msg_id="">
+			<img src="/images/basicAssets/prevThreadicon.svg">
+		</div>
+		<div class="nextThread" onclick="open_another_rep(event)" data-ano_msg_id="">
+			<img src="/images/basicAssets/nextThreadicon.svg">
+		</div>
+	</div>
+</div>
+<!-- Thread reply popup  end-->

@@ -1,0 +1,557 @@
+<%- include('layouts/head') %>
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/chatbox.css">
+    <link rel="stylesheet" href="/stylesheets/responsive-chat.css">
+    <!-- <link rel="stylesheet" href="/stylesheets/responsive-chat.css"> -->
+    <!-- <link rel="stylesheet" href="/stylesheets/bootstrap-tagsinput.css"> -->
+    <main role="main" class="container" id="container">
+        <div id="chat_area">
+            <span id="back_icon"> <img src="/images/back_34px_200 @1x.png" onclick="window.location.href='/hayven'" alt=""> </span>
+            <div class="header_area">
+                <div class="card_box_area">
+                    <div class="bitmap_image">
+                        <img src="/images/users/<%= data[0].room_img %>" alt="<%= data[0].room_name %>">
+                    </div>
+                    <div class="freelance_area">
+                        <p class="freelance ecosystem">
+                            <%= data[0].conversation[0].group_keyspace %>
+                        </p>
+                        <p class="random_coffee">
+                            <span class="group-name" id="groupname"><%= data[0].room_name %></span><span class="designation"><span class="numbers" id="numbers"><%= data[0].conversation[0].participants.length %></span><span>&nbsp;members</span></span>
+                        </p>
+                    </div>
+                    <div class="box_right_area">
+                        <div class="open_more"><img class="open_more_option" src="/images/more_18px_400 @1x.png" onclick="open_more_option()"></div>
+                        <div class="icon-call display_inline"> <img class="audio_call_icon" onclick="openAudioCall(this)" src="/images/call_18px_000 @1x.png"><img onclick="openVideoCall(this)" src="/images/video_18px_000 @1x.png" class="icon_video_call"></div>
+                        <div class="more-option">
+                            <ul>
+                                <li onclick="add_tag()">Add tags</li>
+                                <li onclick="select_messages()">Select messages</li>
+                                <li onclick="export_conversation()">Export conversation</li>
+                                <li onclick="delete_conver('<%= data[0].conversation[0].conversation_id %>')">Delete conversation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <ul class="tabs">
+                    <li class="tab-link current" data-tab="tab-1" onclick="show_all_msg()">Chat</li>
+                    <li class="tab-link" data-tab="tab-1" onclick="media_mgs()">Media</li>
+                    <li class="tab-link" data-tab="tab-1" onclick="link_mgs()">Links</li>
+                    <li class="tab-link" data-tab="tab-1" onclick="file_mgs()">Files</li>
+                    <li class="tab-link" data-tab="tab-1" onclick="tag_msg()">Tagged</li>
+                    <li class="tab-link" data-tab="tab-1" onclick="flagged_messages()">Flagged</li>
+                    <!-- <li class="tab-link" data-tab="tab-7" onclick="open_members_view_div()">Members</li> -->
+                    <li class="tab-link" data-tab="tab-7">Members</li>
+
+                </ul>
+            </div>
+            <div class="card_boxTab_area">
+                <div id="tab-1" class="tab-content current">
+
+                    <div class="itl-template chat-page">
+                        <div class="up-down-arrow">
+                            <div class="up-arrow"><img src="/images/up-arrow.png"></div>
+                            <div class="down-arrow"><img src="/images/down-arrow.png"></div>
+                        </div>
+                        <div class="message-container">
+                            <% var cdate =  "", pdate = "", datadate = "";
+
+                            data[0].conversation_list.forEach(function(row){
+                              if(row.has_delete == null || (row.has_delete).indexOf(user_id) == -1){ %>
+                                <%
+                                // Sender and receiver message check
+                                if(row.sender == user_id){
+                                  var is_right = 'right-msg';
+                                  var is_mirror = 'mirror';
+                                } else {
+                                  var is_right = '';
+                                  var is_mirror = '';
+                                }
+                                // Check emoji reaction message
+                                if(row.has_emoji != null){
+                                  var abck = row.has_emoji;
+                                } else {
+                                  var abck = 'no_emoji';
+                                }
+                                // Check flag and unflag message
+                                if(row.has_flagged != null && (row.has_flagged).indexOf(user_id) != -1){
+                                  var is_flag = true;
+                                } else {
+                                  var is_flag = false;
+                                }
+                                // Check seen and unseen message
+                                if(row.msg_status != null || row.sender != user_id){
+                                  var is_msg_status = true;
+                                } else {
+                                  var is_msg_status = false;
+                                }
+                                // Check message date by group date
+                                if(cdate == moment(row.created_at).format("MMM Do, YYYY")){
+                                  pdate =  "";
+                                  datadate = moment(row.created_at).format("MMM Do, YYYY");
+                                } else {
+                                  cdate = moment(row.created_at).format("MMM Do, YYYY");
+                                  pdate = moment(row.created_at).format("MMM Do, YYYY");
+                                  datadate = moment(row.created_at).format("MMM Do, YYYY");
+                                }
+
+                                // Check miss call related messages
+                                if(row.msg_type=='call'){
+                                  if(row.sender == user_id){ // right side
+                                    var msg_text= data[0].room_name + " missed a " + (row.msg_body == "audio"? "" : row.msg_body) + " call from you. ";
+                                  } else { // left side
+                                      var msg_text= "You missed a " + (row.msg_body == "audio"? "" : row.msg_body) + " call from " + row.sender_name + ". " ;
+                                  }
+                                }
+                                // Check call related messages
+                                else if(row.msg_type=='called'){
+                                  if(row.call_duration != null){
+                                    var msg_call_duration=" (" + row.call_duration + ") ";
+                                  }else{
+                                    var msg_call_duration=' ';
+                                  }
+                                  if(row.sender == user_id){
+                                    // right side
+                                    var msg_text= "You called "+ data[0].room_name + "." + msg_call_duration;
+                                  } else {
+                                    // left side
+                                    var msg_text= row.sender_name + " called you." + msg_call_duration;
+                                  }
+                                }
+                                // Check call related messages
+                                else if(row.msg_type=='network'){
+                                  if(row.sender == user_id){
+                                    // right side
+                                    var msg_text= "You tried to call "+ data[0].room_name + " from outside network. ";
+                                  } else {
+                                    // left side
+                                    var msg_text= row.sender_name + " tried to call you from outside network. " ;
+                                  }
+                                }
+                                else{
+                                  var msg_text= row.msg_body;
+                                }
+
+                                if(row.attch_imgfile != null){
+                                  var imgfile = row.attch_imgfile;
+                                } else {
+                                  var imgfile = [];
+                                }
+                                if(row.attch_videofile != null){
+                                  var videofile = row.attch_videofile;
+                                } else {
+                                  var videofile = [];
+                                }
+                                if(row.attch_otherfile != null){
+                                  var otherfile = row.attch_otherfile;
+                                } else {
+                                  var otherfile = [];
+                                }
+                                if(row.url_title != null){
+                                  var link_url = [row.url_title, row.url_body, row.url_image, row.url_base_title, row.url_favicon];
+                                }else{
+                                  var link_url = [];
+                                }
+                                %>
+                                    <%- include('templates/chat/per_msg', {
+                                      msg_id: row.msg_id,
+                                      msg_data: pdate,
+                                      msg_datadate: datadate,
+                                      msg_right: is_right,
+                                      msg_mirror: is_mirror,
+                                      msg_user_img: row.sender_img,
+                                      msg_user_name: row.sender_name,
+                                      msg_is_flag: is_flag,
+                                      msg_text: msg_text,
+                                      msg_type: row.msg_type,
+                                      call_type: row.msg_body,
+                                      msg_link_url: link_url,
+                                      msg_attach_video: videofile,
+                                      msg_attach_img: imgfile,
+                                      msg_attach_file: otherfile,
+                                      msg_tags: [],
+                                      msg_replies_thread: [row.has_reply, moment(row.last_reply_time).fromNow()],
+                                      msg_replies_emoji: [abck],
+                                      msg_seen_status: is_msg_status,
+                                      msg_time: moment(row.created_at).format('h:mm a')}); %>
+                                        <% }
+                            }); %>
+                        </div>
+                        <%- include('templates/chat/message-send-form') %>
+                    </div>
+                </div>
+                <div id="tab-7" class="tab-content">
+                    <div class="itl-template chat-page">
+                        <div class="message-container">
+                            <div class="search-bar">
+                                <div class="actionPlusBtn">
+                                    <img src="/images/NavbarIcons/actions-create_24px_FFF.png" class="pointer action-connect-tiles" style="float:left;" />
+                                </div>
+                                <div class="input-group addMem" style="margin-right:0px; margin-left:10px;">
+                                    <input type="text" class="form-control search-txt addmemberInput" id="addmemberInput" onkeyup="searchsldefclas($(this).val());" placeholder="Search or start a new chat">
+                                    <img src="/images/search_18px_400 @1x.png" class="search-bar-img">
+                                    <ul class="suggested-list" id="s-l-def">
+
+
+                                    </ul>
+                                </div>
+                                <img src="/images/close_18px_300 @1x.png" class="fa-times" onclick="clearSearch()">
+                            </div>
+                            <div class="type-name" id="ml-admintype" style="display:none;">Admin</div>
+                            <div class="ml-listHA" id="ml-listHA"></div>
+                            <div class="type-name" id="ml-membertype" style="display:none;">Members</div>
+                            <div class="ml-listHl" id="ml-listHl"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- tab container -->
+            </div>
+
+
+        </div>
+
+        <%- include('templates/_partial') %>
+            <div class="backWrap"></div>
+            <!-- <div class="progress">
+    <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div> -->
+    </main>
+
+    <script>
+        var user_id = '<%= user_id %>';
+        var user_fullname = '<%= user_fullname %>';
+        var user_img = '<%= user_img %>';
+        var to = '<%= data[0].room_id %>';
+        var conversation_id = '<%= data[0].conversation_id %>';
+        var conversation_type = '<%= data[0].conversation_type %>';
+        var room_id = '<%= data[0].room_id %>';
+        var room_name = '<%= data[0].room_name %>';
+        var room_img = '<%= data[0].room_img %>';
+        var file_server = 'http://172.16.0.63:5500';
+    </script>
+    <script src="/javascripts/socket-client-side.js"></script>
+    <script src="/javascripts/custom.js"></script>
+    <script src="/javascripts/custom-chat.js"></script>
+    <script src="/javascripts/msg-file-upload.js"></script>
+    <!-- <script src="/javascripts/infinite-scroll.pkgd.min.js"></script> -->
+    <script type="text/javascript">
+        var adist = <%- JSON.stringify(data) %>;
+        var groups = <%- JSON.stringify(data[0].groups) %>;
+        var conversation_list = <%- JSON.stringify(data[0].conversation_list) %>;
+        var tags = <%- JSON.stringify(data[0].tags) %>;
+        //console.log('line 193',tags);
+        // console.log(user_fullname);
+        // console.log(user_img);
+        // console.log("to = ", to);
+        // console.log(conversation_id);
+        // console.log(conversation_type);
+
+        // console.log(264, getCookie('msgidforreload'));
+        // console.log(getCookie('replyRootMsgID'));
+
+        if (getCookie('replyRootMsgID') !== "") {
+            if ($(".msg_id_" + getCookie('replyRootMsgID')).is(":visible")) {
+                find_and_show_reply_msg(getCookie('replyRootMsgID'));
+                setCookie('replyRootMsgID', 0, 1);
+            }
+        }
+
+        var messageIDlist = [];
+        _.forEach(tags, function(v, k) {
+            // If msg status null
+            if (v.created_by == user_id) {
+                var html = '<span class="tag-list" id="taglid' + v.tag_id + '">' + v.tag_title.toUpperCase() + '<span class="deleteTag" onclick="deleteTag(\'' + v.tag_id + '\')">X</span></span> ';
+            } else {
+                var html = '<span class="tag-list" id="taglid' + v.tag_id + '">' + v.tag_title.toUpperCase() + '</span> ';
+            }
+
+            $("#msgTag" + v.message_id).append(html);
+
+        });
+        var need_update_message_seen_list = [];
+        console.log(270, conversation_list.length);
+        _.forEach(conversation_list, function(v, k) {
+            // If msg status null
+            if (v.msg_status == null) {
+                if (v.sender == user_id) {
+                    // This msg send by this user; so no need to change any seen status
+                } else {
+                    // This msg receive by this user; so need to change seen status
+                    need_update_message_seen_list.push(v.msg_id);
+                }
+            }
+
+            // If msg status have some user id, then
+            else {
+                if (v.msg_status.indexOf(user_id) > -1) {
+                    // This msg already this user seen
+                } else {
+                    if (v.sender != user_id) {
+                        // This msg receive by this user; so need to change seen status
+                        need_update_message_seen_list.push(v.msg_id);
+                    }
+                }
+            }
+        });
+        $(function() {
+            if (need_update_message_seen_list.length > 0) {
+                $.ajax({
+                    url: '/hayven/update_msg_status',
+                    type: 'POST',
+                    data: {
+                        msgid_lists: JSON.stringify(need_update_message_seen_list),
+                        user_id: user_id
+                    },
+                    dataType: 'JSON',
+                    success: function(res) {
+                        socket.emit('update_msg_seen', {
+                            msgid: need_update_message_seen_list,
+                            senderid: to,
+                            receiverid: user_id,
+                            conversation_id: conversation_id
+                        });
+                    },
+                    error: function(err) {
+                        console.log(err);
+                    }
+                });
+            }
+            // $.each($('.msg-text'), function(k,v){
+            //   $(v).text().replace('&lt;', '<');
+            //   $(v).text().replace('&gt;', '>');
+            // });
+
+            // $('.message-container').infiniteScroll({
+            //   path: function() {
+            //     return '/articles/P' + ( ( this.loadCount + 1 ) * 10 );
+            //   },
+            //   append: '.post',
+            //   history: false,
+            // });
+        });
+
+        var groupName = "";
+
+        $("#groupname").on('click', function(e) {
+            if (conversation_type == 'group') {
+                groupName = $("#groupname").text();
+                $("#groupname").attr('contenteditable', true);
+                $("#groupname").focus();
+            }
+        });
+        $("#msg").focus();
+
+        $("#groupname").on('blur keypress', function(e) {
+            var code = e.keyCode || e.which;
+            if (code == 13) { //Enter keycode = 13
+                e.preventDefault();
+                console.log(e.keyCode);
+                if ($("#groupname").text() != "") {
+                    var newGroupname = $("#groupname").text();
+                    socket.emit('saveGroupName', {
+                        conversation_id: conversation_id,
+                        newGroupname: newGroupname
+                    }, (callBack) => {
+                        if (callBack.status) {
+                            $("#groupname").attr('contenteditable', false);
+                        }
+                    });
+                } else {
+                    $("#groupname").text(groupName);
+                    var options = {
+                        priority: 'danger',
+                        title: 'Warning',
+                        message: 'You can\'t set an empty group name'
+                    };
+                    $.toaster(options);
+                }
+            }
+
+        });
+    </script>
+    <!-- <script src="/javascripts/bootstrap-tagsinput.min.js"></script> -->
+    <script type="text/javascript">
+        $(function() {
+            // if ("<%= file_message %>" != "No") {
+            //     var html = per_msg_top(moment().format("MMM Do, YYYY"), 'right-msg', 'mirror', user_img, user_fullname, '');
+            //     html += per_msg_main_body("<img src='/upload/<%= file_message %>' style='max-width: 508px;' class='image1 lightbox'>", '', moment().format('h:mm a'));
+            //     $('.message-container').html(html);
+            // }
+        });
+
+        //notification when someone add to new group
+
+        socket.on('popUpgroupblock', function(message) {
+
+            var options = {
+                priority: 'success',
+                title: 'Notification',
+                message: 'your added to a new group <strong>' + message.groupName + '</strong> by <strong>' + message.senderName + '</strong>'
+            };
+            $.toaster(options);
+        });
+
+        function deleteConv(cnvID) {
+            console.log("user_id", user_id);
+            console.log("cnvID", cnvID);
+            $.ajax({
+                type: 'POST',
+                data: {
+                    cnvID: cnvID,
+                    targetID: user_id
+                },
+                dataType: 'json',
+                url: '/hayven/cnvDlt',
+                success: function(data) {
+                    if (data.msg == 'success') {
+                        var options = {
+                            priority: 'success',
+                            title: 'Notification',
+                            message: 'You are redirect to dashboard'
+                        };
+                        $.toaster(options);
+                        setTimeout(redirect, 3000);
+                    } else {
+                        var options = {
+                            priority: 'wrning',
+                            title: 'Notification',
+                            message: 'Unable to delete'
+                        };
+                        $.toaster(options);
+                    }
+
+                    if (data.msg == '') {
+                        var options = {
+                            priority: 'wrning',
+                            title: 'Notification',
+                            message: 'Unable to delete'
+                        };
+                        $.toaster(options);
+                    }
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        }
+
+        function redirect() {
+            window.location.href = '/hayven/';
+        }
+    </script>
+    <script>
+        $(function() {
+            var teamname = getCookie('teamname');
+            var grpmember = getCookie('grpmember');
+            var selectecosystem = getCookie('selectecosystem');
+            var grpmemberCount = grpmember.split(',');
+
+            //$("#numbers").text(grpmemberCount.length);
+            //$("#groupname").text(teamname);
+            //$("#selectecosystem").text(selectecosystem);
+            $("#adminImg").text(user_img);
+            $("#adminName").text(user_fullname);
+            //$("#groupmembers").text(grpmemberCount.length + "members");
+
+        });
+
+        var allUserdata = <%- JSON.stringify(data) %>;
+        var grpmember = getCookie('grpmember');
+        var gm = grpmember.split(',');
+
+        var adList = getCookie('adminList');
+        var adminList = adList.split(',');
+
+        // console.log(adminList);
+        // console.log(gm);
+    </script>
+    <script>
+        $(document).ready(function() {
+
+            $('ul.tabs li').click(function() {
+                var tab_id = $(this).attr('data-tab');
+
+                $('ul.tabs li').removeClass('current');
+                $('.tab-content').removeClass('current');
+
+                $(this).addClass('current');
+                $("#" + tab_id).addClass('current');
+            })
+
+        })
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            if ("<%= file_message %>" != "No") {
+                var html = per_msg_top(moment().format("MMM Do, YYYY"), 'right-msg', 'mirror', user_img, user_fullname, '');
+                html += per_msg_main_body("<img src='/upload/<%= file_message %>' style='max-width: 508px;' class='image1 lightbox'>", '', moment().format('h:mm a'));
+                $('.message-container').html(html);
+            }
+        });
+    </script>
+    <script>
+        $(function() {
+
+            $(document).on('scrollstart', function() {
+
+                $('.card_box_area').hide();
+            })
+
+            $(document).on('scrollend', function() {
+                //  console.log('scroll ended');
+                // $('.card_box_area').fadeIn(3000, function() {
+
+                // });
+                //$(".card_box_area").delay(4000).show();
+                // setInterval('$(".card_box_area").show()', 4000);
+                $(".card_box_area").fadeIn(1000).delay(1500);
+            })
+
+        });
+        //console.log($(window).height());
+        //console.log($(".message-container").height());
+        $('.reply_thread').click(function() {
+            // alert('helo');
+            $('.header_area').hide();
+        });
+        $('.view-thread').click(function() {
+            $('.header_area').hide();
+        });
+        $('.close-container').click(function() {
+            // alert('helo');
+            $('.header_area').show();
+        });
+
+        if (getCookie('msgidforreload') != "") {
+            var pos = $('.msg_id_' + getCookie('msgidforreload')).offset();
+            $('html, body').animate({
+                scrollTop: (pos.top + 250)
+            }, 800);
+            setCookie('msgidforreload', "", 1);
+        } else {
+            scrollToBottom('.message-container');
+        }
+    </script>
+    <script>
+        $(document).mouseup(function(e) {
+            var container = $(".emoji_div");
+            if (!$('#emoji-search_icon').is(e.target) && !container.is(e.target) && container.has(e.target).length == 0) {
+                container.remove();
+            }
+        });
+        $('.act-btn').click(function(){
+        //  alert('helo');
+            $("textarea#FileComment").focus();
+        });
+
+
+    </script>
+
+    <script src="/javascripts/open-chat-page.js"></script>
+    <script src="/javascripts/scrollstop.js"></script>
+
+    <%- include('layouts/foot') %>
+        <%- include('templates/project/quickproject') %>

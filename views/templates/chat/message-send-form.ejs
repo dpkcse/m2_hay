@@ -1,0 +1,467 @@
+<div id="ChatFileUpload" class="Chat_File_Upload backwrap" style="display: none">
+    <div class="chat-file-upload-popup">
+        <h4 class="chat-upload-popup-title">UPLOAD FILE <span class="close-chat-file-popup" onclick="closeUploadPopup()" data-balloon="Press esc to close" data-balloon-pos="up"><img src="/images/basicAssets/close_button.svg" alt=""></span></h4>
+        <div class="chat-upload-popup-content">
+            <form method="POST" encType="multipart/form-data">
+                <div id="UploadedFileChat" style="margin-bottom: 16px">
+                    <!-- Drag & Drop file -->
+                    <label class="chat-file-drag-upload-label">Click or Drag to file</label>
+                </div>
+                <!-- Drag & Drop file -->
+                <div id="attach_chat_file_list">
+
+                </div>
+                <div class="chat-file-upload-comment">
+                    <label for="">Comments</label>
+                    <textarea name="" id="FileComment" onkeypress="check_val_for_activef()" cols="" rows="" placeholder="Add a comment..."></textarea>
+                </div>
+                <input type="file" name="any_file_chat" id="msgFile" multiple class="hidden" onchange="uploadAttachFileServer(this.files)">
+                <button type="button" id="uploadbtn" class="uploadbtn active" onclick="submit_attachment()">Send</button>
+                <button type="button" id="uploadbtn_f_todo" class="uploadbtn" onclick="upload_attachment()">Upload</button>            </form>
+
+                <div class="tagged"><img id="taggedIMGAttachFile" src="/images/basicAssets/custom_not_tag.svg"></div>
+            <div class="addTagConv" style="display: none">
+                <span id="CustagItemList"></span>
+                <div class="taglistHolder">
+                    <input type="text" id="customAdd" class="createConvTag" placeholder="Add custom tag"/>
+                    <div class="overlayScrollbars tagScroll">
+                        <ul class="taggedList" id="cusTaggedList"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var comment_text = '';
+    var check_val_for_activef = () => {
+        //if ($("#FileComment").val() != "")
+            //$('.uploadbtn').addClass('active');
+        //else
+            //$('.uploadbtn').removeClass('active');
+
+    };
+    var submit_attachment = () => {
+        var msg_text_from_file_comment = $('#FileComment').val();
+        if(msg_text_from_file_comment != "")
+            $('#msg').html(msg_text_from_file_comment);
+        else
+            $('#msg').html(comment_text);
+
+        msg_form_submit();
+        closeUploadPopup();
+
+    }
+    var add_file_data = (data) => {
+        $.each(data, function(k, v) {
+            var mime = v.mimetype;
+            if (mime.indexOf('image') != -1)
+                imgfile.push(v.filename);
+            else if (mime.indexOf('video') != -1)
+                videofile.push(v.filename);
+            else if (mime.indexOf('audio') != -1)
+                audiofile.push(v.filename);
+            else
+                otherfile.push(v.filename);
+        });
+        filedata = [{
+            audiofile,
+            imgfile,
+            otherfile,
+            videofile
+        }];
+    };
+
+    var tmpArr = [];
+    var tmptagListTitle = [];
+    var tmptagListForDisplayTitle = [];
+
+    var uploadFileFunction = () => {
+        filedata.length = 0; filedata = [];
+        audiofile.length = 0; audiofile = [];
+        imgfile.length = 0; imgfile = [];
+        otherfile.length = 0; otherfile = [];
+        videofile.length = 0; videofile = [];
+        formDataTemp.length = 0; formDataTemp = [];
+        comment_text = '';
+        $("#CustagItemList").text('');
+        $("#fileAttachTagLs").html('');
+
+        $('#ChatFileUpload').show();
+        $("textarea#FileComment").focus();
+
+        if ($("#create-todo-popup").is(":visible")) {
+            $("#uploadbtn").hide();
+            $("#uploadbtn_f_todo").show();
+            $("#viewUploadFileviewUploadFile").show();
+
+        } else {
+            $("#uploadbtn").show();
+            $("#uploadbtn_f_todo").hide();
+            $("#viewUploadFileviewUploadFile").hide();
+        }
+
+        $.each(FtempArray, function(k,v){
+            if(FtaggedList.indexOf(v.tag_id) !== -1){
+                // var design ='<li>'+v.title+'<span class="tagcheck"></span></li>';
+                // $('#cusTaggedList').append(design);
+                if(tmpArr.indexOf(v.tag_id) === -1){tmpArr.push(v.tag_id);}
+            }
+        });
+
+        $.each(FtempArray, function(k,v){
+            if(tmpArr.indexOf(v.tag_id) === -1){
+                var design ='<li id="tagLi'+v.tag_id+'">'+v.title+'</li>';
+                $('#cusTaggedList').append(design);
+            }
+        });
+
+        $('#cusTaggedList li').mouseleave(function(){
+            // $(this).find('span').removeClass('remove').addClass('tagcheck');
+            $(this).removeAttr('onclick');
+        });
+
+        $('#cusTaggedList li').mouseenter(function(){
+            // $(this).find('span').removeClass('tagcheck').addClass('remove');
+            console.log($(this).has( "span" ).length);
+            if($(this).has( "span" ).length > 0){
+                // $(this).attr('onclick','removeCustomTag(\''+$(this).text().toLowerCase()+'\')');
+                 $(this).attr('onclick','remoeag(\''+$(this).text().toLowerCase()+'\')');
+                 $(this).addClass('newlytagged');
+
+            }else{
+                $(this).removeClass('newlytagged');
+                $(this).attr('onclick','addCustomTag(\''+$(this).text().toLowerCase()+'\')');
+            }
+
+            if($(this).hasClass("newlytagged" )){
+                $(this).attr('onclick','remoeag(\''+$(this).text().toLowerCase()+'\')');
+            }
+        });
+
+
+
+        $("#CustagItemList").text(tmptagListForDisplayTitle.join(','));
+        // $("#CustagItemList").text(tagListForFileAttach.join(','));
+
+        $("#customAdd").on('blur keyup', function(e) {
+            if ((e.which >= 65 && e.which <= 90) || e.which == 189 || e.which == 13){
+                var str = $('#customAdd').val().trim();
+                str = str.replace(/<\/?[^>]+(>|$)/g, "");
+
+                $("#cusTaggedList li").each(function() {
+                    if ($(this).text().toLowerCase().search(str.toLowerCase()) > -1) {
+                        $(this).show();
+                    }else {
+                        $(this).hide();
+                    }
+                });
+
+                $('#cusTaggedList li').unhighlight();
+                $('#cusTaggedList li').highlight(str);
+
+                if(str != ""){
+                    var tagTitle = $("#customAdd").val();
+                    var keyCode = e.keyCode || e.which;
+
+                    if (keyCode === 13) {
+                        if(tagListForFileAttach.indexOf(tagTitle.toLowerCase())===-1){
+                            tagListForFileAttach.push(tagTitle.toLowerCase());
+                            tmptagListForDisplayTitle.push(tagTitle.toLowerCase());
+                            $("#customAdd").val("");
+                            $("#CustagItemList").text(tmptagListForDisplayTitle.join(','));
+                            var design ='<li class="removeCustomTag" onclick="removeCustomTag(\''+tagTitle.toLowerCase()+'\')">'+tagTitle.toLowerCase()+'<span class="tagcheck"></span></li>';
+                            $('#cusTaggedList').append(design);
+
+                            $('#cusTaggedList li').each(function() {
+                                $(this).show();
+                                $(this).unhighlight();
+                            });
+                        }
+                    }
+                }
+            }else{
+
+                var str = $('#customAdd').val().trim();
+                str = str.replace(/<\/?[^>]+(>|$)/g, "");
+
+                if(str == ""){
+                    $('#cusTaggedList li').each(function() {
+                        $(this).show();
+                        $(this).unhighlight();
+                    });
+                }
+
+                if(e.which == 8){
+                    $('#cusTaggedList li').each(function() {
+                        if ($(this).text().toLowerCase().search(str.toLowerCase()) > -1) {
+                            $(this).show();
+                        }else {
+                            $(this).hide();
+                        }
+                    });
+
+                    $('#cusTaggedList li').unhighlight();
+                    $('#cusTaggedList li').highlight(str);
+                }
+
+                if(e.which == 32){
+                    $('#customAdd').val($('#customAdd').val().replace(" ",""));
+                }else{
+                    $('#customAdd').val($('#customAdd').val().replace(/[`~!@#$%^&*()|+\-=÷¿?;:'",.<>\{\}\[\]\\\/]/gi, ''));
+                }
+            }
+        });
+
+    }
+
+    var removeCustomTag = (title)=>{
+        removeA(tagListForFileAttach,title.toLowerCase());
+        removeA(tmptagListForDisplayTitle,title.toLowerCase());
+        $("#CustagItemList").text(tmptagListForDisplayTitle.join(','));
+
+        $('#cusTaggedList li').each(function(k,v){
+            if($(this).text().toLowerCase() === title){
+                $(this).remove();
+            }
+        });
+    }
+    var remoeag = (title)=>{
+        $('#cusTaggedList li').each(function(k,v){
+            if($(this).text().toLowerCase() === title){
+                if($(this).hasClass('newlytagged')){
+                    removeA(tagListForFileAttach,title.toLowerCase());
+                    removeA(tmptagListForDisplayTitle,title.toLowerCase());
+                    $("#CustagItemList").text(tmptagListForDisplayTitle.join(','));
+                    $(this).removeClass('newlytagged');
+                    $(this).text(title);
+                }else{
+                    var design = title.toLowerCase()+'<span class="tagcheck"></span>';
+                    $(this).html(design);
+                    $(this).addClass('newlytagged');
+                    tagListForFileAttach.push(title);
+                    tmptagListForDisplayTitle.push(title);
+                    $("#CustagItemList").text(tmptagListForDisplayTitle.join(','));
+                }
+
+            }
+        });
+        var checkNewTag = $('#CustagItemList').text().length;
+        if (checkNewTag !== 0) {
+            $('#CustagItemList').css('background-image', 'url(/images/basicAssets/custom_tagged.svg)')
+        } else {
+            $('#CustagItemList').css('background-image', 'url(/images/basicAssets/custom_not_tag.svg )')
+        }
+    }
+
+    var addCustomTag = (title) =>{
+        if(tagListForFileAttach.indexOf(title) === -1){
+            tagListForFileAttach.push(title);
+            tmptagListForDisplayTitle.push(title);
+            $("#CustagItemList").text(tmptagListForDisplayTitle.join(','));
+
+            $('#cusTaggedList li').each(function(k,v){
+                if($(this).text().toLowerCase() === title){
+                    var design = title.toLowerCase()+'<span class="tagcheck"></span>';
+                    $(this).html(design);
+                    $(this).addClass('newlytagged');
+                }
+            });
+        }else{
+
+            $('#cusTaggedList li').each(function(k,v){
+                if($(this).text().toLowerCase() === title){
+                    if($(this).hasClass('newlytagged')){
+                        removeA(tagListForFileAttach,title.toLowerCase());
+                        removeA(tmptagListForDisplayTitle,title.toLowerCase());
+                        $("#CustagItemList").text(tmptagListForDisplayTitle.join(','));
+                        $(this).removeClass('newlytagged');
+                        $(this).text(title);
+                    }
+                }
+            });
+        }
+        var checkNewTag = $('#CustagItemList').text().length;
+        if (checkNewTag !== 0) {
+            $('#CustagItemList').css('background-image', 'url(/images/basicAssets/custom_tagged.svg)')
+        } else {
+            $('#CustagItemList').css('background-image', 'url(/images/basicAssets/custom_not_tag.svg )')
+        }
+    }
+
+    var closeUploadPopup = () => {
+        filedata.length = 0; filedata = [];
+        audiofile.length = 0; audiofile = [];
+        imgfile.length = 0; imgfile = [];
+        otherfile.length = 0; otherfile = [];
+        videofile.length = 0; videofile = [];
+        formDataTemp.length = 0; formDataTemp = [];
+        $("#attach_chat_file_list").html("");
+        $('#ChatFileUpload').hide();
+    }
+
+    var closeAttachFile = (id) => {
+        $('.close-chat-uploading-file').on('click', function(e) {
+            var filename = $(this).parents('.chat-uploading-files').find('.chat-file-icons>img').attr('data-name');
+            var filename_for_unlink = $(this).parents('.chat-uploading-files').find('.close-chat-uploading-file').attr('data-filename');
+            console.log("filename_for_unlink", filename_for_unlink);
+            formDataTemp.forEach(function(vv, key) {
+                if (vv.name == filename) {
+                    formDataTemp.splice(key, 1);
+                }
+            });
+            audiofile.forEach(function(fv, fk){
+                if(fv == filename_for_unlink)
+                    audiofile.splice(fk, 1);
+            });
+            imgfile.forEach(function(fv, fk){
+                if(fv == filename_for_unlink)
+                    imgfile.splice(fk, 1);
+            });
+            otherfile.forEach(function(fv, fk){
+                if(fv == filename_for_unlink)
+                    otherfile.splice(fk, 1);
+            });
+            videofile.forEach(function(fv, fk){
+                if(fv == filename_for_unlink)
+                    videofile.splice(fk, 1);
+            });
+            // console.log(filedata);
+            $(this).parents('.chat-uploading-files').hide();
+            request[id].abort();
+            socket.emit('unlink_file', {
+                filename: './public/upload/' + filename_for_unlink
+            });
+        });
+    }
+
+    $('#UploadedFileChat').on('click', function() {
+        $('#msgFile').val("");
+        $('#msgFile').trigger('click');
+    });
+    var request = [];
+    var uploadAttachFileServer = (files) => {
+        request = [];
+        formDataTemp.length = 0;
+        for (var i = 0; i < files.length; i++) {
+            var formData = new FormData();
+            var entries = formData.entries();
+            for(var pair of entries )
+            {
+               formData.delete( pair[0] );
+            }
+            var has_already = false;
+            formDataTemp.forEach(function(vv) {
+                if (vv.name == files[i].name) {
+                    has_already = true;
+                }
+            });
+            if (has_already === true) continue;
+            // console.log(144, files[i]);
+            // comment_text += files[i].name + '\n'; // If file name as comment
+            comment_text = 'No Comments';
+            formDataTemp.push(files[i]);
+            formData.append('any_file_chat', files[i]);
+            var slid = Number(moment().unix()) + i + 1;
+            formData.append('sl', slid);
+            var file_ext = files[i].name.split('.').pop().toLowerCase();
+            switch (file_ext) {
+                case 'ai':
+                case 'mp3':
+                case 'doc':
+                case 'docx':
+                case 'indd':
+                case 'js':
+                case 'sql':
+                case 'pdf':
+                case 'ppt':
+                case 'pptx':
+                case 'psd':
+                case 'svg':
+                case 'xls':
+                case 'xlsx':
+                case 'zip':
+                case 'rar':
+                    file_ext = file_ext;
+                    break;
+                default:
+                    file_ext = 'other';
+            }
+
+            if (files[i].type.startsWith('image/')) {
+                var imgsrc = window.URL.createObjectURL(files[i]);
+            } else {
+                var imgsrc = "/images/file_icon/" + file_ext + ".png";
+            }
+            var imgalt = window.URL.createObjectURL(files[i]);
+            var stopthis = () => {
+                this.abort();
+            };
+            request[slid] = $.ajax({
+                xhr: function() {
+                    $('.fileno_' + slid).find('.chat_file_progress').show();
+                    var xhr = new XMLHttpRequest();
+                    xhr.upload.addEventListener("loadstart", function(et) {
+                        this.progressId = slid;
+                        var html = '<div class="chat-uploading-files fileno_' + this.progressId + '">';
+                        html += '<span class="close-chat-uploading-file"> <span class="remove" data-balloon="Click to remove" data-balloon-pos="left"></span></span>';
+                        html += '<div class="chat-file-icons">';
+                        html += '<img src="' + imgsrc + '" alt="' + imgalt + '" data-filetype="' + files[i].type + '" data-name="' + files[i].name + '">';
+                        html += '</div>';
+                        html += '<div class="chat-file-information">';
+                        html += '<h4>' + files[i].name + '</h4>';
+                        html += '<p>' + moment().format('MMM DD, YYYY @ h:mm a') + '</p>';
+                        html += '<div class="chat_file_progress">';
+                        html += '<div class="progress-bar progress-bar-success progress-bar-striped">&nbsp;</div>';
+                        html += '</div>';
+                        html += '</div>';
+                        $("#attach_chat_file_list").append(html);
+                        $("#viewUploadFileviewUploadFile").append(html);
+                        closeAttachFile(this.progressId);
+                        $('.fileno_' + slid).find('.chat_file_progress').show();
+                        // console.log(this.progressId);
+                    });
+                    xhr.upload.addEventListener("progress", function(evt) {
+                        if (evt.lengthComputable) {
+                            // console.log("request ",request);
+                            var percentComplete = evt.loaded / evt.total;
+                            var percom = Math.ceil(percentComplete * 100);
+                            // console.log(this.progressId, percom);
+                            // if(percom >50) xhr.abort();
+                            $('.fileno_' + this.progressId).find('.progress-bar').css("width", percom + "%");
+                            $('.fileno_' + this.progressId).find('.progress-bar').attr("aria-valuenow", percom);
+                        }
+                    }, false);
+                    return xhr;
+                },
+                url: file_server + '/msgFileUplod',
+                type: "POST",
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                success: function(res) {
+                    $('.fileno_' + res.sl).find('.chat_file_progress').remove();
+                    var comfile = JSON.parse(request[res.sl].responseText);
+                    $('.fileno_' + res.sl).find('.close-chat-uploading-file').attr('data-filename', comfile.file_info[0].filename);
+                    add_file_data(res.file_info);
+                    $("textarea#FileComment").focus();
+
+                    var entries = formData.entries();
+                    for(var pair of entries )
+                    {
+                       formData.delete( pair[0] );
+                    }
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        }
+    };
+
+    function upload_attachment() {
+        $("#ChatFileUpload").hide();
+    }
+</script>

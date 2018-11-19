@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="43px" height="29px" viewBox="0 0 43 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Switch OFF</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M11.375,2.625 L23.625,2.625 C27.9742424,2.625 31.5,6.1507576 31.5,10.5 C31.5,14.8492424 27.9742424,18.375 23.625,18.375 L11.375,18.375 C7.0257576,18.375 3.5,14.8492424 3.5,10.5 C3.5,6.1507576 7.0257576,2.625 11.375,2.625 Z" id="path-1"></path>
+        <circle id="path-3" cx="11.375" cy="10.5" r="4.375"></circle>
+        <filter x="-91.4%" y="-45.7%" width="282.9%" height="282.9%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0392156863   0 0 0 0 0.121568627   0 0 0 0 0.266666667  0 0 0 0.16 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Switch-OFF" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Input-/-Toggle-/-Switch-off" transform="translate(4.000000, 4.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask"></g>
+            <g id="Color-/-Grey-/-Grey-Base-500" mask="url(#mask-2)" fill="#C9CED6" fill-rule="evenodd">
+                <polygon id="Grey-/-Grey-Base-500" points="0 0 35 0 35 21 0 21"></polygon>
+            </g>
+            <g id="Circle" mask="url(#mask-2)">
+                <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+            </g>
+        </g>
+    </g>
+</svg>

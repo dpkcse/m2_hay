@@ -1,0 +1,44 @@
+<% var scale_text = ''; %>
+<% if(days > 1){
+    scale_text = "od_to";
+}else{
+    scale_text = "n_td";
+} %>
+<% if(type == 'overdue'){%>
+<li id="activity_<%= activityid %>" data-activityid="<%= activityid %>" data-urm=0 class="com-t-l od_to" onclick="startToDo(event)">
+    <span class="newtoDo"></span>
+    <span class="toDoName">
+        <%= activityTitle %></span>
+    <% if(status == 2){%>
+    <span class="draft" style="margin-top:8px;">(draft)</span>
+    <% } %>
+    <span class="unreadMsgCount"></span>
+    <% if(hasFlag == 1){%>
+    <img id="fla_<%= activityid %>" data-createdat="<%= creatdeat %>" class="Flagged sidebarFlag" src="/images/basicAssets/Flagged_red.svg" style="display:block;">
+    <% } else { %>
+    <img id="fla_<%= activityid %>" data-createdat="<%= creatdeat %>" class="Flagged sidebarFlag" src="/images/basicAssets/Flagged_red.svg" style="display:none;">
+    <% } %>
+    <span class="unreadMsgCount"></span>
+    <% if(myid == createdby ){%>
+    <span class="remove" onclick="hideThisTodo(event,'<%= activityid %>')"></span>
+    <% } %>
+</li>
+<% }else{ %>
+<li id="activity_<%= activityid %>" data-activityid="<%= activityid %>" data-urm=0 class="com-t-l todoLink <%= scale_text %>" onclick="startToDo(event)">
+    <span class="toDo"></span>
+    <span class="toDoName">
+        <%= activityTitle %></span>
+    <% if(status == 2){%>
+    <span class="draft" style="margin-top:8px;">(draft)</span>
+    <% } %>
+    <% if(hasFlag == 1){%>
+    <img id="fla_<%= activityid %>" data-createdat="<%= creatdeat %>" class="Flagged sidebarFlag" src="/images/basicAssets/Flagged_red.svg"  style="display:block;">
+    <% } else { %>
+    <img id="fla_<%= activityid %>" data-createdat="<%= creatdeat %>" class="Flagged sidebarFlag" src="/images/basicAssets/Flagged_red.svg"  style="display:none;">
+    <% } %>
+    <span class="unreadMsgCount"></span>
+    <% if(myid == createdby ){%>
+    <span class="remove" onclick="hideThisTodo(event,'<%= activityid %>')"></span>
+    <% } %>
+</li>
+<% } %>

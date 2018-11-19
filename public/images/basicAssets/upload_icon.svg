@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Upload File Button Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Upload-File-Button-Icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="upload-bottom" transform="translate(2.000000, 5.000000)" stroke="#4A90E2" stroke-width="1.5">
+            <path d="M10.0008333,10.125 L10.0008333,0.125" id="Shape"></path>
+            <polyline id="Shape" points="13.7508333 3.875 10.0008333 0.125 6.25083333 3.875"></polyline>
+            <path d="M19.3758333,10.125 L19.3758333,11.375 C19.3758333,12.7557119 18.2565452,13.875 16.8758333,13.875 L3.12583333,13.875 C1.74512146,13.875 0.625833333,12.7557119 0.625833333,11.375 L0.625833333,10.125" id="Shape"></path>
+        </g>
+    </g>
+</svg>

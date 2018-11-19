@@ -1,0 +1,660 @@
+<%- include('layouts/basic_head') %>
+
+<div class="calendar-main-container">
+    <div class="calendar-left-section">
+        <!-- <div class="basic-mini-calendar"></div> -->
+        <div class="basic-mini-calendar" style="display:none" id="">
+            <h4>August 2018 <span class="prev-arrow"><img src="/images/basicAssets/CalendarChevronRight.svg" alt=""></span>
+                <span class="next-arrow"><img src="/images/basicAssets/CalendarChevronRight.svg" alt=""></span></h4>
+            <div class="calendar-days">
+                <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+            </div>
+            <div class="calendar-dates">
+                <span class="perv-month">27</span><span class="perv-month">28</span><span class="perv-month">29</span><span
+                    class="perv-month">30</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span
+                    class="selected">6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span
+                    class="">13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+            </div>
+        </div>
+        <div id="basicMiniCalendar"></div>
+        <div class="basic-calendar-event">
+            <h3 class="happening-today">Happening Today <span><img src="/images/basicAssets/" alt=""></span></h3>
+            <div class="today-events">
+                <h4 class="events-title">Dentist Appointment</h4>
+                <p>9:30 AM - 10:30 AM</p>
+            </div>
+            <div class="today-events">
+                <h4 class="events-title">Weekly Freeli Standup</h4>
+                <p>11:00 AM - 11:30 AM</p>
+            </div>
+            <div class="today-events deadline-events">
+                <h4 class="events-title deadline-title">Wine Oh !</h4>
+                <p>3:30 PM - 05:30 PM</p>
+                <div class="event-user-div">
+                    <img src="/images/users/nayeem.jpg" alt="">
+                    <img src="/images/users/1joni.jpg" alt="">
+                    <img src="/images/users/dipok.jpg" alt="">
+                    <img src="/images/users/nayeem.jpg" alt="">
+                    <span>+17</span>
+                </div>
+            </div>
+            <div class="today-events deadline-events">
+                <h4 class="events-title deadline-title">Wine Oh !</h4>
+                <p>3:30 PM - 05:30 PM</p>
+                <div class="event-user-div">
+                    <img src="/images/users/nayeem.jpg" alt="">
+                    <img src="/images/users/1joni.jpg" alt="">
+                    <img src="/images/users/dipok.jpg" alt="">
+                    <img src="/images/users/nayeem.jpg" alt="">
+                    <span>+17</span>
+                </div>
+            </div>
+            <div class="event-deadline-div">
+                <p class="evnt-p"> <span></span> Events</p>
+                <p class="todos-p"> <span></span> To Do's Deadline</p>
+            </div>
+        </div>
+    </div>
+    <div class="calendar-right-section">
+        <div class="main-calendar-header">
+            <ul class="calendar-header-left-div">
+                <li class="active" onclick="monthCalendar()">Month</li>
+                <li onclick="weekCalendar()">Week</li>
+            </ul>
+            <ul class="calendar-header-right-div">
+                <li id="event_list">
+                    <input type="text" class="event-mark-option" onclick="markEvents()" value="" readonly>
+                    <div class="event-list-div">
+                        <p>SHOWING</p>
+                        <ul class="events-list">
+                            <li>
+                                <label class="events-label">Events
+                                    <input type="checkbox" value="Events" class="event_check"">
+                                    <span class="
+                                        checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="events-label">To-Do's
+                                    <input type="checkbox" value="To-Do's" class="event_check"">
+                                    <span class="
+                                        checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="events-label">Canada Holidays
+                                    <input type="checkbox" value="Canada Holidays" class="event_check"">
+                                    <span class="
+                                        checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="events-label">Bangladesh Holidays
+                                    <input type="checkbox" value="Bangladesh Holidays" class="event_check"">
+                                    <span class="
+                                        checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="events-label">Egypt Holidays
+                                    <input type="checkbox" value="Egypt Holidays" class="event_check"">
+                                    <span class="
+                                        checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li id="import_li">
+                    <button class="import-calendar-btn" onclick="importCalendar()">Import Calender</button>
+                    <div class="import-calendar-div">
+                        <ul>
+                            <li>Google</li>
+                            <li>Outlook</li>
+                            <li style="border-bottom:1px solid #F1F2F4">iCalendar</li>
+                            <li>Upload ICS File</li>
+                            <li style="border-bottom:1px solid #F1F2F4">Add Link</li>
+                            <li class="holiday-dropdown">
+                                Holiday Calendar
+                                <div class="holiday-calendar-div">
+                                    <input class="search-countries" id="country_search_filter" type="text" placeholder="Search Countries">
+                                    <ul class="countries-list">
+                                        <li>
+                                            <label class="country-label">Afghanistan
+                                                <input type="checkbox" value="Afghanistan" checked="checked">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label class="country-label">Albania
+                                                <input type="checkbox" value="Albania" checked="checked">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label class="country-label">Algeria
+                                                <input type="checkbox" value="Algeria" checked="checked">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label class="country-label">Andorra
+                                                <input type="checkbox" value="Andorra" checked="checked">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <button class="create-event-btn">Create Event</button>
+                </li>
+                <li id="search_li">
+                    <div class="search-event">
+                        <img src="/images/basicAssets/Search.svg" alt="">
+                    </div>
+                    <div class="search-calendar-input">
+                        <img src="/images/basicAssets/Search.svg" alt="">
+                        <input type="text" placeholder="Search Calendar">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div style="border-top: 1px solid #DBDBDB;border-left: 1px solid #DBDBDB;border-right: 1px solid #DBDBDB;border-radius: 4px">
+            <table class="month-calendar" style="display:none">
+                <tbody>
+                    <tr class="months-slide-tr">
+                        <td colspan="7">
+                            <span class="prev-month"> <img src="/images/basicAssets/CalendarChevronRight.svg" alt="">
+                                Previous Month</span>
+                            <span class="month-year">September 2018</span>
+                            <span class="next-month">Next Month <img src="/images/basicAssets/CalendarChevronRight.svg"
+                                    alt="">
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="check">
+                        <th>Mon</th>
+                        <th>Tues</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                        <th>Sun</th>
+                    </tr>
+                    <tr class="check">
+                        <td><span class="prev-date">27</span></td>
+                        <td><span class="prev-date">28</span></td>
+                        <td><span class="prev-date">29</span></td>
+                        <td>
+                            <span class="prev-date">30</span>
+                            <p>Sept monthly office..</p>
+                            <p>Grocery Shopping</p>
+                            <p>4 More events</p>
+                        </td>
+                        <td><span>1</span></td>
+                        <td><span>2</span></td>
+                        <td><span>3</span></td>
+                    </tr>
+                    <tr class="check">
+                        <td><span>4</span></td>
+                        <td><span>5</span></td>
+                        <td><span>6</span></td>
+                        <td><span>7</span></td>
+                        <td><span>8</span></td>
+                        <td><span>9</span></td>
+                        <td><span>10</span></td>
+                    </tr>
+                    <tr class="check">
+                        <td>
+                            <span>11</span>
+                            <p>Dentist Appointment</p>
+                            <p>Weekly Freeli Standup</p>
+                            <p>4 More Event</p>
+                        </td>
+                        <td><span>12</span></td>
+                        <td><span>13</span></td>
+                        <td class="active-td">
+                            <span class="active">14</span>
+                            <p>Dentist Appointment</p>
+                            <p class="">Weekly Freeli Standup</p>
+                            <p class="more-event" onclick="moreEventPopup()">1 More Event</p>
+                            <div class="date-by-event-popup">
+                                <img class="popup-close" onclick="closeEventPopup()" src="/images/basicAssets/Close.svg"
+                                    alt="">
+                                <p class="popup-day">Friday</p>
+                                <h1 class="popup-date">14</h1>
+                                <p class="odd-event">Dentist Appointment</p>
+                                <!-- <p class="odd-event2"></p> -->
+                                <p class="even-event">Weekly Freeli Standup</p>
+                                <p class="odd-event">Series A Funding Meeting Appointment</p>
+                                <button class="create-event-btn" style="margin-top:8px">Create Event</button>
+                                <div class="single-event-popup">
+                                    <img class="single-event-popup-close" onclick="closeSingleEventPopup()" src="/images/basicAssets/Close.svg"
+                                        alt="">
+                                    <h3 class="event-name">Dentist Appointment</h3>
+                                    <p class="event-destination">Deni Dental Clinic</p>
+                                    <p class="event-time">3:00 PM - 4:00 PM</p>
+                                    <div class="users-in-event">
+                                        <img src="/images/users/1joni.jpg" alt="">
+                                        <img src="/images/users/nayeem.jpg" alt="">
+                                    </div>
+                                    <div class="single-event-btn-group">
+                                        <button class="single-event-edit">Edit</button>
+                                        <button class="single-event-delete">Delete Event</button>
+                                    </div>
+                                </div>
+                                <div class="weekly-standup">
+                                    <img class="weekly-standup-close" onclick="weeklyStandupClose()" src="/images/basicAssets/Close.svg"
+                                        alt="">
+                                    <h3>Weekly Freeli Standup</h3>
+                                    <div class="users-in-event">
+                                        <img src="/images/users/1joni.jpg" alt="">
+                                        <img src="/images/users/nayeem.jpg" alt="">
+                                        <img src="/images/users/1joni.jpg" alt="">
+                                        <img src="/images/users/nayeem.jpg" alt="">
+                                        <span>+3</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span>15</span></td>
+                        <td><span>16</span></td>
+                        <td><span>17</span></td>
+                    </tr>
+                    <tr class="check">
+                        <td><span>18</span></td>
+                        <td><span>19</span></td>
+                        <td><span>20</span></td>
+                        <td><span>21</span></td>
+                        <td><span>22</span></td>
+                        <td><span>23</span></td>
+                        <td><span>24</span></td>
+                    </tr>
+                    <tr class="check">
+                        <td><span>25</span></td>
+                        <td><span>26</span></td>
+                        <td><span>27</span></td>
+                        <td><span>28</span></td>
+                        <td><span>29</span></td>
+                        <td><span>30</span></td>
+                        <td><span>31</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="monthCalendar"></div>
+            <table class="week-calendar">
+                <tbody>
+                    <tr class="months-slide-tr">
+                        <td colspan="8">
+                            <span class="prev-month"> <img src="/images/basicAssets/CalendarChevronRight.svg" alt="">
+                                Previous Week</span>
+                            <span class="month-year">2nd Week of September</span>
+                            <span class="next-month">Next Week <img src="/images/basicAssets/CalendarChevronRight.svg"
+                                    alt="">
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="week-calendar-tr" style="height:82px;">
+                        <td style="vertical-align:top;">
+                            <span></span>
+                        </td>
+                        <td style="vertical-align:top;">
+                            <p class="days-in-week">Monday</p>
+                            <h2 class="dates-in-week">6</h2>
+                        </td>
+                        <td style="vertical-align:top;">
+                            <p class="days-in-week">Tuesday</p>
+                            <h2 class="dates-in-week">7</h2>
+                        </td>
+                        <td style="vertical-align:top;">
+                            <p class="days-in-week">Wednesday</p>
+                            <h2 class="dates-in-week">8</h2>
+                        </td>
+                        <td style="vertical-align:top;">
+                            <p class="days-in-week">Thursday</p>
+                            <h2 class="dates-in-week">9</h2>
+                        </td>
+                        <td style="vertical-align:top;">
+                            <p class="days-in-week">Friday</p>
+                            <h2 class="dates-in-week">10</h2>
+                        </td>
+                        <td style="vertical-align:top;">
+                            <p class="days-in-week">Saturday</p>
+                            <h2 class="dates-in-week">11</h2>
+                        </td>
+                        <td style="vertical-align:top;">
+                            <p class="days-in-week">Sunday</p>
+                            <h2 class="dates-in-week">12</h2>
+                        </td>
+                    </tr>
+                    <tr class="week-calendar-tr">
+                        <td><span>12a</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="week-calendar-tr">
+                        <td><span>1a</span></td>
+                        <td>
+                            <span>Westero Client Pitch</span>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="week-calendar-tr">
+                        <td><span>2a</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="week-calendar-tr">
+                        <td><span>3a</span></td>
+                        <td>
+                            <div class="event1">Dentist Appointment</div>
+                            <div class="event2">Monthly Office lunch</div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <p class="event3">Coffee with Rebecca</p>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr class="week-calendar-tr">
+                        <td><span>4a</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="week-calendar-tr">
+                        <td><span>5a</span></td>
+                        <td>
+                            <div style="border-bottom: 1px solid #E03C31;width: 100%"></div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="week-calendar-tr">
+                        <td><span>6a</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="week-calendar-tr">
+                        <td><span>7a</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="week-calendar-tr">
+                        <td><span>8a</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="week-calendar-tr">
+                        <td style="border: 1px solid #DBDBDB;"><span>8a</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+
+        // $("[data-id*='test_14_8_2018']").append("<p>Hello World</p>");
+
+        $('.calendar-header-left-div>li').click(function () {
+            $('.calendar-header-left-div>li').removeClass("active");
+            $(this).addClass("active");
+        });
+
+        $('.calendar-dates>span').click(function () {
+            $('.calendar-dates>span').removeClass("selected");
+            $(this).addClass("selected");
+        });
+
+        $('.check>td').click(function () {
+            $('.check>td').removeClass("active-td");
+            $('.check>td>span').removeClass("active");
+            $(this).addClass("active-td");
+            $('.check>td>span').addClass("active");
+        });
+
+        $('.search-event').click(function () {
+            $(this).hide();
+            $('.search-calendar-input>input').show();
+            $('.search-calendar-input>img').css('display', 'block');
+        });
+        $('.search-calendar-input>img').click(function () {
+            $('.search-calendar-input>input').hide();
+            $('.search-calendar-input>img').css('display', 'none');
+            $('.search-event').show();
+        });
+        $('.holiday-dropdown').click(function (event) {
+            if ($('.holiday-calendar-div').is(":visible") == true) {
+                $(event.target).find('.holiday-calendar-div').hide();
+            } else {
+                $(event.target).find('.holiday-calendar-div').show();
+            }
+
+        });
+        var totalVal = [];
+        $(".event_check").click(function () {
+            if ($(this).is(':checked')) {
+
+                var checkedValue = ($(this).closest('.event_check').val());
+                totalVal.push(checkedValue);
+                $('.event-mark-option').attr('value', '' + totalVal + '');
+            } else if (!$(this).is(':checked')) {
+                var checkedValue = ($(this).closest('.event_check').val());
+                totalVal.pop(checkedValue);
+                $('.event-mark-option').attr('value', '' + totalVal + '');
+            }
+        });
+
+
+        // Search filter
+        $("#country_search_filter").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $(".countries-list li label").filter(function () {
+                $(this).parent('li').toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+    function markEvents() {
+
+        if ($('.event-list-div').is(":visible") == false) {
+            $('.event-list-div').show();
+        } else {
+            $('.event-list-div').hide();
+        }
+    }
+
+    function importCalendar() {
+        $('.import-calendar-div').toggle();
+    }
+
+    // function monthCalendar() {
+    //     $('.month-calendar').show();
+    //     $('.week-calendar').hide();
+    // }
+
+    // function weekCalendar() {
+    //     $('.month-calendar').hide();
+    //     $('.week-calendar').show();
+    // }
+
+    function monthCalendar() {
+        $('#monthCalendar').show();
+        $('.week-calendar').hide();
+    }
+
+    function weekCalendar() {
+        $('#monthCalendar').hide();
+        $('.week-calendar').show();
+    }
+
+    function moreEventPopup() {
+        $('.date-by-event-popup').show();
+    }
+
+    function closeEventPopup() {
+        $('.date-by-event-popup').hide();
+    }
+
+    function closeSingleEventPopup() {
+        $('.single-event-popup').hide();
+    }
+
+    function weeklyStandupClose() {
+        $('.weekly-standup').hide();
+    }
+    $('.odd-event').click(function () {
+        $('.single-event-popup').show();
+    });
+    $('.even-event').click(function () {
+        $('.weekly-standup').show();
+    });
+
+    $(".evnt-p").click(function () {
+        $(".today-events").show();
+        $(".deadline-events").hide();
+    });
+    $(".todos-p").click(function () {
+        $(".today-events").hide();
+        $(".deadline-events").show();
+    });
+    var mouseUpF = () => {
+        $(document).mouseup(function (e) {
+            var event_ist = $('#event_list')
+            var eventlistdiv = $('.event-list-div');
+            var import_li = $('#import_li')
+            var import_calendars_div = $('.import-calendar-div')
+            // var moreEvent = $('.more-event');
+            // var moreEventPopup = $('.date-by-event-popup');
+            // var search_li = $('#search_li')
+            // var search_calendars = $('.search-calendar-input')
+
+            // if the target of the click isn't the container nor a descendant of the container
+            if (!event_ist.is(e.target) && event_ist.has(e.target).length === 0) {
+                eventlistdiv.hide();
+            }
+
+            if (!import_li.is(e.target) && import_li.has(e.target).length === 0) {
+                import_calendars_div.hide();
+            }
+
+            // if (!moreEvent.is(e.target) && moreEvent.has(e.target).length === 0) {
+            //     moreEventPopup.hide();
+            // }
+            // if (!search_li.is(e.target) && search_li.has(e.target).length === 0) {
+            //     search_calendars.hide();
+            //     // $('.search-event').show();
+            // }
+        });
+        // var valueName = $('.testjqu').text();
+        // $('.odd-event2').text(''+ valueName+'');
+
+    }
+    mouseUpF();
+</script>
+<script>
+    var user_id = '<%= user_id %>';
+    var user_fullname = '<%= user_fullname %>';
+    var user_img = '<%= user_img %>';
+    var file_server = 'http://172.16.0.63:5500';
+    var typing = false; //Global typing variable, for storing typing status
+    var timeout = undefined; //Global timeout variable, for storing when typing timeout
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="javascripts/jquery-ui-datepicker.min.js"></script>
+<script>
+
+    // var para = document.createElement('P');
+    // var t = document.createTextNode('This is a paragraph.');
+    // para.appendChild(t);
+    // document.getElementById('test_14_8_2018').appendChild(para);
+
+
+    // $('.ui-datepicker-prev').on('click', function(){
+    //     $(this).append("<span class='prev-month-text'>Previous Month</span>");
+    // });
+    // function DP_jQuery_1537767629276(){
+    //     $("#monthCalendar .ui-datepicker-prev").append("<p class='prev-month-text'>Previous Month</p>")
+    // }
+
+    // function myFunction() {
+    //     var x = document.createElement("P");
+    //     var t = document.createTextNode("This is a paragraph.");
+    //     x.appendChild(t);
+    //     document.body.appendChild(x);
+    // }
+
+    // window.onload = myFunction();
+
+    $('#basicMiniCalendar').datepicker({
+        inline: true,
+        firstDay: 1,
+        showOtherMonths: true,
+        dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+    });
+    $('#monthCalendar').datepicker({
+        inline: true,
+        firstDay: 1,
+        showOtherMonths: true,
+        dayNamesMin: ['Sun', 'Mon', 'Tues', 'Wed', 'Thu', 'Fri', 'Sat']
+    });
+</script>
+<script src="/javascripts/socket-client-side.js"></script>
+<script src="/javascripts/basic_connect.js"></script>
+<script src="/javascripts/socket_basic_connect.js"></script>
+<script src="/javascripts/basic_connect_f_d.js"></script>
+<%- include('layouts/basic_foot') %>

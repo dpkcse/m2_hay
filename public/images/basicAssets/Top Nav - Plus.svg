@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Top Nav - Plus</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Top-Nav---Plus" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.88">
+        <g id="Group" transform="translate(2.000000, 2.000000)" fill="#000000" fill-rule="nonzero">
+            <path d="M8.57142857,8.57142857 L8.57142857,1.42857143 C8.57142857,0.639593215 9.21102179,0 10,0 C10.7889782,0 11.4285714,0.639593215 11.4285714,1.42857143 L11.4285714,8.57142857 L18.5714286,8.57142857 C19.3604068,8.57142857 20,9.21102179 20,10 C20,10.7889782 19.3604068,11.4285714 18.5714286,11.4285714 L11.4285714,11.4285714 L11.4285714,18.5714286 C11.4285714,19.3604068 10.7889782,20 10,20 C9.21102179,20 8.57142857,19.3604068 8.57142857,18.5714286 L8.57142857,11.4285714 L1.42857143,11.4285714 C0.639593215,11.4285714 0,10.7889782 0,10 C0,9.21102179 0.639593215,8.57142857 1.42857143,8.57142857 L8.57142857,8.57142857 Z" id="Mask"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,154 @@
+.main_container{
+	width: 100%;
+	height: auto;
+	padding-top: 48px;
+	padding-right: 112px;
+	padding-left: 64px;
+	display: block;
+}
+
+.Calendar_body{
+	width: 100%;
+	height: 500px;
+	margin-top: 36px;
+	display: block;
+}
+.main_calendar{
+	height: 260px;	
+	width: 240px;
+	float: left;
+	display: block;
+	user-select: none;
+}
+.calendar_title{
+	height: 28px;
+	width: 100%;
+	padding: 0px 16px;
+}
+.calendar_title h5{
+	color: #37474F;	
+	font-family: "hvWorkSans";	
+	font-size: 16px;	
+	font-weight: 600;	
+	line-height: 19px;
+}
+.calendar_container{
+	height: 232px;	
+	border-radius: 4px;	
+	background-color: #FFFFFF;	
+	box-shadow: 0 0 4px 0 rgba(0,0,0,0.08), 0 2px 4px 0 rgba(0,0,0,0.16);
+	padding: 8px 13px 8px 13px;
+	display: block;
+}
+.calendar_container div{
+	float: left;
+	height: 28px;	
+	width: 28px;
+	margin-right: 3px;
+	text-align: center;
+	margin-top: 3px;
+}
+.calendar_container div.date.active{
+	border-radius: 50%;
+	background-color: #90A4AE;
+	color: #FFFFFF;
+	font-weight: bold;
+	cursor: pointer;
+}
+.calendar_container div.date.deactive{
+	color: #CFD8DC;
+	font-weight: 600;
+	cursor:not-allowed;
+}
+
+.calendar_container div.day{
+	color: #37474F;	
+	font-family: hvAssistant;	
+	font-size: 14px;	
+	font-weight: bold;	
+	line-height: 28px;	
+	text-align: center;
+	cursor: default;
+}
+.calendar_container div.date{
+	color: #37474F;	
+	font-family: hvAssistant;	
+	font-size: 14px;	
+	font-weight: 600;	
+	line-height: 28px;	
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.calendar_container div:nth-child(7n){
+	margin-right: 0px;
+}
+
+/*Calendar for schedule*/
+.calendar_For_schedule{
+	width: 704px;
+	float: left;
+	height: auto;
+	margin-left: 24px;
+}
+
+.schedule_body{
+	padding-bottom:  32px;
+	display: block;
+	overflow: hidden;
+}
+/*.schdule_content_list{
+	border-radius: 4px;
+	height: auto
+}*/
+.schdule_content_list .schedule_content:first-child{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.schdule_content_list .schedule_content:last-child{
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom: none;
+}
+.schedule_body .schedule_content{
+	box-shadow:0 0 4px 0 rgba(0,0,0,0.08), 0 2px 4px 0 rgba(0,0,0,0.16);
+	height: 60px;
+	width: 700px;
+	border-right: 4px solid #03A9F4;
+	background-color: #FFFFFF;
+	float: left;
+	padding: 8px 16px;
+	border-bottom: -1px solid #ECEFF1;
+}
+.schedule_body .schedule_content.active{
+	border-right: 4px solid #8BC34A;
+}
+.schedule_body .schedule_content.hold{
+	border-right: 4px solid #FF5722;
+}
+
+.schedule_content h5{
+	color: #000000;	
+	font-family: hvAssistant;	
+	font-size: 18px;	
+	font-weight: 600;	
+	letter-spacing: 0.2px;	
+	line-height: 24px;
+	margin-bottom: 0px;
+}
+.schedule_Time h5{
+	font-family: hvAssistant;	
+	font-size: 16px;	
+	line-height: 21px;
+	font-weight: bold;
+	color:#90A4AE;
+	float: left;
+}
+.schedule_Time h4{
+	color: #000000;	
+	font-family: hvAssistant;	
+	font-size: 16px;	
+	line-height: 21px;
+	float: left;
+	margin-left: 5px;
+}

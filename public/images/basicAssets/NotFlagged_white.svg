@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="3 2 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Not Flagged</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Not-Flagged" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.88">
+        <g id="flag-1" transform="translate(4.000000, 4.000000)" stroke="#ffffff" stroke-width="1.5">
+            <path d="M0.5,0.5 L0.5,15.5" id="Shape"></path>
+            <path d="M0.5,1.5 L15,1.5 C15.1967554,1.50020962 15.3750966,1.61579227 15.4556467,1.79530385 C15.5361967,1.97481544 15.5039791,2.18487961 15.3733333,2.332 L12.7033333,5.33333333 C12.3661867,5.71231389 12.3661867,6.28368611 12.7033333,6.66266667 L15.37,9.666 C15.5006458,9.81312039 15.5328634,10.0231846 15.4523133,10.2026961 C15.3717632,10.3822077 15.193422,10.4977904 14.9966667,10.498 L0.5,10.498" id="Shape"></path>
+        </g>
+    </g>
+</svg>

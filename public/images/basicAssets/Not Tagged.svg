@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Not Tagged</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Not-Tagged" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Group" transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" stroke="#000000">
+            <g id="tags">
+                <path d="M0.707333333,1.70666667 L0.707333333,5.878 C0.707269785,6.40829395 0.917812387,6.91690541 1.29266667,7.292 L9,15 C9.39049985,15.3903819 10.0235001,15.3903819 10.414,15 L15,10.4133333 C15.3903819,10.0228335 15.3903819,9.38983318 15,8.99933333 L7.29266667,1.292 C6.91757208,0.91714572 6.40896062,0.706603118 5.87866667,0.706666667 L1.70733333,0.706666667 C1.15504858,0.706666667 0.707333333,1.15438192 0.707333333,1.70666667 Z" id="Shape"></path>
+                <circle id="Oval" cx="4.20733333" cy="4.20666667" r="1"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

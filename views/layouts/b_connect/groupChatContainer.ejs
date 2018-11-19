@@ -1,0 +1,519 @@
+<div class="rightSectionpageloader" style="display: none;">
+	<div class="containerLoader">
+			<!-- <div class="logo"><img src="/images/logo_icon_h.png"></div>	 -->
+			<div class="loadingParcent">	
+					<h1>Loading...   <span id="parcentOnText">100%</span></h1>
+			</div>
+			<div class="progressLoaderBar" style="width:100%">	
+					<!-- <div class="progressLoader"></div> -->
+			</div>	
+			
+	</div>	
+</div>
+<div id="groupChatContainer" class="chat-div connect_right_section" style="display: block;">
+	<div class="chat-header">
+		<div class="headMenuForMobile">
+			<div class="menuforHead" onclick="showleftSide()">
+				<!-- <i class="fa fa-users" aria-hidden="true" style="color: #FFFFFF; width: 20px; height: 20px;"></i> -->
+			</div>
+	</div>
+		<div class="chat-head-name" style="margin-top:28px">
+			<h2 id="roomIdDiv" data-convimg="" data-roomid="" data-rfu="" data-title="" data-privecy=""
+		    data-keyspace="" onclick="roomEdit($(this).attr('data-roomid'),$(this).attr('data-title'),$(this).attr('data-privecy'),$(this).attr('data-keyspace'),$(this).attr('data-convimg'))"><span id="conv_title"><span class="online"></span><span><%= user_fullname %></span></span> <span id="conv_key"> @ Navigate</span></h2>
+			<h4 onclick="viewMemberList(event)" style="display: none;"><img src="/images/basicAssets/Users.svg" alt=""> <span id="totalMember"></span></h4>
+		</div>
+		<div class="chat-head-calling">
+			<div data-type="audio" onclick="openVideoCall(this)" class="voice-call" style="display: none"><img src="/images/basicAssets/custom_voice_call.svg" alt=""></div>
+			<div data-type="video" onclick="openVideoCall(this)" class="video-call" style="display: none"><img src="/images/basicAssets/custom_video_call.svg" alt=""></div>
+			<div class="pin-unpin">
+				<img class="pin-to-bar" id="pin-to-bar" data-conversationid="" data-id="" data-pinned=""
+				    data-subtitle="" data-img="" data-name="" data-type="" src="/images/basicAssets/custom_pinned.svg" alt="">
+			</div>
+			<div class="tagged">
+				<img id="taggedIMG" src="/images/basicAssets/custom_not_tag.svg">
+			</div>
+			<div class="media" onclick="mediaFilePopup()" data-balloon="See Media & Files" data-balloon-pos="up">
+				<img src="/images/basicAssets/media_ico.svg">
+			</div>
+			<div class="addTagConv" style="display: none">
+				<span id="tagItemList"></span>
+				<div class="taglistHolder">
+					<input type="" name="" class="createConvTag" id="createConvTag" placeholder="Create or Search Tag(s)" data-roomid=""><img class="settingEmail tagSet" onclick="removeUsertag(this);" src="/images/basicAssets/Settings.svg">
+					<ul class="taggedList" id="taggedList"></ul>
+				</div>
+			</div>
+			<!-- video call popup start here -->
+			<div class="videoCallMenuPopup" style="display:none">
+				<div id="callAdvanceOption">
+					<div class="call-advance-option-div">
+						<p>CHOOSE ROOM MEMBERS</p>
+						<div class="channel-member-search">
+							<input type="text" placeholder="Search" onkeyup="searchCallMember($(this).val())">
+						</div>
+						<div  style="height:auto;max-height: 215px;position:relative"  class="overlayScrollbars added-channel-members">
+							<div id="memberHolderCall"></div>
+
+						</div>
+					</div>
+					<div class="todo-btn-group">
+						<button type="button" class="todo-cancel-btn" onclick="cancelCall()">Cancel</button>
+						<button id="btnMakecall" type="button" class="call-create-btn" onclick="ringGroupCall()">Make a call</button>
+					</div>
+				</div>
+			</div>
+			<!-- video call popup end here -->
+			<div class="more-menu" onclick="moreMenuPopup()">
+				<img src="/images/basicAssets/custom_moreForHead_menu.svg" alt="">
+			</div>
+			<!-- more menu panel popup start here -->
+			<div class="moreMenuPopup" style="display:none">
+				<!-- <li>Start a Poll</li> -->
+				<!-- <li onclick="mediaFilePopup()">Media & Files</li> -->
+				<li onclick="viewAllBackWrap('notificationPopup')">Mute Notifications</li>
+				<li id="leaveThisRoom">Leave Room</li>
+			
+			</div>
+			<!-- more menu panel popup end here -->
+		</div>
+		<div class="chat-head-more-menu">
+			<!-- Create todo popup start here -->
+			<div class="create-todo" id="createTodo" onclick="createToDo(event)">
+				<!-- <img src="/images/basicAssets/To_Do_White.svg" alt=""> -->
+				<p><span>+</span> Task</p>
+			</div>
+			<div class="create-todo-popup">
+				<input type="text" name="createTsk" class="create-todo-popup-title" placeholder="Create a Task list with this room">
+				<div class="create-todo-ad-option" onclick="todoToggleAdvance()">
+					<p>ADVANCED OPTIONS</p>
+				</div>
+				<div id="todoAdvanceOption" style="display: none;">
+					<div class="todo-advance-option-div">
+						<p>CHOOSE ROOM MEMBERS</p>
+						<div class="channel-member-search">
+							<input type="text" placeholder="Search" onkeyup="searchTodoMember($(this).val())">
+						</div>
+						<div id="memberHolder" class="overlayScrollbars added-channel-members">
+
+						</div>
+					</div>
+					<div class="todo-btn-group">
+						<button type="button" class="todo-cancel-btn" onclick="cancelTodo()">Cancel</button>
+						<button type="button" class="todo-create-btn" onclick="createTOD()">Create Task</button>
+					</div>
+				</div>
+			</div>
+			<!-- Create todo popup end here -->
+			<!-- Create event popup start here -->
+			<div class="create-event" id="CreateEvent" onclick="createEventPop(event)">
+				<!-- <img src="/images/basicAssets/Create_Event_White.svg" alt=""> -->
+				<p><span>+</span> Schedule</p>
+			</div>
+			<div class="create-event-popup">
+				<input type="" name="" class="create-event-popup-title" placeholder="Create a event list with this room">
+				<div class="event-date-location">
+					<input class="event-date-time" type="text" placeholder="Choose date and time" id="eventDateAndTime">
+					<input class="event-location" type="text" placeholder="Enter event location" id="">
+					<!-- CREATE event CALENDER -->
+					<div class="todo-calender" style="display:none" id="calenderPicker">
+						<h4>August 2018 <span class="prev-arrow"><img src="/images/basicAssets/CalendarChevronRight.svg" alt=""></span> <span class="next-arrow"><img src="/images/basicAssets/CalendarChevronRight.svg" alt=""></span></h4>
+						<div class="todo-days">
+							<span>S</span>
+							<span>M</span>
+							<span>T</span>
+							<span>W</span>
+							<span>T</span>
+							<span>F</span>
+							<span>S</span>
+						</div>
+						<div class="todo-dates">
+							<span class="perv-month">27</span>
+							<span class="perv-month">28</span>
+							<span class="perv-month">29</span>
+							<span class="perv-month">30</span>
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+							<span>4</span>
+							<span>5</span>
+							<span class="selected">6</span>
+							<span>7</span>
+							<span>8</span>
+							<span>9</span>
+							<span>10</span>
+							<span>11</span>
+							<span>12</span>
+							<span class="">13</span>
+							<span>14</span>
+							<span>15</span>
+							<span>16</span>
+							<span>17</span>
+							<span>18</span>
+							<span>19</span>
+							<span>20</span>
+							<span>21</span>
+							<span>22</span>
+							<span>23</span>
+							<span>24</span>
+							<span>25</span>
+							<span>26</span>
+							<span>27</span>
+							<span>28</span>
+							<span>29</span>
+							<span>30</span>
+							<span>31</span>
+						</div>
+						<div class="todo-from-to-reminder">
+							<input class="todo-from" type="text" placeholder="From">
+							<input class="todo-to" type="text" placeholder="To">
+							<input class="todo-reminder" type="text" placeholder="Set Reminder">
+						</div>
+						<div class="todo-btn-div">
+							<button class="todo-cancel-btn" id="calenderCancelBtn" type="button">Cancel</button>
+							<button class="todo-done-btn" id="calenderDoneBtn" type="button">Done</button>
+						</div>
+					</div>
+					<!-- CREATE event CALENDER -->
+				</div>
+				<div class="create-todo-ad-option" onclick="eventToggleAdvance()" style="margin: 18px 0px;">
+					<p>ADVANCED OPTIONS</p>
+				</div>
+				<div class="todo-advance-option-div" id="eventAdvanceOption" style="margin-top: -8px !important;margin-bottom: 16px;overflow: hidden; display: none">
+					<p>choose channel members</p>
+					<div class="room-member-search">
+						<input type="text" placeholder="Search">
+					</div>
+					<div class="added-room-members">
+						<li>
+							<label class="">John Smith
+								<input class="checkmember" type ="checkbox" value="1">
+								<span class="checkmark"></span>
+							</label>
+						</li>
+						<li>
+							<label class="">Mahfuzur Rahman
+								<input class="checkmember" type ="checkbox" value="1">
+								<span class="checkmark"></span>
+							</label>
+						</li>
+						<li>
+							<label class="">AH Nayeem
+								<input class="checkmember" type ="checkbox" value="1">
+								<span class="checkmark"></span>
+							</label>
+						</li>
+						<li>
+							<label class="">Dalim Chowdhury
+								<input class="checkmember" type ="checkbox" value="1">
+								<span class="checkmark"></span>
+							</label>
+						</li>
+						<li>
+							<label class="">Dipok Chakraborty
+								<input class="checkmember" type ="checkbox" value="1">
+								<span class="checkmark"></span>
+							</label>
+						</li>
+						<li>
+							<label class="">Sadikur Rahman
+								<input class="checkmember" type ="checkbox" value="1">
+								<span class="checkmark"></span>
+							</label>
+						</li>
+						<li>
+							<label class="">John Smith
+								<input class="checkmember" type ="checkbox" value="1">
+								<span class="checkmark"></span>
+							</label>
+						</li>
+						<li>
+							<label class="">Mahfuzur Rahman
+								<input class="checkmember" type ="checkbox" value="1">
+								<span class="checkmark"></span>
+							</label>
+						</li>
+						<li>
+							<label class="">AH Nayeem
+								<input class="checkmember" type ="checkbox" value="1">
+								<span class="checkmark"></span>
+							</label>
+						</li>
+						<li>
+							<label class="">Dalim Chowdhury
+								<input class="checkmember" type ="checkbox" value="1">
+								<span class="checkmark"></span>
+							</label>
+						</li>
+						<li>
+							<label class="">Dipok Chakraborty
+								<input class="checkmember" type ="checkbox" value="1">
+								<span class="checkmark"></span>
+							</label>
+						</li>
+						<li>
+							<label class="">Sadikur Rahman
+								<input class="checkmember" type ="checkbox" value="1">
+								<span class="checkmark"></span>
+							</label>
+						</li>
+					</div>
+				</div>
+				<div class="event-btn-group">
+					<button class="event-cancel-btn">Cancel</button>
+					<button class="event-create-btn" onclick="createEventF(event)">Create Event</button>
+				</div>
+			</div>
+			<!-- Create event popup end here -->
+			<div class="createFeedBack">
+				<p><span>+</span> Feedback</p>
+			</div>
+			<!-- search panel popup start here -->
+			<!-- <div class="search" onclick="searchConversation(event)" id="searchConversation"><img src="/images/basicAssets/Search_White.svg"
+				    alt=""></div>
+			<div class="search-panel">
+				<input type="text" id="search-msg" placeholder="Search Conversation">
+			</div> -->
+			<!-- search panel popup end here -->
+			<!-- <div class="more-menu" onclick="moreMenuPopup()">
+				<img src="/images/basicAssets/More_Menu_White.svg" alt="">
+			</div> -->
+			<!-- more menu panel popup start here -->
+			<!-- <div class="moreMenuPopup" style="display:none">
+				<li>Start a Poll</li>
+				<li onclick="mediaFilePopup()">Media & Files</li>
+				<li>Mute Notifications</li>
+				<li>Leave Room</li>
+
+			</div> -->
+			<!-- more menu panel popup end here -->
+		</div>
+	</div>
+	<div class="msg-separetor_head">
+		<div id="top-date"></div>
+	</div>
+	<div class="chat-page overlayScrollbars">
+		<div id="msg-container">
+			<!-- <div class="send-photo">
+				<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+			</div>
+			<div class="msg-separetor">
+				<p>Today</p>
+			</div>
+			<div class="msgs-form-users">
+				<div class="msg-user-photo">
+					<img src="/images/users/nayeem.jpg" alt="">
+				</div>
+				<div class="user-msg">
+					<h4>Joshua Tran
+						<span class="msg-time">2:12 PM</span>
+						<img class="flaggedMsg" src="/images/basicAssets/Flagged.svg">
+					</h4>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem voluptatum nam animi laboriosam optio
+						quasi, sed
+						molestiae quidem in ea dicta a. Deserunt blanditiis pariatur quisquam. Optio, quisquam. Facilis, magni! Lorem
+						ipsum
+						dolor sit amet consectetur adipisicing elit. Voluptatem voluptatum nam animi laboriosam optio quasi, sed
+						molestiae
+						quidem in ea dicta a. Deserunt blanditiis pariatur quisquam. Optio, quisquam.!</p>
+					<div class="toDoContent">
+						<div class="toDoContent_Sec1">
+							<img src="/images/basicAssets/custom_to_do_for_msg.svg">
+							<p class="toDoName">Amazon Office Wishlist</p>
+							<p>Due Date: 14 September, 2018</p>
+						</div>
+						<div class="toDoContent_Sec2">
+							<button class="accept_toDO" onclick="acceptToDo(event)">Accept</button>
+							<button class="decline_toDo">Decline</button>
+						</div>
+					</div>
+				</div>
+				<div class="msgs-form-users-options">
+					<div class="call-rep-emoji" onclick="viewEmojiList(event)">
+						<img src="/images/basicAssets/AddEmoji.svg" alt="">
+					</div>
+					<div class="flag" onclick="flggUserMsg(event)">
+						<img src="/images/basicAssets/NotFlagged.svg" alt="">
+					</div>
+					<div class="replys" onclick="threadReply()">
+						<img src="/images/basicAssets/Thread.svg" alt="">
+					</div>
+					<div class="more">
+						<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						<div class="msg-more-popup" style="display:none">
+							<p onclick="viewCreateTodoPopup()">Create a to do</p>
+							<p>Schedule an event</p>
+							<p>Share Message</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="msgs-form-users">
+				<div class="msg-user-photo">
+					<img src="/images/users/nayeem.jpg" alt="">
+				</div>
+				<div class="user-msg">
+					<h4>Leo Max
+						<span class="msg-time">2:42 PM</span>
+					</h4>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem voluptatum nam animi laboriosam optio
+						quasi.!</p>
+					<div class="event_content">
+						<div class="event_content_sec1">
+							<img src="/images/basicAssets/custom_event_for_msg.svg">
+							<p class="toDoName">Mira Weekly Meeting</p>
+							<span class="dateAndTime">When: 14 September, 2018(3:30pm - 4:30pm)</span>
+							<span class="location">Where: Boardroom</span>
+						</div>
+						<div class="event_content_sec2">
+							<button class="attending" onclick="viewEventMember(event)">Attending</button>
+							<button class="maybe_attending" onclick="viewEventMember(event)">Maybe Attending</button>
+							<button class="not_attending" onclick="viewEventMember(event)">Not Attending</button>
+						</div>
+					</div>
+				</div>
+				<div class="msgs-form-users-options">
+					<div class="call-rep-emoji" onclick="viewEmojiList(event)">
+						<img src="/images/basicAssets/AddEmoji.svg" alt="">
+					</div>
+					<div class="flag" onclick="flggUserMsg(event)">
+						<img src="/images/basicAssets/NotFlagged.svg" alt="">
+					</div>
+					<div class="replys" onclick="threadReply()">
+						<img src="/images/basicAssets/Thread.svg" alt="">
+					</div>
+					<div class="more">
+						<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						<div class="msg-more-popup" style="display:none">
+							<p onclick="viewCreateTodoPopup()">Create a to do</p>
+							<p>Schedule an event</p>
+							<p>Share Message</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="msgs-form-users">
+				<div class="msg-user-photo">
+					<img src="/images/users/nayeem.jpg" alt="">
+				</div>
+				<div class="user-msg">
+					<h4>George Jsons
+						<span class="msg-time">3:12 PM</span>
+					</h4>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem volupt.!</p>
+					<div class="msgReply" onclick="viewAllThread()">
+						<div class="groupImg">
+							<img src="/images/users/joni.jpg">
+							<img src="/images/users/joni.jpg">
+							<img src="/images/users/joni.jpg">
+							<img src="/images/users/joni.jpg">
+						</div>
+						<div class="countReply">
+							<img src="/images/basicAssets/custom_thread_for_reply.svg">
+							<p><span>4</span> Reply</p>
+							<img class="replyarrow" src="/images/basicAssets/custom_rightChevron_for_reply.svg">
+						</div>
+					</div>
+				</div>
+				<div class="msgs-form-users-options">
+					<div class="call-rep-emoji" onclick="viewEmojiList(event)">
+						<img src="/images/basicAssets/AddEmoji.svg" alt="">
+					</div>
+					<div class="flag" onclick="flggUserMsg(event)">
+						<img src="/images/basicAssets/NotFlagged.svg" alt="">
+					</div>
+					<div class="replys" onclick="threadReply()">
+						<img src="/images/basicAssets/Thread.svg" alt="">
+					</div>
+					<div class="more">
+						<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						<div class="msg-more-popup" style="display:none">
+							<p onclick="viewCreateTodoPopup()">Create a to do</p>
+							<p>Schedule an event</p>
+							<p>Share Message</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="msgs-form-users">
+				<div class="msg-user-photo">
+					<img src="/images/users/nayeem.jpg" alt="">
+				</div>
+				<div class="user-msg">
+					<h4>Joshua Tran
+						<span class="msg-time">4:12 PM</span>
+					</h4>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing.!</p>
+					<img src="/images/basic_view/HighlandTige.jpg" alt="">
+				</div>
+				<div class="msgs-form-users-options">
+					<div class="call-rep-emoji" onclick="viewEmojiList(event)">
+						<img src="/images/basicAssets/AddEmoji.svg" alt="">
+					</div>
+					<div class="flag" onclick="flggUserMsg(event)">
+						<img src="/images/basicAssets/NotFlagged.svg" alt="">
+					</div>
+					<div class="replys" onclick="threadReply()">
+						<img src="/images/basicAssets/Thread.svg" alt="">
+					</div>
+					<div class="more">
+						<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						<div class="msg-more-popup" style="display:none">
+							<p onclick="viewCreateTodoPopup()">Create a to do</p>
+							<p>Schedule an event</p>
+							<p>Start a poll</p>
+							<p>Share Message</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="msgs-form-users">
+				<div class="msg-user-photo">
+					<img src="/images/users/nayeem.jpg" alt="">
+				</div>
+				<div class="user-msg">
+					<h4>Joshua Tran
+						<span class="msg-time">4:12 PM</span>
+					</h4>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing.!</p>
+					<div class="send-image-from-user">
+						<img src="/images/contact/107.jpg" alt="">
+					</div>
+					<div class="send-image-from-user">
+						<img src="/images/contact/115.jpg" alt="">
+					</div>
+					<div class="send-image-from-user">
+						<img src="/images/contact/109.jpg" alt="">
+					</div>
+					<div class="send-image-from-user">
+						<img src="/images/contact/117.jpg" alt="">
+					</div>
+				</div>
+				<div class="msgs-form-users-options">
+					<div class="call-rep-emoji" onclick="viewEmojiList(event)">
+						<img src="/images/basicAssets/AddEmoji.svg" alt="">
+					</div>
+					<div class="flag" onclick="flggUserMsg(event)">
+						<img src="/images/basicAssets/NotFlagged.svg" alt="">
+					</div>
+					<div class="replys" onclick="threadReply()">
+						<img src="/images/basicAssets/Thread.svg" alt="">
+					</div>
+					<div class="more">
+						<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						<div class="msg-more-popup" style="display:none">
+							<p onclick="viewCreateTodoPopup()">Create a to do</p>
+							<p>Schedule an event</p>
+							<p>Start a poll</p>
+							<p>Share Message</p>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</div>
+	<div class="send-msgs">
+		<div contenteditable="true" id="msg" class="write-msgs" placeholder="Message Random Coffee"></div>
+		<p class="typing-indicator"></p>
+		<img class="send-attach-file" onclick="uploadFileFunction()" src="/images/basicAssets/Attach.svg" alt="">
+		<img class="send-emoji" onclick="open_emoji()" src="/images/basicAssets/AddEmoji_White.svg" alt="">
+	</div>
+</div>

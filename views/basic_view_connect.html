@@ -1,0 +1,1337 @@
+<%- include('layouts/basic_head') %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/style-popup.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/style_basic_connect.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/pluginCss/OverlayScrollbars.css">
+
+	<%- include('templates/sideBar') %>
+<section class="right-section">
+	<%- include('layouts/b_connect/groupChatContainer') %>
+	<%- include('templates/chat/message-send-form') %>
+	<%- include('templates/chat/rep-attach-send') %>
+	<%- include('layouts/b_connect/createChannelContainer') %>
+	<%- include('layouts/b_connect/createDirMsgContainer') %>
+	<!-- join chat right panel start  -->
+  	<%- include('layouts/b_connect/joinChannelPanel') %>
+  	<!-- join chat right panel end  -->
+  	<!-- For Checking Div -->
+  	<input type="hidden" id="divCheck" value="1" name="">
+	<input type="hidden" id="lastActive" value="1" name="">
+	<input type="hidden" id="searchAction" value="1" name="">
+	<input type="hidden" id="searchText" value="1" name="">
+
+</section>
+
+<div class="fileSliderBackWrap" style="display:none">
+	<div class="media-file-popup" style="display:block">
+		<div class="media-tab-header">
+			<span class="media-back-tooltip" data-balloon="Back" data-balloon-pos="up">
+				<img class="back-media-popup" onclick="closeMediaPopup()" src="/images/basicAssets/BackArrow.svg" alt="">
+			</span>
+			<span class="media-close-tooltip" data-balloon="Close" data-balloon-pos="up">
+				<img class="close-media-popup" onclick="closeMediaPopup()" src="/images/basicAssets/close_button.svg" alt="">
+			</span>
+			<ul class="media-tabs">
+				<li class="active" onclick="viewImgDiv()"><a class="">Images</a></li>
+				<li onclick="viewvideoDiv()"><a>Videos</a></li>
+				<li onclick="viewFilesDiv()"><a>Files</a></li>
+				<li onclick="viewLinksDiv()"><a>links</a></li>
+			</ul>
+			<input class="Search-img" type="text" placeholder="Search Images">
+		</div>
+		<div class="media-tab-body">
+			<div id="mediaImages" class="main-images-tab media_Tab_Content" style="display:block">
+				<div class="date-by-images">
+					<h3>Today</h3>
+					<div class="all-images" onclick="showImageSlider()">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+					</div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+				</div>
+				<div class="date-by-images">
+					<h3>Yesterday</h3>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+				</div>
+				<div class="date-by-images">
+					<h3>August 26th, 2018</h3>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+				</div>
+				<div class="date-by-images">
+					<h3>August 26th, 2018</h3>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+				</div>
+			</div>
+			<div id="mediaVideos" class="media_Tab_Content" style="display:none">
+				<div class="date-by-videos">
+					<h3>Today</h3>
+					<video class="all-videos" controls>
+						<source src="https://27.147.195.222:2274/upload/videoplayback@1541058388242.mp4" type="video/mp4">
+						Your browser does not support HTML5 video.
+					</video>
+					<div class="all-videos">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+						<div class="video-play-icon"><img src="/images/basicAssets/Play.svg" alt=""></div>
+						<p>01:12</p>
+					</div>
+					<div class="all-videos">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+						<div class="video-play-icon"><img src="/images/basicAssets/Play.svg" alt=""></div>
+						<p>01:12</p>
+					</div>
+					<div class="all-videos">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+						<div class="video-play-icon"><img src="/images/basicAssets/Play.svg" alt=""></div>
+						<p>01:12</p>
+					</div>
+					<div class="all-videos">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+						<div class="video-play-icon"><img src="/images/basicAssets/Play.svg" alt=""></div>
+						<p>01:12</p>
+					</div>
+				</div>
+			</div>
+			<div id="mediaFiles" class="media_Tab_Content" style="display:none">
+				<div class="date-by-files">
+					<h3>Today</h3>
+					<div class="all-files">
+						<img class="file-icon" src="/images/basicAssets/PhotoshopFile.svg" alt="">
+						<div class="file-details">
+							<h4>Brand_identity_finalprint.psd</h4>
+							<p>John Smith <span>August 28th, 2018 at 03:54pm</span></p>
+						</div>
+						<div class="file-hover-option">
+							<img src="/images/basicAssets/Download.svg" alt="">
+							<img src="/images/basicAssets/NotFlagged.svg" alt="">
+							<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						</div>
+					</div>
+					<div class="all-files">
+						<img class="file-icon" src="/images/basicAssets/PhotoshopFile.svg" alt="">
+						<div class="file-details">
+							<h4>Brand_identity_finalprint.psd</h4>
+							<p>John Smith <span>August 28th, 2018 at 03:54pm</span></p>
+						</div>
+						<div class="file-hover-option">
+							<img src="/images/basicAssets/Download.svg" alt="">
+							<img src="/images/basicAssets/NotFlagged.svg" alt="">
+							<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						</div>
+					</div>
+					<div class="all-files">
+						<img class="file-icon" src="/images/basicAssets/PhotoshopFile.svg" alt="">
+						<div class="file-details">
+							<h4>Brand_identity_finalprint.psd</h4>
+							<p>John Smith <span>August 28th, 2018 at 03:54pm</span></p>
+						</div>
+						<div class="file-hover-option">
+							<img src="/images/basicAssets/Download.svg" alt="">
+							<img src="/images/basicAssets/NotFlagged.svg" alt="">
+							<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						</div>
+					</div>
+					<div class="all-files">
+						<img class="file-icon" src="/images/basicAssets/PhotoshopFile.svg" alt="">
+						<div class="file-details">
+							<h4>Brand_identity_finalprint.psd</h4>
+							<p>John Smith <span>August 28th, 2018 at 03:54pm</span></p>
+						</div>
+						<div class="file-hover-option">
+							<img src="/images/basicAssets/Download.svg" alt="">
+							<img src="/images/basicAssets/NotFlagged.svg" alt="">
+							<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						</div>
+					</div>
+					<div class="all-files">
+						<img class="file-icon" src="/images/basicAssets/PhotoshopFile.svg" alt="">
+						<div class="file-details">
+							<h4>Brand_identity_finalprint.psd</h4>
+							<p>John Smith <span>August 28th, 2018 at 03:54pm</span></p>
+						</div>
+						<div class="file-hover-option">
+							<img src="/images/basicAssets/Download.svg" alt="">
+							<img src="/images/basicAssets/NotFlagged.svg" alt="">
+							<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						</div>
+					</div>
+					<div class="all-files">
+						<img class="file-icon" src="/images/basicAssets/PhotoshopFile.svg" alt="">
+						<div class="file-details">
+							<h4>Brand_identity_finalprint.psd</h4>
+							<p>John Smith <span>August 28th, 2018 at 03:54pm</span></p>
+						</div>
+						<div class="file-hover-option">
+							<img src="/images/basicAssets/Download.svg" alt="">
+							<img src="/images/basicAssets/NotFlagged.svg" alt="">
+							<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="mediaLinks" class="media_Tab_Content" style="display:none">
+				<div class="date-by-links">
+					<h3>Today</h3>
+					<div class="all-links">
+						<div class="links-logo">
+							<img src="/images/basic_view/instagram.jpg" alt="">
+						</div>
+						<div class="link-details">
+							<h4>Instagram announces verification request, transparency tools and stronger 2Fa</h4>
+							<a href="#">https://techrunch.com/2018/08/28/instagram-request-verification2fa-about-this-account/</a>
+							<p>Corey butler <span>August 28th, 2018 at 03:45pm</span></p>
+						</div>
+					</div>
+					<div class="all-links">
+						<div class="links-logo">
+							<img src="/images/basic_view/instagram.jpg" alt="">
+						</div>
+						<div class="link-details">
+							<h4>Instagram announces verification request, transparency tools and stronger 2Fa</h4>
+							<a href="#">https://techrunch.com/2018/08/28/instagram-request-verification2fa-about-this-account/</a>
+							<p>Corey butler <span>August 28th, 2018 at 03:45pm</span></p>
+						</div>
+					</div>
+					<div class="all-links">
+						<div class="links-logo">
+							<img src="/images/basic_view/instagram.jpg" alt="">
+						</div>
+						<div class="link-details">
+							<h4>Instagram announces verification request, transparency tools and stronger 2Fa</h4>
+							<a href="#">https://techrunch.com/2018/08/28/instagram-request-verification2fa-about-this-account/</a>
+							<p>Corey butler <span>August 28th, 2018 at 03:45pm</span></p>
+						</div>
+					</div>
+					<div class="all-links">
+						<div class="links-logo">
+							<img src="/images/basic_view/instagram.jpg" alt="">
+						</div>
+						<div class="link-details">
+							<h4>Instagram announces verification request, transparency tools and stronger 2Fa</h4>
+							<a href="#">https://techrunch.com/2018/08/28/instagram-request-verification2fa-about-this-account/</a>
+							<p>Corey butler <span>August 28th, 2018 at 03:45pm</span></p>
+						</div>
+					</div>
+					<div class="all-links">
+						<div class="links-logo">
+							<img src="/images/basic_view/instagram.jpg" alt="">
+						</div>
+						<div class="link-details">
+							<h4>Instagram announces verification request, transparency tools and stronger 2Fa</h4>
+							<a href="#">https://techrunch.com/2018/08/28/instagram-request-verification2fa-about-this-account/</a>
+							<p>Corey butler <span>August 28th, 2018 at 03:45pm</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="image-popup-slider overlayScrollbars" style="display:none">
+		<div class="image-popup-header">
+			<h2 onclick="backToMediaTab()" data-balloon="Back" data-balloon-pos="up"><img class="back-to-media-tab" onclick="backToMediaTab()" src="/images/basicAssets/BackArrow.svg" alt=""> Images</h2>
+			<div class="current-slide-image-details">
+					<div class="shared-by-user-photo"><img src="/images/users/nayeem.jpg" alt=""></div>
+					<div class="shared-by-user-details">
+						<h3>Dean Alvarado</h3>
+						<p>August 23rd, 2017 @ 12:10pm</p>
+					</div>
+				</div>
+				<div class="slide-image-more-option" data-balloon="Download" data-balloon-pos="up">
+					<a href="http://172.16.2.170:8100/images/basic_view/Slider-img.jpg"  download="">
+						<img src="/images/basicAssets/Download.svg" alt="">
+					</a>
+					<!-- <img src="/images/basicAssets/NotFlagged_white.svg" alt="">
+					<img onclick="extendImage()" src="/images/basicAssets/Expand_white.svg" alt=""> -->
+				</div>
+				<!-- <div class="close-slider-parent-div" data-balloon="Download this image" data-balloon-pos="left"> -->
+				<span class="close-img-popup-tooltip" data-balloon="Close" data-balloon-pos="up">
+					<img class="close-image-popup-slider" onclick="backToMediaTab()" src="/images/basicAssets/close_button.svg" alt="">
+				</span>
+			<!-- </div> -->
+		</div>
+		<div class="images-slide-body">
+      <div class="slider-left-arrow" onclick="slaclick()" data-balloon="Previous" data-balloon-pos="up"><img src="/images/basicAssets/Chevron_Left_for_img_slider.svg" alt=""></div>
+		<div class="slider-right-arrow" onclick="sraclick()" data-balloon="Next" data-balloon-pos="up"><img src="/images/basicAssets/Chevron_right_for_img_slider.svg" alt=""></div>
+			<img class="currentimg" src="/images/basic_view/Slider-img.jpg" alt="">
+			<!-- <div class="current-slide-image-details">
+				<div class="shared-by-user-photo"><img src="/images/users/nayeem.jpg" alt=""></div>
+				<div class="shared-by-user-details">
+					<h3>Dean Alvarado</h3>
+					<p>August 23rd, 2017 @ 12:10pm</p>
+				</div>
+				<div class="slide-image-more-option">
+					<a href="http://172.16.2.170:8100/images/basic_view/Slider-img.jpg" download>
+						<img src="/images/basicAssets/Download_white.svg" alt="" style="width: 20px">
+					</a>
+					<img src="/images/basicAssets/NotFlagged_white.svg" alt="">
+					<img onclick="extendImage()" src="/images/basicAssets/Expand_white.svg" alt="">
+				</div>
+			</div> -->
+		</div>
+		<div class="images-slider-footer">
+			<div class="slider-footer-all-images"><img src="/images/basic_view/Slider-img.jpg" alt=""></div>
+			<div class="slider-footer-all-images"><img src="/images/basic_view/Slider-img.jpg" alt=""></div>
+			<div class="slider-footer-all-images"><img src="/images/basic_view/Slider-img.jpg" alt=""></div>
+			<div class="slider-footer-all-images"><img src="/images/basic_view/Slider-img.jpg" alt=""></div>
+			<div class="slider-footer-all-images"><img src="/images/basic_view/Slider-img.jpg" alt=""></div>
+			<div class="slider-footer-all-images"><img src="/images/basic_view/Slider-img.jpg" alt=""></div>
+		</div>
+		<div class="show-picture-comment">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio expedita, fugit, .</p>
+		</div>
+	</div>
+	<!-- <div class="image-extend-popup-slider" style="display:none">
+		<div class="close-extend-slider" onclick="closeExtendSlider()"><img src="/images/basicAssets/Close_white.svg" alt=""></div>
+
+    <div class="extend-slider-left-arrow" onclick="slaclick()"><img src="/images/basicAssets/Chevron_Left_for_img_slider.svg" alt=""></div>
+		<div class="extend-slider-right-arrow" onclick="sraclick()"><img src="/images/basicAssets/Chevron_right_for_img_slider.svg" alt=""></div>
+
+		<img class="slider-extended-image" src="/images/basic_view/Slider-img.jpg" alt="">
+
+		<div class="current-slide-image-details">
+			<div class="shared-by-user-photo"><img src="/images/users/nayeem.jpg" alt=""></div>
+			<div class="shared-by-user-details">
+				<h3>Dean Alvarado</h3>
+				<p>August 23rd, 2017 @ 12:10pm</p>
+			</div>
+			<div class="slide-image-more-option">
+				<a href="http://172.16.2.170:8100/images/basic_view/Slider-img.jpg" download>
+					<img src="/images/basicAssets/Download_white.svg" alt="" style="width: 20px">
+				</a>
+				<img src="/images/basicAssets/NotFlagged_white.svg" alt="">
+				<img onclick="shrinkImage()" src="/images/basicAssets/Shrink_white.svg" alt="">
+			</div>
+		</div>
+	</div> -->
+</div>
+
+
+<!-- per msg create to do -->
+<div class="backwrap" id="createToDoPopup" style="display:none">
+	<div class="popup-inner" id="create-todo-popup">
+		<img class="close-create-todo-popup" src="/images/basicAssets/close_button.svg" alt="Close" onclick="closeAllPopUp()">
+		<h2 class="todo_heading">Create a Task </h2>
+		<p class="title_text">Title</p>
+		<input type="text" id="connectTodoTitle" class="title_textbox" value="">
+		<div class="advance-separetor" id="advance-separetor" onclick="viewtodoAdOp()">
+			<p>ADVANCED OPTIONS</p>
+		</div>
+		<div id="toggle_area" style="display: none;">
+			<div class="group_textbox">
+				<div class="inline_block">
+					<label for=""> Due Date</label><br>
+					<input type="text" name="dueDateWS" id="dueDatePicker" class="input_box date_textbox" placeholder="Choose a date">
+					<div class="todo-calender" style="display:none;width: 425px;top: 63px; right: 50px;" id="dueDatePickerDiv">
+						<div class="addTimePicker">
+							<li class="time-from">
+								<input class="datefrom" id="timeFrom" type="text" placeholder="From" style="width: 186.5px;">
+							</li>
+							<li class="time-to">
+								<input id="timeTo" class="dateto" type="text" placeholder="To" style="width: 159.5px;">
+							</li>
+							<li class="remind-time">
+								<!-- <input id="timeReminder" class="reminder" type="text" placeholder="Set Reminder"> -->
+								<select id="ReminderTime" class="reminder" required style="width: 358px;">
+									<option value="" disabled selected>Set Reminder</option>
+									<option value="15">Before 15 Minutes</option>
+									<option value="30">Before 30 Minutes</option>
+									<option value="45">Before 45 Minutes</option>
+									<option value="1">Before 1 Hours</option>
+									<option value="2">Before 2 Hours</option>
+									<option value="3">Before 3 Hours</option>
+									<option value="4">Before 4 Hours</option>
+									<option value="5">Before 5 Hours</option>
+								</select>
+							</li>
+						</div>
+					</div>
+				</div>
+				<div class="inline_block" style="float: right;">
+					<label for="">Share With</label><br>
+					<input class="share_textbox " type="text"  id="search_members" placeholder="Search Members">
+					<span class="remove" onclick="clearMemberSearch(event)"></span>
+		            <div class="suggested-type-list overlayScrollbars" style="position:absolute;">
+		              <ul class="suggested-list">
+
+		              </ul>
+
+		            </div>
+				</div>
+				<div class="shareingImg" id="sharePeopleList" style="width: 100%; float: left;">
+		            <p class="sharing_label">Shareing with</p>
+		            <span style="margin-left: 8px; cursor: pointer;"></span>
+		      </div>
+			</div>
+			<div id="note_textarea">
+				<label class="label_class">Notes</label>
+				<textarea class="notes_area" id="notes_area" placeholder="Enter your notes here"></textarea>
+			</div>
+			<input class="add-checklist" type="text" placeholder="Add a checklist item" id="addChecklist">
+			<div class="item_list">
+				<label class="progress_status">0%</label>
+				<div class="item_progress">
+					<div class="progress" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+				<label class="checkbox_container" style="display: none">Work on proposal and share tonight
+					<input type="checkbox">
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<!-- <div class="fileContainer" style="margin-top:32px;">
+				<label for="ToDoFileUp">Upload File</label>
+				<input type="file" id="ToDoFileUp" style="display: none;">
+			</div> -->
+			<div class="fileContainer" onclick="uploadFileFunction()" style="pointer-events: auto;">
+				Upload File
+			</div>
+			<div style="width:100%;display: none;overflow: hidden;margin-bottom: 32px" id="viewUploadFileviewUploadFile">
+			</div>
+		</div>
+		<button type="button" class="createToDo_btn" name="button" onclick="createNewActivity()">Create Task</button>
+	</div>
+</div>
+<!-- per msg create to do -->
+<!-- Thread reply popup  start-->
+<div class="backwrap" style="display: none" id="threadReplyPopUp">
+	<div class="msgs-thread-popup">
+		<div class="msgs-thread-head">
+			<h3><img src="/images/basicAssets/thread.svg" alt=""> Thread</h3>
+			<img class="thread-close" src="/images/basicAssets/close_button.svg" alt="" onclick="closeAllPopUp()">
+		</div>
+		<div class="main-thread-msgs"></div>
+		<div class="msgs-thread-reply">
+			<div class="reply-separetor">
+				<p></p>
+			</div>
+			<div class="forScrollBar overlayScrollbars">
+				<div class="replies-container"></div>
+			</div>
+		</div>
+		<div class="write-thread-msgs">
+			<div contenteditable="true" id="msg_rep" class="write-msgs" placeholder="Reply to Raymond Holt"></div>
+			<img class="add-attachment send-rep-attach" onclick="rep_attach_upload()" src="/images/basicAssets/Attach.svg" alt="">
+			<img class="add-emoji" onclick="open_rep_emoji(event)" src="/images/basicAssets/AddEmoji_White.svg" alt="">
+			<p class="rep-typing-indicator"></p>
+		</div>
+		<div class="pevThread" onclick="open_another_rep(event)" data-ano_msg_id="">
+			<img src="/images/basicAssets/prevThreadicon.svg">
+		</div>
+		<div class="nextThread" onclick="open_another_rep(event)" data-ano_msg_id="">
+			<img src="/images/basicAssets/nextThreadicon.svg">
+		</div>
+	</div>
+</div>
+<!-- Thread reply popup  end-->
+
+
+<!-- for mute Notification -->
+
+<div class="backwrap" id="notificationPopup" style="display: none">
+	<div class="hayven_Modal_Container">
+		<div class="hayven_Modal_heading">
+			<h1>Select one following option for mute notifications.</h1>
+			<div class="closeModal" onclick="closeModal('notificationPopup')" data-balloon="Press Esc to close" data-balloon-pos="up"></div>
+		</div>
+		<div class="hayven_Modal_Content">
+			<ul class="notification_mute_time">
+				<li>
+					<label class="radioItem showEl selected default">
+						<span class="radioItemName">For 30 minutes</span>
+						<input class="radioItemInput" name="muteNotification" type="radio" checked />
+						<span class="customRadioMark"></span>
+					</label>
+				</li>
+				<li>
+					<label class="radioItem showEl">
+						<span class="radioItemName">For 1 Hour</span>
+						<input class="radioItemInput" name="muteNotification" type="radio" />
+						<span class="customRadioMark"></span>
+					</label>
+				</li>
+				<li>
+					<label class="radioItem showEl">
+						<span class="radioItemName">For 12 Hours</span>
+						<input class="radioItemInput" name="muteNotification" type="radio" />
+						<span class="customRadioMark"></span>
+					</label>
+				</li>
+				<li>
+					<label class="radioItem showEl">
+						<span class="radioItemName">For 1 Day</span>
+						<input class="radioItemInput" name="muteNotification" type="radio" />
+						<span class="customRadioMark"></span>
+					</label>
+				</li>
+				<li>
+					<label class="radioItem showEl">
+						<span class="radioItemName">For 1 Week</span>
+						<input class="radioItemInput" name="muteNotification" type="radio" />
+						<span class="customRadioMark"></span>
+					</label>
+				</li>
+				<li>
+					<label class="radioItem showEl">
+						<span class="radioItemName">For 1 Year</span>
+						<input class="radioItemInput" name="muteNotification" type="radio" />
+						<span class="customRadioMark"></span>
+					</label>
+				</li>
+				<li>
+					<label class="radioItem showEl">
+						<span class="radioItemName">Until I turn it back on</span>
+						<input class="radioItemInput" name="muteNotification" type="radio" />
+						<span class="customRadioMark"></span>
+					</label>
+				</li>
+			</ul>
+		</div>
+		<div class="hayven_Modal_endSection">
+<!-- 			<div class="btn_group">
+				<button class="buttonAction">Mute</button>
+				<button class="buttonCancel" onclick="closeModal('notificationPopup')">Cancel</button>
+			</div> -->
+		</div>
+	</div>
+</div>
+<div class="backwrap" id="shareMessagePopUp" style="display: none">
+	<div class="hayven_Modal_Container">
+		<div class="hayven_Modal_heading">
+			<h1>Share Message</h1>
+			<div class="closeModal" onclick="closeModal('shareMessagePopUp')" data-balloon="Press Esc to close" data-balloon-pos="up"></div>
+			<div class="searchInput" id="searchInputForShare" contenteditable="true" onkeyup="filter_user_list(event)" spellcheck="false" placeholder="Search by name"></div>
+			<input type="button" class="shareButton" value="Share">
+			<div class="no_of_user_left_to_add"><span>10</span> members left</div>
+		</div>
+		<div class="hayven_Modal_Content">
+			<div class="allMemberList overlayScrollbars">
+				<ul class="suggested-list" id="shareSuggestedList">
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 	<li>
+		<label class="checkItem">
+			<span class="checkItemName">custom name</span>
+			<input class="checkItemInput" name="muteNotification" type="radio" />
+			<span class="customCheckMark"></span>
+		</label>
+	</li> -->
+<!-- Media and file popup start here -->
+<!-- <div class="backwrap" id="mediaFileBackWrap" style="display:none">
+	<div class="media-file-popup" style="display:block">
+		<div class="media-tab-header">
+			<img class="close-media-popup" onclick="closeMediaPopup()" src="/images/basicAssets/close_button.svg" alt="">
+			<ul class="media-tabs">
+				<li class="active" onclick="viewImgDiv()"><a class="">Images</a></li>
+				<li onclick="viewvideoDiv()"><a>Videos</a></li>
+				<li onclick="viewFilesoDiv()"><a>Files</a></li>
+				<li onclick="viewLinksDiv()"><a>links</a></li>
+			</ul>
+			<input class="Search-img" type="text" placeholder="Search Images">
+		</div>
+		<div class="media-tab-body">
+			<div id="mediaImages" class="main-images-tab media_Tab_Content" style="display:block">
+				<div class="date-by-images">
+					<h3>Today</h3>
+					<div class="all-images" onclick="showImageSlider()"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+				</div>
+				<div class="date-by-images">
+					<h3>Yesterday</h3>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+				</div>
+				<div class="date-by-images">
+					<h3>August 26th, 2018</h3>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+				</div>
+				<div class="date-by-images">
+					<h3>August 26th, 2018</h3>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+					<div class="all-images"><img src="/images/basic_view/Halsbandsittich.jpg" alt=""></div>
+				</div>
+			</div>
+			<div id="mediaVideos" class="media_Tab_Content" style="display:none">
+				<div class="date-by-videos">
+					<h3>Today</h3>
+					<div class="all-videos">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+						<div class="video-play-icon"><img src="/images/basicAssets/Play.svg" alt=""></div>
+						<p>01:12</p>
+					</div>
+					<div class="all-videos">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+						<div class="video-play-icon"><img src="/images/basicAssets/Play.svg" alt=""></div>
+						<p>01:12</p>
+					</div>
+					<div class="all-videos">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+						<div class="video-play-icon"><img src="/images/basicAssets/Play.svg" alt=""></div>
+						<p>01:12</p>
+					</div>
+					<div class="all-videos">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+						<div class="video-play-icon"><img src="/images/basicAssets/Play.svg" alt=""></div>
+						<p>01:12</p>
+					</div>
+					<div class="all-videos">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+						<div class="video-play-icon"><img src="/images/basicAssets/Play.svg" alt=""></div>
+						<p>01:12</p>
+					</div>
+					<div class="all-videos">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+						<div class="video-play-icon"><img src="/images/basicAssets/Play.svg" alt=""></div>
+						<p>01:12</p>
+					</div>
+					<div class="all-videos">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+						<div class="video-play-icon"><img src="/images/basicAssets/Play.svg" alt=""></div>
+						<p>01:12</p>
+					</div>
+					<div class="all-videos">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+						<div class="video-play-icon"><img src="/images/basicAssets/Play.svg" alt=""></div>
+						<p>01:12</p>
+					</div>
+					<div class="all-videos">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+						<div class="video-play-icon"><img src="/images/basicAssets/Play.svg" alt=""></div>
+						<p>01:12</p>
+					</div>
+					<div class="all-videos">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+						<div class="video-play-icon"><img src="/images/basicAssets/Play.svg" alt=""></div>
+						<p>01:12</p>
+					</div>
+					<div class="all-videos">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+						<div class="video-play-icon"><img src="/images/basicAssets/Play.svg" alt=""></div>
+						<p>01:12</p>
+					</div>
+					<div class="all-videos">
+						<img src="/images/basic_view/Halsbandsittich.jpg" alt="">
+						<div class="video-play-icon"><img src="/images/basicAssets/Play.svg" alt=""></div>
+						<p>01:12</p>
+					</div>
+				</div>
+			</div>
+			<div id="mediaFiles" class="media_Tab_Content" style="display:none">
+				<div class="date-by-files">
+					<h3>Today</h3>
+					<div class="all-files">
+						<img class="file-icon" src="/images/basicAssets/PhotoshopFile.svg" alt="">
+						<div class="file-details">
+							<h4>Brand_identity_finalprint.psd</h4>
+							<p>John Smith <span>August 28th, 2018 at 03:54pm</span></p>
+						</div>
+						<div class="file-hover-option">
+							<img src="/images/basicAssets/Download.svg" alt="">
+							<img src="/images/basicAssets/NotFlagged.svg" alt="">
+							<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						</div>
+					</div>
+					<div class="all-files">
+						<img class="file-icon" src="/images/basicAssets/PhotoshopFile.svg" alt="">
+						<div class="file-details">
+							<h4>Brand_identity_finalprint.psd</h4>
+							<p>John Smith <span>August 28th, 2018 at 03:54pm</span></p>
+						</div>
+						<div class="file-hover-option">
+							<img src="/images/basicAssets/Download.svg" alt="">
+							<img src="/images/basicAssets/NotFlagged.svg" alt="">
+							<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						</div>
+					</div>
+					<div class="all-files">
+						<img class="file-icon" src="/images/basicAssets/PhotoshopFile.svg" alt="">
+						<div class="file-details">
+							<h4>Brand_identity_finalprint.psd</h4>
+							<p>John Smith <span>August 28th, 2018 at 03:54pm</span></p>
+						</div>
+						<div class="file-hover-option">
+							<img src="/images/basicAssets/Download.svg" alt="">
+							<img src="/images/basicAssets/NotFlagged.svg" alt="">
+							<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						</div>
+					</div>
+					<div class="all-files">
+						<img class="file-icon" src="/images/basicAssets/PhotoshopFile.svg" alt="">
+						<div class="file-details">
+							<h4>Brand_identity_finalprint.psd</h4>
+							<p>John Smith <span>August 28th, 2018 at 03:54pm</span></p>
+						</div>
+						<div class="file-hover-option">
+							<img src="/images/basicAssets/Download.svg" alt="">
+							<img src="/images/basicAssets/NotFlagged.svg" alt="">
+							<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						</div>
+					</div>
+					<div class="all-files">
+						<img class="file-icon" src="/images/basicAssets/PhotoshopFile.svg" alt="">
+						<div class="file-details">
+							<h4>Brand_identity_finalprint.psd</h4>
+							<p>John Smith <span>August 28th, 2018 at 03:54pm</span></p>
+						</div>
+						<div class="file-hover-option">
+							<img src="/images/basicAssets/Download.svg" alt="">
+							<img src="/images/basicAssets/NotFlagged.svg" alt="">
+							<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						</div>
+					</div>
+					<div class="all-files">
+						<img class="file-icon" src="/images/basicAssets/PhotoshopFile.svg" alt="">
+						<div class="file-details">
+							<h4>Brand_identity_finalprint.psd</h4>
+							<p>John Smith <span>August 28th, 2018 at 03:54pm</span></p>
+						</div>
+						<div class="file-hover-option">
+							<img src="/images/basicAssets/Download.svg" alt="">
+							<img src="/images/basicAssets/NotFlagged.svg" alt="">
+							<img src="/images/basicAssets/MoreMenu.svg" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="mediaLinks" class="media_Tab_Content" style="display:none">
+				<div class="date-by-files">
+					<h3>Today</h3>
+					<div class="all-links">
+						<div class="links-logo">
+							<img src="/images/basic_view/instagram.jpg" alt="">
+						</div>
+						<div class="link-details">
+							<h4>Instagram announces verification request, transparency tools and stronger 2Fa</h4>
+							<a href="#">https://techrunch.com/2018/08/28/instagram-request-verification2fa-about-this-account/</a>
+							<p>Corey butler <span>August 28th, 2018 at 03:45pm</span></p>
+						</div>
+					</div>
+					<div class="all-links">
+						<div class="links-logo">
+							<img src="/images/basic_view/instagram.jpg" alt="">
+						</div>
+						<div class="link-details">
+							<h4>Instagram announces verification request, transparency tools and stronger 2Fa</h4>
+							<a href="#">https://techrunch.com/2018/08/28/instagram-request-verification2fa-about-this-account/</a>
+							<p>Corey butler <span>August 28th, 2018 at 03:45pm</span></p>
+						</div>
+					</div>
+					<div class="all-links">
+						<div class="links-logo">
+							<img src="/images/basic_view/instagram.jpg" alt="">
+						</div>
+						<div class="link-details">
+							<h4>Instagram announces verification request, transparency tools and stronger 2Fa</h4>
+							<a href="#">https://techrunch.com/2018/08/28/instagram-request-verification2fa-about-this-account/</a>
+							<p>Corey butler <span>August 28th, 2018 at 03:45pm</span></p>
+						</div>
+					</div>
+					<div class="all-links">
+						<div class="links-logo">
+							<img src="/images/basic_view/instagram.jpg" alt="">
+						</div>
+						<div class="link-details">
+							<h4>Instagram announces verification request, transparency tools and stronger 2Fa</h4>
+							<a href="#">https://techrunch.com/2018/08/28/instagram-request-verification2fa-about-this-account/</a>
+							<p>Corey butler <span>August 28th, 2018 at 03:45pm</span></p>
+						</div>
+					</div>
+					<div class="all-links">
+						<div class="links-logo">
+							<img src="/images/basic_view/instagram.jpg" alt="">
+						</div>
+						<div class="link-details">
+							<h4>Instagram announces verification request, transparency tools and stronger 2Fa</h4>
+							<a href="#">https://techrunch.com/2018/08/28/instagram-request-verification2fa-about-this-account/</a>
+							<p>Corey butler <span>August 28th, 2018 at 03:45pm</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="image-popup-slider" style="display:none">
+		<img class="close-image-popup-slider" onclick="backToMediaTab()" src="/images/basicAssets/close_button.svg" alt="">
+		<div class="image-popup-header">
+			<h2> <img class="back-to-media-tab" onclick="backToMediaTab()" src="/images/basicAssets/BackArrow.svg" alt="">
+				Images</h2>
+		</div>
+		<div class="images-slide-body">
+      <div class="slider-left-arrow" onclick="slaclick()"><img src="/images/basicAssets/Chevron_Left_for_img_slider.svg" alt=""></div>
+			<div class="slider-right-arrow" onclick="sraclick()"><img src="/images/basicAssets/Chevron_right_for_img_slider.svg" alt=""></div>
+			<img class="currentimg" src="/images/basic_view/Slider-img.jpg" alt="">
+			<div class="current-slide-image-details">
+				<div class="shared-by-user-photo"><img src="/images/users/nayeem.jpg" alt=""></div>
+				<div class="shared-by-user-details">
+					<h3>Dean Alvarado</h3>
+					<p>August 23rd, 2017 @ 12:10pm</p>
+				</div>
+				<div class="slide-image-more-option">
+					<a href="http://172.16.2.170:8100/images/basic_view/Slider-img.jpg" download>
+						<img src="/images/basicAssets/Download_white.svg" alt="" style="width: 20px">
+					</a>
+					<img src="/images/basicAssets/NotFlagged_white.svg" alt="">
+					<img onclick="extendImage()" src="/images/basicAssets/Expand_white.svg" alt="">
+				</div>
+			</div>
+		</div>
+		<div class="images-slider-footer">
+			<div class="slider-footer-all-images"><img src="/images/basic_view/Slider-img.jpg" alt=""></div>
+			<div class="slider-footer-all-images"><img src="/images/basic_view/Slider-img.jpg" alt=""></div>
+			<div class="slider-footer-all-images"><img src="/images/basic_view/Slider-img.jpg" alt=""></div>
+			<div class="slider-footer-all-images"><img src="/images/basic_view/Slider-img.jpg" alt=""></div>
+			<div class="slider-footer-all-images"><img src="/images/basic_view/Slider-img.jpg" alt=""></div>
+			<div class="slider-footer-all-images"><img src="/images/basic_view/Slider-img.jpg" alt=""></div>
+		</div>
+	</div>
+	<div class="image-extend-popup-slider" style="display:none">
+		<div class="close-extend-slider" onclick="closeExtendSlider()"><img src="/images/basicAssets/Close_white.svg" alt=""></div>
+
+    <div class="extend-slider-left-arrow" onclick="slaclick()"><img src="/images/basicAssets/Chevron_Left_for_img_slider.svg" alt=""></div>
+		<div class="extend-slider-right-arrow" onclick="sraclick()"><img src="/images/basicAssets/Chevron_right_for_img_slider.svg" alt=""></div>
+
+		<img class="slider-extended-image" src="/images/basic_view/Slider-img.jpg" alt="">
+
+		<div class="current-slide-image-details">
+			<div class="shared-by-user-photo"><img src="/images/users/nayeem.jpg" alt=""></div>
+			<div class="shared-by-user-details">
+				<h3>Dean Alvarado</h3>
+				<p>August 23rd, 2017 @ 12:10pm</p>
+			</div>
+			<div class="slide-image-more-option">
+				<a href="http://172.16.2.170:8100/images/basic_view/Slider-img.jpg" download>
+					<img src="/images/basicAssets/Download_white.svg" alt="" style="width: 20px">
+				</a>
+				<img src="/images/basicAssets/NotFlagged_white.svg" alt="">
+				<img onclick="shrinkImage()" src="/images/basicAssets/Shrink_white.svg" alt="">
+			</div>
+		</div>
+	</div>
+</div> -->
+<!-- Media and file popup end here -->
+
+<!-- popup for member list -->
+<!-- <div class="backwrap" id="memberListBackWrap" style="display: none;">
+	<div class="memberListContainer">
+		<div class="closeBackwrap" onclick="closeAllPopUp()">
+			<img src="/images/basicAssets/Close.svg">
+		</div>
+		<div class="label">
+			<h1 class="label_Title">Members</h1>
+			<h1 class="list_Count">(8)</h1>
+		</div>
+		<div class="memberList">
+			<div class="list">
+				<img src="/images/users/joni.jpg">
+				<span class="online"></span>
+				<h1 class="memberName">Dalim Chy</h1>
+				<di class="hoverContent">
+					<div class="conversation"></div>
+					<div class="voiceCall"></div>
+					<div class="videoCall"></div>
+					<div class="close"></div>
+				</di>
+			</div>
+			<div class="list">
+				<img src="/images/users/joni.jpg">
+				<span class="online"></span>
+				<h1 class="memberName">Dalim Chy</h1>
+				<di class="hoverContent">
+					<div class="conversation"></div>
+					<div class="voiceCall"></div>
+					<div class="videoCall"></div>
+					<div class="close"></div>
+				</di>
+			</div>
+			<div class="list">
+				<img src="/images/users/joni.jpg">
+				<span class="offline"></span>
+				<h1 class="memberName">Dalim Chy</h1>
+				<di class="hoverContent">
+					<div class="conversation"></div>
+					<div class="voiceCall"></div>
+					<div class="videoCall"></div>
+					<div class="close"></div>
+				</di>
+			</div>
+		</div>
+	</div>
+</div> -->
+<div class="backwrap" id="memberListBackWrap" style="display: none;">
+	<div class="adminContainer">
+		<div class="closeBackwrap" onclick="closeAllPopUp()"  data-balloon="Close" data-balloon-pos="up">
+			<img src="/images/basicAssets/close_button.svg">
+		</div>
+		<div class="label"><h1 class="label_Title">Members </h1><h1 class="list_Count">(<span>7</span>)</h1></div>
+		<input type="text" class="searchMember" placeholder="Search by name" onkeyup="searchMember(event,$(this).val());">
+		<span class="remove searchClear"></span>
+		<div class="suggest_Container">
+			<ul class="suggested-list">
+
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="backwrap" id="delete_msg_div">
+	<div class="delete_msg_div">
+		<img onclick="closeAllPopUp()" src="/images/basicAssets/close_button.svg" alt="">
+		<div class="body">
+			<p class="del_msg_title">Delete message</p>
+			<p class="delete_msg_sec_title">Are you sure you want to delete this message? This cannot be <span class="undone">undone</span>.</p>
+			<div class="main-deleted-msg"></div>
+			<p class="btn_div">
+				<br />
+				<button type="button" class="btn-cancel" onclick="closeAllPopUp()">Cancel</button>
+				<button type="button" class="btn-msg-del" onclick="delete_commit(this)" data-id="' + msgid + '">Delete for me</button>
+				<button type="button" class="btn-msg-del btn-msg-del-all" onclick="delete_commit(this)" data-id="' + msgid + '">Delete for all</button>
+				<button type="button" class="btn-msg-del permanent_delete" onclick="permanent_delete(this)" data-id="' + msgid + '">Delete</button>
+			</p>
+		</div>
+	</div>
+</div>
+<!-- popup for member list -->
+<script>
+	function extendImage() {
+		$('.image-popup-slider').hide();
+		$('.image-extend-popup-slider').show();
+	}
+
+	function shrinkImage() {
+		$('.image-extend-popup-slider').hide();
+		$('.image-popup-slider').show();
+	}
+
+	function closeExtendSlider() {
+		$('.image-extend-popup-slider').hide();
+		$('.image-popup-slider').show();
+	}
+</script>
+<script>
+    var user_id = '<%= user_id %>';
+    var user_fullname = '<%= user_fullname %>';
+    var user_img = '<%= user_img %>';
+    var file_server = '<%= file_server %>';
+    var typing = false; //Global typing variable, for storing typing status
+	var timeout = undefined; //Global timeout variable, for storing when typing timeout
+
+	var allUserdata = <%- JSON.stringify(data) %>;
+	var dept = [];
+	var memberList = [];
+	var adminList = [];
+	var adminListUUID = [];
+	var memberListUUID = [];
+	var unread_replay_data = [];
+
+	/* Unread messages notification */
+	var total_unread_count = 0;
+	var display_show_hide_unread_bar = (total_unread_count) =>{
+		if(total_unread_count>0){
+			$(".scroll_unreadMsg").show();
+			if(total_unread_count==1){
+				$(".scroll_unreadMsg>h5").html('<span>'+ total_unread_count +'</span> new message');
+			}else{
+				$(".scroll_unreadMsg>h5").html('<span>'+ total_unread_count +'</span> new messages');
+			}
+		}if(total_unread_count == NaN){
+			$(".scroll_unreadMsg>h5>span").html("");
+			$(".scroll_unreadMsg").hide();
+		}
+		if(total_unread_count == 0){
+			$(".scroll_unreadMsg>h5>span").html("");
+			$(".scroll_unreadMsg").hide();
+		}
+	};
+	/* End Unread messages notification */
+</script>
+<script src="/javascripts/socket-client-side.js"></script>
+<script src="/javascripts/basic_connect.js"></script>
+<script src="/javascripts/socket_basic_connect.js"></script>
+<script src="/javascripts/basic_connect_f_d.js"></script><script src="/javascripts/jQuery/jquery-ui.min.js"></script>
+
+<script src="/javascripts/timepicki.js"></script>
+<script>
+	/*
+		File server certificate was not allowed yet,
+		then it fire a new popup window, and show the certificate for allowing it.
+	*/
+	$.get(file_server, function(rep){
+		if(rep.status !== true){
+			window.open(file_server, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=50,width=400,height=400");
+		}else{
+			console.log(rep);
+		}
+    });
+</script>
+
+<script>
+	$('.input_box').click(function () {
+		$('#dueDatePickerDiv').show();
+	});
+
+	$('#dueDatePickerDiv').datepicker({
+		monthNamesShort: $.datepicker.regional["en"].monthNames,
+		inline: true,
+		altField: '.input_box',
+		dateFormat: "dd-mm-yy",
+		changeMonth: true,
+		// changeYear: true,
+		dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+	});
+
+	var allMouseUp = () => {
+		$(document).mouseup(function (e) {
+			var dueDatePickerDiv = $('#dueDatePickerDiv');
+			if (dueDatePickerDiv.is(':visible')) {
+				if (!dueDatePickerDiv.is(e.target) && dueDatePickerDiv.has(e.target).length === 0) {
+					dueDatePickerDiv.hide();
+				}
+			}
+
+		});
+	}
+	allMouseUp();
+
+	var checklistiTEM = [];
+	var sharedMemberList = [];
+	var currentMemberList = [];
+	var viewMemberImg = [];
+	var checkedList = {};
+
+	function createNewActivity() {
+
+		var todoTitle = $("#connectTodoTitle").val();
+		var selectecosystem = "Navigate";
+		var dueDateWS = $("#dueDatePicker").val();
+		var notes_area = $("#notes_area").val();
+		var activity_from = $("#timeFrom").val();
+		var activity_to = $("#timeTo").val();
+		var activity_reminder = $("#ReminderTime").val();
+
+		if (todoTitle.length > 17) {
+			var over_length = "over_length";
+		}
+
+		if (sharedMemberList.indexOf(user_id) === -1) {
+			sharedMemberList.push(user_id);
+		}
+
+		if (todoTitle == "") {
+			$("#connectTodoTitle").css('border', '1px solid RED');
+		} else {
+			socket.emit('toCreateBrdcst', {
+				activityType: 'TODO',
+				activityTitle: todoTitle,
+				activityDescription: notes_area,
+				createdBy: user_id,
+				endTime: dueDateWS,
+				ecosystem: selectecosystem,
+				adminListUUID: sharedMemberList,
+				checklist: checklistiTEM,
+				checkedList: checkedList,
+				todoFrom: activity_from,
+				todoTo: activity_to,
+				todoReminder: activity_reminder
+			},
+				function (confirmation) {
+					if (confirmation.activityres.status) {
+						$('#createToDoPopup').hide();
+						$("#connectTodoTitle").val('');
+						$("#notes_area").val('');
+						$("#timeFrom").val('');
+						$("#timeTo").val('');
+						$("#ReminderTime").val('');
+						$("#viewUploadFileviewUploadFile").html('');
+
+						if (filedata.length > 0) {
+							var arg_data = {
+								activity_id: confirmation.activityres.activity_id,
+								sender_id: user_id,
+								sender_img: user_img,
+								sender_name: user_fullname,
+								text: $("#FileComment").val(),
+								attach_files: filedata[0],
+								thread_root_id: 0,
+								root_msg_id: 0
+							};
+
+							socket.emit('todo_send_message', arg_data, (rep) => {
+								console.log(rep);
+							});
+						}
+
+					}
+				});
+		}
+	}
+
+$('.share_textbox').on('click', function() {
+  var value = $(this).val();
+  if(value == 0){
+    $('.suggested-type-list').show();
+    $(".inputGroup2 .suggested-list li.showEl").removeClass('selected');
+    $(".inputGroup2 .suggested-list li.showEl:first").addClass('selected default');
+    $('.suggested-type-list .os-viewport').animate({ scrollTop: 0 }, 1);
+  }
+	$('.suggested-list').html("");
+    suggestedUserList();
+    popupMouseEnter();
+});
+
+var shareThisMember = (dataID, imSrc) => {
+    if (sharedMemberList.indexOf(dataID) == -1) {
+        sharedMemberList.push(dataID);
+        $('#toDoMember' + dataID + '').remove();
+        clearMemberSearch();
+        $('#sharePeopleList').show();
+        if (sharedMemberList.length < 5) {
+            viewMemberImg.push(dataID);
+            $('#sharePeopleList .ownerThisToDo').after('<img onclick="viewShareList(event)" src="/images/users/' + imSrc + '" data-uuid="' + dataID + '" class="sharedIMG memberImg' + dataID + '">');
+        }
+
+        if (sharedMemberList.length > 4) {
+            $('#sharePeopleList span').show();
+            $('#sharePeopleList span').text('+' + (sharedMemberList.length - 4));
+        }
+    }
+}
+var viewShareList = (event) => {
+	var totalMember = sharedMemberList.length;
+	$('#memberListBackWrap').show();
+	$('#memberListBackWrap').html("");
+	var html = '<div class="adminContainer">';
+			html += '<div class="closeBackwrap" onclick="closeAllPopUp()" data-balloon="Close" data-balloon-pos="up"><img src="/images/basicAssets/close_button.svg"></div>';
+			html += '<div class="label">';
+				html += '<h1 class="label_Title">Members </h1>';
+				html += '<h1 class="list_Count">(<span>' + totalMember + '</span>)</h1>';
+			html += '</div>';
+			html += '<input type="text" class="searchMember" placeholder="Search by name" onkeyup="searchMember(event,$(this).val());">';
+			html += '<span class="remove searchClear"></span>';
+			html += '<div class="suggest_Container overlayScrollbars " style="display: block;">';
+				html += '<ul class="suggested-list">';
+				var user_list = _.orderBy(allUserdata[0].users, ["fullname"], ["asc"]);
+				$.each(user_list, function (ky, va) {
+						if (sharedMemberList.indexOf(va.id) !== -1) {
+							if(user_id == va.id){
+								html += '<li class="showEl creatorThisTodo">';
+									html += '<div class="list" id="member' + va.id + '">';
+										html += '<img src="/images/users/' + va.img + '">';
+										html += '<span class="online_' + va.id + ' ' + (onlineUserList.indexOf(va.id) === -1 ? "offline" : "online") + '"></span>';
+										html += '<h1 class="memberName">' + va.fullname + '</h1>';
+										html += '<span class="creator">Owner</span>';
+									html += '</div>';
+								html += '</li>';
+							}
+						}
+				});
+				$.each(user_list, function (ky, va) {
+					if (sharedMemberList.indexOf(va.id) !== -1) {
+						if(user_id !== va.id){
+							html += '<li class="showEl toDoMemberC'+va.id+'" onclick="removeMemberConnectTodo(uuID = \'' + va.id + '\', img = \''+va.img+'\', fullName = \''+va.fullname+'\')">';
+								html += '<div class="list" id="member' + va.id + '">';
+									html += '<img src="/images/users/' + va.img + '">';
+									html += '<span class="online_' + va.id + ' ' + (onlineUserList.indexOf(va.id) === -1 ? "offline" : "online") + '"></span>';
+									html += '<h1 class="memberName" data-uuid="' + va.id + '">' + va.fullname + '</h1>';
+									html += '<span class="tagcheck forActive" onclick="removeMemberConnectTodo(uuID = \'' + va.id + '\', img = \''+va.img+'\', fullName = \''+va.fullname+'\')"></span>';
+								html += '</div>';
+							html += '</li>';
+						}
+					}
+				});
+				$.each(user_list, function (ky, va) {
+					if (sharedMemberList.indexOf(va.id) == -1) {
+						if(user_id !== va.id){
+							html += '<li class="toDoMemberC'+va.id+' showEl" onclick="addMemberConnectTodo(uuID = \'' + va.id + '\', img = \''+va.img+'\', fullName = \''+va.fullname+'\')"">';
+								html += '<div class="list" id="member' + va.id + '">';
+									html += '<img src="/images/users/' + va.img + '">';
+									html += '<span class="online_' + va.id + ' ' + (onlineUserList.indexOf(va.id) === -1 ? "offline" : "online") + '"></span>';
+									html += '<h1 class="memberName" data-uuid="' + va.id + '">' + va.fullname + '</h1>';
+								html += '</div>';
+							html += '</li>';
+						}
+					}
+				});
+				html += '</ul>';
+			html += '</div>';
+		html += '</div>';
+	overlayScrollbars();
+	$('#memberListBackWrap').append(html);
+	$('#memberListBackWrap .suggested-list li:first').addClass('selected default');
+	$('.searchMember').focus();
+	$('.remove.searchClear').on('click', function () {
+		$('.searchMember').val('');
+		$('.adminContainer li').show();
+		$(this).hide();
+	});
+	tooltipForBackWrap();
+	popupMouseEnter();
+}
+
+var addMemberConnectTodo = (uuID,img,fullName)=>{
+	$('.toDoMemberC'+uuID).remove();
+	var html = '<li class="showEl toDoMemberC'+uuID+'" onclick="removeMemberConnectTodo(uuID = \'' + uuID + '\', img = \''+img+'\', fullName = \''+fullName+'\')">';
+		html += 	'<div class="list" id="member' + uuID + '">';
+		html += 		'<img src="/images/users/' + img + '">';
+		html += 		'<span class="online_' + uuID + ' ' + (onlineUserList.indexOf(uuID) === -1 ? "offline" : "online") + '"></span>';
+		html += 		'<h1 class="memberName" data-uuid="' + uuID + '">' + fullName + '</h1>';
+		html += 		'<span class="tagcheck forActive" onclick="removeMemberConnectTodo(uuID = \'' + uuID + '\', img = \''+img+'\', fullName = \''+fullName+'\')"></span>';
+		html += 	'</div>';
+		html += '</li>';
+	$('.suggested-list .creatorThisTodo').after(html);
+
+	sharedMemberList.push(uuID);
+	if (sharedMemberList.length < 5) {
+        viewMemberImg.push(uuID);
+        $('#sharePeopleList .ownerThisToDo').after('<img onclick="viewShareList(event)" src="/images/users/' + img + '" data-uuid="' + uuID + '" class="sharedIMG memberImg' + uuID + '">');
+    }
+
+    if (sharedMemberList.length > 4) {
+        $('#sharePeopleList span').show();
+        $('#sharePeopleList span').text('+' + (sharedMemberList.length - 4));
+    }
+    popupMouseEnter();
+}
+
+var removeMemberConnectTodo = (uuID,img,fullName)=>{
+	removeA(sharedMemberList, uuID);
+	$('.toDoMemberC'+uuID).remove();
+	var html  = '<li class="toDoMemberC'+uuID+' showEl" onclick="addMemberConnectTodo(uuID = \'' + uuID + '\', img = \''+img+'\', fullName = \''+fullName+'\')"">';
+		html += 	'<div class="list" id="member' + uuID+ '">';
+		html += 		'<img src="/images/users/' + img + '">';
+		html += 		'<span class="online_' + uuID + ' ' + (onlineUserList.indexOf(uuID) === -1 ? "offline" : "online") + '"></span>';
+		html += 		'<h1 class="memberName" data-uuid="' + uuID+ '">' + fullName+ '</h1>';
+		html += 	'</div>';
+		html += '</li>';
+
+	if(viewMemberImg.indexOf(uuID) !== -1){
+        removeA(viewMemberImg, uuID);
+        $('.memberImg' + uuID + '').remove();
+        var newMember = '';
+        $.each(sharedMemberList, function(k,v){
+            if(viewMemberImg.indexOf(v) == -1){
+                if(viewMemberImg.length < 4){
+                    viewMemberImg.push(v);
+                    newMember = v;
+                }
+            }
+        });
+        var user_list = _.orderBy(allUserdata[0].users, ["fullname"], ["asc"]);
+        $.each(user_list, function (ky, va) {
+            if (newMember == va.id && newMember !== user_id) {
+                $('#sharePeopleList .ownerThisToDo').after('<img onclick="viewShareList(event)" src="/images/users/' + va.img + '" data-uuid="' + va.id + '" class="sharedIMG memberImg' + va.id + '">');
+            }
+        });
+    }
+    $('#viewMember' + uuID + '').remove();
+    $('#memberListBackWrap .list_Count').text('(' + sharedMemberList.length + ')');
+    $('#sharePeopleList span').text('+' + (sharedMemberList.length - 4));
+
+
+    if (sharedMemberList.length < 5) {
+        $('#sharePeopleList span').hide();
+    }
+	$('#memberListBackWrap .suggested-list').append(html);
+	popupMouseEnter();
+
+}
+
+
+
+var mediaFileSearch =()=>{
+	if($('#mediaImages').is(':visible')){
+		$('.Search-img').on('keyup', function(e){
+			var srcValue = $(this).val();
+			if(e.keyCode !== 40 && e.keyCode !== 38 && e.keyCode !== 13){
+				$('.img-name>p').each(function () {
+					if($(this).text().toLowerCase().search(srcValue.toLowerCase()) > -1){
+						$(this).closest('.all-images').show();
+						$(this).parents('.date-by-images').show();
+					} else {
+						$(this).closest('.all-images').hide();
+						if(!$(this).parents('.date-by-images').find('.all-images:visible').length == 0){
+							$(this).parents('.date-by-images').show();
+						}else{
+							$(this).parents('.date-by-images').hide();
+						}
+					}
+				});
+				$('.img-name>p').unhighlight();
+				$('.img-name>p').highlight(srcValue);
+			}
+		});
+	}else if($('#mediaVideos').is(':visible')){
+		$('.Search-videos').on('keyup', function(e){
+			var Searchvideos = $(this).val();
+			console.log(Searchvideos);
+			if(e.keyCode !== 40 && e.keyCode !== 38 && e.keyCode !== 13){
+				$('.video-name>p').each(function () {
+					if($(this).text().toLowerCase().search(Searchvideos.toLowerCase()) > -1){
+						$(this).closest('.all-videos').show();
+						$(this).parents('.date-by-videos').show();
+					} else {
+						$(this).closest('.all-videos').hide();
+						if(!$(this).parents('.date-by-videos').find('.all-videos:visible').length == 0){
+							$(this).parents('.date-by-videos').show();
+						}else{
+							$(this).parents('.date-by-videos').hide();
+						}
+					}
+				});
+				$('.video-name>p').unhighlight();
+				$('.video-name>p').highlight(Searchvideos);
+			}
+		});
+	}else if($('#mediaFiles').is(':visible')){
+		$('.Search-files').on('keyup', function(e){
+			var Searchfiles = $(this).val();
+			console.log(Searchfiles);
+			if(e.keyCode !== 40 && e.keyCode !== 38 && e.keyCode !== 13){
+				$('.file-details>h4').each(function () {
+					if($(this).text().toLowerCase().search(Searchfiles.toLowerCase()) > -1){
+						$(this).closest('.all-files').show();
+						$(this).parents('.date-by-files').show();
+					} else {
+						$(this).closest('.all-files').hide();
+						if(!$(this).parents('.date-by-files').find('.all-files:visible').length == 0){
+							$(this).parents('.date-by-files').show();
+						}else{
+							$(this).parents('.date-by-files').hide();
+						}
+					}
+				});
+				$('.file-details>h4').unhighlight();
+				$('.file-details>h4').highlight(Searchfiles);
+			}
+		});
+	}
+	//else if($('#mediaLinks').is(':visible')){
+
+	// }
+}
+mediaFileSearch();
+</script>
+
+
+
+<%- include('layouts/basic_foot') %>

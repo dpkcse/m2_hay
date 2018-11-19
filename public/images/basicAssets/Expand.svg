@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Expand</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Expand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.88">
+        <g id="Group" transform="translate(4.000000, 4.000000)" stroke="#000000" stroke-width="1.5">
+            <g id="expand-1">
+                <path d="M6.5,9.49866667 L0.5,15.4986667" id="Shape"></path>
+                <polyline id="Shape" points="15.5 4.99866667 15.5 0.498666667 11 0.498666667"></polyline>
+                <polyline id="Shape" points="0.5 10.9986667 0.5 15.4986667 5 15.4986667"></polyline>
+                <path d="M15.5,0.498666667 L9.5,6.49866667" id="Shape"></path>
+                <path d="M9.5,9.49866667 L15.5,15.4986667" id="Shape"></path>
+                <polyline id="Shape" points="0.5 4.99866667 0.5 0.498666667 5 0.498666667"></polyline>
+                <polyline id="Shape" points="15.5 10.9986667 15.5 15.4986667 11 15.4986667"></polyline>
+                <path d="M0.5,0.498666667 L6.5,6.49866667" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

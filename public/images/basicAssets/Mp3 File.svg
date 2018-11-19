@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Mp3 File</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Mp3-File" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Group" transform="translate(10.000000, 9.000000)" stroke="#000000" stroke-width="1.5">
+            <g id="audio-file-mp3">
+                <path d="M0,30 L0,2 C-2.96059473e-16,0.8954305 0.8954305,2.96059473e-16 2,0 L16.172,0 C16.7020629,0.000113175105 17.2104021,0.210642336 17.5853333,0.585333333 L25.4146667,8.41466667 C25.7893577,8.78959785 25.9998868,9.29793706 26,9.828 L26,16" id="Shape"></path>
+                <path d="M26,10 L18,10 C16.8954305,10 16,9.1045695 16,8 L16,0" id="Shape"></path>
+                <polyline id="Shape" stroke-opacity="0.88" points="10 30 10 20 7 25 4 20 4 30"></polyline>
+                <path d="M14,30 L14,20" id="Shape" stroke-opacity="0.88"></path>
+                <path d="M14,20 L15,20 C16.6568542,20 18,21.3431458 18,23 C18,24.6568542 16.6568542,26 15,26 L14,26" id="Shape" stroke-opacity="0.88"></path>
+                <path d="M22,22 C22,20.8954305 22.8954305,20 24,20 L25.5133333,20.0066667 C26.8697577,20.0407799 27.9507729,21.1516952 27.9478744,22.5085453 C27.9449759,23.8653955 26.8592244,24.9716822 25.5026667,25 C26.8592244,25.0283178 27.9449759,26.1346045 27.9478744,27.4914547 C27.9507729,28.8483048 26.8697577,29.9592201 25.5133333,29.9933333 L24,29.9933333 C22.8954305,29.9933333 22,29.0979028 22,27.9933333" id="Shape" stroke-opacity="0.88"></path>
+            </g>
+        </g>
+    </g>
+</svg>

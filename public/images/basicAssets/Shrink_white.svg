@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="4 4 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Shrink</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Shrink" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.88">
+        <g id="Group" transform="translate(4.000000, 4.000000)" stroke="#FFFFFF" stroke-width="1.5">
+            <g id="shrink-2">
+                <path d="M15.5,0.498666667 L9.5,6.49866667" id="Shape"></path>
+                <polyline id="Shape" points="6.5 13.9986667 6.5 9.49866667 2 9.49866667"></polyline>
+                <polyline id="Shape" points="9.5 1.99866667 9.5 6.49866667 14 6.49866667"></polyline>
+                <path d="M6.5,9.49866667 L0.5,15.4986667" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

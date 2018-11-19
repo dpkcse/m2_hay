@@ -1,0 +1,1374 @@
+.main-contact-div {
+  margin: 80px auto;
+  display: block;
+  /* overflow: hidden; */
+  width: 832px;
+  /* display: none; */
+}
+
+.search-contact-whole-div {
+  width: 100%;
+  padding-bottom: 32px !important;
+  display: block;
+  overflow: hidden;
+}
+
+.add-contact {
+  width: 48px;
+	height: 48px;
+	padding: 14px;
+  border-radius: 15px;
+  /*background-color: #919da3;
+  border: 2px solid #919da3;*/
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.08), 0 2px 2px 0 rgba(0,0,0,0.16);
+  background: linear-gradient(#64b8fd, #008bff);
+  cursor: pointer;
+}
+
+
+.search-contact {
+  float: left;
+  width: 720px;
+  padding: 0px 8px;
+}
+
+.search-contact input {
+  height: 48px;
+  width: 100%;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 17px;
+  border: none;
+  padding: 16px 44px !important;
+  position: relative;
+  outline: none;
+}
+
+.search-contact input::placeholder {
+  height: 16px;
+  color: rgba(0, 0, 0, 0.24);
+  font-family: hvAssistant;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.search-contact img {
+  position: absolute;
+  z-index: 9999;
+  padding: 16px 8px 16px 20px;
+}
+
+.filter-contact {
+  float: left;
+  height: 48px;
+  width: 48px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  background-color: #FFFFFF;
+  border-radius: 17px;
+  padding: 10px 12px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.filter-contact img {
+  height: 24px;
+  width: 24px;
+}
+
+/* .people-community-whole-div {} */
+
+ul.contact-main-tab {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  margin-bottom: 28px;
+}
+
+ul.contact-main-tab li {
+  padding: 0 8px;
+  opacity: 0.16;
+  color: #000000;
+  font-family: "hvWorkSans";
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  line-height: 24px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+ul.contact-main-tab li.current {
+  color: rgba(0, 0, 0, 0.87) !important;
+  font-family: "hvWorkSans";
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  line-height: 36px;
+  opacity: 1;
+}
+
+.contact-tab-content {
+  display: none;
+}
+
+.contact-tab-content.current {
+  display: inherit;
+}
+
+.contact-people-teams {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.contact-people-teams>p {
+  margin-bottom: 8px;
+  height: 12px;
+  width: 56px;
+  color: rgba(0, 0, 0, 0.24);
+  font-family: "hvWorkSans";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 12px;
+  padding-left: 8px;
+}
+
+.contact-people-teams .peoples-team {
+  height: 120px;
+  width: 202px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  float: left;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+  border-top: 4px solid #03A9F4;
+  display: table;
+  cursor: pointer;
+}
+
+.contact-people-teams .peoples-team:nth-child(5n) {
+  margin-right: 0px;
+}
+
+.peoples-team p {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  /* height: 24px;
+    width: 60px; */
+  color: rgba(0, 0, 0, 0.87);
+  font-family: "hvWorkSans";
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  padding: 0 30px;
+}
+
+.contact-people-list-A {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.contact-people-list-A>p {
+  height: 12px;
+  /* width: 11px; */
+  color: rgba(0, 0, 0, 0.24);
+  font-family: "hvWorkSans";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 12px;
+  padding-left: 8px;
+  margin-bottom: 8px;
+}
+
+.contacts-list {
+  height: 64px;
+  width: 100%;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  margin-bottom: 4px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.contact-people-list-A .contacts-list img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.C-list-left-div,
+.C-list-right-div {
+  float: left;
+}
+
+.C-list-left-div {
+  padding: 12px 16px;
+  position: relative;
+}
+
+.C-list-left-div .contact-group-label {
+  /* height: 8px;
+        width: 14px; */
+  position: absolute;
+  color: #FFFFFF;
+  font-family: hvAssistant;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 8px;
+  text-align: center;
+  height: 12px;
+  width: 27px;
+  border-radius: 8px;
+  background-color: #FF5722;
+  padding: 3px 3px 1px;
+  bottom: 8px;
+  left: 23px;
+}
+
+.C-list-right-div {
+  padding: 20px 0px 24px;
+}
+
+.contacts-list .contact-list-invite {
+  height: 40px;
+  width: 104px;
+  border: 1px solid #007AFF;
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: #007AFF;
+  font-family: "hvWorkSans";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.contacts-list .contact-favourite-mark {
+  position: absolute;
+  top: 17px;
+  right: 17.5px
+}
+
+.contacts-list .contact-favourite-mark img {
+  height: 16px;
+  width: 16px;
+}
+
+.C-list-right-div p {
+  /* height: 20px;
+    width: 87px; */
+  color: rgba(0, 0, 0, 0.87);
+  font-family: hvAssistant;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 20px;
+}
+
+.C-list-right-div p span {
+  /* height: 12px;
+    width: 106px; */
+  color: rgba(0, 0, 0, 0.32);
+  font-family: hvAssistant;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 12px;
+  padding-left: 8px;
+}
+
+.popup_add_contact {
+  height: 0px;
+  width: 0px;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.08), 0 6px 6px 0 rgba(0, 0, 0, 0.16);
+  position: absolute;
+  z-index: 99999;
+  /* padding: 18px; */
+  padding: 8px 0;
+  display: none;
+}
+
+.add-contact-popups-list {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  height: 48px;
+  width: 208px;
+  position: relative;
+  cursor: pointer;
+}
+
+.add-contact-popups-list .add-contact-popups-icon {
+  float: left;
+}
+
+.add-contact-popups-list .add-contact-popups-icon img {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  left: 18px;
+  bottom: 14.40px;
+}
+
+.add-contact-popups-list p {
+  float: left;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: hvAssistant;
+  font-size: 18px;
+  letter-spacing: 0.4px;
+  line-height: 16px;
+  margin: 0px;
+  padding-left: 56px;
+}
+
+/* :::::::: Community Tab Start form here:::::::: */
+
+.contact-community-slider {
+  display: block;
+  /* overflow: hidden; */
+  position: relative;
+  /* margin-bottom: 32px; */
+}
+
+.contact-community-slider>p {
+  height: 12px;
+  /* width: 162px; */
+  color: rgba(0, 0, 0, 0.24);
+  font-family: "hvWorkSans";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 12px;
+  margin-bottom: 8px;
+  padding-left: 8px;
+}
+
+.community-slider-item {
+  float: left;
+  height: 180px;
+  width: 132px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  margin-right: 8px;
+  box-sizing: border-box;
+  display: block;
+  overflow: hidden;
+  padding-bottom: 16px !important;
+}
+
+.community-slider-item:last-child {
+  margin-right: 0px;
+}
+
+.community-slider-item>img {
+  height: 92px;
+  width: 131px;
+  border-radius: 2px;
+  padding: 4px 4px 0;
+}
+
+.community-slider-details {
+  padding: 12px 16px 0;
+}
+
+.community-slider-details>p {
+  max-height: 40px;
+  width: 100px;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: hvAssistant;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0;
+}
+
+.slider-left-arrow {
+  position: absolute;
+  top: 90px;
+  left: -16px;
+  width: 32px;
+  height: 32px;
+  background-color: #007aff;
+  border-radius: 50px;
+  box-sizing: border-box;
+  transform: rotate(88deg);
+  cursor: pointer;
+}
+
+.slider-left-arrow>img {
+  width: 32px;
+}
+
+.slider-right-arrow>img {
+  height: 32px;
+}
+
+.slider-right-arrow {
+  position: absolute;
+  top: 90px;
+  right: -16px;
+  width: 32px;
+  height: 32px;
+  background-color: #007aff;
+  border-radius: 50px;
+  box-sizing: border-box;
+  transform: rotate(-88deg);
+  cursor: pointer;
+}
+
+.contact-community-categories {
+  display: inline-block;
+  overflow: hidden;
+  margin: 32px 0 32px;
+}
+
+.contact-community-categories>p,
+.contact-community-by-distance>p {
+  color: rgba(0, 0, 0, 0.24);
+  font-family: "hvWorkSans";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 12px;
+  padding-left: 8px;
+  margin-bottom: 8px;
+}
+
+.contact-categories-item {
+  height: 120px;
+  width: 202px;
+  border-radius: 4px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  float: left;
+  position: relative;
+  cursor: pointer;
+}
+
+.contact-categories-item:nth-child(5n) {
+  margin-right: 0px;
+}
+
+.contact-categories-item:last-child {
+  margin-right: 0px;
+}
+
+.contact-categories-item>img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.contact-categories-item h4 {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  color: #FFFFFF;
+  font-family: "hvWorkSans";
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 20px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+  margin-bottom: 0px;
+  padding: 0 12px 8px;
+  letter-spacing: -0.8px;
+}
+
+.contact-community-by-distance {
+  display: block;
+  overflow: hidden;
+}
+
+.contact-community-distance-item {
+  height: 104px;
+  width: 272px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  display: block;
+  overflow: hidden;
+  float: left;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.contact-community-distance-item:nth-child(4n) {
+  margin-right: 0px;
+}
+
+.distance-item-details {
+  float: left;
+  padding: 16px 4px 16px 16px;
+  display: block;
+  overflow: hidden;
+}
+
+.distance-item-details .by-distance-item-title {
+  max-height: 40px;
+  max-width: 176px;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: hvAssistant;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 20px;
+  overflow: hidden;
+}
+
+.distance-item-details img {
+  height: 12px;
+  width: 65px;
+}
+
+.distance-item-details p {
+  /* height: 12px;
+	width: 106px; */
+  color: rgba(0, 0, 0, 0.56);
+  font-family: hvAssistant;
+  font-size: 14px;
+  line-height: 12px;
+  margin-bottom: 0px;
+}
+
+.distance-item-photo {
+  float: right;
+  padding: 4px;
+}
+
+.distance-item-photo>img {
+  height: 96px;
+  width: 68px;
+  border-radius: 2px;
+}
+
+/* CSS for contact list pop-up */
+
+.contacts-profile-information,
+.contacts-guest-profile {
+  width: 1104px;
+  margin: 73px auto;
+  display: none;
+}
+
+.contacts-profile-head,
+.contacts-guest-profile-head {
+  height: 160px;
+  width: 1104px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  margin-bottom: 32px;
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.contacts-profile-back-button {
+  position: absolute;
+  left: -146px;
+  top: 14px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+.contacts-profile-more-button {
+  position: absolute;
+  right: 12px;
+  top: 9px;
+  width: 16px;
+  /* height: 20px; */
+  /* height: 32px; */
+  cursor: pointer;
+}
+.contacts-profile-photo {
+  height: 120px;
+  width: 120px;
+  margin: 20px 24px;
+  float: left;
+}
+
+.contacts-profile-photo img {
+  border-radius: 40px;
+  width: 100%;
+  height: 100%;
+}
+.contacts-profile-photo> span{
+  border-radius: 40px;
+  height: 120px;
+  width: 120px;
+  background-color: #546E7A;
+  color: #FFFFFF;
+  display: table-cell;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 50px;
+  font-family: "hvWorkSans";
+  font-weight: 600;
+  letter-spacing: 0.2px;
+
+}
+.contacts-profile-sort-detail {
+  float: left;
+  padding: 32px 0 24px;
+}
+.contacts-profile-sort-detail .contacts-profile-head-label {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  /* margin-bottom:  !important; */
+}
+.contacts-profile-sort-detail .navigate-label,
+.contacts-profile-sort-detail .personal-label {
+  float: left;
+  height: 16px;
+  /* width: 70px; */
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-family: hvAssistant;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 8px;
+  text-align: center;
+  padding: 4px 8.5px;
+  margin: 0 4px 12px;
+  text-transform: uppercase;
+  /* overflow: hidden; */
+  /* display: block; */
+}
+
+.contacts-profile-sort-detail> h2 {
+  /* height: 20px; */
+  color: rgba(0, 0, 0, 0.87);
+  font-family: "hvWorkSans";
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  line-height: 20px;
+  margin-bottom: 16px;
+  width: 100%;
+  display: block;
+  /* overflow: hidden; */
+  position: relative;
+}
+.contacts-profile-sort-detail>h2 span img{
+  position: absolute;
+  top: 4px;
+  right: -24px;
+  height: 15.49px;
+  width: 16.67px;
+}
+.contacts-profile-call-chat{
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+.contacts-profile-call-chat span {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+  background-color: #007aff;
+  border-radius: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.contacts-profile-call-chat .voice-call img,
+.contacts-profile-call-chat .video-call img {
+  padding: 11px;
+}
+
+ul.contacts-profile-tab-head {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  margin-bottom: 11px;
+}
+
+ul.contacts-profile-tab-head li {
+  padding: 0 8px;
+  opacity: 0.16;
+  color: #000000;
+  font-family: "hvWorkSans";
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  line-height: 24px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+ul.contacts-profile-tab-head li.active {
+  color: rgba(0, 0, 0, 0.87) !important;
+  font-family: "hvWorkSans";
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  line-height: 36px;
+  opacity: 1;
+}
+
+.contacts-profile-tab-content {
+  display: none;
+}
+
+.contacts-profile-tab-content.active {
+  display: inherit;
+}
+
+/* Info tab content */
+
+.info-their-team {
+  float: left;
+  height: 448px;
+  width: 264px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  margin-right: 16px;
+  display: block;
+  overflow: hidden;
+  padding: 24px 0 24px 24px;
+  border-top: 4px solid #03A9F4;
+}
+
+.info-their-team>p {
+  height: 16px;
+  width: 87px;
+  color: rgba(0, 0, 0, 0.24);
+  font-family: "hvWorkSans";
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  line-height: 16px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.info-their-team-members,
+.info-chat-common-group {
+  display: block;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+}
+
+.info-their-team-members-photo,
+.info-chat-common-group-photo {
+  float: left;
+  width: 48px;
+  height: 48px;
+  margin-right: 12px;
+  display: block;
+  overflow: hidden;
+  box-sizing: border-box
+}
+
+.info-their-team-members-photo>img,
+.info-chat-common-group-photo img {
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+}
+
+.info-their-team-members-name-deg,
+.info-chat-common-group-name {
+  display: block;
+  overflow: hidden;
+}
+
+.info-their-team-members-name-deg h4,
+.info-chat-common-group-name h4 {
+  /* height: 16px;
+		width: 127px; */
+  color: rgba(0, 0, 0, 0.87);
+  font-family: hvAssistant;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 16px;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.info-their-team-members-name-deg p,
+.info-chat-common-group-name p {
+  /* height: 16px; */
+  /* width: 157px; */
+  color: rgba(0, 0, 0, 0.32);
+  font-family: hvAssistant;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+  margin-bottom: 0px;
+}
+
+.info-personal-and-company-information {
+  float: left;
+  width: 544px;
+  margin-right: 16px;
+  display: block;
+  overflow: hidden;
+}
+
+.info-chat-tag-share-div,
+.info-guest-tag-share-div {
+  float: left;
+  width: 264px;
+  display: block;
+  overflow: hidden;
+}
+
+.info-personal-information {
+  height: 348px;
+  width: 544px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  padding: 24px 0 28px 48px;
+  margin-bottom: 16px;
+  display: block;
+  overflow: hidden;
+  border-top: 4px solid #FF5722;
+}
+.contacts-guest-personal-information>p,
+.info-personal-information>p,
+.info-company-information>p,
+.info-chat-common>p,
+.info-tags>p {
+  height: 16px;
+  /* width: 180px; */
+  color: rgba(0, 0, 0, 0.24);
+  font-family: "hvWorkSans";
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.info-personal-information .email,
+.info-personal-information .phone,
+.info-personal-information .address,
+.info-personal-information .birth-date {
+  margin-bottom: 20px;
+}
+.contacts-guest-personal-information .email p,
+.contacts-guest-personal-information .phone p,
+.info-personal-information .email p,
+.info-personal-information .phone p,
+.info-personal-information .address p,
+.info-personal-information .birth-date p,
+.info-personal-information .website p {
+  height: 16px;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: hvAssistant;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  line-height: 16px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.info-company-information {
+  height: 232px;
+  width: 544px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  padding: 24px 0 28px 48px;
+  border-top: 4px solid #03A9F4;
+  margin-bottom: 48px;
+}
+
+.info-company-information .com-name,
+.info-company-information .com-email,
+.info-company-information .com-phone,
+.info-company-information .com-address {
+  margin-bottom: 20px;
+}
+
+.info-company-information .com-name p,
+.info-company-information .com-email p,
+.info-company-information .com-phone p,
+.info-company-information .com-address p {
+  height: 16px;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: hvAssistant;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  line-height: 16px;
+  margin-bottom: 0px;
+  position: relative;
+}
+.contacts-guest-personal-information .email p .info-icon,
+.contacts-guest-personal-information .phone p .info-icon,
+.info-personal-information .email p .info-icon,
+.info-personal-information .phone p .info-icon,
+.info-personal-information .address p .info-icon,
+.info-personal-information .birth-date p .info-icon,
+.info-personal-information .website p .info-icon,
+.info-company-information .com-name p .info-icon,
+.info-company-information .com-email p .info-icon,
+.info-company-information .com-phone p .info-icon,
+.info-company-information .com-address p .info-icon {
+  position: absolute;
+  left: -24px;
+}
+
+.info-chat-common {
+  height: 256px;
+  width: 264px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  margin-bottom: 16px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  padding: 24px;
+}
+
+.info-tags {
+  height: 108px;
+  width: 264px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+  padding: 24px;
+}
+
+.contacts-guest-personal-information>p span,
+.info-tags>p span {
+  height: 16px;
+  width: 28px;
+  color: #007AFF;
+  font-family: hvAssistant;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.info-tags-tag span {
+  float: left;
+  height: 28px;
+  /* width: 57px; */
+  border: 1px solid rgba(0, 122, 255, 0.12);
+  border-radius: 4px;
+  background-color: rgba(0, 122, 255, 0.04);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  color: #007AFF;
+  font-family: hvAssistant;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+  padding: 5px 8px 7px;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.info-share,
+.info-guest-share {
+  height: 64px;
+  width: 264px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  padding: 16px 50px;
+}
+
+.info-share .social-icon {
+  float: left;
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+  border-radius: 12px;
+  padding-left: 6px;
+  padding-top: 2px;
+  cursor: pointer;
+}
+
+.info-share .social-icon:last-child {
+  margin-right: 0px;
+}
+.info-guest-share .social-icon{
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.info-guest-share .social-icon img{
+  width: 100%;
+  height: 100%;
+  border-radius: 9px;
+}
+/* CSS For media tab */
+
+.contacts-profile-media-file {
+  height: 184px;
+  width: 184px;
+  border-right: 1px solid #ECEFF1;
+  border-bottom: 1px solid #ECEFF1;
+  border-radius: 1px;
+  box-sizing: border-box;
+  display: block;
+  float: left;
+}
+
+.contacts-profile-media-file:nth-child(6n) {
+  border-right: none;
+}
+
+.contacts-profile-media-file img {
+  width: 100%;
+  height: 100%;
+}
+
+/* CSS for links tab */
+
+.contacts-profile-links-left-main {
+  margin-right: 16px;
+}
+
+.contacts-profile-links-left-main .contacts-profile-links:last-child {
+  margin-bottom: 56px;
+}
+
+.contacts-profile-links-left-main,
+.contacts-profile-links-right-main {
+  float: left;
+  width: 544px;
+}
+
+.contacts-profile-links {
+  width: 544px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  display: block;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.contacts-profile-links>h5 {
+  /* height: 1.28%;
+    width: 11.53%; */
+  color: rgba(0, 0, 0, 0.88);
+  font-family: hvAssistant;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 0px;
+}
+
+.contacts-profile-links>p {
+  /* height: 2.55%;
+    width: 35.56%; */
+  color: rgba(0, 0, 0, 0.88);
+  font-family: hvAssistant;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+.contacts-profile-links>img {
+  width: 100%;
+  height: 288px;
+  border-radius: 2px;
+}
+
+.company-name-logo {
+  display: block;
+  overflow: hidden;
+}
+
+.company-name-logo img {
+  float: left;
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+}
+
+.company-name-logo p {
+  float: left;
+  color: rgba(0, 0, 0, 0.88);
+  font-family: hvAssistant;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  margin-bottom: 4px;
+}
+
+/* CSS for files tab */
+
+.contacts-profile-files {
+  float: left;
+  height: 84px;
+  width: 544px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  margin: 0 16px 16px 0;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  padding: 14px 13px 16px;
+}
+
+.contacts-profile-files:nth-child(2n) {
+  margin-right: 0px;
+}
+
+.contacts-profile-files-photo {
+  float: left;
+  box-sizing: border-box;
+  height: 36px;
+  width: 36px;
+  margin-top: 9px;
+  margin-right: 12px;
+}
+
+.contacts-profile-files-photo img {
+  width: 100%;
+  height: 100%;
+}
+
+.contacts-profile-files-details {
+  float: left;
+}
+
+.contacts-profile-files-details .file-name {
+  height: 16px;
+  color: rgba(0, 0, 0, 0.88);
+  font-family: hvAssistant;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 16px;
+  margin-bottom: 6px;
+}
+
+.contacts-profile-files-details .file-shared-by {
+  height: 16px;
+  color: #007AFF;
+  font-family: hvAssistant;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+  margin-bottom: 4px;
+}
+
+.contacts-profile-files-details .file-share-time {
+  height: 12px;
+  color: rgba(0, 0, 0, 0.32);
+  font-family: hvAssistant;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 12px;
+  margin-bottom: 0px;
+}
+
+.contacts-profile-flagged-main-div {
+  display: block;
+  overflow: hidden;
+  padding-left: 9px;
+}
+
+.contacts-profile-flagged-main-div .flagged-chat-1,
+.contacts-profile-flagged-main-div .flagged-chat-2,
+.contacts-profile-flagged-main-div .flagged-chat-3 {
+  display: block;
+  /* width: ;
+  height: ; */
+  padding: 13px 16px 16px;
+  background-color: #FFFFFF;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  position: relative;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+.contacts-profile-flagged-main-div .flagged-chat-1 img,
+.contacts-profile-flagged-main-div .flagged-chat-2 img,
+.contacts-profile-flagged-main-div .flagged-chat-3 img{
+  position: absolute;
+  top: 3.75px;
+  right: 10px;
+}
+.flagged-chat-left-arrow {
+  position: absolute;
+  left: -10px;
+  top: 0px;
+  width: 10px;
+  height: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  overflow: hidden;
+  float: left;
+}
+
+.flagged-chat-left-arrow::after {
+  content: "";
+  display: block;
+  margin-left: -11px;
+  margin-top: -34px;
+  border-left: 10px solid transparent;
+  border-top: 10px solid #FFFFFF;
+}
+
+.flagged-chat-left-arrow::before {
+  content: "";
+  display: block;
+  margin-left: -11px;
+  margin-top: -10px;
+  border-left: 10px solid transparent;
+  border-top: 10px solid #7777779c;
+}
+
+.contacts-profile-flagged-main-div .flagged-chat-1 h5,
+.contacts-profile-flagged-main-div .flagged-chat-2 h5,
+.contacts-profile-flagged-main-div .flagged-chat-3 h5 {
+  height: 19px;
+  color: rgba(0, 0, 0, 0.88);
+  font-family: "hvWorkSans";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  margin-bottom: 0px;
+}
+
+.contacts-profile-flagged-main-div .flagged-chat-1 p,
+.contacts-profile-flagged-main-div .flagged-chat-2 p,
+.contacts-profile-flagged-main-div .flagged-chat-3 p {
+  color: rgba(0, 0, 0, 0.88);
+  font-family: hvAssistant;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  margin-bottom: 0px;
+}
+
+.contacts-profile-flagged-main-div .flagged-chat-1 p span,
+.contacts-profile-flagged-main-div .flagged-chat-2 p span,
+.contacts-profile-flagged-main-div .flagged-chat-3 p span {
+  height: 18px;
+  color: rgba(0, 0, 0, 0.24);
+  font-family: hvAssistant;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: -0.2px;
+  line-height: 18px;
+  text-align: right;
+}
+
+/* CSS for Guest profile */
+.guest-info-title{
+    height: 36px;
+    width: 60px;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: "hvWorkSans";
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.4px;
+    line-height: 36px;
+}
+.contacts-guest-profile-invite-div{
+  float: left;
+  margin-right: 16px;
+  height: 164px;
+  width: 264px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #00B2FF 0%, #007AFF 100%);
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  padding: 28px 24px 24px;
+}
+.contacts-guest-profile-invite-div> h3 {
+  height: 24px;
+  /* width: 75px; */
+  color: #FFFFFF;
+  font-family: "hvWorkSans";
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: -0.24px;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 4px;
+}
+.contacts-guest-profile-invite-div > p {
+  height: 24px;
+  /* width: 178px; */
+  color: #FFFFFF;
+  font-family: "hvWorkSans";
+  font-size: 16px;
+  letter-spacing: -0.1px;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.contacts-guest-profile-invite-div button{
+  height: 44px;
+  width: 216px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  color: #006BDE;
+  font-family: "hvWorkSans";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  line-height: 16px;
+  text-align: center;
+  outline: none;
+  }
+.contacts-guest-personal-information{
+  float: left;
+  height: 164px;
+  width: 544px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  padding: 24px 24px 28px 48px;
+  display: block;
+  margin-right: 16px;
+}
+/* .inviteMessage{
+  color:#fff;
+  background-color: rgba(0, 0, 0, 0.72);
+  font-family: hvAssistant;
+  font-size: 16px;
+  text-align: center;
+  line-height: 21px;
+  letter-spacing: 0.2px;
+  width:280px;
+  height:48px;
+  padding:14px 37px 13px;
+  border-radius: 4px;
+  margin:0px auto;
+  z-index:9999999;
+  display: none;
+} */

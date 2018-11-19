@@ -1,0 +1,2423 @@
+@import url('./fonts/haven-fonts.css');
+@import url('./fonts/fontawesome-all.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+
+.main-container {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    margin: 0px auto;
+}
+
+.main-header {
+    height: 64px;
+    width: 100%;
+    background-color: #FFFFFF;
+    display: block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-sizing: border-box;
+    border-bottom: 1px solid #DBDBDB;
+    position: fixed;
+    z-index: 1;
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+.header-left {
+    float: left;
+    width: 33%;
+}
+
+.main-menu-list {
+    list-style: none;
+    box-sizing: border-box;
+    margin-left: 24px;
+}
+
+.main-menu-list li {
+    display: inline-block;
+    color: #9B9B9B;
+    font-family: hvAssistant;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.18px;
+    line-height: 28px;
+    padding: 14px 0px 18px 0;
+    margin-right: 32px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.main-menu-list li:last-child {
+    margin-right: 0px;
+}
+
+.main-menu-list li a {
+    color: #9B9B9B;
+    text-decoration: none;
+}
+
+.main-menu-list li.active {
+    color: #1676EA;
+    border-top: 4px solid #1676EA;
+}
+
+.main-menu-list li.active a {
+    color: #1676EA;
+}
+
+.header-midd {
+    float: left;
+    width: auto;
+    text-align: center;
+    overflow: hidden;
+    width: 33%;
+}
+
+.hayven-logo {
+    text-align: center;
+    font-family: hvAssistant;
+    font-weight: 600;
+    user-select: none;
+    /* display: table-cell; */
+    vertical-align: middle;
+    line-height: 64px;
+    font-size: 32px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/*
+.header-right {
+    float: left;
+    width: 33%;
+}*/
+.header-right {
+    float: right;
+    display: block;
+    overflow: hidden;
+    line-height: 64px;
+    margin-right: 24px;
+}
+
+.header-right .plus {
+    float: left;
+    cursor: pointer;
+    width: 56px;
+    background-color: rgba(74, 144, 226, 0.16);
+    text-align: center;
+    border-left: 1px solid #DBDBDB;
+    border-right: 1px solid #DBDBDB;
+}
+
+.header-right .plus_ico {
+    user-select: none;
+    vertical-align: middle;
+}
+
+.notification {
+    float: left;
+    cursor: pointer;
+    width: 56px;
+    text-align: center;
+    border-right: 1px solid #DBDBDB;
+}
+
+.notification img.notification_ico {
+    width: 35px;
+    height: 35px;
+    user-select: none;
+    vertical-align: middle;
+}
+
+.profile_nav {
+    float: left;
+    display: block;
+    padding-left: 13px;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+.profile_nav img.profilePic {
+    width: 35px;
+    height: 35px;
+    border-radius: 30%;
+    user-select: none;
+    vertical-align: middle;
+}
+
+.profile_nav img.nav_ico {
+    position: relative;
+    user-select: none;
+    vertical-align: middle;
+}
+
+.profilenavMainSection {
+    width: 307px;
+    height: 338px;
+    position: fixed;
+    margin-top: 4px;
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+    padding: 16px 0px 32px;
+    border-radius: 4px;
+    right: 24px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 1px 0 rgba(10, 31, 68, 0.1),
+        0 18px 18px 0 rgba(10, 31, 68, 0.12);
+    cursor: context-menu;
+}
+
+.profileNavContainer {
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+    height: 338px;
+    height: auto;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    padding: 16px 32px;
+    border-bottom: 1px solid #F2F2F2;
+}
+
+.profileNavContainer .headNav h1 {
+    color: rgba(18, 18, 18, 0.88);
+    font-family: hvWorkSans;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    margin-bottom: 12px;
+    float: left;
+    overflow: hidden;
+    width: 222px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.profileNavContainer .headNav .settingEmail {
+    float: right;
+    box-sizing: border-box;
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+}
+
+.headNav {
+    display: block;
+    height: auto;
+    overflow: hidden;
+}
+
+.switchNav input {
+    display: none;
+}
+
+.switchNav {
+    position: relative;
+    display: inline-block;
+    width: 28px;
+    height: 16px;
+    float: left;
+}
+
+input:checked+.sliderNav {
+    background-color: #1ed770;
+}
+
+.sliderNav.round {
+    border-radius: 34px;
+}
+
+.sliderNav {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.sliderNav.round:before {
+    border-radius: 50%;
+}
+
+.sliderNav:before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    left: 4px;
+    bottom: 3px;
+    top: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    box-shadow: 0 4px 4px 0 rgba(10, 31, 68, 0.16);
+}
+
+input:checked+.sliderNav:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(12px);
+}
+
+.group_input {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 4px;
+    height: 20px;
+}
+
+.group_input .switchFor {
+    float: left;
+    width: 150px;
+    margin-left: 35px;
+    color: rgba(18, 18, 18, 0.5);
+    font-family: hvAssistant;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.profilenavMainSection .linkAccount {
+    height: 21px;
+    color: #1676EA;
+    font-family: hvAssistant;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 21px;
+    margin: 16px 32px 8px 32px;
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    cursor: pointer;
+}
+
+.profilenavMainSection .logOut {
+    height: 21px;
+    color: #E03C31;
+    font-family: hvAssistant;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 21px;
+    margin: 0px 32px;
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    cursor: pointer;
+}
+
+.side-bar-filter-icon {
+    cursor: pointer;
+}
+
+
+/*css for sidebar*/
+.side-bar {
+    box-sizing: border-box;
+    /*   width: 18.4%;*/
+    border-right: 1px solid #DBDBDB;
+    background-color: #ececec;
+    float: left;
+    display: block;
+    overflow: hidden;
+    z-index: 10;
+    position: fixed;
+    overflow-y: auto;
+    width: 267px;
+    margin-top: 64px;
+    height:calc(100vh - 64px);
+}
+
+.thread_active {
+    width: 127px;
+    height: auto;
+    position: absolute;
+    left: 18px;
+    bottom: 15px;
+    cursor: pointer;
+}
+
+.thread_active img {
+    cursor: pointer;
+    display: inline-block;
+    /* float: left; */
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 20px;
+    height: 20px;
+}
+
+.thread_active div {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    background: red;
+    left: 12px;
+    border-radius: 100%;
+    border: 1px solid #E03C31;
+}
+
+.thread_active span {
+    width: 150px;
+    display: inline-block;
+    float: left;
+    height: 18px;
+    color: #1676EA;
+    font-family: hvAssistant;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    line-height: 18px;
+    margin-left: 4px;
+}
+
+.search-chats {
+    position: relative;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #DBDBDB;
+    background-color: #ececec;
+    width: 100%;
+    text-indent: 20px;
+    z-index: 0;
+    display: list-item;
+    height: 53px;
+    box-sizing: border-box;
+}
+
+.search-chats input {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background: transparent;
+    width: 129px;
+    height: auto;
+    position: absolute;
+    right: 48px;
+    bottom: 18px;
+    background-image: url('/images/basicAssets/search_icon_for_sidebar.svg');
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    background-position-x: 0%;
+    background-size: 16px;
+    padding-left: 18px;
+    box-sizing: border-box;
+}
+
+.search-chats input::placeholder {
+    height: 20px;
+    width: 86px;
+    color: rgba(0, 0, 0, 0.32);
+    font-family: hvAssistant;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.side-bar-search-icon {
+    position: absolute;
+    right: 50px;
+    bottom: 18px;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.side-bar-filter-icon {
+    position: absolute;
+    right: 12px;
+    bottom: 11px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    padding: 7px;
+}
+
+.side-bar-filter-icon.active {
+    border-radius: 50px;
+    background-color: #D8D8D8;
+}
+
+.side_bar_thread_ico {
+    position: absolute;
+    left: 18px;
+    bottom: 15px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+.pinned-chats {
+    margin-top: 24px;
+}
+
+.pinned-chats h3:hover,
+.direct-messages h3:hover,
+.channels h3:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.pinned-chats,
+.channels,
+.direct-messages {
+    margin-bottom: 24px;
+}
+
+.label_head_aside {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 17px 8px 17px;
+}
+
+.label_head_aside .add-items-icon {
+    float: right;
+}
+
+.pinned-chats h3,
+.channels h3,
+.direct-messages h3 {
+    /* height: 19px; */
+    color: rgba(0, 0, 0, 0.88);
+    font-family: "hvWorkSans";
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 16px;
+    box-sizing: border-box;
+    float: left;
+}
+
+.add-items-icon {
+    height: 20px;
+    width: 20px;
+    font-size: 16px;
+    font-weight: 900;
+    border-radius: 50%;
+    background-color: transparent;
+    margin-left: 8px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    border: 1.5px solid rgba(0, 0, 0, 0.88);
+    box-sizing: border-box;
+}
+
+.add-items-icon img {
+    position: relative;
+    bottom: 15%;
+    right: 10%;
+}
+
+.side-bar-chats-list {
+    list-style: none;
+}
+
+.side-bar-chats-list li {
+    /* display: block; */
+    color: #5A5A5A;
+    font-family: hvAssistant;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    line-height: 21px;
+    /* margin-bottom: 6px; */
+    padding: 4px 0;
+    padding-left: 17px;
+    /* width: 100%; */
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.side-bar-chats-list li:hover {
+    background-color: rgba(22, 118, 234, 0.08);
+}
+
+.side-bar-chats-list li.active {
+    border-left: 6px solid #1676EA;
+    background-color: rgba(22, 118, 234, 0.08);
+}
+
+.side-bar-chats-list li .sub-text {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.32);
+    font-family: hvAssistant;
+}
+
+
+.side_bar_list_item {
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    height: auto;
+}
+
+.side_bar_list_item li {
+    list-style: none;
+    display: inline-block;
+    width: 100%;
+    color: #5A5A5A;
+    font-family: hvAssistant;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    line-height: 16px;
+    box-sizing: border-box;
+    padding-left: 37px;
+    padding-right: 17px;
+    position: relative;
+    cursor: pointer;
+    height: 29px;
+}
+
+.side_bar_list_item li.over_length {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.side_bar_list_item li .hash {
+    background-image: url(/images/basicAssets/PublicHash.svg);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    position: absolute;
+    width: 24px;
+    left: 12px;
+    height: 24px;
+    top: 2px;
+}
+
+.side_bar_list_item li .online {
+    background-image: url(/images/basicAssets/OnlineStatus.svg);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    position: absolute;
+    width: 24px;
+    left: 12px;
+    height: 24px;
+    top: 2px;
+}
+
+.side_bar_list_item li .offline {
+    background-image: url(/images/basicAssets/OfflineStatus.svg);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    position: absolute;
+    width: 24px;
+    left: 12px;
+    height: 24px;
+    top: 2px;
+}
+
+.side_bar_list_item li .lock {
+    background-image: url(/images/basicAssets/PrivateLock.svg);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    position: absolute;
+    width: 24px;
+    left: 12px;
+    height: 24px;
+    top: 2px;
+}
+
+.side_bar_list_item li .sub-text {
+    color: #9B9B9B;
+    font-family: hvAssistant;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    line-height: 29px;
+    top: 2px;
+    pointer-events: none;
+}
+
+.side_bar_list_item li>.online,
+.lock,
+.offline,
+.hash {
+    pointer-events: none;
+}
+
+.side_bar_list_item li.active {
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.88);
+}
+
+.side_bar_list_item li:hover {
+    background-color: rgba(22, 118, 234, 0.08);
+}
+
+
+.sidebar_item_head {
+    height: 35px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 9px 17px;
+    display: block;
+}
+
+.sidebar_item_head h3 {
+    color: rgba(0, 0, 0, 0.88);
+    font-family: "hvWorkSans";
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    line-height: 19px;
+}
+
+
+
+
+
+
+
+.sideContainer {
+    margin-top: 0px;
+    margin-bottom: 24px;
+    height: auto;
+    display: block;
+}
+
+.sideContainer h3:hover {
+    text-decoration: none;
+    cursor: context-menu;
+}
+
+.sideContainer h3 {
+    color: rgba(0, 0, 0, 0.88);
+    font-family: "hvWorkSans";
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 19px;
+    box-sizing: border-box;
+    float: left;
+}
+
+.right-section {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    /* /* padding-top: 64px; */ */
+    position: relative;
+    box-sizing: border-box;
+    float: right;
+}
+
+.activeTodo {
+    background-color: rgba(22, 118, 234, 0.08);
+    border-left: 6px solid #1676EA;
+    box-sizing: border-box !important;
+    width: 265px;
+    padding-left: 31px !important;
+}
+
+.toDo {
+    background-image: url(/images/basicAssets/custom_to_doFor_sidebar.svg);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    position: absolute;
+    width: 23px;
+    left: 12px;
+    height: 24px;
+    top: 3px;
+}
+
+.activeTodo>.newtoDo,
+.activeTodo>.toDo {
+    left: 6px;
+    pointer-events: none;
+}
+.side_bar_list_item>li>.toDo,
+.side_bar_list_item>li>.toDoName {
+    pointer-events: none;
+}
+
+.edit-todo-name {
+    color: #53627C;
+    font-family: hvAssistant;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    line-height: 23px;
+    border: none;
+    background: #ececec;
+    display: inline-block;
+    float: left;
+    resize: none;
+    height: 32px;
+    overflow: hidden;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.edit-todo-name:focus{
+    background: white;
+    /*border:1px solid #ececec;*/
+}
+
+#conv_title>.online,
+.offline,
+.hash,
+.lock {
+    position: relative;
+    float: left;
+    top: -2px;
+}
+
+.online {
+    background-image: url(/images/basicAssets/OnlineStatus.svg);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    width: 24px;
+    height: 24px;
+}
+
+.offline {
+    background-image: url(/images/basicAssets/OfflineStatus.svg);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    width: 24px;
+    height: 24px;
+}
+
+.hash {
+    background-image: url(/images/basicAssets/PublicHash.svg);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    width: 24px;
+    height: 24px;
+}
+
+.lock {
+    background-image: url(/images/basicAssets/PrivateLock.svg);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    width: 24px;
+    height: 24px;
+}
+
+
+
+/* css for tooltip */
+.tooltipForRightSide{
+    box-sizing: border-box;
+    height: 32px;
+    background-color: #000000;
+    margin: 0px auto;
+    border-radius: 6px;
+    padding: 8px;
+    display: inline-block;
+    margin: 0px auto;
+    position: relative;
+    top: -65px;
+}
+.tooltipForRightSide h2{
+    color: #FFFFFF;
+    font-family: hvAssistant;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    line-height: 12px;
+    font-weight: 600;
+    line-height: 15px;
+    text-align: left;
+    display: block;
+    white-space: nowrap;
+}
+.tooltipForRightSide h2:before{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #000000 transparent transparent transparent;
+}
+.tooltipForRightSide.tooltipHeadLeft{
+    top: -70px;
+    text-align: center;
+}
+
+.highlight {
+    background-color: #FFFF88;
+}
+
+
+/* delete msg popup */
+#delete_msg_div{
+    display: none;
+}
+
+.delete_msg_div {
+    width: 384px;
+    border-radius: 4px;
+    z-index: 1041;
+    background-color: #FFFFFF;
+    height: auto;
+    width: 522px;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    margin: 141px auto;
+    position: relative;
+}
+.delete_msg_div>img{
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    right: 19px;
+    top: 19px;
+    cursor: pointer;
+}
+.main-deleted-msg>.delbody>h4 {
+    color: rgba(0, 0, 0, 0.88);
+    font-family: "hvWorkSans";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    margin-bottom: 4px;
+}
+.main-deleted-msg>.delbody>p {
+    color: rgba(0, 0, 0, 0.88);
+    font-family: hvAssistant;
+    font-size: 16px;
+}
+
+.main-deleted-msg>.delbody>h4 .msg-time {
+    color: rgba(0, 0, 0, 0.5);
+    font-family: hvAssistant;
+    font-size: 14px;
+    line-height: 18px;
+}
+.main-deleted-msg>.delbody>img, .main-deleted-msg>.delbody>video{
+    max-width: 150px;
+    max-height: 150px;
+    margin: 2px 5px;
+}
+.main-deleted-msg>.delbody{
+    margin-left: 70px;
+}
+.del_msg_title {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 20px;
+    font-family: hvAssistant;
+    color: #2c2c2c;
+}
+
+.delete_msg_sec_title {
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 15px;
+    font-family: hvAssistant;
+    color: #5A5A5A;
+}
+
+.main-deleted-msg {
+    padding: 15px 0px;
+    display: block;
+    overflow-y: auto;
+    max-height: 250px;
+}
+
+.btn_div {
+    text-align: right;
+    padding-top: 18px;
+    box-sizing: border-box;
+    border-top: 1px solid #e8e8e8;
+    display: inline-flex;
+    width: 100%;
+}
+
+.btn-msg-del {
+    height: 37px;
+    width: 136px;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #d22e2d;
+    font-family: hvAssistant;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    line-height: 21px;
+    border: 1px solid #999999;
+    cursor: pointer;
+    margin-right: 16px !important;
+    float: right;
+}
+
+.btn-msg-del:last-child {
+    margin-right: 0px !important;
+}
+
+.btn-cancel {
+    box-sizing: border-box;
+    height: 38px;
+    width: 96px;
+    border: 1px solid #DBDBDB;
+    border-radius: 4px;
+    color: #9B9B9B;
+    font-family: hvAssistant;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    line-height: 21px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.delete_msg_div .btn-cancel {
+    margin-right: 78px;
+    background-color: #ebebeb;
+    border: 1px solid #999999;
+    color: #535353;
+}
+
+#createConvTag {
+    text-transform: lowercase;
+}
+
+
+
+.msg-user-photo {
+    float: left;
+}
+
+.msg-user-photo img {
+    width: 44px;
+    height: 44px;
+    border-radius: 15px;
+    margin-left: 17px;
+    margin-right: 8px;
+}
+
+.user-msg {
+    float: left;
+    width: 90%;
+}
+
+.user-msg>h4 {
+    color: rgba(0, 0, 0, 0.88);
+    font-family: "hvWorkSans";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    margin-bottom: 4px;
+}
+
+.user-msg>h4 .msg-time {
+    color: rgba(0, 0, 0, 0.5);
+    font-family: hvAssistant;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.user-msg>p {
+    color: rgba(0, 0, 0, 0.88);
+    font-family: hvAssistant;
+    font-size: 16px;
+    line-height: 21px;
+    overflow:hidden;
+    white-space: pre-line;
+}
+.user-msg>p img {
+    margin:0 4px;
+}
+
+.delbody .chating_para_2{
+    clear: none;
+}
+
+
+/* for file upload popup */
+.Chat_File_Upload{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.33);
+    z-index: 1032;
+    display: block;
+    overflow-y: auto;
+}
+.chat-file-upload-popup {
+    height: auto;
+    box-sizing: border-box;
+    width: 560px;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    margin: 140px auto 0;
+    display: block;
+    padding-bottom: 50px;
+}
+.chat-upload-popup-title {
+    height: 32px;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.72);
+    font-family: "hvWorkSans";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    padding: 8px 0;
+    background-color: #ECEFF1;
+    margin-bottom: 0px;
+    position: relative;
+    display: block;
+}
+.close-chat-file-popup{
+    width: 18px;
+    height: 18px;
+    position: absolute !important;
+    top: 12px;
+    right: 18px;
+}
+.close-chat-file-popup>img {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+.chat-upload-popup-content {
+    position: relative;
+}
+.chat-upload-popup-content {
+    box-sizing: border-box;
+    margin: 24px 32px;
+    display: block;
+    height: auto;
+}
+.chat-file-drag-upload-label {
+    height: 148px;
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px dashed #979797;
+    border-radius: 4px;
+    background-color: #F7F9F9;
+    color: rgba(0, 0, 0, 0.24);
+    font-family: hvAssistant;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: bottom;
+    padding-bottom: 32px;
+    background-image: url(/images/basicAssets/cloud_upload.svg);
+    background-repeat: no-repeat;
+    background-position-y: 31px;
+    background-position-x: center;
+    cursor: pointer;
+    display: block;
+    line-height: 210px;
+    background-size: 14%;
+}
+#attach_chat_file_list {
+    max-height: 216px;
+    display: block;
+    overflow-y: auto;
+}
+.chat-file-upload-comment {
+    box-sizing: border-box;
+    height: 130px;
+    overflow-y: auto;
+    display: grid;
+    margin-top: 22px;
+}
+.chat-file-upload-comment label {
+    height: 22px;
+    color: rgba(0, 0, 0, 0.56);
+    font-family: "hvWorkSans";
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+    line-height: 22px;
+    text-align: left;
+    display: block;
+    margin-bottom: 4px;
+}
+.chat-file-upload-comment textarea {
+    height: 84px;
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
+    background-color: #FFFFFF;
+    resize: none;
+    padding: 8px 12px;
+}
+.chat-upload-popup-content button {
+    height: 40px;
+    width: 96px;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.16);
+    /* padding: 11px 26.5px 13px 27.5px; */
+    color: #FFFFFF;
+    font-family: "hvWorkSans";
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    line-height: 16px;
+    text-align: center;
+    margin-top: 16px;
+    float: right;
+    border: none;
+    cursor: pointer;
+}
+.chat-upload-popup-content .tagged {
+    height: 32px;
+    width: 32px;
+    background-color: #ffffff;
+    border: 1px solid #d7d7d7;
+    border-radius: 50%;
+    float: left;
+    cursor: pointer;
+    position: absolute;
+    left: 0px;
+    margin-top: 14px;
+    padding: 0px;
+}
+.chat-upload-popup-content .tagged img {
+    padding-top: 8px;
+    padding-left: 1px;
+    width: 16px;
+    height: 15px;
+}
+.chat-upload-popup-content .addTagConv {
+    position: absolute;
+    left: -9px;
+    margin-top: 14px;
+    height: 32px;
+    background-color: #ffffff;
+    border: 1px solid #d7d7d7;
+    border-radius: 14px;
+    box-shadow: 0 0 1px 0 rgba(10, 31, 68, 0.08), 0 8px 10px 0 rgba(10, 31, 68, 0.1);
+    float: left;
+    margin-right: 8px;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: inline-block;
+    background-image: url(/images/basicAssets/custom_tagged.svg);
+    background-repeat: no-repeat;
+    background-position: 4% 50%;
+    width: 335px;
+}
+#CustagItemList {
+    font-family: hvAssistant;
+    width: 91%;
+    height: 26px;
+    float: left;
+    background: #ffffff;
+    border-radius: 20px;
+    background-image: url(/images/basicAssets/custom_not_tag.svg);
+    background-repeat: no-repeat;
+    background-position: 8px 9px;
+    background-size: 15px 15px;
+    padding-left: 9%;
+    padding-top: 1%;
+    text-align: left;
+    box-shadow: 0 0 1px 0 rgba(10, 31, 68, 0.08), 0 8px 10px 0 rgba(10, 31, 68, 0.1);
+}
+.chat-upload-popup-content .taglistHolder {
+    width: 335px;
+    margin-top: 20px;
+    box-shadow: 1px 0px 8px 2px rgba(10, 31, 68, 0.08), 0 8px 10px 0 rgba(10, 31, 68, 0.1);
+}
+.taglistHolder {
+    font-family: hvAssistant;
+    background: #ffffff;
+    float: left;
+    width: 352px;
+    height: auto;
+    margin: 8px 0px 0px 0px;
+    padding: 8px 0px 18px 0px;
+    box-shadow: 0 0 1px 0 rgba(10, 31, 68, 0.08), 0 8px 10px 0 rgba(10, 31, 68, 0.1);
+    border-radius: 5px;
+}
+.createConvTag {
+    width: 90%;
+    float: left;
+    margin: 0px 8px;
+    padding: 7px 9px;
+    border: none;
+    border: 1px solid #DBDBDB;
+    border-radius: 4px;
+}
+.tagScroll {
+    float: left;
+    box-sizing: border-box;
+    height: 148px;
+    overflow-y: auto;
+    width: 100%;
+    display: block;
+    position: relative;
+}
+.chat-upload-popup-content button.active {
+    background: linear-gradient(#64b8fd, #008bff);
+}
+
+.chat-uploading-files {
+    height: auto;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    padding: 16px 13px;
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+    margin-bottom: 4px;
+    overflow: hidden;
+}
+
+.close-chat-uploading-file {
+    position: absolute;
+    top: 24px;
+    right: 19px;
+    display: none;
+    width: 18px;
+    height: 18px;
+
+}
+
+.close-chat-uploading-file>img {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+.chat-uploading-files:hover>.close-chat-uploading-file {
+    display: block
+}
+
+.chat-file-icons {
+    margin-right: 13px !important;
+    display: block;
+    box-sizing: border-box
+}
+
+.chat-file-icons img {
+    float: left;
+    box-sizing: border-box;
+    height: 36px;
+    width: 36px;
+    margin-right: 14px;
+}
+
+.chat-file-information {
+    box-sizing: border-box;
+    display: block;
+    float: left;
+    width: calc(100% - 50px);
+}
+
+.chat-file-information h4 {
+    color: rgba(0, 0, 0, 0.88);
+    font-family: hvAssistant;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    line-height: 22px;
+    margin-top: -6px;
+    margin-bottom: 4px;
+    text-align: left;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    float: left;
+}
+
+.chat-file-information p {
+    color: rgba(0, 0, 0, 0.32);
+    font-family: hvAssistant;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    margin-bottom: 0px;
+    text-align: left;
+    width: 100%;
+    float: left;
+}
+
+
+.suggested-list li.selected{
+    background: rgba(136,136,136,0.1);
+    border: 1px solid #1676EA !important;
+}
+.suggested-list li.selected.default{
+    background: #FFFFFF;
+    border: 1px solid #d8d8d8 !important;
+}
+.activeComFilter:after{
+    font-family: 'FontAwesome';
+    content: "\f00c";
+    color: green;
+    font-size: 11px;
+    margin-top: -1px;
+    position: relative;
+    float: right;
+}
+
+
+
+/* Due calendar */
+#dueDatePickerDiv {
+    display: block;
+    display: flex;
+}
+#dueDatePickerDiv .ui-datepicker,
+#dueDatePickerDiv .ui-datepicker table,
+#dueDatePickerDiv .ui-datepicker tr,
+#dueDatePickerDiv .ui-datepicker td,
+#dueDatePickerDiv .ui-datepicker th {
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-spacing: 0;
+}
+
+/* Calendar Wrapper */
+#dueDatePickerDiv .ui-datepicker {
+    display: none;
+    width: calc(100% - 48px);
+    padding-top: 0px;
+    cursor: default;
+    /* font-size: 12px; */
+    box-sizing: border-box;
+    height: auto;
+    border-radius: 3.14px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    margin: 0 24px 24.7px;
+}
+
+/* Calendar Header */
+#dueDatePickerDiv .ui-datepicker-header {
+    position: relative;
+    padding: 27px 0 24px;
+    background: transparent;
+    border: none;
+    display: block;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#dueDatePickerDiv .ui-datepicker-title {
+    text-align: left;
+    padding: 0px;
+    margin-left: 0px;
+    display: inline;
+}
+
+/* Month */
+#dueDatePickerDiv .ui-datepicker-month {
+    position: relative;
+    color: #6B7897;
+    font-family: hvWorkSans;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.47px;
+    line-height: 14px;
+    text-transform: capitalize;
+}
+#dueDatePickerDiv .ui-datepicker-month>option{
+    height: 40px !important;
+    width: 120px !important;
+    padding: 10px 16px !important;
+    box-sizing: border-box;
+    color: #6B7897;
+    font-family: hvAssistant;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+#dueDatePickerDiv .ui-datepicker .ui-datepicker-title select {
+    border: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 100px;
+    height: 20px;
+    background: transparent;
+}
+
+/* Year */
+#dueDatePickerDiv .ui-datepicker-year {
+    padding-left: 4px;
+    color: #a8a8a8;
+    color: #6B7897;
+    font-family: hvWorkSans;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.47px;
+    line-height: 14px;
+    position: relative;
+    margin-left: -14px;
+}
+
+/* Prev Next Month */
+#dueDatePickerDiv .ui-datepicker-prev,
+#dueDatePickerDiv .ui-datepicker-next {
+    position: absolute;
+    top: -2px;
+    cursor: pointer;
+    right: 0px
+}
+
+#dueDatePickerDiv .ui-datepicker-prev {
+    left: 274px !important;
+    cursor: pointer;
+    height: 22px;
+    width: 22px;
+    border-radius: 8.87px;
+    background-color: #F7F8FC;
+    box-sizing: border-box;
+    top: 32px;
+}
+
+#dueDatePickerDiv .ui-datepicker-prev-hover,
+#dueDatePickerDiv .ui-datepicker-next-hover {
+    background: #F7F8FC;
+    border: none;
+}
+
+#dueDatePickerDiv .ui-datepicker-next {
+    right: 0px;
+    bottom: -5px;
+    cursor: pointer;
+    height: 22px;
+    width: 22px;
+    border-radius: 8.87px;
+    background-color: #F7F8FC;
+    box-sizing: border-box;
+    top: 32px;
+}
+
+#dueDatePickerDiv .ui-datepicker-prev span,
+#dueDatePickerDiv .ui-datepicker-next span {
+    display: block;
+    width: 10px;
+    height: 11px;
+    text-indent: -9999px;
+    background-image: url(/images/basicAssets/CalendarChevronRight.svg);
+    margin: -4px;
+}
+
+#dueDatePickerDiv .ui-datepicker-prev span {
+    background-position: 0px 0px;
+    background-size: 11px;
+    background-repeat: no-repeat;
+    transform: scaleX(-1) rotate(2deg);
+    margin: -5px -5px;
+}
+
+#dueDatePickerDiv .ui-datepicker-next span {
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 11px;
+    margin: -5px -5px;
+}
+
+#dueDatePickerDiv .ui-datepicker-prev>p,
+#dueDatePickerDiv .ui-datepicker-next>p {
+    display: none;
+}
+
+/* Calendar "Days" */
+#dueDatePickerDiv .ui-datepicker-calendar {
+    margin: 0 auto !important;
+    width: 100%;
+    padding: 0 19px !important;
+    margin-bottom: 132px !important;
+    overflow: hidden;
+}
+
+#dueDatePickerDiv .ui-datepicker-calendar th {
+    padding-bottom: 14px;
+    margin-right: 41px;
+    color: rgba(52, 72, 94, 0.54);
+    font-family: hvHelveticaNeue;
+    font-size: 15.65px !important;
+    font-weight: 500;
+    line-height: 14px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+#dueDatePickerDiv .ui-datepicker-calendar th:first-child {
+    margin-left: 8px;
+}
+
+#dueDatePickerDiv .ui-datepicker-calendar th:last-child {
+    margin-right: 8px;
+}
+
+#dueDatePickerDiv .ui-datepicker-calendar th>span {
+    /* margin-right: 10px !important; */
+}
+
+#dueDatePickerDiv .ui-datepicker-calendar td {
+    text-align: center;
+    box-sizing: border-box;
+    width: 32px !important;
+    height: 32px;
+    display: inline-block;
+    margin-right: 19px;
+}
+
+#dueDatePickerDiv .ui-datepicker-calendar td:last-child {
+    margin-right: 0px;
+}
+
+#dueDatePickerDiv .ui-datepicker-calendar .ui-state-default {
+    display: block;
+    width: 32px;
+    outline: none;
+    text-decoration: none;
+    color: #7C86A2;
+    height: 32px;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 9.5px 7px 7px;
+    cursor: pointer;
+    margin-bottom: 1.5px;
+    font-family: hvHelveticaNeue;
+    font-size: 14.54px;
+    font-weight: 500;
+    line-height: 13px;
+    text-align: center;
+    background: transparent;
+    border: none;
+}
+#dueDatePickerDiv .ui-datepicker-unselectable.ui-state-disabled {
+    color: #E1E4E7;
+    font-family: hvHelveticaNeue;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin-right: 19px;
+    box-sizing: border-box;
+    padding: 9.5px 7px 7px;
+    cursor: pointer;
+    margin-bottom: 1.5px;
+    line-height: 13px;
+    background: transparent;
+    border: none;
+}
+
+/* Day Active State*/
+#dueDatePickerDiv .ui-datepicker-calendar .ui-state-active {
+    color: #FFFFFF;
+    background: #1676EA !important;
+    border: none !important;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    box-sizing: border-box;
+    padding: 8.5px 7px 7px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Other Months Days*/
+#dueDatePickerDiv .ui-datepicker-other-month .ui-state-default {
+    color: #E1E4E7;
+
+}
+
+
+/* #dueDatePickerDiv .ui-state-highlight,
+#dueDatePickerDiv .ui-widget-content .ui-state-highlight,
+#dueDatePickerDiv .ui-widget-header .ui-state-highlight {
+    color: #7C86A2;
+    background: #FFFFFF !important;
+    border: 1px solid #DBDBDB;
+    border-radius: 50%;
+    padding: 9.5px 7px 7px;
+} */
+.ui-state-default.ui-state-highlight{
+    color: #7C86A2 !important;
+    background: #FFFFFF !important;
+    border: 1px solid #DBDBDB !important;
+    border-radius: 50% !important;
+    padding: 9.5px 7px 7px !important;
+}
+
+.ui-state-highlight.ui-state-active{
+    color: #FFFFFF !important;
+    background: #1676EA !important;
+    border: none !important;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    box-sizing: border-box;
+    padding: 8.5px 7px 7px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#dueDatePickerDiv .ui-datepicker-header>.ui-datepicker .ui-datepicker-prev {
+    right: 0px !important;
+}
+
+
+#ui-datepicker-div {
+    padding: 27px 0 32px !important;
+    box-sizing: border-box;
+    height: 410px;
+    width: 387px;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 1px 0 rgba(10, 31, 68, 0.1), 0 18px 18px 0 rgba(10, 31, 68, 0.12);
+    border: none;
+    top: 208.5px !important;
+    left: 510px !important;
+}
+.addTimePicker{
+    margin: 0 32px;
+    position: absolute;
+    bottom: 32px;
+    left: 0px;
+}
+.addTimePicker>li{
+    list-style: none;
+    display: inline-block;
+    /* overflow: hidden; */
+}
+
+.addTimePicker>li>.datefrom{
+    height: 36px;
+    width: 157.5px;
+    border: 1px solid #E1E4E8;
+    border-radius: 4px;
+    margin-right: 7px;
+    box-sizing: border-box;
+    padding:8px 32px 8px 16px;
+    color: #919ca8;
+    font-family: "hvSFProText";
+    font-size: 14px;
+    font-weight: 500;
+    background-image: url(/images/basicAssets/chooseTime.svg);
+    background-size: 19px;
+    background-position-x: 121px;
+    background-position-y: 7.5px;
+    background-repeat:no-repeat;
+}
+.addTimePicker>li>.dateto{
+    height: 36px;
+    width: 157.5px;
+    border: 1px solid #E1E4E8;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding:8px 32px 8px 16px;
+    color: #919ca8;
+    font-family: "hvSFProText";
+    font-size: 14px;
+    font-weight: 500;
+    background-image: url(/images/basicAssets/chooseTime.svg);
+    background-size: 19px;
+    background-position-x: 121px;
+    background-position-y: 7.5px;
+    background-repeat:no-repeat;
+}
+.addTimePicker>li>.reminder{
+    height: 36px;
+    width: 322px;
+    border: 1px solid #E1E4E8;
+    border-radius: 4px;
+    margin-top: 8px;
+    box-sizing: border-box;
+    padding:8px 32px 8px 16px;
+    color: #919ca8;
+    font-family: "hvSFProText";
+    font-size: 14px;
+    font-weight: 500;
+    background-image: url(/images/basicAssets/Reminder_gray.svg);
+    background-size: 19px;
+    background-position-x: 287px;
+    background-position-y: 7.5px;
+    background-repeat:no-repeat;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+}
+.addTimePicker>li>.datefrom::placeholder,
+.addTimePicker>li>.dateto::placeholder{
+    color: #A6AEBC;
+    font-family: "hvSFProText";
+    font-size: 14px;
+    font-weight: 500;
+}
+.addTimePicker>li>#ReminderTime:required:invalid{
+    color: #A6AEBC;
+    font-family: "hvSFProText";
+    font-size: 14px;
+    font-weight: 500;
+}
+.addTimePicker>li>#ReminderTime>option[value=''][disabled]{
+    display: none;
+}
+.addTimePicker>li>#ReminderTime option{
+    color: #919ca8;
+    padding: 10px 16px;
+    margin: 0 8px;
+    box-sizing: border-box;
+    font-family: "hvSFProText";
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+
+
+.shareingImg img {
+    box-sizing: border-box;
+    height: 40px;
+    width: 40px;
+    border: 2px solid #FFFFFF;
+    border-radius: 15px;
+    margin-right: -15px;
+    margin-top: 8px;
+    cursor: pointer;
+    position: relative;
+}
+
+.shareingImg span {
+    color: #53627C;
+    font-family: hvAssistant;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 21px;
+    position: relative;
+    left: 15px;
+    top: -15px;
+}
+
+.shareingImg {
+    display: inline-block;
+}
+
+/*for custom tooltip*/
+
+.mycustomTooltip.tooltips {
+    position: relative;
+    display: inline-block;
+}
+.mycustomTooltip.tooltips .tooltipspan {
+    position: absolute;
+    width:auto;
+    color: #ffffff;
+    background: #000000;
+    height: auto;
+    line-height: 20px;
+    text-align: left;
+    visibility: hidden;
+    border-radius: 6px;
+    white-space: nowrap;
+    
+}
+.mycustomTooltip.tooltips .tooltipspan:after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    margin-left: -40%;
+    width: 0; height: 0;
+    border-bottom: 8px solid #000000;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+.mycustomTooltip:hover.tooltips .tooltipspan {
+    visibility: visible;
+    opacity: 1;
+    top: 76px;
+    left: 76px;
+    margin-left: -76px;
+    z-index: 999;
+    text-align: left;
+    box-sizing: border-box;
+    padding: .5em 1em;
+    font-size: 14px;
+    font-family: 'hvWorkSans';
+    font-weight: normal;
+    letter-spacing: 0px;
+}
+
+.sharing_label {
+    color: #53627C;
+    font-family: hvAssistant;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 0.2px;
+    line-height: 18px;
+}
+
+/*checkbox item design*/
+
+.added-room-members,
+.added-channel-members {
+    overflow: hidden;
+    display: block;
+    overflow-y: auto;
+    /* height: 40px; */
+    min-height: 58px !important;
+    box-sizing: border-box;
+    padding: 10px 16px;
+    width: 100%;
+}
+.added-room-members{
+    min-height: 58px !important;
+    max-height: 130px !important;
+}
+/* .added-channel-members>label{
+    padding-left: 7px;
+} */
+.added-tag-list,
+.added-room-members>li,
+.added-channel-members li {
+    list-style: none;
+    padding: 10px 30px 10px 43px;
+    box-sizing: border-box;
+    position: relative;
+    cursor: context-menu;
+}
+.added-tag-list>label,
+.added-room-members>li>label,
+.added-channel-members li>label {
+    color: #53627C;
+    font-family: hvAssistant;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding-left: 0px;
+    cursor: pointer;
+}
+.added-tag-list>label{
+    padding-left: 28px;
+}
+
+/* Hide the browser's default checkbox */
+.added-tag-list>label>input,
+.added-room-members>li>label>input,
+.added-channel-members li>label>input {
+    position: absolute;
+    opacity: 0;
+    cursor: context-menu;
+}
+
+/* Create a custom checkbox */
+.added-tag-list>label>.checkmark,
+.added-room-members>li>label>.checkmark,
+.added-channel-members li>label>.checkmark {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    height: 15px;
+    width: 15px;
+    background-color: #fff;
+    box-shadow: 0px 0px 0.5px 1px #C9CED6;
+    border-radius: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.added-tag-list>label>.checkmark {
+    left: 0px;
+}
+/* On mouse-over, add a grey background color */
+.added-tag-list>label:hover input~.checkmark,
+.added-room-members>li>label:hover input~.checkmark ,
+.added-channel-members li>label:hover input~.checkmark {
+    background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.added-tag-list>label>input:checked~.checkmark,
+.added-room-members>li>label>input:checked~.checkmark ,
+.added-channel-members li>label>input:checked~.checkmark {
+    background-color: #007FFF;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.added-tag-list>label>.checkmark:after,
+.added-room-members>li>label>.checkmark:after ,
+.added-channel-members li>label>.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.added-tag-list>label>input:checked~.checkmark:after,
+.added-room-members>li>label>input:checked~.checkmark:after ,
+.added-channel-members li>label>input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+
+.added-tag-list>label .checkmark:after,
+.added-room-members>li>label .checkmark:after ,
+.added-channel-members li>label .checkmark:after {
+    left: 5px;
+    top: 2px;
+    width: 3px;
+    height: 7px;
+    border: solid white;
+    border-width: 0 2.5px 2.5px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+/*checkbox item design*/
+/*filter*/
+
+
+
+/* 
+#directListUl .remove.removeThisGroup{
+    pointer-events: none;
+} */
+
+
+.silent_delete{
+    color: #F00;
+    cursor: pointer;
+    font-size: 14px;
+    font-style: normal;
+}
+
+.chat_file_progress{
+    float: left;
+    width: 100%;
+    height: auto;
+    background: #8c9298;
+    border-radius: 4px;
+    margin-top: 8px;
+    box-sizing: border-box;
+    padding: 4px 5px;
+
+}
+
+.progress-bar{
+    display: block;
+    background-color: white;
+    float: left;
+    height: 6px;
+    border-radius: 4px;
+
+}
+
+
+
+/*for page loader*/
+
+.rightSectionpageloader{
+    position: fixed;
+    width: calc(100% - 267px);
+    height: calc(100vh - 64px);
+    right: 0;
+    /*background: #19161626;*/
+    z-index: 999;
+    opacity: 1;
+}
+
+.containerLoader{
+    position: relative;
+    top: 30%;
+    width: 300px;
+    height: 190px;
+    background: transparent;
+    margin: 0px auto;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    border-radius: 4px;
+}
+.containerLoader>.logo{
+    display: block;
+    width: 100%;
+    height: auto;
+    float: left;
+    margin: 0px auto;
+    box-sizing: border-box;
+    padding: 26px 108px 0px 108px;
+}
+.loadingParcent{
+    display: block;
+    float: left;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 10px;
+
+}
+.loadingParcent h1{
+    font-size: 20px;
+    color: #133f5b;
+    text-align: center;
+    font-family: hvAssistant;
+}
+.progressLoaderBar{
+    display: block;
+    width: 100%;
+    height: 16px;
+    float: left;
+    background: #133f5b;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 5px 5px;
+}
+.progressLoader{
+    display: block;
+    float: left;
+    height: 5px;
+    background:white;
+    border-radius: 4px;
+
+}
+
+#toast-container>div{
+    opacity: 1 !important;
+}
+
+
+.hayven_Modal_Container{
+    box-sizing: border-box;
+    margin: 0px auto;
+    margin-top: 140px;
+    height: auto;
+    width: 630px;
+    background-color: #FAFAFA;
+    border-radius: 4px;
+    padding: 24px 32px;
+    height: auto;
+    position: relative;
+}
+.hayven_Modal_heading{
+    display: block;
+    overflow:hidden;
+    box-sizing: border-box;
+}
+.hayven_Modal_heading h1{
+    box-sizing: border-box;
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.88);
+    font-family: "hvWorkSans";
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    float: left;
+    width: 90%;
+    margin-bottom: 10px;
+}
+.hayven_Modal_heading .closeModal{
+    float: right;
+    width: 18px;
+    height: 18px;
+    background-image: url('/images/basicAssets/close_button.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+    position: absolute;
+    right: 19px;
+    top: 19px;
+}
+.searchInput{
+    height: auto;
+    min-height: 44px;
+    width: 85%;
+    border: 1px solid #E1E4E8;
+    border-radius: 4px;
+    padding: 8px;
+    box-sizing: border-box;
+    font-family: hvSFProText;
+    margin-top: 8px;
+    float: left;
+    margin-right: 1%;
+    line-height: 26px;
+}
+.searchInput .selected_member_name{
+    margin-left: 5px;
+}
+.shareButton{
+    width: 13%;
+    border: none;
+    border-radius: 4px;
+    padding: 13.5px 40px 14px 16px;
+    box-sizing: border-box;
+    margin-top: 8px;
+    cursor: pointer;
+    background: #1676EA;
+    font-family: hvAssistant;
+    font-size: 18px;
+    line-height: 16px;
+    color: #fff;
+    height: auto;
+
+}
+.hayven_Modal_Content{
+    display: block;
+    overflow:hidden;
+    box-sizing: border-box;
+}
+.notification_mute_time{
+    display: block;
+    overflow:hidden;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1px;
+    margin-top: 16px;
+    border-radius: 4px;
+}
+.hayven_Modal_endSection{
+    display: block;
+    overflow:hidden;
+    box-sizing: border-box;
+    width: 100%;
+}
+.btn_group{
+    float: right;
+    display: block;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    padding: 18px;
+    width: 100%;
+    height: auto;
+}
+.btn_group button{
+    float: right;
+    padding: 10px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: hvAssistant;
+}
+.buttonAction{
+    background-color: #1676EA;
+    color: #FFFFFF;
+    border:1px solid #1676EA;
+    margin-left: 10px;
+    font-weight: 600;
+}
+.buttonCancel{
+    color: #9B9B9B;
+    font-weight: 600;
+    background-color: #FFFFFF;
+    border: 1px solid #D8D8D8;
+}
+.notification_mute_time li >label{
+    height: 56px;
+    border: 1px solid #DBDBDB;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 16px;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+}
+.notification_mute_time li>label:hover{
+    background: rgba(136,136,136,0.1);
+    border: 1px solid #1676EA;
+}
+.notification_mute_time li>label.selected{
+    background: rgba(136,136,136,0.1);
+    border: 1px solid #1676EA;
+}
+.notification_mute_time li>label.selected.default{
+    background:#FFFFFF;
+    border: 1px solid #DBDBDB;
+}
+.notification_mute_time li:last-child{
+    margin-top: 0px
+}
+.allMemberList{
+    margin-top: 32px;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height:312px;
+    position: relative;
+}
+.memberContainer{
+    width: 100%;
+}
+.memberContainer:hover {
+    background-color: #F5F5F5;
+}
+.memberContainer.selected {
+    background: rgba(136,136,136,0.1);
+    border: 1px solid #1676EA !important;
+}
+.memberContainer{
+    height: 56px;
+    width: 100%;
+    border: 1px solid #DBDBDB;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    cursor: pointer;
+    float: left;
+}
+.memberContainer>.profile{
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    margin: 8px 12px 8px 16px;
+}
+.memberContainer>.userFullName{
+    color: rgba(0, 0, 0, 0.88);
+    font-family: hvAssistant;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 21px;
+    margin: 17.5px 0;
+    float: left;
+}
+.memberContainer>.designation-name{
+    color: #9B9B9B;
+    font-family: hvAssistant;
+    font-size: 14px;
+    font-weight: 500;
+    float: left;
+    margin-left: 4px;
+    margin-top: 17.5px;
+    line-height: 21px;
+    letter-spacing: 0.23px;
+    display: block;
+}
+.hayven_Modal_heading .no_of_user_left_to_add{
+    width: 100%;
+    float: left;
+}
+.searchInput:empty:before{
+    content: attr(placeholder);
+    color: #9B9B9B;
+    font-family: hvAssistant;
+    font-size: 14px;
+}
+/*for customCheck item*/
+
+.checkItemInput{
+    visibility: hidden;
+}
+.customCheckMark{
+    height: 15px;
+    width: 15px;
+    background-color: #fff;
+    box-shadow: 0px 0px 0.5px 1px #C9CED6;
+    border-radius: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+    float: left;
+    margin-top: 3px;
+}
+.checkItemName{
+    color: #53627C;
+    font-family: hvAssistant;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 21px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+.checkItem>.customCheckMark:after  {
+    display: none;
+}
+.checkItem>.checkItemInput:checked~.customCheckMark:after  {
+    font-family: 'FontAwesome';
+    content: "\f00c";
+    color: #FFFFFF;
+    display: block;
+    background-color: #007FFF;
+    height: 15px;
+    width: 15px;
+    box-shadow: 0px 0px 0.5px 1px #007FFF;
+    border-radius: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+    float: left;
+    font-size: 11px;
+    box-sizing: border-box;
+    padding: 2px;
+}
+
+
+
+
+
+/*for custom radio*/
+.radioItemInput{
+    visibility: hidden;
+}
+.customRadioMark{
+    height: 15px;
+    width: 15px;
+    background-color: #fff;
+    box-shadow: 0px 0px 0.5px 1px #C9CED6;
+    border-radius: 50%;
+    box-sizing: border-box;
+    cursor: pointer;
+    float: left;
+    margin-top: 3px;
+}
+.radioItemName{
+    color: #53627C;
+    font-family: hvAssistant;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 21px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+.radioItem>.customRadioMark:after  {
+    display: none;
+}
+.radioItem>.radioItemInput:checked~.customRadioMark:after  {
+    font-family: 'FontAwesome';
+    content: "\f111";
+    color: #007FFF;
+    display: block;
+    background-color: #FFFFFF;
+    height: 15px;
+    width: 15px;
+    box-shadow: 0px 0px 0.5px 1px #007FFF;
+    border-radius: 50%;
+    box-sizing: border-box;
+    cursor: pointer;
+    float: left;
+    font-size: 7.5px;
+    box-sizing: border-box;
+    padding: 3.75px;
+}

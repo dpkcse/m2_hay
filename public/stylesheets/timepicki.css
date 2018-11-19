@@ -1,0 +1,159 @@
+
+/* 
+Created on: 17 Sep, 2014, 4:29:37 PM
+Author: senthil
+*/
+
+.ti_tx,
+.mi_tx,
+.mer_tx {
+	width: 100%;
+	text-align: center;
+	margin: 10px 0;
+}
+
+.time,
+.mins,
+.meridian {
+	width: 60px;
+	float: left;
+	margin: 0 10px;
+	font-size: 20px;
+	color: #2d2e2e;
+	font-family: arial;
+	font-weight: 700;
+}
+
+/* .prev,
+.next {
+	cursor: pointer;
+	padding: 18px;
+	width: 28%;
+	border: 1px solid #ccc;
+	margin: auto;
+	background: url(/images/basicAssets/arrow.png) no-repeat;
+	border-radius: 5px;
+} */
+.prev,
+.next {
+	cursor: pointer;
+	width: 42px;
+	border: 1px solid #ccc;
+	margin: auto;
+	background: url(/images/basicAssets/Down_Chevron.svg) no-repeat;
+	border-radius: 5px;
+	height: 15px !important;
+}
+
+.prev:hover,
+.next:hover {
+	background-color: #ccc;
+}
+
+.next {
+	background-position: 50% 55%;
+}
+
+.prev {
+	background-position: 50% 50%;
+	transform: scaleX(-1) rotate(180deg);
+}
+
+.time_pick {
+	position: relative;
+}
+
+.time_pick>#timeTo {
+	height: 36px;
+	width: 157.5px;
+	border: 1px solid #E1E4E8;
+	border-radius: 4px;
+	box-sizing: border-box;
+	padding: 8px 32px 8px 16px;
+	color: #919ca8;
+	font-family: "hvSFProText";
+	font-size: 14px;
+	font-weight: 500;
+	background-image: url(/images/basicAssets/chooseTime.svg);
+	background-size: 19px;
+	background-position-x: 121px;
+	background-position-y: 7.5px;
+	background-repeat: no-repeat;
+	float: left;
+}
+.time_pick>#timeFrom{
+	margin-right: 3px;
+	height: 36px;
+	width: 157.5px;
+	border: 1px solid #E1E4E8;
+	border-radius: 4px;
+	box-sizing: border-box;
+	padding: 8px 32px 8px 16px;
+	color: #919ca8;
+	font-family: "hvSFProText";
+	font-size: 14px;
+	font-weight: 500;
+	background-image: url(/images/basicAssets/chooseTime.svg);
+	background-size: 19px;
+	background-position-x: 121px;
+	background-position-y: 7.5px;
+	background-repeat: no-repeat;
+	float: left;
+}
+.time_pick>#timeReminder {
+	height: 36px;
+    width: 322px;
+    border: 1px solid #E1E4E8;
+    border-radius: 4px;
+    margin-top: 8px;
+    box-sizing: border-box;
+    padding:8px 32px 8px 16px;
+    color: #919ca8;
+    font-family: "hvSFProText";
+    font-size: 14px;
+    font-weight: 500;
+    background-image: url(/images/basicAssets/chooseTime.svg);
+    background-size: 19px;
+    background-position-x: 287px;
+    background-position-y: 7.5px;
+    background-repeat:no-repeat;
+}
+
+.timepicker_wrap {
+	width: 240px;
+	padding: 10px;
+	border-radius: 5px;
+	z-index: 998;
+	display: none;
+	box-shadow: 2px 2px 5px 0 rgba(50,50,50,0.35);
+	background: #ffffff;
+	border: 1px solid #ccc;
+	float: left;
+	position: absolute;
+	top: 27px;
+	left: 0;
+}
+
+.arrow_top {
+	position: absolute;
+	top: -10px;
+	left: 20px;
+	background: url(/images/basicAssets/top_arr.png) no-repeat;
+	width: 18px;
+	height: 10px;
+	z-index: 999;
+}
+input.timepicki-input {
+	background: none repeat scroll 0 0 #FFFFFF;
+    	border: 1px solid #CCCCCC;
+    	border-radius: 5px 5px 5px 5px;
+    	float: none;
+    	margin: 0 0 4px;
+    	text-align: center;
+    	width: 70%;
+}
+a.reset_time {
+	float: left;
+	margin-top: 5px;
+	color: #000;
+}

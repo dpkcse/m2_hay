@@ -1,0 +1,370 @@
+<!-- PopUp CreateReminder -->
+  <div  id="CreateReminder" style="display:none;">
+    <div class="ReminderContent">
+      <div class="CreateReminderMain" >
+        <div class="close_section">
+          <img class="close-reminder-backwrap" src="/images/CloseModal.svg">
+        </div>
+        <div class="ReminderMainForm">
+          <form action="" method="" id="CreateReminderForm">
+            <div class="reminder-group">
+              <label class="reminder-title">Reminder Title</label>
+              <input type="text" name="" placeholder="Enter reminder title" class="reminder-form-input reminder-input-title">
+            </div>
+            <div class="form-row" style="margin: 15.5px 0px">
+              <div class="reminder-date-time">
+                <label class="reminder-title">Date</label>
+                <input type="text" name="" placeholder="Select a date" class="reminder-form-input reminder-input-date">
+              </div>
+              <div class="reminder-date-time" style="margin-left: 15px;">
+                <label class="reminder-title">Time</label>
+                <input type="text" name="" placeholder="Select a time" class="reminder-form-input reminder-input-time">
+              </div>
+            </div>
+            <div class="form-row" style="margin: 15.5px 0px">
+              <div class="reminder-repeat-end">
+                <label class="reminder-title">Repeat Every</label>
+                <div class="reminder-form-input reminder-input-repeat">Select a pattern</div>
+              </div>
+              <div class="reminder-repeat-end" style="margin-left: 15px;">
+                <label class="reminder-title" style="color: #DBDBDB;">Ends On</label>
+                <input type="text" name="" placeholder="Select a date" class="reminder-form-input reminder-input-end">
+              </div>
+            </div>
+            <div class="reminder-group" style="margin-top: 15px;">
+              <label class="reminder-title">Description</label>
+              <textarea type="text" placeholder="Enter event description or notes" class="reminder-form-input reminder-input-notes"></textarea>
+            </div>
+            <input type="button" name="" class="reminder-submit" value="Create Reminder">
+            <div class="repeat-every-popup" style="display: none">
+              <div class="reminder-tab-link">
+                <div class="tab-link-btn-group">
+                  <div class="tab-reminder Daily-Tab active">Daily</div>
+                  <div class="tab-reminder Weekly-Tab">Weekly</div>
+                  <div class="tab-reminder Monthly-Tab">Monthly</div>
+                  <div class="tab-reminder Yearly-Tab">Yearly</div>
+                </div>
+              </div>
+              <div id="Daily-Tab" class="reminder-tab-content" style="display: block">
+                <div class="reminder-daily-tab">Every<input class="reminder-daily-tab-input" type="" name="" value="1">Days(s)</div>
+                <div class="reminder-daily-tab-group">
+                  <button class="daily-tab-group">Ok</button>
+                  <div class="daily-tab-group cancel-popup-repeat">Cancel</div>
+                </div>
+              </div>
+              <div id="Weekly-Tab" class="reminder-tab-content" style="display: none;" >
+                <div class="reminder-weekly-tab">Every<input class="reminder-weekly-tab-input" type="" name="" value="1">Days(s)</div>
+                <div class="reminder-week-day">
+                  <div class="week-day-group active">S</div>
+                  <div class="week-day-group">M</div>
+                  <div class="week-day-group">T</div>
+                  <div class="week-day-group">W</div>
+                  <div class="week-day-group">T</div>
+                  <div class="week-day-group">F</div>
+                  <div class="week-day-group">S</div>
+                </div>
+                <div class="reminder-weekly-tab-group">
+                  <button class="weekly-tab-group">Ok</button>
+                  <div class="weekly-tab-group cancel-popup-repeat">Cancel</div>
+                </div>
+              </div>
+              <div id="Monthly-Tab" class="reminder-tab-content" style="display: none">
+                <div class="reminder-monthly-tab">Every<input class="reminder-monthly-tab-input" type="" name="" value="1">Days(s)</div>
+                <div class="reminder-monthly-date">
+                  <div class="monthly-date-group">1</div>
+                  <div class="monthly-date-group">2</div>
+                  <div class="monthly-date-group">3</div>
+                  <div class="monthly-date-group">4</div>
+                  <div class="monthly-date-group">5</div>
+                  <div class="monthly-date-group">6</div>
+                  <div class="monthly-date-group">7</div>
+                  <div class="monthly-date-group">8</div>
+                  <div class="monthly-date-group">9</div>
+                  <div class="monthly-date-group">10</div>
+                  <div class="monthly-date-group">11</div>
+                  <div class="monthly-date-group">12</div>
+                  <div class="monthly-date-group">13</div>
+                  <div class="monthly-date-group">14</div>
+                  <div class="monthly-date-group">15</div>
+                  <div class="monthly-date-group">16</div>
+                  <div class="monthly-date-group">17</div>
+                  <div class="monthly-date-group active">18</div>
+                  <div class="monthly-date-group">19</div>
+                  <div class="monthly-date-group">20</div>
+                  <div class="monthly-date-group">21</div>
+                  <div class="monthly-date-group">22</div>
+                  <div class="monthly-date-group">23</div>
+                  <div class="monthly-date-group">24</div>
+                  <div class="monthly-date-group">25</div>
+                  <div class="monthly-date-group">26</div>
+                  <div class="monthly-date-group">27</div>
+                  <div class="monthly-date-group">28</div>
+                  <div class="monthly-date-group">29</div>
+                  <div class="monthly-date-group">30</div>
+                  <div class="monthly-date-group">31</div>
+                </div>
+                <div class="reminder-monthly-tab-group">
+                  <button class="monthly-tab-group">Ok</button>
+                  <div class="monthly-tab-group cancel-popup-repeat">Cancel</div>
+                </div>
+              </div>
+              <div id="Yearly-Tab" class="reminder-tab-content" style="display: none">
+                <div class="reminder-yearly-tab">Every<input class="reminder-yearly-tab-input" type="" name="" value="1">Days(s)</div>
+                <div class="reminder-yearly-month">
+                  <div class="yearly-month-group">Jan</div>
+                  <div class="yearly-month-group">Feb</div>
+                  <div class="yearly-month-group">Mar</div>
+                  <div class="yearly-month-group">Apr</div>
+                  <div class="yearly-month-group active">May</div>
+                  <div class="yearly-month-group">Jun</div>
+                  <div class="yearly-month-group">Jul</div>
+                  <div class="yearly-month-group">Aug</div>
+                  <div class="yearly-month-group">Sep</div>
+                  <div class="yearly-month-group">Oct</div>
+                  <div class="yearly-month-group">Nov</div>
+                  <div class="yearly-month-group">Dec</div>
+
+                </div>
+                <div class="reminder-yearly-tab-group">
+                  <button class="yearly-tab-group">Ok</button>
+                  <div class="yearly-tab-group cancel-popup-repeat">Cancel</div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- PopUp CreateReminder -->
+
+
+<!-- PopUp CreateEvent -->
+  <div id="CreateEvent" style="display:none;">
+    <div class="EventContent">
+      <div class="CreateEventMain" style="display:block">
+        <span class="event_close"> <img src="/images/svg/CloseModal.svg" alt=""> </span>
+        <div class="EventFrom">
+          <form class="">
+            <div class="form-group inputGroup">
+              <label class="eventLabel" for="eventname">Event Title</label>
+              <input type="text" class="form-control EventFormInput" style="width: 501px;" id="eventname" placeholder="Enter event name">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4 inputGroup" style="padding-right: 0px;">
+                <label class="eventLabel" for="eventdate">Event Date</label>
+                <input type="text" class="form-control EventFormInput eventdate" style="width: 157px;" id="eventdate" placeholder="Select a date">
+              </div>
+              <div class="form-group col-md-4 inputGroup" style="padding-left: 2px;">
+                <label class="eventLabel" for="EventFrom">From</label>
+                <input type="text" class="form-control EventFormInput Event-From-input" style="width: 157px;" id="EventFrom" placeholder="Select a time">
+              </div>
+              <div class="form-group col-md-4 inputGroup" style="padding-left: 0px;">
+                <label class="eventLabel" for="EventTo">To</label>
+                <input type="text" class="form-control EventFormInput Event-To-input" style="width: 157px;" id="EventTo" placeholder="Select a time">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8 inputGroup" style="padding-right: 0px;">
+                <label class="eventLabel" for="location">Location</label>
+                <input type="text" class="form-control EventFormInput" style="width: 329px;" id="location" placeholder="Enter event location">
+              </div>
+              <div class="form-group col-md-4 inputGroup" style="padding-left: 0px;">
+                <label class="eventLabel" for="timezone">Time Zone</label>
+                <select id="timezone" class="form-control EventFormInput select-timezone" style="width: 157px;" required>
+                  <option value="" selected disabled>(GMT -5:00)</option>
+                  <option value="">(GMT -6:00)</option>
+                  <option value="">(GMT -7:00)</option>
+                  <option value="">(GMT -8:00)</option>
+                  <option value="">(GMT -9:00)</option>
+                  <option value="">(GMT -10:00)</option>
+                  <option value="">(GMT -11:00)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group inputGroup">
+              <label class="eventLabel" for="description">Description</label>
+              <textarea rows="4" cols="20" id="description" class="form-control EventFormInput" style="height: 81px;width: 501px;resize: none" placeholder="Enter event description or notes"></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6 inputGroup" style="padding-right: 0px;">
+                <label class="eventLabel" for="tags">Tags</label>
+                <input type="text" class="form-control EventFormInput" style="width: 243px;" id="tags" placeholder="Add tags">
+              </div>
+              <div class="form-group col-md-6 inputGroup" style="padding-left: 0px;">
+                <label class="eventLabel" for="reminder">Set Reminder</label>
+                <select class="form-control EventFormInput select-reminder" style="width: 243px;" id="reminder" required>
+                  <option value="" selected disabled>1 Hour before event</option>
+                  <option value="1 Hour before event">1 Hour before event</option>
+                  <option value="2 Hour before event">2 Hour before event</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group inputGroup">
+              <label class="eventLabel" style="width:100%;text-align:left">Attach Files</label>
+              <label for="upload" class="upload_btn">Upload</label>
+              <input style="display:none" type="file" id="upload" class="upload_button">
+            </div>
+        </div>
+        <div class="InviteMemeber">
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label class="eventLabel" for="invite">Invite Member & Guests</label>
+            <input type="text" class="form-control EventFormInput" style="width: 363px;" id="invite" placeholder="Enter names or email addresses">
+          </div>
+          <div class="invited-member-list">
+            <span class="remove-event-member"> <img src="/images/svg/CloseModal.svg" alt=""> </span>
+            <div class="member-img">
+              <img src="/images/users/nayeem.jpg" alt="" class="img-responsive">
+            </div>
+            <div class="member-details">
+              <h4>George Jsons</h4>
+              <p>george.jsons@gmail.com</p>
+            </div>
+          </div>
+          <div class="invited-member-list">
+            <span class="remove-event-member"> <img src="/images/svg/CloseModal.svg" alt=""> </span>
+            <div class="member-img">
+              <img src="/images/users/nayeem.jpg" alt="" class="img-responsive">
+            </div>
+            <div class="member-details">
+              <h4>George Jsons</h4>
+              <p>george.jsons@gmail.com</p>
+            </div>
+          </div>
+          <div class="invited-member-list">
+            <span class="remove-event-member"> <img src="/images/svg/CloseModal.svg" alt=""> </span>
+            <div class="member-img">
+              <img src="/images/users/nayeem.jpg" alt="" class="img-responsive">
+            </div>
+            <div class="member-details">
+              <h4>George Jsons</h4>
+              <p>george.jsons@gmail.com</p>
+            </div>
+          </div>
+          <button type="button" class="CreateEvent-Btn" name="button">Create Event</button>
+          </form>
+        </div>
+        <div class="expand-div">
+          <h3>Add Recurrence <span>(Epand +<img src="" alt="">)</span> </h3>
+        </div>
+      </div>
+      <div class="AddRecurrencePopup" style="display:none">
+        <div class="RecurrencePopupTitle">
+          <h3>Add Recurrence <span>(Collapse <img src="/images/setting/navArrow.png" alt="">)</span> </h3>
+        </div>
+        <div class="RecurrencePattern">
+          <h3>Recurrence pattern</h3>
+            <div class="custom-col-1">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist" style="border:none">
+                <li role="presentation" class="active" style="display:block;width:100%;text-align:left">
+                  <input id="event-daily" type="radio" name="eventtoggle" class="CustomRadioEvent label-color" checked>
+                  <label for="event-daily" class="radio-label">Daily</label>
+                </li>
+                <li role="presentation" style="display:block;width:100%;text-align:left">
+                  <input id="event-weekly" type="radio" name="eventtoggle" class="CustomRadioEvent label-color" >
+                  <label for="event-weekly" class="radio-label">Weekly</label>
+                </li>
+                <li role="presentation" style="display:block;width:100%;text-align:left">
+                  <input id="event-monthly" type="radio" name="eventtoggle" class="CustomRadioEvent label-color">
+                  <label for="event-monthly" class="radio-label">Monthly</label>
+                </li>
+              </ul>
+            </div>
+            <div class="custom-col-2">
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="daily">
+                  <div class="daily-content">
+                    <h4>Enter Time</h4>
+                    <input type="text" class="Event-From-input selectTimeEvent" id="" placeholder="Select a time">
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="weekly">
+                  <div class="Weekly-content">
+                    <h4 class="every_w">Every <span> <input type="text" name="" value="1"> </span> Week(s)</h4>
+                    <h4 style="margin-top:23.5px;margin-bottom:11.5px">Repeat On</h4>
+                    <div class="" style="display:flex">
+                      <div class="days">
+                        <p>MON</p>
+                      </div>
+                      <div class="days" style="background-color: #4A90E2">
+                        <p style="color: #FFFFFF">TUE</p>
+                      </div>
+                      <div class="days">
+                        <p>WED</p>
+                      </div>
+                      <div class="days" style="background-color: #4A90E2">
+                        <p style="color: #FFFFFF">THU</p>
+                      </div>
+                      <div class="days">
+                        <p>FRI</p>
+                      </div>
+                      <div class="days">
+                        <p>SAT</p>
+                      </div>
+                      <div class="days">
+                        <p>SUN</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="monthly">
+                  <div class="Monthly-content">
+                    <div class="repeat-month">
+                      <input id="one" type="radio" name="repeatevent" value="" class="CustomRadioEvent test sub-label-color" checked="">
+                      <label class="checked radio-label sub-label-color" for="one">Repeat every <input type="text" name="" value="16th"> of the month</label>
+                    </div>
+                    <div class="repeat-month" style="margin-top:23.5px">
+                      <input id="two" type="radio" name="repeatevent" value="" class="CustomRadioEvent sub-label-color">
+                      <label for="two" class="radio-label sub-label-color">Repeat every 2nd Monday of the month</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="RecurrenceRange">
+          <h3>Range Of Recurrence</h3>
+            <div class="custom-col-3">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist" style="border:none">
+                <li role="presentation" class="active" style="display:block;width:100%;text-align:left">
+                  <input id="evet-never" type="radio" name="eventend" class="CustomRadioEvent label-color" checked>
+                  <label for="evet-never" class="radio-label">Never</label>
+                </li>
+                <li role="presentation" style="display:block;width:100%;text-align:left">
+                  <input id="event-end" type="radio" name="eventend" class="CustomRadioEvent label-color">
+                  <label for="event-end" class="radio-label">Ends On</label>
+                </li>
+                <li role="presentation" style="display:block;width:100%;text-align:left">
+                  <input id="event-after" type="radio" name="eventend" class="CustomRadioEvent label-color" >
+                  <label for="event-after" class="radio-label">Ends After</label>
+                </li>
+              </ul>
+            </div>
+            <div class="custom-col-2">
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="never">
+                  <div class="never-content">
+                      <p>The range of requrrence is set to never</p>
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="endson">
+                  <div class="endson-content">
+                      <h4>Date</h4>
+                      <input type="text" class="eventdate SelectDateEvent" placeholder="Select a date">
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="endsafter">
+                  <div class="endsafter-content">
+                    <h4>Occurences</h4>
+                    <input type="text" placeholder="9 Occurences">
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- PopUp CreateEvent -->

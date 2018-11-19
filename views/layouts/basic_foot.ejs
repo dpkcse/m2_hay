@@ -1,0 +1,38 @@
+	</div>
+	<!-- Calling Modal -->
+	<div id="myCallModal" class="" style="top: 0%;position: absolute;left: 50%;right: 50%;z-index: 1000;display:none" role="dialog">
+	    <div class="modal-dialog">
+
+	        <!-- Modal content-->
+	        <div class="modal-content" style="">
+
+	            <div class="modal-body">
+	                <img id="calling_userimg" style="">
+	                <img id="calling_userspace" src="/images/guest_16px.png">
+	                <p id="modalCallMsg"></p>
+	                <p id="modal_incomingcall">INCOMING CALL</p>
+
+	                <audio id="mdCallRingtone" src="/ringtones/oldbell1.mp3" controls="controls" style="display:none"></audio>
+	                <audio id="mdCallTone" src="/ringtones/us_ringingtone.mp3" controls="controls" style="display:none"></audio>
+
+	            </div>
+	            <div class="modal-footer">
+	                <button id="modalCallCloseBtn" style="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Reject</button>
+
+	                <img id="modalCallReject" onclick="callRejectBtn()" src="/images/call/hang-up_56px.png" class="call-btn" style="">
+	                <img src="/images/answer_64px.png" id="modalCallAccept" onclick="callAcceptBtn(this)">
+	                <img src="/images/message_56px.png" id="modalCallTextMsg">
+	            </div>
+	        </div>
+
+	    </div>
+	</div>
+	
+	<script src="/javascripts/socket-calling.js"></script>
+</body>
+<script src="/javascripts/custom-basic.js"></script>
+<script src="/javascripts/plugins/OverlayScrollbars.js"></script>
+<script src="/javascripts/jQuery/jquery-ui.min.js"></script>
+<script src="/javascripts/responsive_basic.js"></script>
+
+</html>

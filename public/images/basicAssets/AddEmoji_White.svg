@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Add Emoji</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Add-Emoji" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="1" stroke-linecap="round" stroke-linejoin="round">
+        <g id="icon-/-emoji" transform="translate(2.000000, 2.000000)" stroke="#9B9B9B">
+            <path d="M10,20 C4.4773913,20 0,15.5226087 0,10 C0,4.4773913 4.4773913,0 10,0 C15.5226087,0 20,4.4773913 20,10 C20,15.5226087 15.5226087,20 10,20 Z M14.757913,13.0434783 C13.7526957,14.6104348 11.9996522,15.6521739 9.99965217,15.6521739 C8.00052174,15.6521739 6.2466087,14.6104348 5.24226087,13.0434783" id="Stroke-7-Copy" stroke-width="1.5"></path>
+            <path d="M6.81818182,7 C6.81818182,7.552 6.41090909,8 5.90909091,8 C5.40727273,8 5,7.552 5,7 C5,6.448 5.40727273,6 5.90909091,6 C6.41090909,6 6.81818182,6.448 6.81818182,7 Z M15,7 C15,7.552 14.5927273,8 14.0909091,8 C13.5890909,8 13.1818182,7.552 13.1818182,7 C13.1818182,6.448 13.5890909,6 14.0909091,6 C14.5927273,6 15,6.448 15,7 Z" id="Path" stroke-width="0.5" fill="#9B9B9B"></path>
+        </g>
+    </g>
+</svg>

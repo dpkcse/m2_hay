@@ -1,0 +1,822 @@
+.main{
+  margin: 81px auto 0;
+  width: 988px;
+  display: block;
+}
+.Q-page-title{
+  height: 24px;
+	width: 105px;
+  margin: 32px 0 12px;
+  text-align: left;
+	color: rgba(0,0,0,0.96);
+	font-family: "hvWorkSans"; 
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 24px;
+}
+.Q-Add-Task{
+  	height: 48px;
+  	width: 932px;
+  	border-radius: 4px;
+  	background-color: #FFFFFF;
+    float: left;
+    margin-right: 8px;
+    padding: 12px 40px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.08) !important;
+    position: relative;
+}
+.Q-Add-Task span{
+  position: absolute;
+  left: 16px;
+  top: 11px;
+}
+#Quicklist-task-form #task-data{
+  border:none;
+  outline:none;
+  width: 100%;
+}
+#Quicklist-task-form #task-data::placeholder{
+  height: 24px;
+	color: #9B9B9B;
+	font-family: hvAssistant;
+	font-size: 18px;
+	letter-spacing: 0.2px;
+	line-height: 24px;
+}
+.Q-filter{
+	height: 48px;
+	width: 48px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+	box-shadow: 0 0 4px 0 rgba(0,0,0,0.04), 0 2px 4px 0 rgba(0,0,0,0.08);
+  float: left;
+  padding: 8px;
+  cursor: pointer;
+}
+.Q-filter-img{
+  width: 100%;
+  height: 100%;
+}
+.Task-List{
+  margin-top: 24px !important;
+  display: block;
+}
+.Task-List .Q-Empty-Msg{
+  text-align: center;
+	color: #9B9B9B;
+	font-family: hvAssistant;
+	font-size: 18px;
+	letter-spacing: 0.2px;
+	line-height: 24px;
+  margin-bottom: 0px;
+  display: none;
+}
+
+.Q-Task-List-Title {
+	height: 23px;
+	color: rgba(0,0,0,0.87);
+	font-family: hvAssistant;
+	font-size: 18px;
+	line-height: 23px;
+  margin-bottom: 6px;
+  text-align: left;
+  float: left;
+}
+.Q-Task-List-Title span{
+  color: #9B9B9B;
+}
+.Q-Tasks{
+	height: 40px;
+	width: 932px;
+	border-radius: 4px;
+	background-color: #FFFFFF;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+  padding: 8px 16px 8px  44px;
+  margin-top: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+}
+.Q-Tasks:hover{
+  margin-top: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1), 0 2px 4px 0 rgba(0,0,0,0.1);
+}
+
+.Q-Tasks p{
+	height: 24px;
+	/* width: 656px; */
+	font-family: hvAssistant;
+	font-size: 16px;
+	letter-spacing: 0.18px;
+	line-height: 24px;
+}
+.Q-Tasks p .Q-Task-Mark{
+  position: absolute;
+  left: 14px;
+  top: 7px;
+}
+.Q-Tasks p a{
+  text-decoration:none;
+  color: rgba(0,0,0,0.87);
+  cursor: pointer;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 70%;
+}
+.Q-Tasks p .Date-Flag-More{
+  float: right;
+  margin-left: 16px;
+}
+
+.Q-Tasks p .Date-Flag-More-Head{
+  display: none;
+  float: right;
+}
+.Q-Tasks:hover p .Date-Flag-More-Head{
+  display: inline-block;
+}
+
+.Q-Tasks p .due-date{
+	height: 24px;
+	width: 78px;
+	border: 1px solid rgba(144,164,174,0.5);
+	border-radius: 4px;
+	background-color: #FAFAFA;
+  padding: 3px 11px;
+	/* opacity: 0.5; */
+	color: #90A4AE;
+	font-family: hvAssistant;
+	font-size: 13px;
+	font-weight: 500;
+  line-height: 16px;
+}
+.Q-Tasks p .due-date::placeholder{
+	height: 18px;
+	width: 55px;
+	opacity: 0.5;
+	color: #90A4AE;
+	font-family: hvAssistant;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+}
+/* Edit Task popup*/
+.cancel-task{
+    border-left: 4px solid #E03C31;
+    border-radius: 4px 0 0 4px;
+}
+.popup{
+	width: 564px;
+	min-height: 626px;
+  margin: 118px auto;
+  padding: 32px;
+	border-radius: 4px;
+	background-color: #FAFAFA;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+.popup .close {
+  position: absolute;
+  top: 6px;
+  right: 16px;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.form-input-group{
+  display: flow-root;
+  width: 100% !important;
+}
+.edit-Task-popup{
+  width: 690px;
+  display: inline-block;
+  height: 24px;
+}
+.Edit-Task-Form .input{
+	box-sizing: border-box;
+	height: 38px;
+	width: 501px;
+	border: 1px solid #E6E8ED;
+	border-radius: 4px;
+	background-color: #FFFFFF;
+  margin-bottom: 15.5px;
+  padding: 8.5px;
+}
+.Edit-Task-Form .short-input {
+	box-sizing: border-box;
+	height: 38px;
+	width: 157px;
+	border: 1px solid #E6E8ED;
+	border-radius: 4px;
+	background-color: #FFFFFF;
+  padding: 4.5px;
+
+}
+.short{
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 15.5px;
+  width: 158px;
+}
+.Edit-Task-Form .label{
+	color: #90A4AE;
+	font-family: "hvWorkSans";
+	font-size: 16px;
+	font-weight: 500;
+	letter-spacing: 0.18px;
+	line-height: 22px;
+  margin-bottom: 3.5px;
+  display: block;
+  text-align: left;
+  float: left;
+  width: 100%;
+}
+.Q-list-drag-file-label{
+  height: 144px;
+  width: 500px;
+  border: 1px dashed #979797;
+  border-radius: 4px;
+  background-color: #F7F9F9;
+  color: rgba(0,0,0,0.24);
+  font-family: hvAssistant;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: bottom;
+  padding-bottom: 32px;
+  background-image: url(/images/drag-file.png);
+  background-repeat: no-repeat;
+  background-position-y: 31px;
+  background-position-x: center;
+  cursor: pointer;
+}
+.file-upload-duration{
+  width: 232px;
+  float: left;
+  margin-top: 12px;
+  margin-right: 36px;
+  position: relative;
+}
+.file-upload-duration:nth-child(2n){
+  margin-right: 0px
+}
+.file-upload-duration img{
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 0px;
+  top: 20px;
+  cursor: pointer;
+}
+.file-upload-duration h5 {
+  width: 200px;
+	color: rgba(0,0,0,0.88);
+	font-family: hvAssistant;
+	font-size: 15px;
+	letter-spacing: 0.19px;
+  line-height: 19px;
+  margin-bottom: 4px;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.file-upload-duration p {
+    width: 115px;
+    color: #9B9B9B;
+    font-family: hvAssistant;
+    font-size: 12px;
+    letter-spacing: 0.15px;
+    line-height: 15px;
+    margin-bottom: 6px;
+}
+.file-upload-progress-bar{
+	height: 4px;
+	border-radius: 3px;
+	background-color: #4A90E2;
+}
+.Edit-Task-Form textarea{
+	box-sizing: border-box;
+	height: 81px;
+	width: 501px;
+	border: 1px solid #E6E8ED;
+	border-radius: 4px;
+	background-color: #FFFFFF;
+  padding: 8.5px;
+  resize: none;
+}
+.progress-bar{
+  height: 6px;
+  border-radius: 3px;
+  background-color: blue;
+}
+.quicklist-popup-progress{
+  float: right;
+	display: inline-flex;
+	height: 6px !important;
+	position: relative !important;
+	top: 0% !important;
+	left: 0% !important;
+	width: 94% !important;
+	margin-left: 5px !important;
+	text-align: center;
+	margin-top: 0px;
+  margin-bottom: 15px;
+  border-radius: 3px;
+}
+.progress{
+	z-index: 0 !important;
+}
+.status{
+  position: relative;
+}
+.bar-status{
+  color: #4A69E2;
+  font-family: hvAssistant;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.15px;
+  line-height: 15px;
+  float: left;
+  position: absolute;
+  left: 0px;
+  top: -5px;
+}
+.Edit-Task-Save-Btn{
+	height: 38px;
+	width: 135px;
+	border: 1px solid #4A90E2;
+	border-radius: 5px;
+	background-color: #4A90E2;
+  margin-top: 19px;
+  float: right;
+}
+.Edit-Task-Save-Btn:hover{
+  background-color: #4A90E2;
+  color: #FFFFFF;
+}
+/* custom checkbox form dipok vai */
+.checkboxC {
+  text-align: left;
+  height: 29px;
+  width: 500px;
+  display: block;
+  padding: 4px 11px 4px 7.5px;
+}
+.checkboxC:hover{
+    height: 29px;
+    width: 500px;
+    border-radius: 4px;
+    background-color: rgba(74,144,226,0.1);
+}
+.checkboxC:last-child{
+  margin-bottom: 0px;
+}
+.checkboxC label {
+  display: inline-block;
+  position: relative;
+  padding-left: 5px;
+  font-size: 16px;
+  font-family: "hvWorkSans";
+  letter-spacing: 0.18px;
+  line-height: 21px;
+ }
+.checkboxC label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 0;
+  margin-left: -20px;
+  border: 1px solid #E6E8ED;
+  border-radius: 3px;
+  background-color: #fff;
+  -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+ }
+.checkboxC label::after {
+  display: inline-block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0;
+  top: 0;
+  margin-left: -20px;
+  padding-left: 2px;
+  padding-top: 2px;
+  font-size: 11px;
+  color: #555555;
+}
+.checkboxC input[type="checkbox"] {
+  opacity: 0;
+}
+.checkboxC input[type="checkbox"]:focus + label::before {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.checkboxC input[type="checkbox"]:checked + label::after {
+  font-family: 'FontAwesome';
+  content: "\f00c";
+  position: absolute;
+  margin-top:-3px;
+  margin-left: -19px;
+}
+.checkboxC input[type="checkbox"]:disabled + label {
+  opacity: 0.65;
+}
+.checkboxC input[type="checkbox"]:disabled + label::before {
+  background-color: #eeeeee;
+  cursor: not-allowed;
+}
+.checkboxC.checkboxC-circle label::before {
+  border-radius: 50%;
+}
+.checkboxC.checkboxC-inline {
+  margin-top: 0;
+}
+.task-check-label{
+margin-bottom: 0px;
+}
+.checkboxC-primary input[type="checkbox"]:checked + label::before {
+  background-color: white;
+  border: 1px solid #E6E8ED;
+}
+.checkboxC-primary input[type="checkbox"]:checked + label::after {
+  color:#007bff;
+}
+
+.checkboxC-danger input[type="checkbox"]:checked + label::before {
+  background-color: white;
+  border-color: #d9534f;
+}
+.checkboxC-danger input[type="checkbox"]:checked + label::after {
+  color: #fff;
+}
+
+.checkboxC-info input[type="checkbox"]:checked + label::before {
+  background-color: #5bc0de;
+  border-color: #5bc0de;
+}
+.checkboxC-info input[type="checkbox"]:checked + label::after {
+  color: #fff;
+}
+
+.checkboxC-warning input[type="checkbox"]:checked + label::before {
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
+}
+.checkboxC-warning input[type="checkbox"]:checked + label::after {
+  color: #fff;
+}
+
+.checkboxC-success input[type="checkbox"]:checked + label::before {
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+}
+.checkboxC-success input[type="checkbox"]:checked + label::after {
+  color: #fff;
+}
+
+/* custom checkbox form dipok vai */
+
+
+
+/* More Menu css code */
+.moreMenu{
+  height: 151px;
+  width: 191px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+  /* margin-bottom: 5%; */
+  padding: 12px 24px;
+  position: absolute;
+  right: 14px;
+  top: 18px;
+  display: none;
+  z-index: 99999;
+
+}
+.moreMenu-main li{
+  list-style: none;
+  color: rgba(0,0,0,0.7);
+  font-family: hvAssistant;
+  font-size: 15px;
+  letter-spacing: 0.17px;
+  line-height: 19px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.moreMenu-main li:last-child{
+  margin-bottom: 0px;
+}
+.backWrap{
+  overflow-y: auto;
+}
+
+.quicklist-task-date{
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url(/images/svg/CalendarNotSelected.svg);
+      background-repeat: no-repeat;
+      background-position-x: 95%;
+      background-position-y: 50%;
+      padding-right: 32.75px;
+      box-sizing: border-box;
+}
+
+.quicklist-task-option{
+    -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url(/images/svg/SelectedDropdown.svg);
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+  background-position-x: 95%;
+  padding-right: 32.75px;
+  box-sizing: border-box;
+  color: #E03C31;
+  font-family: hvAssistant;
+  font-size: 16px;
+
+}
+
+.progress-bar-custom{
+
+}
+
+@-moz-document url-prefix() {
+  .moreMenu{
+    height: 156px;
+    width: 200px;
+  }
+}
+@-moz-document url-prefix() {
+  .Q-Task-List-Title{
+  height: 23px;
+	color: rgba(0,0,0,0.87);
+	font-family: hvAssistant;
+	font-size: 18px;
+	line-height: 23px;
+  margin-bottom: 6px;
+  text-align: left;
+  }
+}
+
+.complete-task{
+    border-left: 4px solid rgb(50, 205, 128);;
+    border-radius: 4px 0 0 4px;
+}
+
+/*checkbox for filter search*/
+
+/*checkbox for filter search*/
+.quicklist_group_title_search{
+  display: inline-block;
+  width: 932px;
+  margin-bottom: -8px;
+}
+.quicklist_search{
+  float: right;
+  width: 144px;
+  height: 27px;
+  border: none;
+  border-bottom:0.5px solid #D8D8D8;
+  outline: none;
+  background: transparent;
+  padding-left: 21px;
+  background-image: url('/images/svg/SearchPolls.svg');
+  background-repeat: no-repeat;
+  background-position-y:50%;
+  background-position-x:0%;
+}
+.quicklist_search::placeholder{
+  color: #DBDBDB; 
+  font-family: hvAssistant; 
+  font-size: 18px;  
+  letter-spacing: 0.2px;  
+  line-height: 23px;
+}
+.filter_quicklist{
+  height: 236px;  
+  width: 178px; 
+  border-radius: 4px; 
+  background-color: #FAFAFA;  
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.16);
+  position: absolute;
+  z-index: 1035;
+  margin-left: 810px;
+}
+.close_filter_quicklist{
+  display: inline-block;
+  width: 100%;
+  height: 24px;
+}
+.close_filter_quicklist img{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  float: right;
+  margin:6px 6px 0px 0px;
+}
+.main_filter_quicklist{
+  padding: 0px 16px 16px 16px;
+  display: block;
+}
+.checkboxCustomFilter{
+  width: 100%;
+  display: block;
+  height: 18px;
+  margin-bottom: 8px;
+}
+.checkboxCustomFilter label{
+  color: rgba(0,0,0,0.8); 
+  font-family: hvAssistant;
+  font-size: 14px;
+  vertical-align: middle;
+  margin-left: 3px;
+  cursor: pointer;
+}
+.checkboxCustomFilter input{
+  -webkit-appearance: none;
+  -moz-appearance:none;
+  height: 16px; 
+  width: 16px;  
+  border: 1px solid #E6E8ED;  
+  border-radius: 4px; 
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+.checkboxCustomFilter input:checked + label::after{
+  font-family: 'FontAwesome';
+  content: "\f00c";
+  color:blue;
+  font-size: 10px;
+  position: absolute;
+  right: 149px;
+  margin-top: 3px;
+}
+
+
+.short_by_filter span{
+  color: #90A4AE; 
+  font-family: "hvWorkSans"; 
+  font-size: 12px;  
+  font-weight: 600; 
+  letter-spacing: 0.13px; 
+  line-height: 22px;
+}
+.short_by_filter .due-date{
+  height: 32px; 
+  width: 146px; 
+  border: 1px solid #E6E8ED;  
+  border-radius: 4px; 
+  background-color: #FFFFFF;
+  font-size: 12px;
+  margin-top: 4px;
+  padding: 9px 15px 8px 8px;
+  background-image: url('/images/svg/SelectedDropdown.svg');
+  background-repeat: no-repeat;
+  background-position-y:50%; 
+  background-position-x:96%; 
+  cursor: pointer;
+}
+.short_by_filter .due-date::placeholder{
+  color: rgba(0,0,0,0.88);  
+  font-family: hvAssistant;
+  width: 46px;  
+  line-height: 15px;
+  font-size: 12px;
+}
+
+
+#quickFilter{
+    display: inherit;
+    height: 36px;
+}
+.filtering_item_quick{
+  float: left;
+  margin-right: 16px;
+  padding: 9px 0px 3px 0px;
+  cursor: pointer;
+
+}
+.filtering_item_quick p{
+  opacity: 0.16;  
+  color: #000000; 
+  font-family: "hvWorkSans"; 
+  font-size: 24px;  
+  font-weight: 600; 
+  letter-spacing: -0.4px; 
+  line-height: 24px;
+
+}
+.filtering_item_quick.filter_active{
+  padding: 0px 0px 0px 0px;
+}
+.filtering_item_quick.filter_active p{ 
+  color: rgba(0,0,0,0.87);  
+  font-family: "hvWorkSans"; 
+  font-size: 32px;  
+  font-weight: 600; 
+  letter-spacing: -0.4px; 
+  line-height: 36px;
+  opacity: 1;
+  
+}
+
+.form-input-group.custom-check-head{
+  margin-bottom: 21px;
+}
+
+.q_file_Tag{
+  text-align: left;
+  margin-left: 8px;
+}
+.q_file_Tag input{
+  float: left;
+  height: 23px; 
+  width: 77px;  
+  border-radius: 11.5px;  
+  background-color: rgba(155,155,155,0.1);
+  border: none;
+  outline: none;
+  color: #9B9B9B; 
+  font-family: hvAssistant; 
+  font-size: 12px;  
+  font-weight: 600; 
+  line-height: 15px;
+  padding: 4px 8px;
+  margin-top: 13px;
+}
+.q_file_Tag input::placeholder{
+  color: #9B9B9B; 
+  font-family: hvAssistant; 
+  font-size: 12px;  
+  font-weight: 600; 
+  line-height: 15px;
+}
+
+.q_file_Tag .q_list_tag{
+  float: left;
+  height: 23px; 
+  border-radius: 11.5px;  
+  background-color: rgba(155,155,155,0.1);
+  border: none;
+  outline: none;
+  padding: 4px 8px;
+  margin-left: 2px;
+  width: auto;
+  margin-top: 13px;
+  position: relative;
+}
+.q_file_Tag .q_list_tag p{
+
+  width: auto;
+  max-width: 100px;
+  font-family: hvAssistant; 
+  font-size: 12px;  
+  font-weight: 600; 
+  line-height: 15px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+
+.closeTag{
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 6px;
+  right: 3px;
+  cursor: pointer;
+
+}
+.closeXTag{
+  position: absolute;
+  top: 3.5px;
+  right: 7px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+#clickZoneDiV [type="file"]{
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  top: 413px;
+  right: 0px;
+  bottom: 0;
+  left: 32px;
+  width: 89%;
+  height: 146px;
+}

@@ -1,0 +1,346 @@
+<% if(title == 'Connect'){%>
+<div class="filterMainContainer">
+	<div class="filterItem">
+		<span>FILTER BY</span>
+		<li id="filterFlagged_msg" onclick="show_flag_msg()">Flagged</li>
+		<li id="filterTagged_msg" class="tagged" onclick="chooseTag()">Tagged</li>
+		<div class="chooseTag">
+			<span>CHOOSE A TAG</span>
+			<div class="channel-member-search" style="margin-top: 14px">
+				<input type="text" placeholder="Search a tag" onkeyup="searchTag(this.value)">
+			</div>
+			<div id="taggedItem">
+				<% if(title == 'Connect'){%>
+					<% if(data[0].tags.length > 0){ %>
+						<% _.each(data[0].tags, function(v, k) {%>
+							<li  class="added-tag-list">
+								<label for="tag_<%= v.tag_id %>"> <%= v.title %>
+									<input id="tag_<%= v.tag_id %>" data-tagid="<%= v.tag_id %>" data-tagtitle="<%= v.title %>" class="checkmember checkToDo" type ="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+						<% }); %>
+					<% } %>
+				<% } %>
+			</div>
+
+		</div>
+		<li id="filterUnread_msg" onclick="filter_unread()">Unread</li>
+	</div>
+</div>
+<% } %>
+<% if(title == 'ToDo'){%>
+<div class="filterMainContainer">
+	<div class="filterItem">
+		<span>FILTER BY</span>
+		<li id="flaggedFilter" onclick="show_flag_msg()">Flagged</li>
+		<li class="tagged" onclick="chooseTag()">Tagged</li>
+		<div class="chooseTag">
+			<span>CHOOSE A TAG</span>
+			<div class="channel-member-search" style="margin-top: 14px">
+				<input type="text" placeholder="Search a tag" onkeyup="searchTag(this.value)">
+			</div>
+			<div id="taggedItem">
+				<% if(title == 'ToDo'){%>
+					<% if(data[0].tags.length > 0){ %>
+						<% _.each(data[0].tags, function(v, k) {%>
+							<li  class="added-tag-list">
+								<label for="tag_<%= v.tag_id %>"> <%= v.title %>
+									<input id="tag_<%= v.tag_id %>" data-tagid="<%= v.tag_id %>" data-tagtitle="<%= v.title %>" class="checkmember checkToDo" type ="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+						<% }); %>
+					<% } %>
+				<% } %>
+			</div>
+
+		</div>
+		<!-- <li id="unreadFilter" onclick="filter_unread()">Unread</li> -->
+		<li id="completedFilter" onclick="filter_completed()">Completed</li>
+	</div>
+</div>
+<% } %>
+<aside class="side-bar overlayScrollbars" id="hayvenSidebar">
+	<% if(title == 'Connect'){%>
+	<div class="search-chats">
+		<img src="/images/basicAssets/search_bar_thread_ico.svg" class="side_bar_thread_ico">
+		<div style="display: none" class="thread_active">
+			<img src="/images/basicAssets/active_thread_searchbar_ico.svg">
+			<div></div>
+			<span>Thread Message</span>
+		</div>
+		<img src="/images/basicAssets/search_icon_for_sidebar.svg" class="side-bar-search-icon">
+		<img class="side-bar-filter-icon" src="/images/basicAssets/ChatFilter.svg" alt="" onclick="searchFilter()">
+		<input id="sideBarSearch" type="text" class="" placeholder="Search all chats" style="display: none">
+	</div>
+	<div class="threadasideContainer" style="display: none">
+		<div class="backToChat" onclick="backToChat()">
+			<img src="/images/basicAssets/backiconSidebar.svg" style="float: left;">
+			<h5>back to all chats</h5>
+		</div>
+		<div class="threadSideContent">
+			<div class="sidebar_item_head">
+				<h3>Thread</h3>
+			</div>
+			<!-- <ul class="side_bar_list_item">
+			    	<li><span class="hash"><img src="/images/basicAssets/PublicHash.svg"></span>Songs playlist</li>
+			    	<li><span class="hash"><img src="/images/basicAssets/PublicHash.svg"></span>Whine ohh</li>
+			    	<li class="active" onclick="viewAllThread()"><span class="hash"><img src="/images/basicAssets/PublicHash.svg"></span>Navigate social<span class="unreadMsgCount">3</span></li>
+			    	<li><span class="hash"></span>Hayven</li>
+			    </ul> -->
+		</div>
+	</div>
+	<div class="asideContainer" id="connectAsideContainer">
+		<div class="backToChat hidden" onclick="backToChat()">
+			<svg width="15px" height="15px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<g id="Back-Arrow-(Images)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round"
+				 stroke-linejoin="round">
+					<g id="Group" transform="translate(4.000000, 5.000000)" stroke="#FFF" stroke-width="2.5">
+						<g id="Regular">
+							<path d="M15.5,7 L0.5,7" id="Shape"></path>
+							<polyline id="Shape" points="7.5 0 0.5 7 7.5 14"></polyline>
+						</g>
+					</g>
+				</g>
+			</svg>
+			<h5>back to all chats</h5>
+		</div>
+		<div class="tagg_list" style="display: none;"></div>
+		<span id="errMsg" class="errMsg" style="display: none;"></span>
+		<div class="pinned-chats">
+			<div class="label_head_aside">
+				<h3 style="text-decoration: none; cursor: default;">Pinned Chats</h3>
+			</div>
+			<ul class="side_bar_list_item" id="pintul">
+				<% _.each(data[0].myid, function(v, k) {%>
+				<%if(v.conversation_type == "personal") { %>
+				<%- include('chat/myIdTem', {
+			              pinned: "",
+			              userid: v.userid,
+			              conversation_id: v.conversation_id,
+			              conversation_type: v.conversation_type,
+			              box_type: v.box_type,
+			              unread: v.unread,
+			              users_name: v.users_name,
+			              users_img: v.users_img,
+			              pined: v.pined,
+			              sub_title: v.sub_title,
+			              last_msg: v.last_msg,
+			              last_msg_time: v.last_msg_time,
+			              privecy: v.privecy,
+			              totalMember:v.totalMember,
+						  myid : user_id,
+						  createdby : v.created_by,
+			              display: v.display}
+							); %>
+				<% } %>
+				<% }); %>
+				<% _.each(data[0].pin, function(v, k) {%>
+				<%- include('chat/chatListTem', {
+						pinned: v.pinned,
+						userid: v.user_id,
+						conversation_id: v.conversation_id,
+						conversation_type: v.conversation_type,
+						box_type: v.box_type,
+						unread: v.unread,
+						users_name: v.users_name,
+						users_img: v.users_img,
+						pined: v.pined,
+						sub_title: v.sub_title,
+						last_msg: v.last_msg,
+						last_msg_time: v.last_msg_time,
+						privecy: v.privecy,
+						totalMember:v.totalMember,
+						myid : user_id,
+						createdby : v.created_by,
+						ocrt : v.oriCreator,
+						display: v.display}
+					); %>
+				<% }); %>
+			</ul>
+		</div>
+		<div class="direct-messages">
+			<div class="label_head_aside">
+				<h3 style="text-decoration: none; cursor: default;">Direct Messages</h3>
+				<span class="add-items-icon" onclick="createDirMsg()">
+					<img src="/images/basicAssets/plusiconSidebar.svg">
+				</span>
+			</div>
+			<ul class="side_bar_list_item" id="directListUl">
+				<% _.each(data[0].unpin, function(v, k) {%>
+					<%if(v.conversation_type == "personal") { %>
+						<%- include('chat/chatListTem', {
+				    				userid: v.user_id,
+				    				conversation_id: v.conversation_id,
+				    				conversation_type: v.conversation_type,
+				    				box_type: v.box_type,
+				    				unread: v.unread,
+				    				users_name: v.users_name,
+				    				users_img: v.users_img,
+				    				pined: v.pined,
+				    				sub_title: v.sub_title,
+				    				last_msg: v.last_msg,
+				    				last_msg_time: v.last_msg_time,
+				    				privecy: v.privecy,
+									totalMember:v.totalMember,
+									myid : user_id,
+									createdby : v.created_by,
+									ocrt : v.oriCreator,
+				    				display: v.display}); %>
+					<% } %>
+				<% }); %>
+
+				<% _.each(data[0].group_chat_inside_direct_msg, function(v, k) {%>
+						<%- include('chat/chatListTem', {
+								users_name: v.users_name,
+				              	users_img: v.users_img,
+								userid: v.userid,
+			    				conversation_id: v.conversation_id,
+			    				conversation_type: v.conversation_type,
+								users_name: v.users_name,
+								myid : user_id,
+								createdby : v.created_by,
+			    				privecy: v.privecy,
+								totalMember:v.totalMember,
+								ocrt : v.oriCreator,
+			    				sub_title: v.sub_title}); %>
+				<% }); %>
+			</ul>
+		</div>
+		<div class="channels">
+			<div class="label_head_aside">
+				<h3 onclick="joinChannelPanel()">Rooms</h3>
+				<div class="tooltipRooms">
+					<p>Browse All Rooms</p><span></span>
+				</div>
+				<span class="add-items-icon" onclick="createChannel()">
+					<img src="/images/basicAssets/plusiconSidebar.svg">
+				</span>
+			</div>
+			<ul class="side_bar_list_item" id="channelList">
+				<% _.each(data[0].groupList, function(v, k) {%>
+				<%- include('chat/chatListTem', {
+						users_name: v.users_name,
+						users_img: v.users_img,
+						userid: v.userid,
+						conversation_id: v.conversation_id,
+						conversation_type: v.conversation_type,
+						users_name: v.users_name,
+						privecy: v.privecy,
+						totalMember:v.totalMember,
+						myid : user_id,
+						createdby : v.created_by,
+						ocrt : v.oriCreator,
+						sub_title: v.sub_title}
+					); %>
+				<% }); %>
+			</ul>
+		</div>
+	</div>
+	<div class="scroll_unreadMsg" onclick="filter_unread()">
+		<h5><span>4</span> new unread message(s)</h5>
+		<!-- <img src="/images/basicAssets/unreadBaricon.svg"> -->
+	</div>
+	<%}%>
+	<% if(title == 'ToDo'){%>
+	<div class="search-chats">
+		<img src="/images/basicAssets/search_bar_thread_ico.svg" class="side_bar_thread_ico">
+		<div style="display: none" class="thread_active">
+			<img src="/images/basicAssets/active_thread_searchbar_ico.svg">
+			<div></div>
+			<span>Thread Message</span>
+		</div>
+		<img src="/images/basicAssets/search_icon_for_sidebar.svg" class="side-bar-search-icon">
+		<img class="side-bar-filter-icon" src="/images/basicAssets/ChatFilter.svg" alt="" onclick="searchFilter()">
+		<input id="sideBarSearch" type="text" class="" placeholder="Search all chats" style="display: none">
+	</div>
+	<div class="threadasideContainer" id="todosidecontainer" style="display: none">
+		<div class="backToChat" onclick="backToChat()">
+			<img src="/images/basicAssets/backiconSidebar.svg" style="float: left;">
+			<h5>back to all chats</h5>
+		</div>
+	</div>
+	<div class="sideContainer activitySideBar">
+			<div class="tagg_list" style="display: none;"></div>
+			<span class="errMsg" style="display: none;"></span>
+
+			<div class="label_head_aside" style="margin-top: 25px;">
+
+			<h3 style="cursor: default; text-decoration: none;">Pinned Tasks</h3>
+			<span class="add-items-icon plus_To_Do" id="plus_To_Do" style="display:none">
+				<img src="/images/basicAssets/plusiconSidebar.svg">
+			</span>
+		</div>
+		<ul class="side_bar_list_item" id="pinnedToDoList">
+			<% if(data[0].pinned.length > 0){ %>
+				<% _.each(data[0].pinned, function(v, k) {%>
+					<%- include('activity/todolist', {
+						activityid: v.activity_id,
+						activityTitle: v.activity_title,
+						type:'normal',
+						hasFlag:v.hasflag,
+						status:v.activity_is_active,
+						creatdeat: v.activity_created_at,
+						createdby:v.activity_created_by,
+						myid : user_id,
+						days: v.days
+					}); %>
+				<% }); %>
+			<% } %>
+		</ul>
+	</div>
+	<div class="sideContainer activitySideBar">
+		<div class="label_head_aside">
+			<h3 style="color: #E03C31; cursor: default; text-decoration: none;">Overdue Tasks</h3>
+			<span class="add-items-icon" style="display:none">
+				<img src="/images/basicAssets/plusiconSidebar.svg">
+			</span>
+		</div>
+		<ul class="side_bar_list_item" id="overdueULlist">
+			<% if(data[0].overdue.length > 0){ %>
+				<% _.each(data[0].overdue, function(v, k) {%>
+					<%- include('activity/todolist', {
+						activityid: v.activity_id,
+						activityTitle: v.activity_title,
+						type:'overdue',
+						hasFlag:v.hasflag,
+						status:v.activity_is_active,
+						creatdeat: v.activity_created_at,
+						createdby:v.activity_created_by,
+						myid : user_id,
+						days: v.days
+					}); %>
+				<% }); %>
+			<% } %>
+
+		</ul>
+	</div>
+	<div class="sideContainer activitySideBar">
+		<div class="label_head_aside">
+			<h3 style="cursor: default; text-decoration: none;">Tasks</h3>
+			<span class="add-items-icon plus_To_Do" id="plus_To_Do" onclick="createNewTodo()">
+				<img src="/images/basicAssets/plusiconSidebar.svg">
+			</span>
+		</div>
+
+		<ul class="side_bar_list_item" id="unpinTodoList">
+			<% if(data[0].normaltodo.length > 0){ %>
+				<% _.each(data[0].normaltodo, function(v, k) {%>
+					<%- include('activity/todolist', {
+						activityid: v.activity_id,
+						activityTitle: v.activity_title,
+						type:'normal',
+						hasFlag:v.hasflag,
+						status:v.activity_is_active,
+						creatdeat: v.activity_created_at,
+						createdby:v.activity_created_by,
+						myid : user_id,
+						days: v.days
+					}); %>
+				<% }); %>
+			<% } %>
+		</ul>
+	</div>
+	<% } %>
+</aside>
